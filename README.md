@@ -22,7 +22,7 @@ Target date: end of FY 2018 (end of Nov)
   - Launch Product Landing page - https://www.adobe.io/apis/cloudplatform/launch.html
   - Launch tech doc - https://docs.adobelaunch.com/
   - others ?
-- [ ] Integrate Fastly in the Adobe I/O deployment (owner - Kaneka)
+- [ ] Integrate Fastly in the Adobe I/O deployment (owner - Lars)
   - Create Fastly accounts and services
   - Initiate DNS routing to Fastly
   - Fastly as CDN for Adobe I/O
