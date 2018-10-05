@@ -47,3 +47,4 @@ Target date: end of FY 2018 (end of Nov)
 #### M4 - target: 11/28
 
 - [ ] Go Live
+  - Have a strategy to wire the new pages / sites the day of the Go Live
