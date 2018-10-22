@@ -33,7 +33,7 @@ Target date: end of FY 2018 (end of Nov)
 - [ ] Structure project and todos (owner - Alex ?)
   - Create Git proper issues / milestones / project
   
-#### M2 - target: 10/31
+#### M2 - target: 11/02
 
 - [ ] Develop / integrate Launch tech doc - TBD
 - [ ] Start design integration for Product Landing page - TBD
