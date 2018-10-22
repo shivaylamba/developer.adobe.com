@@ -16,7 +16,7 @@ Target date: end of FY 2018 (end of Nov)
 
 ### Milestones
 
-#### M1 - target: 10/17
+#### M1 - target: 10/26
 
 - [ ] Define the subset pages to be handled (owner - Simon). Candidates:
   - Launch Product Landing page - https://www.adobe.io/apis/cloudplatform/launch.html
