@@ -18,7 +18,7 @@ Target date: end of FY 2018 (end of Nov)
 
 #### M1 - target: 10/26
 
-- [ ] Define the subset pages to be handled (owner - Simon). Candidates:
+- [x] Define the subset pages to be handled (owner - Simon). Candidates:
   - Launch Product Landing page - https://www.adobe.io/apis/cloudplatform/launch.html
   - Launch tech doc - https://docs.adobelaunch.com/
   - others ?
@@ -30,15 +30,15 @@ Target date: end of FY 2018 (end of Nov)
   - Define look&feel
   - Define content structure
   - Sync with Launch team (owner - Simon)
-- [ ] Structure project and todos (owner - Alex ?)
+- [x] Structure project and todos (owner - Alex)
   - Create Git proper issues / milestones / project
   
-#### M2 - target: 11/02
+#### M2 - target: 11/09
 
-- [ ] Develop / integrate Launch tech doc - TBD
+- [ ] Develop / integrate Launch tech doc - See project https://github.com/adobe/Adobe-Developer-Site/projects/1
 - [ ] Start design integration for Product Landing page - TBD
 
-#### M3 - target: 11/14
+#### M3 - target: 11/21
 
 - [ ] Implement Product Landing page - TBD
 - [ ] Testing - TBD
