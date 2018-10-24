@@ -2,8 +2,6 @@
 
 ## Phase 1 / Pilot Project Plan
 
-(draft  - wip)
-
 ### Overall goal
 
 Go Live a small subset of the [Adobe I/O](https://www.adobe.io/) pages with [Helix](https://github.com/adobe/project-helix). 
