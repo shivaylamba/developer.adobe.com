@@ -1,0 +1,8 @@
+.hlx/cache
+.hlx/build
+.cache/
+node_modules/
+pipeline.log
+logs
+env.inf
+test-results.xml
