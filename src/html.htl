@@ -24,21 +24,24 @@
 </head>
 
 <body>
-    <div class="header">
-        <div class="title">
-            <h1>
-                <span class="menu-icon"></span>
-                <img src="./static/logo.png" />
-                Launch, by Adobe
-            </h1>
+    <header>
+        <div class="main">
+            <div class="title">
+                <a href="/">
+                    <span class="menu-icon"></span>
+                    <img src="./static/logo.png" />
+                    <h1>Launch, by Adobe</h1>
+                </a>
+            </div>
+            <div class="center"></div>
+            <div class="search">
+                <form action="https://www.google.com/search" method="GET">
+                    <input type="text" value="" placeholder="Search" class="searchinput" name="q">
+                    <input type="hidden" value="site:www.project-helix.io" name="q">
+                </form>
+            </div>
         </div>
-        <div class="search">
-            <form action="https://www.google.com/search" method="GET">
-                <input type="text" value="" placeholder="Search" class="searchinput" name="q">
-                <input type="hidden" value="site:www.project-helix.io" name="q">
-            </form>
-        </div>
-    </div>
+    </header>
     <div class="main">
         <div class="nav">
             <!-- include ${content.nav}.summary.html-->
@@ -47,10 +50,14 @@
         <div class="content">
             <div class="content-body">
                 <div class="title">
-                    <h1>${content.title}</h1>
                     <div data-sly-test="${content.committers && content.lastModified}" class="author">
-                        <sly data-sly-list="${content.committers}"><img title="${item.display}" src="${item.avatar_url}"></sly>
-                        <span class="lastModified">Last modified <time datetime="${content.lastModified.raw}">${content.lastModified.display}</time></span>
+                        <h1>${content.title}</h1>
+                        <div class="commits">
+                            <div class="committers">
+                                <sly data-sly-list="${content.committers}"><img title="${item.display}" src="${item.avatar_url}"></sly>
+                            </div>
+                            <span class="lastModified">Last modified <time datetime="${content.lastModified.raw}">${content.lastModified.display}</time></span>
+                        </div>
                     </div>
                 </div>
                 <div data-sly-list="${content.children}">${item}</div>
