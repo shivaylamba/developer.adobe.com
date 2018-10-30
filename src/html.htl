@@ -75,10 +75,10 @@
 
             document.querySelectorAll('ul li ul').forEach(function (elem) {
                 elem.parentElement.addEventListener('click', function () {
-                    if (!elem.classList.contains('opened')) {
-                        elem.classList.add('opened');
+                    if (!elem.classList.contains('expanded')) {
+                        elem.classList.add('expanded');
                     } else {
-                        elem.classList.remove('opened');
+                        elem.classList.remove('expanded');
                     }
                 });
             });
@@ -90,7 +90,8 @@
                     if (sibling) {
                         ul = sibling;
                     }
-                    ul.classList.add('opened');
+                    ul.parentElement.classList.add('expanded');
+                    elem.parentElement.classList.add('selected');
                 }
 
                 elem.parentElement.addEventListener('click', function (ev) {
@@ -101,12 +102,12 @@
             document.querySelector('.menu-icon').addEventListener('click', function (ev) {
                 const nav = document.querySelector('.nav');
                 const content = document.querySelector('.content');
-                if (!nav.classList.contains('opened')) {
-                    nav.classList.add('opened');
-                    content.classList.add('closed');
+                if (!nav.classList.contains('expanded')) {
+                    nav.classList.add('expanded');
+                    content.classList.add('collapsed');
                 } else {
-                    nav.classList.remove('opened');
-                    content.classList.remove('closed');
+                    nav.classList.remove('expanded');
+                    content.classList.remove('collapsed');
                 }
             });
 
