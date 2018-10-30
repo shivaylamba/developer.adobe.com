@@ -268,7 +268,11 @@ header .main .search {
     color: inherit;
 }
 
-.nav ul li.selected a, .nav ul li p.selected a {
+.nav ul li p.selected {
+    background-color: #fff;
+}
+
+.nav ul li p.selected a {
     color: rgb(236, 33, 0);
 
     position: relative;
