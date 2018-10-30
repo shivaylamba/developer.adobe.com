@@ -110,7 +110,7 @@ h2:before {
 }
 
 img {
-    max-width: 100%;
+    max-width: 500px;
 }
 
 a:visited, a {
@@ -484,17 +484,15 @@ header .main .search {
     }
 }
 
-pre {
-    width: 95%;
-    margin: 1em auto;
-    padding: 1em;
-    white-space: pre-wrap;
-    background-color: #000;
-    border-radius: 8px;
-}
-
-pre code {
-    color: #fff;
+code {
+    box-decoration-break: clone;
+    display: inline-block;
+    font-family: "Source Code Pro", Menlo, monospace;
+    font-size: 85%;
+    border-radius: 3px;
+    background-color: #F5F7F9;
+    padding: 3px 6px;
+    margin: 0 1px;
 }
 
 table {
