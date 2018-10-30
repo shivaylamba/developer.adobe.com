@@ -110,11 +110,12 @@ h2:before {
 }
 
 img {
-    max-width: 100%;
+    max-width: 500px;
 }
 
 a:visited, a {
-    color: #000;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
 }
 
 /*
@@ -215,6 +216,10 @@ header .main .search {
     transition: margin-bottom ease 200ms;
 }
 
+/**
+ * NAV
+ */
+
 .nav {
     flex: 0 0 auto;
     background: #f5f7f9;
@@ -225,27 +230,37 @@ header .main .search {
     min-width: 298px;
     padding-left: calc((100% - 1448px) / 2);
     border-right: 1px solid #e8eaed;
+    margin-top: 32px;
+
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 500;
 }
 
 .nav ul {
+    list-style: none;
 
-    list-style-image: url('data:image/svg+xml;utf8,<svg preserveAspectRatio="xMidYMid meet" height="1em" width="1em" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" class="_13gjrqj"><g><polyline points="9 18 15 12 9 6"></polyline></g></svg>');
-
-    margin: 37px 18px;
-    font-size: 16px;
-    line-height: 1.5em;
+    color: rgb(157, 170, 182);
+    padding-left: 24px;
 }
 
 .nav ul li ul {
-    padding-left: 10px;
-    margin: 5px 0px;
     list-style: none;
     color: #aaa;
+    border-left: 1px solid rgb(230, 236, 241);
+    padding: 0;
+    margin-left: 16px;
+    display: none;
+}
+
+.nav ul li.expanded ul {
+    display: block;
 }
 
 .nav ul li ul a {
     list-style: none;
     color: #aaa;
+    display: block;
 }
 
 .nav a {
@@ -253,27 +268,52 @@ header .main .search {
     color: inherit;
 }
 
-.nav ul li.open,
-.nav ul li.open a {
-    list-style-image: url('data:image/svg+xml;utf8,<svg preserveAspectRatio="xMidYMid meet" height="1em" width="1em" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" class="_13gjrqj"><g><polyline points="6 9 12 15 18 9"></polyline></g></svg>');
+.nav ul li p.selected {
+    background-color: #fff;
 }
 
-.nav ul li.selected,
-.nav ul li.selected a {
-    color: #e00;
+.nav ul li p.selected a {
+    color: rgb(236, 33, 0);
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid transparent;
+    border-right: 0px;
+    cursor: pointer;
+    background-color: #fff;
+    border-color: #e6ecf1;
+
+    margin-left: -1px;
 }
 
-.nav ul li,
 .nav ul li a {
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 7px 24px 7px 16px;
+    display: block;
 }
 
-.nav ul li p {
-    font-size: 16px;
-    line-height: 1.5em;
-    margin: 0;
+.nav ul li p, .nav ul li a {
+    color: #5c6975;
 }
+
+.nav div > ul > li > p a {
+    background-image: url('data:image/svg+xml;utf8,<svg preserveAspectRatio="xMidYMid meet" height="1em" width="1em" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" class="_13gjrqj"><g><polyline points="9 18 15 12 9 6"></polyline></g></svg>');
+    background-position: right;
+    background-repeat: no-repeat;
+    margin-right: 25px;
+}
+
+.nav div > ul > li.expanded > p a {
+    background-image: url('data:image/svg+xml;utf8,<svg preserveAspectRatio="xMidYMid meet" height="1em" width="1em" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" class="_13gjrqj"><g><polyline points="6 9 12 15 18 9"></polyline></g></svg>');
+}
+
+/**
+ * END OF NAV
+ */
+
+ /**
+ * CONTENT
+ */
 
 .content {
     flex: 1 1 auto;
@@ -291,13 +331,26 @@ header .main .search {
     max-width: 100%;
     margin: 30px 88px;
     line-height: 1.5em;
+    font-size: 16px;
+}
+
+.content-body a:visited, .content-body a {
+    color: rgb(236, 33, 0);
+    text-decoration: none;
 }
 
 .content-body .title {
     display: block;
     margin: 0px;
-    border-left: 2px solid rgb(236, 33, 0);
     flex: 1 1 auto;
+    border-bottom: 1px solid #E6ECF1;
+    padding-bottom: 32px;
+}
+
+.content-body .title .author {
+    display: block;
+    margin: 0px;
+    border-left: 2px solid rgb(236, 33, 0);
     padding: 0 16px;
 }
 
@@ -354,6 +407,10 @@ header .main .search {
     display: initial;
 }
 
+/**
+ * END OF CONTENT
+ */
+
 .search {
     margin-top: 5px;
     border-radius: 4px;
@@ -380,14 +437,6 @@ header .main .search {
     box-sizing: border-box;
     height: 38px;
     padding: 0px 8px;
-}
-
-ul li ul {
-    display: none;
-}
-
-.opened {
-    display: block;
 }
 
 .menu-icon {
@@ -420,7 +469,7 @@ ul li ul {
         display: none;
     }
 
-    .nav.opened {
+    .nav.expanded {
         display: flex;
         min-height: 590px;
         width: 99%;
@@ -430,22 +479,20 @@ ul li ul {
         margin: 10px 20px;
     }
 
-    .content.closed {
+    .content.collapsed {
         display: none;
     }
 }
 
-pre {
-    width: 95%;
-    margin: 1em auto;
-    padding: 1em;
-    white-space: pre-wrap;
-    background-color: #000;
-    border-radius: 8px;
-}
-
-pre code {
-    color: #fff;
+code {
+    box-decoration-break: clone;
+    display: inline-block;
+    font-family: "Source Code Pro", Menlo, monospace;
+    font-size: 85%;
+    border-radius: 3px;
+    background-color: #F5F7F9;
+    padding: 3px 6px;
+    margin: 0 1px;
 }
 
 table {
