@@ -147,3 +147,17 @@ describe('Testing computeNavPath', () => {
     assert.deepEqual(output, 'https://www.project-helix.io/SUMMARY');
   });
 });
+
+describe('Testing assembleEditUrl', () => {
+  it('Assemble edit URL', () => {
+    const output = defaultPre.assembleEditUrl(
+      "test-owner",
+      "test-repo",
+      "test-branch",
+      "/test-file.md",
+      loggerMock,
+    );
+
+    assert.deepEqual(output, 'https://github.com/test-owner/test-repo/edit/test-branch/test-file.md');
+  });
+});

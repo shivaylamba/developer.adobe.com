@@ -129,6 +129,23 @@ function extractLastModifiedFromCommitsHistory(commits, logger) {
 }
 
 /**
+ * Assembles the edit URL
+ * @param String owner Owner
+ * @param String repo Repo
+ * @param String ref Ref
+ * @param String path Path to the resource
+ * @param {Object} logger Logger
+ */
+function assembleEditUrl(owner, repo, ref, path, logger) {
+  logger.debug('html-pre.js - Assembling edit URL');
+  return "https://github.com/" +
+    owner + "/" +
+    repo + "/edit/" +
+    ref +
+    path;
+}
+
+/**
  * Fetches the nav payload
  * @param String rawRoot Raw root url
  * @param String owner Owner
@@ -221,6 +238,12 @@ async function pre(payload, action) {
         );
       p.content.committers = extractCommittersFromCommitsHistory(p.content.commits, logger);
       p.content.lastModified = extractLastModifiedFromCommitsHistory(p.content.commits, logger);
+      p.content.editUrl = assembleEditUrl(
+        actionReq.params.owner,
+        actionReq.params.repo,
+        actionReq.params.ref,
+        actionReq.params.path,
+        logger);
     } else {
       logger.debug('html-pre.js - No REPO_API_ROOT provided');
     }
@@ -256,3 +279,4 @@ module.exports.fetchCommitsHistory = fetchCommitsHistory;
 module.exports.extractCommittersFromCommitsHistory = extractCommittersFromCommitsHistory;
 module.exports.extractLastModifiedFromCommitsHistory = extractLastModifiedFromCommitsHistory;
 module.exports.computeNavPath = computeNavPath;
+module.exports.assembleEditUrl = assembleEditUrl;

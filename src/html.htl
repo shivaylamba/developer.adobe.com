@@ -49,15 +49,20 @@
         </div>
         <div class="content">
             <div class="content-body">
-                <div class="title">
-                    <div data-sly-test="${content.committers && content.lastModified}" class="author">
-                        <h1>${content.title}</h1>
-                        <div class="commits">
-                            <div class="committers">
-                                <sly data-sly-list="${content.committers}"><img title="${item.display}" src="${item.avatar_url}"></sly>
+                <div class="title-bar">
+                    <div class="title">
+                        <div data-sly-test="${content.committers && content.lastModified}" class="author">
+                            <h1>${content.title}</h1>
+                            <div class="commits">
+                                <div class="committers">
+                                    <sly data-sly-list="${content.committers}"><img title="${item.display}" src="${item.avatar_url}"></sly>
+                                </div>
+                                <span class="lastModified">Last modified <time datetime="${content.lastModified.raw}">${content.lastModified.display}</time></span>
                             </div>
-                            <span class="lastModified">Last modified <time datetime="${content.lastModified.raw}">${content.lastModified.display}</time></span>
                         </div>
+                    </div>
+                    <div data-sly-test="${content.editUrl}" class="edit-container">
+                        <a class="edit-link" target="_blank" rel="noopener noreferrer" href="${content.editUrl}">Edit on GitHub</a>
                     </div>
                 </div>
                 <div data-sly-list="${content.children}">${item}</div>
