@@ -203,6 +203,35 @@ function computeNavPath(isDev, logger) {
   return summaryPath;
 }
 
+/**
+ * Creates the TOC (table of contents) from the children
+ * @param Array children Children
+ * @param {Object} logger Logger
+ * @returns {Array} The TOC
+ */
+function createTOC(children, logger) {
+  logger.debug(`html-pre.js - Creating TOC`);
+  if (!children) return [];
+  let hRegExp = /\<h(\d)\>(.*)\<\/h\d\>/gmi;
+  let toc = [];
+  children.filter(function(child, index) {
+    // iterate over <h*> tags
+    if (child.match(hRegExp)) {
+      children[index] = child.replace(hRegExp, function(original, level, title) {
+        let id = index + '_' + encodeURIComponent(title);
+        // populate TOC
+        if (level < 4) {
+          toc.push('<li class="level-' + level + '"><a href="#' + id + '">' + title + '</a></li>');
+        }
+        // add id to <h*> tag
+        return '<h' + level + ' id="' + id + '">' +
+          title + '</h' + level + '>';
+      });
+    }
+  });
+  return toc;
+}
+
 // module.exports.pre is a function (taking next as an argument)
 // that returns a function (with payload, config, logger as arguments)
 // that calls next (after modifying the payload a bit)
@@ -244,6 +273,7 @@ async function pre(payload, action) {
         actionReq.params.ref,
         actionReq.params.path,
         logger);
+      p.content.toc = createTOC(p.content.children, logger);
     } else {
       logger.debug('html-pre.js - No REPO_API_ROOT provided');
     }

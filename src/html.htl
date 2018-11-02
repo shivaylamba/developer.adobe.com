@@ -68,6 +68,12 @@
                 <div data-sly-list="${content.children}">${item}</div>
             </div>
         </div>
+        <div class="toc">
+            <div class="toc-body">
+                <div class="title">Contents</div>
+                <ul data-sly-list="${content.toc}">${item}</ul>
+            </div>
+        </div>
     </div>
     <script>
         window.addEventListener('load', () => {
