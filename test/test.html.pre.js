@@ -158,6 +158,32 @@ describe('Testing assembleEditUrl', () => {
       loggerMock,
     );
 
-    assert.deepEqual(output, 'https://github.com/test-owner/test-repo/edit/test-branch/test-file.md');
+    assert.equal(output, 'https://github.com/test-owner/test-repo/edit/test-branch/test-file.md');
+  });
+});
+
+describe('Testing createTOC', () => {
+  it('Create table of contents', () => {
+    let childrenBefore = [
+      '<h2>Heading 2</h2>',
+      '<p>Some text</p>',
+      '<h3>Heading 3</h3>',
+      '<h4>Heading 4</h4>'
+    ];
+    const childrenAfter = [
+      '<h2 id="0_Heading%202">Heading 2</h2>',
+      '<p>Some text</p>',
+      '<h3 id="2_Heading%203">Heading 3</h3>',
+      '<h4>Heading 4</h4>'
+    ];
+    const expectedTOC = [
+      '<li class="level-2"><a href="#0_Heading%202">Heading 2</a></li>',
+      '<li class="level-3"><a href="#2_Heading%203">Heading 3</a></li>'
+    ];
+
+    const output = defaultPre.createTOC(childrenBefore, 3, loggerMock);
+
+    assert.deepEqual(output, expectedTOC);
+    assert.deepEqual(childrenBefore, childrenAfter);
   });
 });

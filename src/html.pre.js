@@ -206,27 +206,27 @@ function computeNavPath(isDev, logger) {
 /**
  * Creates the TOC (table of contents) from the children
  * @param Array children Children
+ * @param Number maxDepth The desired levels of nested headings (default: 6)
  * @param {Object} logger Logger
  * @returns {Array} The TOC
  */
-function createTOC(children, logger) {
+function createTOC(children, maxDepth, logger) {
   logger.debug(`html-pre.js - Creating TOC`);
-  if (!children) return [];
-  let hRegExp = /\<h(\d)\>(.*)\<\/h\d\>/gmi;
+  if (!children) return null;
+  if (!maxDepth) maxDepth = 6;
   let toc = [];
+  const hRegExp = /\<h(\d)\>(.*)\<\/h\d\>/gmi;
   children.filter(function(child, index) {
-    // iterate over <h*> tags
-    if (child.match(hRegExp)) {
-      children[index] = child.replace(hRegExp, function(original, level, title) {
-        let id = index + '_' + encodeURIComponent(title);
-        // populate TOC
-        if (level < 4) {
-          toc.push('<li class="level-' + level + '"><a href="#' + id + '">' + title + '</a></li>');
-        }
-        // add id to <h*> tag
-        return '<h' + level + ' id="' + id + '">' +
-          title + '</h' + level + '>';
-      });
+    const res = hRegExp.exec(child);
+    // iterate over matching <h*> tags
+    if (res && res.length == 3 && res[1] <= maxDepth) {
+      const level = res[1];
+      const title = res[2];
+      const id = `${index}_${encodeURIComponent(title)}`;
+      // add id attribute to <h*> tag
+      children[index] = `<h${level} id="${id}">${title}</h${level}>`;
+      // populate TOC
+      toc.push(`<li class="level-${level}"><a href="#${id}">${title}</a></li>`);
     }
   });
   return toc;
@@ -273,7 +273,7 @@ async function pre(payload, action) {
         actionReq.params.ref,
         actionReq.params.path,
         logger);
-      p.content.toc = createTOC(p.content.children, logger);
+      p.content.toc = createTOC(p.content.children, 3, logger);
     } else {
       logger.debug('html-pre.js - No REPO_API_ROOT provided');
     }
@@ -310,3 +310,4 @@ module.exports.extractCommittersFromCommitsHistory = extractCommittersFromCommit
 module.exports.extractLastModifiedFromCommitsHistory = extractLastModifiedFromCommitsHistory;
 module.exports.computeNavPath = computeNavPath;
 module.exports.assembleEditUrl = assembleEditUrl;
+module.exports.createTOC = createTOC;
