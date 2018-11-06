@@ -49,15 +49,7 @@ async function fetchCommitsHistory(apiRoot, owner, repo, ref, path, logger) {
   logger.debug('html-pre.js - Fetching the commits history');
 
   const options = {
-    uri: `${apiRoot}` +
-      'repos/' +
-      `${owner}` +
-      '/' +
-      `${repo}` +
-      '/commits?path=' +
-      `${path}` +
-      '&sha=' +
-      `${ref}`,
+    uri: `${apiRoot}repos/${owner}/${repo}/commits?path=${path}&sha=${ref}`,
     headers: {
       'User-Agent': 'Request-Promise',
     },
@@ -80,9 +72,9 @@ function extractCommittersFromCommitsHistory(commits, logger) {
     const committers = [];
 
     commits.forEach((entry) => {
-      if (entry.author &&
-        entry.commit.author &&
-        committers.map(item => item.avatar_url).indexOf(entry.author.avatar_url) < 0) {
+      if (entry.author
+        && entry.commit.author
+        && committers.map(item => item.avatar_url).indexOf(entry.author.avatar_url) < 0) {
         committers.push({
           avatar_url: entry.author.avatar_url,
           display: `${entry.commit.author.name} | ${entry.commit.author.email}`,
@@ -107,9 +99,10 @@ function extractLastModifiedFromCommitsHistory(commits, logger) {
   logger.debug('html-pre.js - Extracting last modified from metadata');
 
   if (commits) {
-    const lastMod = commits.length > 0 &&
-      commits[0].commit &&
-      commits[0].commit.author ? commits[0].commit.author.date : null;
+    const lastMod = commits.length > 0
+    && commits[0].commit
+    && commits[0].commit.author
+      ? commits[0].commit.author.date : null;
 
     const display = new Date(lastMod);
 
@@ -138,11 +131,7 @@ function extractLastModifiedFromCommitsHistory(commits, logger) {
  */
 function assembleEditUrl(owner, repo, ref, path, logger) {
   logger.debug('html-pre.js - Assembling edit URL');
-  return "https://github.com/" +
-    owner + "/" +
-    repo + "/edit/" +
-    ref +
-    path;
+  return `https://github.com/${owner}/${repo}/edit/${ref}${path}`;
 }
 
 /**
@@ -191,13 +180,13 @@ function computeNavPath(isDev, logger) {
 
   summaryPath = summaryPath ? summaryPath.replace('.md', '') : '';
   */
-  
+
   if (!isDev) {
     const summaryPath = 'https://www.project-helix.io/SUMMARY';
     logger.debug(`html-pre.js - Production path to SUMMARY.md to generate nav: ${summaryPath}`);
     return summaryPath;
   }
- 
+
   const summaryPath = '/SUMMARY';
   logger.debug(`html-pre.js - Development path to SUMMARY.md to generate nav: ${summaryPath}`);
   return summaryPath;
@@ -211,23 +200,28 @@ function computeNavPath(isDev, logger) {
  * @returns {Array} The TOC
  */
 function createTOC(children, maxDepth, logger) {
-  logger.debug(`html-pre.js - Creating TOC`);
+  logger.debug('html-pre.js - Creating TOC');
+  this.children = children;
+  this.maxDepth = maxDepth;
   if (!children) return null;
-  if (!maxDepth) maxDepth = 6;
-  let toc = [];
+  if (!maxDepth) this.maxDepth = 6;
+  const toc = [];
+  // eslint-disable-next-line no-useless-escape
   const hRegExp = /\<h(\d)\>(.*)\<\/h\d\>/gmi;
-  children.filter(function(child, index) {
+  this.children.filter((child, index) => {
     const res = hRegExp.exec(child);
     // iterate over matching <h*> tags
-    if (res && res.length == 3 && res[1] <= maxDepth) {
+    if (res && res.length === 3 && res[1] <= maxDepth) {
       const level = res[1];
       const title = res[2];
       const id = `${index}_${encodeURIComponent(title)}`;
       // add id attribute to <h*> tag
-      children[index] = `<h${level} id="${id}">${title}</h${level}>`;
+      this.children[index] = `<h${level} id="${id}">${title}</h${level}>`;
       // populate TOC
       toc.push(`<li class="level-${level}"><a href="#${id}">${title}</a></li>`);
+      return true;
     }
+    return false;
   });
   return toc;
 }
@@ -239,7 +233,7 @@ async function pre(payload, action) {
   const {
     logger,
     secrets,
-    request: actionReq
+    request: actionReq,
   } = action;
 
   try {
@@ -256,15 +250,14 @@ async function pre(payload, action) {
 
     // extract committers info and last modified based on commits history
     if (secrets.REPO_API_ROOT) {
-      p.content.commits =
-        await fetchCommitsHistory(
-          secrets.REPO_API_ROOT,
-          actionReq.params.owner,
-          actionReq.params.repo,
-          actionReq.params.ref,
-          actionReq.params.path,
-          logger,
-        );
+      p.content.commits = await fetchCommitsHistory(
+        secrets.REPO_API_ROOT,
+        actionReq.params.owner,
+        actionReq.params.repo,
+        actionReq.params.ref,
+        actionReq.params.path,
+        logger,
+      );
       p.content.committers = extractCommittersFromCommitsHistory(p.content.commits, logger);
       p.content.lastModified = extractLastModifiedFromCommitsHistory(p.content.commits, logger);
       p.content.editUrl = assembleEditUrl(
@@ -272,7 +265,8 @@ async function pre(payload, action) {
         actionReq.params.repo,
         actionReq.params.ref,
         actionReq.params.path,
-        logger);
+        logger,
+      );
       p.content.toc = createTOC(p.content.children, 3, logger);
     } else {
       logger.debug('html-pre.js - No REPO_API_ROOT provided');
@@ -281,13 +275,12 @@ async function pre(payload, action) {
     // fetch and inject the nav
     if (secrets.REPO_RAW_ROOT) {
       // TODO find a better way or implement one
-      const isDev = action.request.headers.host ? action.request.headers.host.indexOf('localhost') != -1 : false;
+      const isDev = action.request.headers.host ? action.request.headers.host.indexOf('localhost') !== -1 : false;
 
-      p.content.nav =
-        computeNavPath(
-          isDev,
-          logger,
-        );
+      p.content.nav = computeNavPath(
+        isDev,
+        logger,
+      );
     } else {
       logger.debug('html-pre.js - No REPO_RAW_ROOT provided');
     }
