@@ -55,8 +55,8 @@ describe('Testing fetchCommitsHistory', () => {
     };
     nock('http://localhost').get('/repos/owner/repo/commits?path=resourcePath.md&sha=ref').reply(200, expectedCommits);
 
-    const metadata =
-      await defaultPre.fetchCommitsHistory('http://localhost/', 'owner', 'repo', 'ref', 'resourcePath.md', loggerMock);
+    const metadata = await defaultPre.fetchCommitsHistory('http://localhost/',
+      'owner', 'repo', 'ref', 'resourcePath.md', loggerMock);
 
     assert.deepEqual(metadata, expectedCommits);
   });
@@ -151,10 +151,10 @@ describe('Testing computeNavPath', () => {
 describe('Testing assembleEditUrl', () => {
   it('Assemble edit URL', () => {
     const output = defaultPre.assembleEditUrl(
-      "test-owner",
-      "test-repo",
-      "test-branch",
-      "/test-file.md",
+      'test-owner',
+      'test-repo',
+      'test-branch',
+      '/test-file.md',
       loggerMock,
     );
 
@@ -164,24 +164,21 @@ describe('Testing assembleEditUrl', () => {
 
 describe('Testing createTOC', () => {
   it('Create 3-level TOC from HTML with various headings', () => {
-    let childrenBefore = [
-      '<h1>Heading 1</h1>',
+    const childrenBefore = [
       '<h2>Heading 2</h2>',
       '<p>Some text</p>',
       '<h3>Heading 3</h3>',
-      '<h4>Heading 4</h4>'
+      '<h4>Heading 4</h4>',
     ];
     const childrenAfter = [
-      '<h1 id="0_Heading%201">Heading 1</h1>',
-      '<h2 id="1_Heading%202">Heading 2</h2>',
+      '<h2 id="0_Heading%202">Heading 2</h2>',
       '<p>Some text</p>',
-      '<h3 id="3_Heading%203">Heading 3</h3>',
-      '<h4>Heading 4</h4>'
+      '<h3 id="2_Heading%203">Heading 3</h3>',
+      '<h4>Heading 4</h4>',
     ];
     const expectedTOC = [
-      '<li class="level-1"><a href="#0_Heading%201">Heading 1</a></li>',
-      '<li class="level-2"><a href="#1_Heading%202">Heading 2</a></li>',
-      '<li class="level-3"><a href="#3_Heading%203">Heading 3</a></li>'
+      '<li class="level-2"><a href="#0_Heading%202">Heading 2</a></li>',
+      '<li class="level-3"><a href="#2_Heading%203">Heading 3</a></li>',
     ];
     const output = defaultPre.createTOC(childrenBefore, 3, loggerMock);
 
@@ -190,20 +187,20 @@ describe('Testing createTOC', () => {
   });
 
   it('Create 2-level TOC from headings level 2 to 4', () => {
-    let childrenBefore = [
+    const childrenBefore = [
       '<h2>Heading 2</h2>',
       '<p>Some text</p>',
       '<h3>Heading 3</h3>',
-      '<h4>Heading 4</h4>'
+      '<h4>Heading 4</h4>',
     ];
     const childrenAfter = [
       '<h2 id="0_Heading%202">Heading 2</h2>',
       '<p>Some text</p>',
       '<h3>Heading 3</h3>',
-      '<h4>Heading 4</h4>'
+      '<h4>Heading 4</h4>',
     ];
     const expectedTOC = [
-      '<li class="level-2"><a href="#0_Heading%202">Heading 2</a></li>'
+      '<li class="level-2"><a href="#0_Heading%202">Heading 2</a></li>',
     ];
 
     const output = defaultPre.createTOC(childrenBefore, 2, loggerMock);
@@ -213,15 +210,15 @@ describe('Testing createTOC', () => {
   });
 
   it('Create TOC from HTML without headings', () => {
-    let childrenBefore = [
+    const childrenBefore = [
       '<p>Some text</p>',
       '<p>Some more text</p>',
-      '<p>Even more text</p>'
+      '<p>Even more text</p>',
     ];
     const childrenAfter = [
       '<p>Some text</p>',
       '<p>Some more text</p>',
-      '<p>Even more text</p>'
+      '<p>Even more text</p>',
     ];
     const expectedTOC = [];
 
@@ -232,14 +229,13 @@ describe('Testing createTOC', () => {
   });
 
   it('Create TOC from null and empty array', () => {
-
     // null check
     const nullOutput = defaultPre.createTOC(null, 3, loggerMock);
 
     assert.equal(nullOutput, null);
 
     // empty array check
-    let childrenBefore = [];
+    const childrenBefore = [];
     const childrenAfter = [];
     const expectedTOC = [];
 
