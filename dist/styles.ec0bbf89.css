@@ -425,22 +425,14 @@ header .main .search {
 }
 
 .content-body .edit-container {
-    -webkit-box-direction:normal;
-    -webkit-box-orient:horizontal;
-    -webkit-flex:0 0 auto;
-    -ms-flex:0 0 auto;
     flex:0 0 auto;
     display:flex;
-    -webkit-flex-direction:row;
-    -ms-flex-direction:row;
     flex-direction:row;
     padding:16px 0;
     margin:0px -4px;
 }
 
 .content-body a.edit-link {
-    -webkit-box-align: center;
-    -webkit-box-pack: center;
     display: inline-flex;
     line-height: 1em;
     justify-content: center;
@@ -466,6 +458,57 @@ header .main .search {
 
 .content-body a.edit-link:visited {
     color: #242A31;
+}
+
+.toc {
+    flex: 1 1 auto;
+    width: 224px;
+    min-width: 224px;
+    display: flex;
+    position: relative;
+    background-color: #fff;
+    padding: 40px 0; 
+}
+
+.toc-body {
+    border-left: 1px solid #E6ECF1;
+    padding-left:24px;
+}
+
+.toc-body .title {
+    color: #9DAAB6;
+    font-size: 10px;
+    line-height: 1;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.toc-body ul {
+    padding-inline-start: 0;
+}
+
+.toc-body ul li {
+    font-size: 12px;
+    line-height: 1.5;
+    font-weight: 500;
+    padding-left: 0;
+    margin-bottom: 8px;
+    display: flex;
+    list-style: none;
+}
+
+.toc-body ul li.level-3 {
+    padding-left: 24px;
+}
+
+.toc-body ul li a,
+.toc-body ul li a:visited {
+    color: #74818D;
+}
+
+.toc-body ul li a:hover {
+    color:rgb(236, 33, 0);
 }
 
 /**
