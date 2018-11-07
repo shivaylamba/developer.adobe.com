@@ -194,36 +194,34 @@ function computeNavPath(isDev, logger) {
 
 /**
  * Creates the TOC (table of contents) from the children
- * @param Array children Children
- * @param Number maxDepth The desired levels of nested headings (default: 6)
+ * @param {Array} children Children
+ * @param {Number} maxDepth The desired level of nesting (default: 6)
  * @param {Object} logger Logger
- * @returns {Array} The TOC
+ * @returns {Array} New children, {Array} TOC
  */
 function createTOC(children, maxDepth, logger) {
   logger.debug('html-pre.js - Creating TOC');
-  this.children = children;
-  this.maxDepth = maxDepth;
   if (!children) return null;
-  if (!maxDepth) this.maxDepth = 6;
+  const max = maxDepth || 6;
   const toc = [];
   // eslint-disable-next-line no-useless-escape
   const hRegExp = /\<h(\d)\>(.*)\<\/h\d\>/gmi;
-  this.children.filter((child, index) => {
-    const res = hRegExp.exec(child);
+  const html = children.map((tag, index) => {
+    const res = hRegExp.exec(tag);
     // iterate over matching <h*> tags
-    if (res && res.length === 3 && res[1] <= maxDepth) {
+    if (res && res.length === 3 && res[1] <= max) {
       const level = res[1];
       const title = res[2];
       const id = `${index}_${encodeURIComponent(title)}`;
-      // add id attribute to <h*> tag
-      this.children[index] = `<h${level} id="${id}">${title}</h${level}>`;
-      // populate TOC
+      // add to TOC
       toc.push(`<li class="level-${level}"><a href="#${id}">${title}</a></li>`);
-      return true;
+      // return <h*> tag with id attribute
+      return `<h${level} id="${id}">${title}</h${level}>`;
     }
-    return false;
+    // return original tag
+    return tag;
   });
-  return toc;
+  return [html, toc];
 }
 
 // module.exports.pre is a function (taking next as an argument)
@@ -267,7 +265,7 @@ async function pre(payload, action) {
         actionReq.params.path,
         logger,
       );
-      p.content.toc = createTOC(p.content.children, 3, logger);
+      [p.content.children, p.content.toc] = createTOC(p.content.children, 3, logger);
     } else {
       logger.debug('html-pre.js - No REPO_API_ROOT provided');
     }
