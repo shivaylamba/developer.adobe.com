@@ -35,21 +35,17 @@ body {
     font-smoothing: antialiased;
 }
 
-@media screen and (min-width: 769px) {
-    html,
-    body {
-        /* PERF: https://marco.org/2012/11/15/text-rendering-optimize-legibility */
-        text-rendering: optimizeLegibility;
-    }
-
-    .edit-container {
-        -webkit-box-align: baseline;
-        -webkit-box-orient: horizontal;
-        align-items: baseline;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
+.nav.expanded {
+    display: flex;
+    min-height: 590px;
+    width: 99%;
 }
+
+.content.collapsed {
+    display: none;
+}
+
+
 
 @page {
     margin: 2cm 1cm;
@@ -92,7 +88,7 @@ button {
 
 
 h1 {
-    font-size: 28px;
+    font-size: 20px;
     font-weight: 500;
     padding: 0;
     margin: 10px;
@@ -231,7 +227,7 @@ header .main .search {
 .nav {
     flex: 0 0 auto;
     background: #f5f7f9;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: stretch;
     width: calc((100% - 1448px) / 2 + 298px);
@@ -337,7 +333,7 @@ header .main .search {
     flex: 1 1 auto;
     min-width: 0px;
     max-width: 100%;
-    margin: 30px 88px;
+    margin: 10px 20px;
     line-height: 1.5em;
     font-size: 16px;
 }
@@ -525,6 +521,7 @@ header .main .search {
     background-position: 8px center;
     padding-left: 20px;
     max-width: 400px;
+    display: none;
 }
 
 .searchinput {
@@ -544,7 +541,7 @@ header .main .search {
 }
 
 .menu-icon {
-    display: none;
+    display: inline-block;
     width: 1.28571429em;
     font-size: inherit;
     line-height: 1;
@@ -554,38 +551,6 @@ header .main .search {
 
 .menu-icon:before {
     content: "\000A0";
-}
-
-@media screen and (max-width: 630px) {
-    .menu-icon {
-        display: inline-block;
-    }
-
-    .search {
-        display: none;
-    }
-
-    h1 {
-        font-size: 20px;
-    }
-
-    .nav {
-        display: none;
-    }
-
-    .nav.expanded {
-        display: flex;
-        min-height: 590px;
-        width: 99%;
-    }
-
-    .content-body {
-        margin: 10px 20px;
-    }
-
-    .content.collapsed {
-        display: none;
-    }
 }
 
 code {
@@ -632,4 +597,44 @@ table tr:nth-child(2n) {
 table td {
     padding: 6px 13px;
     border: 1px solid #dfe2e5;
+}
+
+
+@media screen and (min-width: 900px) {
+    /* desktop decorations */
+
+    html,
+    body {
+        /* PERF: https://marco.org/2012/11/15/text-rendering-optimize-legibility */
+        text-rendering: optimizeLegibility;
+    }
+
+    .edit-container {
+        -webkit-box-align: baseline;
+        -webkit-box-orient: horizontal;
+        align-items: baseline;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .menu-icon {
+        display: none;
+    }
+    
+    .search {
+        display: inline-block;
+    }
+    
+    h1 {
+        font-size: 28px;
+    }
+    
+    .nav {
+        display: flex;
+    }
+        
+    .content-body {
+        margin: 30px 88px;
+    }
+        
 }
