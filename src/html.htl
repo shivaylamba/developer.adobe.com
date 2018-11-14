@@ -37,7 +37,7 @@
             <div class="search">
                 <form action="https://www.google.com/search" method="GET">
                     <input type="text" value="" placeholder="Search" class="searchinput" name="q">
-                    <input type="hidden" value="site:www.project-helix.io" name="q">
+                    <input type="hidden" value="site:${request.headers.host}" name="q">
                 </form>
             </div>
         </div>
