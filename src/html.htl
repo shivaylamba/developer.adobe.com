@@ -16,8 +16,8 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <link rel="icon" href="./static/favicon.ico" />
-    <link rel="stylesheet" href="./static/styles.css" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" />
     <script src="https://momentjs.com/downloads/moment.min.js"></script>
     <title>${content.title}</title>
@@ -29,7 +29,7 @@
             <div class="title">
                 <a href="/">
                     <span class="menu-icon"></span>
-                    <img src="./static/logo.png" />
+                    <img src="/logo.png" />
                     <h1>Launch, by Adobe</h1>
                 </a>
             </div>
