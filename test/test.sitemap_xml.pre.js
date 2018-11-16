@@ -11,6 +11,7 @@
  */
 /* global describe, it */
 const assert = require('assert');
+const remark = require('remark');
 const defaultPre = require('../src/sitemap_xml.pre.js');
 
 const loggerMock = {
@@ -20,15 +21,6 @@ const loggerMock = {
   warn: () => {},
   error: () => {},
   silly: () => {},
-};
-
-const requestMock = {
-  params: {
-    path: '/path/to/file.html',
-  },
-  headers: {
-    host: 'www.project-helix.io',
-  },
 };
 
 describe('Testing pre requirements for main function', () => {
@@ -41,79 +33,34 @@ describe('Testing pre requirements for main function', () => {
   });
 });
 
-describe('Testing extractAbsoluteLink', () => {
-  it('returns absolute link if markdown has link', () => {
-    const output = defaultPre.extractAbsoluteLink(
-      '* [This is a link](otherfile.md)',
-      requestMock,
-      loggerMock,
-    );
-
-    assert.equal(output, 'https://www.project-helix.io/path/to/otherfile.html');
-  });
-
-  it('returns null if markdown has no link', () => {
-    const output = defaultPre.extractAbsoluteLink(
-      '* This is not (a link)',
-      requestMock,
-      loggerMock,
-    );
-
-    assert.equal(output, null);
-  });
-});
-
-describe('Testing getParent', () => {
-  it('returns parent path', () => {
-    const output = defaultPre.getParent(
-      requestMock.params.path,
-      loggerMock,
-    );
-
-    assert.equal(output, '/path/to/');
-  });
-
-  it('returns null if no path specified', () => {
-    assert.equal(defaultPre.getParent(
-      null,
-    ), null);
-    assert.equal(defaultPre.getParent(
-      {},
-      loggerMock,
-    ), null);
-  });
-});
-
 describe('Testing createSitemap', () => {
-  it('returns correct sitemap from markdown with links ', () => {
-    const output = defaultPre.createSitemap(
-      [
-        '* [This is a link](file.md)',
-        '* [This is a link](otherfile.md)',
-        '* [This is a link](yet/another/file.md)',
-        '* This is not (a link)',
-      ].join('\n'),
-      requestMock,
-      loggerMock,
-    );
+  it('Create correct sitemap from markdown with links ', () => {
+    const mdast = remark().parse(`
+* [Overview](README.md)
+* [Tutorials](contributing/README.md)
+  * [Adapters](contributing/adapters.md)
+  * [Companies](contributing/companies.md)
+  * [Data Elements](contributing/data-elements.md)
+`);
+    const urlPrefix = 'https://www.project-helix.io/bla/';
+    const output = defaultPre.createSitemap(mdast, urlPrefix, loggerMock);
 
     assert.deepEqual(output, [
-      '<url><loc>https://www.project-helix.io/path/to/file.html</loc></url>',
-      '<url><loc>https://www.project-helix.io/path/to/otherfile.html</loc></url>',
-      '<url><loc>https://www.project-helix.io/path/to/yet/another/file.html</loc></url>',
+      '<url><loc>https://www.project-helix.io/bla/README.md</loc></url>',
+      '<url><loc>https://www.project-helix.io/bla/contributing/README.md</loc></url>',
+      '<url><loc>https://www.project-helix.io/bla/contributing/adapters.md</loc></url>',
+      '<url><loc>https://www.project-helix.io/bla/contributing/companies.md</loc></url>',
+      '<url><loc>https://www.project-helix.io/bla/contributing/data-elements.md</loc></url>',
     ]);
   });
 
-  it('returns empty sitemap from markdown without links ', () => {
-    const output = defaultPre.createSitemap(
-      [
-        '* This is not (a link)',
-        '* Neither is this one',
-        '* Nope',
-      ].join('\n'),
-      requestMock,
-      loggerMock,
-    );
+  it('Create empty sitemap for markdown without links ', () => {
+    const mdast = remark().parse(`
+* No link
+* Not a link either
+  * Still no link
+`);
+    const output = defaultPre.createSitemap(mdast, '', loggerMock);
 
     assert.deepEqual(output, []);
   });

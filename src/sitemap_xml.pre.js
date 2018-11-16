@@ -10,54 +10,20 @@
  * governing permissions and limitations under the License.
  */
 
-/**
- * Returns the path to the parent directory.
- * @param {String} path Request path
- * @return {String} Parent path (or null if no request path provided)
- */
-function getParent(path) {
-  return path && typeof path === 'string' ? `${path.substring(0, path.lastIndexOf('/') + 1)}` : null;
-}
+const visit = require('unist-util-visit');
 
 /**
- * Extracts a link from Markdown and makes it absolute.
- * @param {String} md Markdown
- * @param {Object} request Request
- * @param {Object} logger Logger
- * @return {String} Absolute link (or null if no link or request parameters found)
- */
-function extractAbsoluteLink(md, request, logger) {
-  if (!md || typeof md !== 'string') {
-    logger.error('sitemap_xml.pre.js - missing markdown');
-    return null;
-  }
-  if (!request || typeof request !== 'object') {
-    logger.error('sitemap_xml.pre.js - missing request');
-    return null;
-  }
-  // extract link from markdown
-  const match = /\[.*\]\((.*)\)/g.exec(md);
-  if (match && match.length === 2) {
-    const link = match[1].replace(/\.md/g, '.html');
-    return `https://${request.headers.host}${getParent(request.params.path)}${link}`;
-  }
-  return null;
-}
-
-/**
- * Creates a sitemap from the markdown and request path
- * @param {Array} md Markdown
- * @param {Object} request Request
+ * Creates a sitemap from the MDAST and request path
+ * @param {Object} mdast MDAST
+ * @param {String} urlPrefix URL prefix to use
  * @param {Object} logger Logger
  */
-function createSitemap(md, request, logger) {
+function createSitemap(mdast, urlPrefix, logger) {
   logger.debug('sitemap_xml.pre.js - Creating sitemap');
   const sitemap = [];
-  const rows = md.split('\n');
-  rows.forEach((row) => {
-    const link = extractAbsoluteLink(row, request, logger);
-    if (link) {
-      sitemap.push(`<url><loc>${link}</loc></url>`);
+  visit(mdast, null, (node) => {
+    if (node.type === 'link' && node.url) {
+      sitemap.push(`<url><loc>${urlPrefix}${node.url}</loc></url>`);
     }
   });
   return sitemap;
@@ -80,8 +46,10 @@ async function pre(payload, action) {
     }
 
     const p = payload;
+    const r = action.request;
 
-    p.content.sitemap = createSitemap(p.content.body, action.request, logger);
+    const urlPrefix = `https://${r.headers.host}${r.params.path.substring(0, r.params.path.lastIndexOf('/') + 1)}`;
+    p.content.sitemap = createSitemap(p.content.mdast, urlPrefix, logger);
 
     return p;
   } catch (e) {
@@ -94,5 +62,3 @@ async function pre(payload, action) {
 
 module.exports.pre = pre;
 module.exports.createSitemap = createSitemap;
-module.exports.extractAbsoluteLink = extractAbsoluteLink;
-module.exports.getParent = getParent;
