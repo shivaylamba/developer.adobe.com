@@ -46,11 +46,11 @@ describe('Testing createSitemap', () => {
     const output = defaultPre.createSitemap(mdast, urlPrefix, loggerMock);
 
     assert.deepEqual(output, [
-      '<url><loc>https://www.project-helix.io/bla/README.md</loc></url>',
-      '<url><loc>https://www.project-helix.io/bla/contributing/README.md</loc></url>',
-      '<url><loc>https://www.project-helix.io/bla/contributing/adapters.md</loc></url>',
-      '<url><loc>https://www.project-helix.io/bla/contributing/companies.md</loc></url>',
-      '<url><loc>https://www.project-helix.io/bla/contributing/data-elements.md</loc></url>',
+      '<url><loc>https://www.project-helix.io/bla/README.html</loc></url>',
+      '<url><loc>https://www.project-helix.io/bla/contributing/README.html</loc></url>',
+      '<url><loc>https://www.project-helix.io/bla/contributing/adapters.html</loc></url>',
+      '<url><loc>https://www.project-helix.io/bla/contributing/companies.html</loc></url>',
+      '<url><loc>https://www.project-helix.io/bla/contributing/data-elements.html</loc></url>',
     ]);
   });
 

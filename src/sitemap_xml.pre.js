@@ -23,7 +23,8 @@ function createSitemap(mdast, urlPrefix, logger) {
   const sitemap = [];
   visit(mdast, null, (node) => {
     if (node.type === 'link' && node.url) {
-      sitemap.push(`<url><loc>${urlPrefix}${node.url}</loc></url>`);
+      const path = node.url.replace(/\.md$/i, '.html');
+      sitemap.push(`<url><loc>${urlPrefix}${path}</loc></url>`);
     }
   });
   return sitemap;
