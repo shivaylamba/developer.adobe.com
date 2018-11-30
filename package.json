@@ -21,8 +21,10 @@
   },
   "homepage": "https://github.com/adobe/project-helix.io#readme",
   "dependencies": {
+    "remark": "^10.0.1",
     "request": "^2.88.0",
-    "request-promise": "^4.2.2"
+    "request-promise": "^4.2.2",
+    "uri-js": "^4.2.2"
   },
   "devDependencies": {
     "mocha": "^5.2.0",
