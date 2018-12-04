@@ -11,6 +11,8 @@ We want to empower Adobe stakeholders by:
  * [Rituals](#project-rituals)–we maintain a regular cadence of project activities that all internal stakeholders are welcome to join
  * [Agency](#stakeholder-agency)–our goal is to put the power to evolve and publish in the hands of all internal stakeholders
 
+To be notified of triage and project update calls, please subscribe here: GRP-developerwebsitereboot
+
 ### Quick Links:
 
  * I'm a stakeholder for a product on https://adobe.io
@@ -19,53 +21,53 @@ We want to empower Adobe stakeholders by:
 
 # Project Roadmap
 
+The current https://adobe.io site is nearing the completion of the upgrade path to AEM 6.4. As we build the new site, we'll be running the two in parallel. This hybrid delivery will be seamless to the end users, but extra work internally. We expect to be running in this hybrid mode for the better part of 2019.
+
+During this time, bugs filed against the current AEM site should be [filed here](https://jira.corp.adobe.com/projects/DEVEP/issues/DEVEP-925). Issues against the new codebase, should be [filed here](https://github.com/adobe/Adobe-Developer-Site/issues/new).
+
+We understand this will be confusing. If in doubt, [file issues in jira](https://jira.corp.adobe.com/projects/DEVEP/issues/DEVEP-925) and we'll move them to the correct home during triage.
+
+## Helix Live[s!]
+
+Helix is the next-generation Adobe CMS. In this milestone, we deploy part of https://adobe.io using Helix. To start, we'll be rendering the adobe.io homepage!
+
+## Contributor-ready Doc Rendering
+
+In this milestone, we render some real documentation including a contributor flow so that our community of developers can offer feedback and bug fixes.
+
+## Product Area
+
+Here we render home pages for the product groups and hand over the keys for changing their content and deploying.
+
+## IA Refresh
+
+We implement the new IA, which impacts top-level navigation and the footer. Current WIP is here:
+https://xd.adobe.com/view/cd1e8ffb-3925-4cda-7baf-16a2b137e881-bb2f/screen/363a8a00-96cc-4a51-b7bf-97c13beba627/DevSite-Home-sketches/
+
 # Project Rituals
+
+## Bi-weekly Project Triage
+
+Location: https://bluejeans.com/2066757215
+
+ * Tuesday January 8, 2019 13:00 PDT
+ * Tuesday January 22, 2019 13:00 PDT
+ * Tuesday February 5, 2019 13:00 PDT
+ * Tuesday February 19, 2019 13:00 PDT
+
+## Bi-weekly Project Update
+
+Location: https://bluejeans.com/2066757215
+
+ * Wednesday January 9, 2019 13:00 PDT
+ * Wednesday January 23, 2019 13:00 PDT
+ * Wednesday February 6, 2019 13:00 PDT
+ * Wednesday February 20, 2019 13:00 PDT
+
 
 # Stakeholder Agency
 
-## Phase 1 / Pilot Project Plan
+It's our intention for stakeholders to become empowered to meet the needs of their developer customers. We will strive to provide common tooling and systems support in a logical priority based on our research. To put this in plain english, we want stakeholders to be able to modify and publish their content without any consultation or delay!
 
-### Overall goal
+With over 50 stakeholders, we're not going to be able to build everything for everyone right away. We're following an open governance approach where we can enable you to publish content and systems outside of the current capabilities. We'd even like to help you do this! By appropriately using [Spectrum](https://spectrum.corp.adobe.com/) and implementing the shared IA, we can extend the developer domain to proxy your content and functionality. If you have needs, please [file an issue](https://github.com/adobe/Adobe-Developer-Site/issues) and join the next triage meeting.
 
-Go Live a small subset of the [Adobe I/O](https://www.adobe.io/) pages with [Helix](https://github.com/adobe/project-helix). 
-
-Constraints: 
-
-- Subset should contain some Technical Documentation pages and some Marketing pages
-
-Target date: end of FY 2018 (end of Nov)
-
-### Milestones
-
-#### M1 - target: 10/26
-
-- [x] Define the subset pages to be handled (owner - Simon). Candidates:
-  - Launch Product Landing page - https://www.adobe.io/apis/cloudplatform/launch.html
-  - Launch tech doc - https://docs.adobelaunch.com/
-  - others ?
-- [ ] Integrate Fastly in the Adobe I/O deployment (owner - Lars)
-  - Create Fastly accounts and services
-  - Initiate DNS routing to Fastly
-  - Fastly as CDN for Adobe I/O
-- [ ] Define Design (owner - Cassie)
-  - Define look&feel
-  - Define content structure
-  - Sync with Launch team (owner - Simon)
-- [x] Structure project and todos (owner - Alex)
-  - Create Git proper issues / milestones / project
-  
-#### M2 - target: 11/09
-
-- [ ] Develop / integrate Launch tech doc - See project https://github.com/adobe/Adobe-Developer-Site/projects/1
-- [ ] Start design integration for Product Landing page - TBD
-
-#### M3 - target: 11/21
-
-- [ ] Implement Product Landing page - TBD
-- [ ] Testing - TBD
-- [ ] User Acceptance - TBD
-
-#### M4 - target: 11/28
-
-- [ ] Go Live
-  - Have a strategy to wire the new pages / sites the day of the Go Live
