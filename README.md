@@ -27,6 +27,10 @@ During this time, bugs filed against the current AEM site should be [filed here]
 
 We understand this will be confusing. If in doubt, [file issues in jira](https://jira.corp.adobe.com/projects/DEVEP/issues/DEVEP-925) and we'll move them to the correct home during triage.
 
+## Research Phase I
+
+We sythesize and communicate the results of our first research phase.
+
 ## Helix Live[s!]
 
 Helix is the next-generation Adobe CMS. In this milestone, we deploy part of https://adobe.io using Helix. To start, we'll be rendering the adobe.io homepage!
