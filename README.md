@@ -39,7 +39,7 @@ Helix is the next-generation Adobe CMS. In this milestone, we deploy part of htt
 
 In this milestone, we render some real documentation including a contributor flow so that our community of developers can offer feedback and bug fixes.
 
-## Product Area
+## Product Area Rendering
 
 Here we render home pages for the product groups and hand over the keys for changing their content and deploying.
 
