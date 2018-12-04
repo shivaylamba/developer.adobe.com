@@ -46,7 +46,7 @@ Here we render home pages for the product groups and hand over the keys for chan
 ## IA Refresh
 
 We implement the new IA, which impacts top-level navigation and the footer. Current WIP is here:
-https://xd.adobe.com/view/cd1e8ffb-3925-4cda-7baf-16a2b137e881-bb2f/screen/363a8a00-96cc-4a51-b7bf-97c13beba627/DevSite-Home-sketches/
+![image](https://user-images.githubusercontent.com/25260/49478417-92092380-f7d4-11e8-9d96-41b1a63d769c.png)
 
 # Project Rituals
 
