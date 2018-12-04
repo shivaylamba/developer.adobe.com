@@ -1,4 +1,23 @@
-# Adobe-Developer-Site
+# Welcome to the Adobe Developer Site project!
+
+We're rebuilding the `adobe.io` site, and eventually moving to `https://developers.adobe.com`. Based on our research, we want to prioritize the following for ***developers*** that visit the site:
+
+![Discover | Learn | Connect](https://user-images.githubusercontent.com/25260/49473633-73e8f680-f7c7-11e8-8b64-5731cbca5d70.png)
+
+With over 50 internal Adobe stakeholders, we're going to be following a radical approach of collaboration–come build with us!
+
+We want to empower Adobe stakeholders by:
+ * Roadmap–we set the overall goals to support stakeholders based on research
+ * Rituals–we maintain a regular cadence of project activities that all internal stakeholders are welcome to join
+ * Agency–our goal is to put the power to evolve and publish in the hands of all internal stakeholders
+
+Read more about this approach and what it means for your team here.
+
+### Quick Links:
+
+ * I'm a stakeholder for a product on https://adobe.io
+ * [I’m a developer that wants to help contribute to the site](https://github.com/adobe/Adobe-Developer-Site/blob/master/CONTRIBUTING.md)
+ * I’m interested in this project and I want to know about progress
 
 ## Phase 1 / Pilot Project Plan
 
