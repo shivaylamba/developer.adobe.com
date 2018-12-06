@@ -27,23 +27,23 @@ During this time, bugs filed against the current AEM site should be [filed here]
 
 We understand this will be confusing. If in doubt, [file issues in jira](https://jira.corp.adobe.com/projects/DEVEP/issues/DEVEP-925) and we'll move them to the correct home during triage.
 
-## Research Phase I
+## [Research Phase I](https://github.com/adobe/Adobe-Developer-Site/milestone/6)
 
 We sythesize and communicate the results of our first research phase.
 
-## Helix Live[s!]
+## [Helix Live[s!]](https://github.com/adobe/Adobe-Developer-Site/milestone/5)
 
 Helix is the next-generation Adobe CMS. In this milestone, we deploy part of https://adobe.io using Helix. To start, we'll be rendering the adobe.io homepage!
 
-## Contributor-ready Doc Rendering
+## [Contributor-ready Doc Rendering](https://github.com/adobe/Adobe-Developer-Site/milestone/7)
 
 In this milestone, we render some real documentation including a contributor flow so that our community of developers can offer feedback and bug fixes.
 
-## Product Area Rendering
+## [Product Area Rendering](https://github.com/adobe/Adobe-Developer-Site/milestone/8)
 
 Here we render home pages for the product groups and hand over the keys for changing their content and deploying.
 
-## IA Refresh
+## [IA Refresh](https://github.com/adobe/Adobe-Developer-Site/milestone/9)
 
 We implement the new IA, which impacts top-level navigation and the footer. Current WIP is here:
 ![image](https://user-images.githubusercontent.com/25260/49478417-92092380-f7d4-11e8-9d96-41b1a63d769c.png)
