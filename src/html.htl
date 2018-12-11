@@ -12,7 +12,7 @@
 */
 -->
 <!DOCTYPE html>
-<html>
+<html class="spectrum">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
@@ -23,12 +23,12 @@
     <link rel="stylesheet" href="/spectrum-lightest.css" />
     <link rel="stylesheet" href="/spectrum-dark.css" />
     <link rel="stylesheet" href="/spectrum-darkest.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" />
+    <link rel="stylesheet" href="https://use.typekit.net/ehj8kyw.css">
     <script src="https://momentjs.com/downloads/moment.min.js"></script>
     <title>${content.title}</title>
 </head>
 
-<body class="spectrum spectrum--light">
+<body class="spectrum--light">
     <header class="spectrum-Typography">
         <div class="main">
             <div class="title">
@@ -77,7 +77,7 @@ GitHub</span>
                         </button>
                     </div>
                 </div>
-                <div data-sly-list="${content.children}">${item}</div>
+                <div data-sly-list="${content.subcontent}">${item.outerHTML}</div>
             </div>
         </div>
         <div class="toc">

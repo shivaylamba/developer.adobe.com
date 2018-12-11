@@ -13,42 +13,6 @@
 const request = require('request-promise');
 
 /**
- * Removes the first title from the resource children
- * @param Array children Children
- * @param {Object} logger Logger
- */
-function removeFirstTitle(children, logger) {
-  logger.debug('html-pre.js - Removing first title');
-  let ret = children;
-  if (ret && ret.length > 0) {
-    ret = ret.slice(1);
-  }
-  return ret;
-}
-
-function fixTheLinks(children, logger) {
-  logger.debug('html-pre.js - Fixing the links (md to html)');
-  let ret = children;
-  if (ret && ret.length > 0) {
-    ret = ret.map(element => element
-      .replace(new RegExp('.md"', 'g'), '.html"'));
-  }
-  return ret;
-}
-
-function addClassToTag(children, klass, tag, logger) {
-  logger.debug(`html-pre.js - adding class "${klass}" to all <${tag}> tags`);
-  let ret = children;
-  if (ret && ret.length) {
-    ret = ret.map((el) => {
-      if (el.startsWith(`<${tag}>`)) return `<${tag} class="${klass}">${el.substring(3)}`;
-      return el;
-    });
-  }
-  return ret;
-}
-
-/**
  * Fetches the commits history
  * @param String apiRoot API root url
  * @param String owner Owner
@@ -253,14 +217,34 @@ async function pre(payload, action) {
     }
 
     const p = payload;
+    const body = p.content.document.body;
+    body.querySelectorAll('a').forEach((anchor) => {
+      anchor.classList.add('spectrum-Link');
+    });
+    body.querySelectorAll('p').forEach((paragraph) => {
+      paragraph.classList.add('spectrum-Body3');
+    });
+    [1, 2, 3, 4, 5].forEach((i) => {
+      body.querySelectorAll(`h${i}`).forEach((heading) => {
+        heading.classList.add(`spectrum-Heading${i}`);
+      });
+    });
+    body.querySelectorAll('code').forEach((code) => {
+      code.classList.add('spectrum-Code3');
+    });
+    body.querySelectorAll('li').forEach((li) => {
+      li.classList.add('spectrum-Body3');
+      li.style.marginBottom = '0';
+    });
+    // todo: tables
 
-    // clean up the resource
-    p.content.children = removeFirstTitle(p.content.children, logger);
-    const vdom = require('@adobe/helix-pipeline').utils.vdom;
-    const cs = new vdom(p.content.mdast, { IMAGES_SIZES: '100vw' });
-    p.content.children = fixTheLinks(p.content.children, logger);
+    p.content.subcontent = [];
+    if (body.children[0].children && body.children[0].children.length) {
+      logger.debug('html-pre.js - VDOM children processed (stripping leading title)');
+      p.content.subcontent = Array.from(body.children[0].children)
+        .slice(1); // remove the leading first title (redundant with page title)
+    }
     // spectrumify certain elements by blasting class names onto tags
-    p.content.children = addClassToTag(p.content.children, 'spectrum-Body1', 'p', logger);
     /*
      * TODO: cant do this as content.document is the entire document, not just
      * the bit being rendered
@@ -318,7 +302,6 @@ async function pre(payload, action) {
 module.exports.pre = pre;
 
 // exports for testing purpose only
-module.exports.removeFirstTitle = removeFirstTitle;
 module.exports.fetchCommitsHistory = fetchCommitsHistory;
 module.exports.extractCommittersFromCommitsHistory = extractCommittersFromCommitsHistory;
 module.exports.extractLastModifiedFromCommitsHistory = extractLastModifiedFromCommitsHistory;

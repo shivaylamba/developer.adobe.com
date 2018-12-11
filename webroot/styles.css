@@ -15,13 +15,8 @@ body {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: Roboto, sans-serif;
     width: 100%;
     height: 100%;
-
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    font-smoothing: antialiased;
 }
 
 .nav.expanded {
@@ -34,8 +29,6 @@ body {
     display: none;
 }
 
-
-
 @page {
     margin: 2cm 1cm;
 }
@@ -45,18 +38,6 @@ body {
 *:after {
     outline: none;
     box-sizing: inherit;
-}
-
-/*
- MOBILE:
- At least 16px to prevent zoom on mobile, when focusing inputs.
- Setting this using Aphrodite does not work for mounting inputs.
- So we declare these base size beforehand.
-*/
-input,
-select,
-textarea {
-    font-size: 16px;
 }
 
 /*
@@ -132,9 +113,6 @@ header .main .title a img {
     overflow: hidden;
     width: 40px;
     height: 40px;
-    font-size: 24px;
-    line-height: 1.5;
-    font-weight: 500;
 }
 
 header .main .title a h1 {
@@ -156,7 +134,6 @@ header .main .center {
 
 header .main .search {
     position: relative;
-
     margin-left: 16px;
     flex: 0 1 auto;
     max-width: 200px;
@@ -191,15 +168,10 @@ header .main .search {
     padding-left: calc((100% - 1448px) / 2);
     border-right: 1px solid #e8eaed;
     margin-top: 32px;
-
-    font-size: 14px;
-    line-height: 1.5;
-    font-weight: 500;
 }
 
 .nav ul {
     list-style: none;
-
     padding-left: 24px;
 }
 
@@ -225,11 +197,7 @@ header .main .search {
     color: inherit;
 }
 
-.nav ul li p.selected {
-}
-
 .nav ul li p.selected a {
-
     position: relative;
     display: flex;
     align-items: center;
@@ -237,7 +205,6 @@ header .main .search {
     border-right: 0px;
     cursor: pointer;
     border-color: #e6ecf1;
-
     margin-left: -1px;
 }
 
@@ -283,11 +250,6 @@ header .main .search {
     max-width: 100%;
     margin: 10px 20px;
     line-height: 1.5em;
-    font-size: 16px;
-}
-
-.content-body a:visited, .content-body a {
-    text-decoration: none;
 }
 
 .content-body .title-bar {
@@ -314,7 +276,6 @@ header .main .search {
     padding: 0 16px;
 }
 
-
 .content-body .title .commits {
     margin: 0px;
     padding: 0px;
@@ -332,6 +293,7 @@ header .main .search {
     margin-right: 8px;
 }
 
+/* TODO: probably need to tweak this to work well with spectrum*/
 .content-body .title .author .commits {
     font-size: 12px;
     line-height: 1.625;
@@ -442,16 +404,6 @@ header .main .search {
     content: "\000A0";
 }
 
-code {
-    box-decoration-break: clone;
-    display: inline-block;
-    font-family: "Source Code Pro", Menlo, monospace;
-    font-size: 85%;
-    border-radius: 3px;
-    padding: 3px 6px;
-    margin: 0 1px;
-}
-
 table {
     display: block;
     width: 100%;
@@ -510,10 +462,6 @@ table td {
         display: inline-block;
     }
     
-    h1 {
-        font-size: 28px;
-    }
-    
     .nav {
         display: flex;
     }
@@ -521,5 +469,4 @@ table td {
     .content-body {
         margin: 30px 88px;
     }
-        
 }
