@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/adobe/project-helix.io#readme",
   "dependencies": {
+    "@adobe/helix-pipeline": "^0.9.0",
     "eslint": "^5.9.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-header": "^2.0.0",

@@ -36,6 +36,18 @@ function fixTheLinks(children, logger) {
   return ret;
 }
 
+function addClassToTag(children, klass, tag, logger) {
+  logger.debug(`html-pre.js - adding class "${klass}" to all <${tag}> tags`);
+  let ret = children;
+  if (ret && ret.length) {
+    ret = ret.map((el) => {
+      if (el.startsWith(`<${tag}>`)) return `<${tag} class="${klass}">${el.substring(3)}`;
+      return el;
+    });
+  }
+  return ret;
+}
+
 /**
  * Fetches the commits history
  * @param String apiRoot API root url
@@ -214,7 +226,7 @@ function createTOC(children, maxDepth, logger) {
       const title = res[2];
       const id = `${index}_${encodeURIComponent(title)}`;
       // add to TOC
-      toc.push(`<li class="level-${level}"><a href="#${id}">${title}</a></li>`);
+      toc.push(`<li class="level-${level}"><a href="#${id}" class="spectrum-Link spectrum-Link--quiet">${title}</a></li>`);
       // return <h*> tag with id attribute
       return `<h${level} id="${id}">${title}</h${level}>`;
     }
@@ -244,7 +256,18 @@ async function pre(payload, action) {
 
     // clean up the resource
     p.content.children = removeFirstTitle(p.content.children, logger);
+    const vdom = require('@adobe/helix-pipeline').utils.vdom;
+    const cs = new vdom(p.content.mdast, { IMAGES_SIZES: '100vw' });
     p.content.children = fixTheLinks(p.content.children, logger);
+    // spectrumify certain elements by blasting class names onto tags
+    p.content.children = addClassToTag(p.content.children, 'spectrum-Body1', 'p', logger);
+    /*
+     * TODO: cant do this as content.document is the entire document, not just
+     * the bit being rendered
+    p.content.document.querySelectorAll('p').forEach((paragraph) => {
+      if (!paragraph.className.includes('spectrum-Body1')) paragraph.className += ' spectrum-Body1';
+    });
+    */
 
     // extract committers info and last modified based on commits history
     if (secrets.REPO_API_ROOT) {
