@@ -16,13 +16,15 @@
 contentRepo: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
 static: https://github.com/adobe/Adobe-Developer-Site.git#master
 staticRoot: /webroot
+directoryIndex: README.html
 
 strains:
     default:
-        code: /io-solutions/default/git-github-com-adobe-Adobe-Developer-Site-git--dirty--
+        code: /io-solutions/default/git-github-com-adobe-Adobe-Developer-Site-git--
         content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
         static: https://github.com/adobe/Adobe-Developer-Site.git#master
         staticRoot: /webroot
+        directoryIndex: README.html
 
 #strains:
  # default: 
