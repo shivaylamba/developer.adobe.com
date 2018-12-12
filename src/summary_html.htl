@@ -11,4 +11,6 @@
 * governing permissions and limitations under the License.
 */
 -->
-<div data-sly-test="${payload.content.children}" data-sly-list="${payload.content.children}">${item}</div>
+<div data-sly-test="${payload.content.nav}" data-sly-list="${payload.content.nav}">
+    ${item.outerHTML}
+</div>

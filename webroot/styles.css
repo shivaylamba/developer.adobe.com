@@ -19,25 +19,12 @@ body {
     height: 100%;
 }
 
-.nav.expanded {
-    display: flex;
-    min-height: 590px;
-    width: 99%;
-}
-
 .content.collapsed {
     display: none;
 }
 
 @page {
     margin: 2cm 1cm;
-}
-
-*,
-*:before,
-*:after {
-    outline: none;
-    box-sizing: inherit;
 }
 
 /*
@@ -170,67 +157,6 @@ header .main .search {
     margin-top: 32px;
 }
 
-.nav ul {
-    list-style: none;
-    padding-left: 24px;
-}
-
-.nav ul li ul {
-    list-style: none;
-    border-left: 1px solid rgb(230, 236, 241);
-    padding: 0;
-    margin-left: 16px;
-    display: none;
-}
-
-.nav ul li.expanded ul {
-    display: block;
-}
-
-.nav ul li ul a {
-    list-style: none;
-    display: block;
-}
-
-.nav a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.nav ul li p.selected a {
-    position: relative;
-    display: flex;
-    align-items: center;
-    border: 1px solid transparent;
-    border-right: 0px;
-    cursor: pointer;
-    border-color: #e6ecf1;
-    margin-left: -1px;
-}
-
-.nav ul li a {
-    padding: 7px 24px 7px 16px;
-    display: block;
-}
-
-.nav ul li p, .nav ul li a {
-}
-
-.nav div > ul > li > p a {
-    background-image: url('data:image/svg+xml;utf8,<svg preserveAspectRatio="xMidYMid meet" height="1em" width="1em" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" class="_13gjrqj"><g><polyline points="9 18 15 12 9 6"></polyline></g></svg>');
-    background-position: right;
-    background-repeat: no-repeat;
-    margin-right: 25px;
-}
-
-.nav div > ul > li.expanded > p a {
-    background-image: url('data:image/svg+xml;utf8,<svg preserveAspectRatio="xMidYMid meet" height="1em" width="1em" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" class="_13gjrqj"><g><polyline points="6 9 12 15 18 9"></polyline></g></svg>');
-}
-
-/**
- * END OF NAV
- */
-
  /**
  * CONTENT
  */
@@ -337,7 +263,7 @@ header .main .search {
     min-width: 224px;
     display: flex;
     position: relative;
-    padding: 40px 0; 
+    padding: 40px 0;
 }
 
 .toc-body {
@@ -453,19 +379,19 @@ table td {
         flex-direction: row;
         flex-wrap: wrap;
     }
-    
+
     .menu-icon {
         display: none;
     }
-    
+
     .search {
         display: inline-block;
     }
-    
+
     .nav {
         display: flex;
     }
-        
+
     .content-body {
         margin: 30px 88px;
     }
