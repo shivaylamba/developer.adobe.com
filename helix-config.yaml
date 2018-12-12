@@ -13,11 +13,16 @@
   #directoryIndex: README.html
   #staticRoot: /webroot
 
+contentRepo: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
+static: https://github.com/adobe/Adobe-Developer-Site.git#master
+staticRoot: /webroot
+
 strains:
-  default:
-    code: 
-    content: https://github.com/hirenoble/helix-6.git#master
-    static: https://github.com/hirenoble/helix-6.git#master
+    default:
+        code: /io-solutions/default/git-github-com-adobe-Adobe-Developer-Site-git--dirty--
+        content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
+        static: https://github.com/adobe/Adobe-Developer-Site.git#master
+        staticRoot: /webroot
 
 #strains:
  # default: 
