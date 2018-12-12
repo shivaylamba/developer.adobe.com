@@ -8,12 +8,20 @@
 # OF ANY KIND, either express or implied. See the License for the specific language
 # governing permissions and limitations under the License.
 
-content: https://github.com/adobe/adobe-developer-site.git#commit-fuckery
-code: git@github.com:adobe/Adobe-Developer-Site.git
-directoryIndex: README.html
-staticRoot: /webroot
 
-#content: git@github.com:Adobe-Marketing-Cloud/reactor-user-docs.git
+
+strains:
+  default: 
+    content: https://github.com/adobe/adobe-developer-site.git#commit-fuckery
+    code: git@github.com:adobe/Adobe-Developer-Site.git
+    directoryIndex: README.html
+    staticRoot: /webroot
+    
+  #launch:
+   # url: http://helix.adobe.io/docs/launch
+    #content: git@github.com:Adobe-Marketing-Cloud/reactor-user-docs.git
+
+#content: 
 #code: git@github.com:adobe/Adobe-Developer-Site.git
 #directoryIndex: README.html
 #staticRoot: /webroot
