@@ -8,10 +8,16 @@
 # OF ANY KIND, either express or implied. See the License for the specific language
 # governing permissions and limitations under the License.
 
-  content: git@github.com:Adobe-Marketing-Cloud/reactor-user-docs.git#master
-  code: git@github.com:adobe/Adobe-Developer-Site.git
-  directoryIndex: README.html
-  staticRoot: /webroot
+  #content: git@github.com:Adobe-Marketing-Cloud/reactor-user-docs.git#master
+  #code: git@github.com:adobe/Adobe-Developer-Site.git
+  #directoryIndex: README.html
+  #staticRoot: /webroot
+
+strains:
+  default:
+    code: 
+    content: https://github.com/hirenoble/helix-6.git#master
+    static: https://github.com/hirenoble/helix-6.git#master
 
 #strains:
  # default: 
