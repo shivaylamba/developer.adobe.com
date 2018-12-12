@@ -342,6 +342,7 @@ header .main .search {
 
 .toc-body {
     padding-left:24px;
+    border-left: 1px solid #e8eaed;
 }
 
 .toc-body ul {
@@ -349,13 +350,12 @@ header .main .search {
 }
 
 .toc-body ul li {
-    padding-left: 0;
     margin-bottom: 8px;
     display: flex;
     list-style: none;
 }
 
-.toc-body ul li.level-3 {
+.level-H3 {
     padding-left: 24px;
 }
 
