@@ -8,6 +8,8 @@ Intro blurb/tagline
 ## See what’s possible with Adobe
 Highlight 1 or many products
 
+## Authentication highlight
+
 ### Product highlight
 New releases<br>
 Popularity contest
