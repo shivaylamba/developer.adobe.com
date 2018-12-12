@@ -12,7 +12,7 @@ Highlight 1 or many products
 
 ### Product highlight
 New releases<br>
-Popularity contest
+Popularity contest: Adobe Analytics, Adobe XD, Adobe Experience Platform
 
 
 ### Specific community-related content
