@@ -19,11 +19,11 @@
   /* Prevent tap highlights */
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
-/* generated from dna-version: 5.3.0 */
+/* generated from dna-version: 5.4.0 */
 .spectrum--darkest .spectrum-Body1 {
           color: rgb(180, 180, 180);
         }
-/* generated from dna-version: 5.3.0 */
+/* generated from dna-version: 5.4.0 */
 .spectrum--darkest .spectrum-Body2 {
           color: rgb(180, 180, 180);
         }
@@ -1785,10 +1785,16 @@
             background: rgb(45, 45, 45);
           }
 /* topdoc
-{{ tabs/tabs-vertical.yml }}
+{{ tabs/tabs-compact-vertical.yml }}
 */
 .spectrum--darkest .spectrum-Tabs {
   border-bottom-color: rgb(38, 38, 38);
+}
+/* topdoc
+{{ tabs/tabs-vertical.yml }}
+*/
+.spectrum--darkest .spectrum-Tabs--vertical {
+  border-left-color: rgb(38, 38, 38);
 }
 /* topdoc
 {{ tabs/tabs-quiet-compact.yml }}
@@ -1805,27 +1811,52 @@
 /* topdoc
 {{ tabs/tabs-quiet.yml }}
 */
-.spectrum--darkest .spectrum-Tabs-item:hover {
-    color: rgb(226, 226, 226);
+.spectrum--darkest .spectrum-Tabs-item .spectrum-Icon {
+    color: rgb(135, 135, 135)
   }
 /* topdoc
 {{ tabs/tabs.yml }}
 */
+.spectrum--darkest .spectrum-Tabs-item:hover {
+    color: rgb(226, 226, 226);
+  }
+.spectrum--darkest .spectrum-Tabs-item:hover .spectrum-Icon {
+      color: rgb(226, 226, 226)
+    }
 .spectrum--darkest .spectrum-Tabs-item.is-selected {
+    color: rgb(226, 226, 226);
+  }
+.spectrum--darkest .spectrum-Tabs-item.is-selected .spectrum-Icon {
+      color: rgb(226, 226, 226)
+    }
+.spectrum--darkest .spectrum-Tabs-item.focus-ring {
     color: rgb(226, 226, 226);
   }
 .spectrum--darkest .spectrum-Tabs-item.focus-ring::before {
       border-color: rgb(20, 115, 230);
     }
+.spectrum--darkest .spectrum-Tabs-item.focus-ring .spectrum-Icon {
+      color: rgb(226, 226, 226)
+    }
 .spectrum--darkest .spectrum-Tabs-item.is-disabled {
     color: rgb(73, 73, 73);
   }
+.spectrum--darkest .spectrum-Tabs-item.is-disabled .spectrum-Icon {
+      color: rgb(60, 60, 60)
+    }
 .spectrum--darkest .spectrum-Tabs--quiet {
   border-bottom-color: rgba(0, 0, 0, 0);
 }
 .spectrum--darkest .spectrum-Tabs--quiet .spectrum-Tabs-selectionIndicator {
     background-color: rgb(226, 226, 226);
   }
+.spectrum--darkest .spectrum-Tabs--vertical.spectrum-Tabs--quiet,
+  .spectrum--darkest .spectrum-Tabs--vertical.spectrum-Tabs--compact {
+    border-left-color: rgba(0, 0, 0, 0);
+  }
+.spectrum--darkest .spectrum-Tabs--vertical.spectrum-Tabs--quiet .spectrum-Tabs-selectionIndicator, .spectrum--darkest .spectrum-Tabs--vertical.spectrum-Tabs--compact .spectrum-Tabs-selectionIndicator {
+      background-color: rgb(226, 226, 226);
+    }
 /* Default Label Style is 'incomplete' */
 .spectrum--darkest .spectrum-Steplist .spectrum-Steplist-label {
     color: rgb(105, 105, 105)
@@ -3010,6 +3041,12 @@
 .spectrum--darkest .spectrum-StatusLight--purple::before {
   background-color: rgb(134, 76, 204);
 }
+.spectrum--darkest .spectrum-TreeView-item.is-disabled > .spectrum-TreeView-itemLink {
+      color: rgb(73, 73, 73);
+    }
+.spectrum--darkest .spectrum-TreeView-item.is-disabled > .spectrum-TreeView-itemLink .spectrum-Icon {
+        color: rgb(60, 60, 60);
+      }
 .spectrum--darkest .spectrum-TreeView-itemLink {
   color: rgb(180, 180, 180);
 }

@@ -19,11 +19,11 @@
   /* Prevent tap highlights */
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
-/* generated from dna-version: 5.3.0 */
+/* generated from dna-version: 5.4.0 */
 .spectrum--light .spectrum-Body1 {
           color: rgb(75, 75, 75);
         }
-/* generated from dna-version: 5.3.0 */
+/* generated from dna-version: 5.4.0 */
 .spectrum--light .spectrum-Body2 {
           color: rgb(75, 75, 75);
         }
@@ -1785,10 +1785,16 @@
             background: rgb(225, 225, 225);
           }
 /* topdoc
-{{ tabs/tabs-vertical.yml }}
+{{ tabs/tabs-compact-vertical.yml }}
 */
 .spectrum--light .spectrum-Tabs {
   border-bottom-color: rgb(234, 234, 234);
+}
+/* topdoc
+{{ tabs/tabs-vertical.yml }}
+*/
+.spectrum--light .spectrum-Tabs--vertical {
+  border-left-color: rgb(234, 234, 234);
 }
 /* topdoc
 {{ tabs/tabs-quiet-compact.yml }}
@@ -1805,27 +1811,52 @@
 /* topdoc
 {{ tabs/tabs-quiet.yml }}
 */
-.spectrum--light .spectrum-Tabs-item:hover {
-    color: rgb(44, 44, 44);
+.spectrum--light .spectrum-Tabs-item .spectrum-Icon {
+    color: rgb(110, 110, 110)
   }
 /* topdoc
 {{ tabs/tabs.yml }}
 */
+.spectrum--light .spectrum-Tabs-item:hover {
+    color: rgb(44, 44, 44);
+  }
+.spectrum--light .spectrum-Tabs-item:hover .spectrum-Icon {
+      color: rgb(44, 44, 44)
+    }
 .spectrum--light .spectrum-Tabs-item.is-selected {
+    color: rgb(44, 44, 44);
+  }
+.spectrum--light .spectrum-Tabs-item.is-selected .spectrum-Icon {
+      color: rgb(44, 44, 44)
+    }
+.spectrum--light .spectrum-Tabs-item.focus-ring {
     color: rgb(44, 44, 44);
   }
 .spectrum--light .spectrum-Tabs-item.focus-ring::before {
       border-color: rgb(38, 128, 235);
     }
+.spectrum--light .spectrum-Tabs-item.focus-ring .spectrum-Icon {
+      color: rgb(44, 44, 44)
+    }
 .spectrum--light .spectrum-Tabs-item.is-disabled {
     color: rgb(179, 179, 179);
   }
+.spectrum--light .spectrum-Tabs-item.is-disabled .spectrum-Icon {
+      color: rgb(202, 202, 202)
+    }
 .spectrum--light .spectrum-Tabs--quiet {
   border-bottom-color: rgba(0, 0, 0, 0);
 }
 .spectrum--light .spectrum-Tabs--quiet .spectrum-Tabs-selectionIndicator {
     background-color: rgb(44, 44, 44);
   }
+.spectrum--light .spectrum-Tabs--vertical.spectrum-Tabs--quiet,
+  .spectrum--light .spectrum-Tabs--vertical.spectrum-Tabs--compact {
+    border-left-color: rgba(0, 0, 0, 0);
+  }
+.spectrum--light .spectrum-Tabs--vertical.spectrum-Tabs--quiet .spectrum-Tabs-selectionIndicator, .spectrum--light .spectrum-Tabs--vertical.spectrum-Tabs--compact .spectrum-Tabs-selectionIndicator {
+      background-color: rgb(44, 44, 44);
+    }
 /* Default Label Style is 'incomplete' */
 .spectrum--light .spectrum-Steplist .spectrum-Steplist-label {
     color: rgb(142, 142, 142)
@@ -3010,6 +3041,12 @@
 .spectrum--light .spectrum-StatusLight--purple::before {
   background-color: rgb(146, 86, 217);
 }
+.spectrum--light .spectrum-TreeView-item.is-disabled > .spectrum-TreeView-itemLink {
+      color: rgb(179, 179, 179);
+    }
+.spectrum--light .spectrum-TreeView-item.is-disabled > .spectrum-TreeView-itemLink .spectrum-Icon {
+        color: rgb(202, 202, 202);
+      }
 .spectrum--light .spectrum-TreeView-itemLink {
   color: rgb(75, 75, 75);
 }
