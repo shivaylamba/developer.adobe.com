@@ -7,7 +7,7 @@
         {
             "type": "node",
             "request": "attach",
-            "name": "Attach by Process ID",
+            "name": "Attach to hlx up",
             "port": 9229
         }
     ]
