@@ -82,8 +82,10 @@ GitHub</span>
         </div>
         <div class="toc">
             <div class="toc-body">
-                <div class="title">Contents</div>
-                <ul data-sly-list="${content.toc}">${item}</ul>
+                <nav>
+                    <h2 class="spectrum-SideNav-heading">Contents</h2>
+                    <ul class="spectrum-SideNav" data-sly-list="${content.toc}">${item}</ul>
+                </nav>
             </div>
         </div>
     </div>
