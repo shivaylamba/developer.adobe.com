@@ -45,8 +45,8 @@ describe('Testing extractNav', () => {
     );
 
     assert.deepEqual(output, [
-      '\n', 
-      '<ul>\n<li>a</li>\n<li>b</li>\n<li><a href=\"/current/path/link.html\">link</a></li>\n</ul>'
+      '\n',
+      '<ul>\n<li>a</li>\n<li>b</li>\n<li><a href="/current/path/link.html">link</a></li>\n</ul>',
     ]);
   });
 });
