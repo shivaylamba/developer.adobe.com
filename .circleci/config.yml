@@ -1,73 +1,64 @@
 version: 2
-
 jobs:
   build:
     docker:
-    - image: circleci/node:8
-      environment:
-        NPM_CONFIG_PREFIX: "~/.npm-global"
-
-    working_directory: ~/repo
-
+      # specify the version you desire here
+      - image: circleci/node:8-stretch
     steps:
-    - checkout
+        - checkout
 
-    # Download and cache dependencies
-    - restore_cache:
-        keys:
-        - v2-dependencies-{{ checksum "package-lock.json" }}
-    - run:
-        name: Set up global NPM
-        command: mkdir ~/.npm-global
+        - run:
+            name: Provide package-lock.json
+            command:  test ! -f package.json && touch package-lock.json || echo "package.json exists"
 
-    - run:
-        name: install npm 6.4.0
-        command: sudo npm -g install npm@6.4.0
+        # Download and cache dependencies
+        - restore_cache:
+            keys:
+            - v1-dependencies-{{ checksum "package-lock.json" }}
+            - v1-dependencies-
 
-    - run:
-        name: Install Dependencies
-        command: npm install
+        - run:
+            name: Installing Dependencies
+            command: test -f package.json && npm install || echo "package.json does not exist"
 
-    - save_cache:
-        paths:
-        - node_modules
-        key: v2-dependencies-{{ checksum "package-lock.json" }}
+        - run:
+            name: Installing Helix CLI
+            command: npm install @adobe/helix-cli --save=false
 
-    #- run:
-    #    name: Lint
-    #    command: npm run lint
+        - save_cache:
+            paths:
+                - node_modules
+            key: v1-dependencies-{{ checksum "package-lock.json" }}
 
-    # run tests!
-    - run: mkdir junit
-    - run:
-        name: prepare test git user
-        command: git config --global user.email "you@example.com" && git config --global user.name "CircleCi Build"
-    - run:
-        name: Running Tests
-        command: npx mocha --reporter mocha-junit-reporter
-        environment:
-          MOCHA_FILE: junit/test-results.xml
-        when: always
+        - run:
+            name: Reset package-lock.json
+            command:  test ! -f package.json && rm package-lock.json || echo "package.json exists"
 
+        - run:
+            name: Building Templates
+            command: npx hlx build
 
-    # get code coverage
-    #- run:
-    #    name: Getting Code Coverage
-    #    command: npx istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec && npx codecov
-    #    environment:
-    #      MOCHA_FILE: junit/test-results.xml
-    #    when: always
+        - run:
+            name: Resetting Working Copy
+            command: git status; git checkout -- .
 
-    - store_test_results:
-        path: junit
+        - run:
+            name: Deploying to Adobe I/O Runtime
+            command: npx hlx deploy --no-auto | cat && cat .hlx/strains.json
 
-    - store_artifacts:
-        path: junit
+        - run:
+            name: Activate CDN
+            command: npx hlx publish | cat
 
+        - run:
+            name: Test Performance
+            command: |
+                mkdir -p junit
+                if [ ! -z $HLX_CALIBRE_AUTH ]; then
+                    npx hlx perf --junit junit/test-results.xml
+                else
+                    echo "Add HLX_CALIBRE_AUTH to your CircleCI config to enable performance testing"
+                fi
 
-workflows:
-  version: 2
-  build:
-    jobs:
-    # run build on any branch
-    - build
+        - store_test_results:
+            path: junit
