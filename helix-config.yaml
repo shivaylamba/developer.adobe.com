@@ -16,14 +16,14 @@ directoryIndex: README.html
 strains:
     default:
         code: /io-solutions/default/git-github-com-adobe-Adobe-Developer-Site-git--commit-fuckery--
+        content: https://github.com/adobe/Adobe-Developer-Site.git#commit-fuckery
+        static: https://github.com/adobe/Adobe-Developer-Site.git#commit-fuckery
+        staticRoot: /webroot
+        directoryIndex: README.html
+    launch-docs:
+        url: https://stage-developer.helix-demo.xyz/docs/launch
+        code: /io-solutions/default/git-github-com-adobe-Adobe-Developer-Site-git--commit-fuckery--
         content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
         static: https://github.com/adobe/Adobe-Developer-Site.git#commit-fuckery
         staticRoot: /webroot
         directoryIndex: README.html
-    starter:
-        url: https://stage-developer.helix-demo.xyz/starter-docs
-        code: /io-solutions/default/git-github-com-adobe-Adobe-Developer-Site-git--commit-fuckery--
-        content: https://github.com/AdobeDocs/starter-docs.git#master
-        static: https://github.com/adobe/Adobe-Developer-Site.git#commit-fuckery
-        staticRoot: /webroot
-        directoryIndex: Overview.html
