@@ -20,3 +20,10 @@ strains:
         static: https://github.com/adobe/Adobe-Developer-Site.git#commit-fuckery
         staticRoot: /webroot
         directoryIndex: README.html
+    starter:
+        url: https://stage-developer.helix-demo.xyz/starter-docs
+        code: /io-solutions/starter/git-github-com-adobe-Adobe-Developer-Site-git--commit-fuckery--
+        content: https://github.com/AdobeDocs/starter-docs.git#master
+        static: https://github.com/adobe/Adobe-Developer-Site.git#commit-fuckery
+        staticRoot: /webroot
+        directoryIndex: Overview.html
