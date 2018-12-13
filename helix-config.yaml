@@ -27,3 +27,10 @@ strains:
         static: https://github.com/adobe/Adobe-Developer-Site.git#master
         staticRoot: /webroot
         directoryIndex: README.html
+    xd-docs:
+        url: https://stage-developer.helix-demo.xyz/docs/xd
+        code: /io-solutions/default/git-github-com-adobe-Adobe-Developer-Site-git--master--
+        content: https://github.com/AdobeXD/plugin-docs.git#master
+        static: https://github.com/adobe/Adobe-Developer-Site.git#master
+        staticRoot: /webroot
+        directoryIndex: README.html
