@@ -13,30 +13,6 @@
 const request = require('request-promise');
 
 /**
- * Removes the first title from the resource children
- * @param Array children Children
- * @param {Object} logger Logger
- */
-function removeFirstTitle(children, logger) {
-  logger.debug('html-pre.js - Removing first title');
-  let ret = children;
-  if (ret && ret.length > 0) {
-    ret = ret.slice(1);
-  }
-  return ret;
-}
-
-function fixTheLinks(children, logger) {
-  logger.debug('html-pre.js - Fixing the links (md to html)');
-  let ret = children;
-  if (ret && ret.length > 0) {
-    ret = ret.map(element => element
-      .replace(new RegExp('.md"', 'g'), '.html"'));
-  }
-  return ret;
-}
-
-/**
  * Fetches the commits history
  * @param String apiRoot API root url
  * @param String owner Owner
@@ -199,29 +175,22 @@ function computeNavPath(isDev, logger) {
  * @param {Object} logger Logger
  * @returns {Array} New children, {Array} TOC
  */
-function createTOC(children, maxDepth, logger) {
+function createTOC(content, maxDepth, logger) {
   logger.debug('html-pre.js - Creating TOC');
-  if (!children) return null;
+  if (!content) return null;
   const max = maxDepth || 6;
   const toc = [];
-  // eslint-disable-next-line no-useless-escape
-  const hRegExp = /\<h(\d)\>(.*)\<\/h\d\>/gmi;
-  const html = children.map((tag, index) => {
-    const res = hRegExp.exec(tag);
-    // iterate over matching <h*> tags
-    if (res && res.length === 3 && res[1] <= max) {
-      const level = res[1];
-      const title = res[2];
-      const id = `${index}_${encodeURIComponent(title)}`;
-      // add to TOC
-      toc.push(`<li class="level-${level}"><a href="#${id}">${title}</a></li>`);
-      // return <h*> tag with id attribute
-      return `<h${level} id="${id}">${title}</h${level}>`;
-    }
-    // return original tag
-    return tag;
+  content.document.body.querySelectorAll("h1, h2, h3").forEach((heading, index) => {
+    if(index === 0) return null;
+    const level = heading.tagName;
+    const title = heading.textContent;
+    const id = `${index}_${encodeURIComponent(title)}`
+    // We are using spectrum sidenav component. Adding our own padding to h3 elements
+    // padding is 24px as per spectrum-css mutli nav standards
+    toc.push(`<li class="level-${level} spectrum-SideNav-item"><a href="#${id}" class="spectrum-SideNav-itemLink">${title}</a></li>`)
+    heading.setAttribute('id', id);
   });
-  return [html, toc];
+  return toc;
 }
 
 // module.exports.pre is a function (taking next as an argument)
@@ -241,10 +210,35 @@ async function pre(payload, action) {
     }
 
     const p = payload;
+    const body = p.content.document.body;
+    body.querySelectorAll('a').forEach((anchor) => {
+      anchor.classList.add('spectrum-Link');
+    });
+    body.querySelectorAll('p').forEach((paragraph) => {
+      paragraph.classList.add('spectrum-Body3');
+    });
+    [1, 2, 3, 4, 5].forEach((i) => {
+      body.querySelectorAll(`h${i}`).forEach((heading) => {
+        heading.classList.add(`spectrum-Heading${i}`);
+      });
+    });
+    body.querySelectorAll('code').forEach((code) => {
+      code.classList.add('spectrum-Code3');
+    });
+    body.querySelectorAll('li').forEach((li) => {
+      li.classList.add('spectrum-Body3');
+      li.style.marginBottom = '0';
+    });
+    // todo: tables
 
-    // clean up the resource
-    p.content.children = removeFirstTitle(p.content.children, logger);
-    p.content.children = fixTheLinks(p.content.children, logger);
+    // spectrumify certain elements by blasting class names onto tags
+    /*
+     * TODO: cant do this as content.document is the entire document, not just
+     * the bit being rendered
+    p.content.document.querySelectorAll('p').forEach((paragraph) => {
+      if (!paragraph.className.includes('spectrum-Body1')) paragraph.className += ' spectrum-Body1';
+    });
+    */
 
     // extract committers info and last modified based on commits history
     if (secrets.REPO_API_ROOT) {
@@ -265,9 +259,16 @@ async function pre(payload, action) {
         actionReq.params.path,
         logger,
       );
-      [p.content.children, p.content.toc] = createTOC(p.content.children, 3, logger);
+      p.content.toc = createTOC(p.content, 3, logger);
     } else {
       logger.debug('html-pre.js - No REPO_API_ROOT provided');
+    }
+
+    p.content.subcontent = [];
+    if (body.children[0].children && body.children[0].children.length) {
+      logger.debug('html-pre.js - VDOM children processed (stripping leading title)');
+      p.content.subcontent = Array.from(body.children[0].children)
+        .slice(1); // remove the leading first title (redundant with page title)
     }
 
     // fetch and inject the nav
@@ -295,7 +296,6 @@ async function pre(payload, action) {
 module.exports.pre = pre;
 
 // exports for testing purpose only
-module.exports.removeFirstTitle = removeFirstTitle;
 module.exports.fetchCommitsHistory = fetchCommitsHistory;
 module.exports.extractCommittersFromCommitsHistory = extractCommittersFromCommitsHistory;
 module.exports.extractLastModifiedFromCommitsHistory = extractLastModifiedFromCommitsHistory;

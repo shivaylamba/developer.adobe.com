@@ -12,16 +12,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adobe/project-helix.io.git"
+    "url": "git+https://github.com/adobe/Adobe-Developer-Site.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/adobe/project-helix.io/issues"
+    "url": "https://github.com/adobe/Adobe-Developer-Site/issues"
   },
-  "homepage": "https://github.com/adobe/project-helix.io#readme",
+  "homepage": "https://github.com/adobe/Adobe-Developer-Site#readme",
   "dependencies": {
-    "remark": "^10.0.1",
+    "@adobe/helix-pipeline": "^0.9.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
     "unist-util-visit": "^1.4.0",
@@ -36,6 +36,7 @@
     "eslint-plugin-react": "^7.11.0",
     "mocha": "^5.2.0",
     "mocha-junit-reporter": "^1.18.0",
-    "nock": "^10.0.1"
+    "nock": "^10.0.1",
+    "remark": "^10.0.1"
   }
 }

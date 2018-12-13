@@ -7,7 +7,23 @@
 # the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
 # OF ANY KIND, either express or implied. See the License for the specific language
 # governing permissions and limitations under the License.
-content: git@github.com:Adobe-Marketing-Cloud/reactor-user-docs.git
-code: git@github.com:adobe/Adobe-Developer-Site.git
-directoryIndex: README.html
+
+contentRepo: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
+static: https://github.com/adobe/Adobe-Developer-Site.git#commit-fuckery
 staticRoot: /webroot
+directoryIndex: README.html
+
+strains:
+    default:
+        code: /io-solutions/default/git-github-com-adobe-Adobe-Developer-Site-git--commit-fuckery--
+        content: https://github.com/adobe/Adobe-Developer-Site.git#commit-fuckery
+        static: https://github.com/adobe/Adobe-Developer-Site.git#commit-fuckery
+        staticRoot: /webroot
+        directoryIndex: README.html
+    launch-docs:
+        url: https://stage-developer.helix-demo.xyz/docs/launch
+        code: /io-solutions/default/git-github-com-adobe-Adobe-Developer-Site-git--commit-fuckery--
+        content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
+        static: https://github.com/adobe/Adobe-Developer-Site.git#commit-fuckery
+        staticRoot: /webroot
+        directoryIndex: README.html

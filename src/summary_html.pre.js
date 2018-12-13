@@ -10,23 +10,36 @@
  * governing permissions and limitations under the License.
  */
 
-function filterNav(navChildren, path, logger) {
+function filterNav(document, path, logger) {
   logger.debug('summary_html.pre.js - Extracting nav');
-
-  if (navChildren && navChildren.length > 0) {
-    const currentFolderPath = path.substring(0, path.lastIndexOf('/'));
-    let nav = navChildren;
+  if (document.body.children[0].children && document.body.children[0].children.length > 0) {
+    /*
+    document.body.querySelectorAll('a[href]:not([href=""])').forEach((anchor) => {
+      const href = anchor.getAttribute('href');
+      if (!href.match(/^https?:\/\//i)) {
+        logger.debug('summary_html.pre.js - Setting href to absolute url in nav');
+        anchor.setAttribute('href', `/${href}`);
+      }
+    });
+    */
+    document.body.querySelectorAll('ul').forEach((ul) => {
+      ul.classList.add('spectrum-TreeView');
+    });
+    document.body.querySelectorAll('li').forEach((ul) => {
+      ul.classList.add('spectrum-TreeView-item');
+    });
+    document.body.querySelectorAll('li > a').forEach((a) => {
+      a.classList.add('spectrum-TreeView-itemLink');
+      a.innerHTML = `<svg class="spectrum-Icon spectrum-UIIcon-ChevronRightMedium spectrum-TreeView-indicator" focusable="false" aria-hidden="true">
+  <use xlink:href="#spectrum-css-icon-ChevronRightMedium" />
+</svg>${a.innerHTML}`;
+    });
+    let nav = Array.from(document.body.children[0].children);
 
     // remove first title
     if (nav && nav.length > 0) {
       nav = nav.slice(1);
     }
-
-    nav = nav.map(element => element
-      // prefix with currentFolderPath from links not starting with http:// or https://
-      .replace(new RegExp('href="((?!http.*://))', 'g'), `href="${currentFolderPath}/`)
-      // replace md extension by .html
-      .replace(new RegExp('.md"', 'g'), '.html"'));
 
     logger.debug(`summary_html.pre.js - Managed to collect some content for the nav: ${nav.length}`);
     return nav;
@@ -55,7 +68,7 @@ async function pre(payload, action) {
     const p = payload;
 
     // clean up the resource
-    p.content.children = filterNav(p.content.children, action.request.params.path, logger);
+    p.content.nav = filterNav(p.content.document, action.request.params.path, logger);
 
     return p;
   } catch (e) {
