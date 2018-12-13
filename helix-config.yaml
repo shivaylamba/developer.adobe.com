@@ -8,11 +8,6 @@
 # OF ANY KIND, either express or implied. See the License for the specific language
 # governing permissions and limitations under the License.
 
-  #content: git@github.com:Adobe-Marketing-Cloud/reactor-user-docs.git#master
-  #code: git@github.com:adobe/Adobe-Developer-Site.git
-  #directoryIndex: README.html
-  #staticRoot: /webroot
-
 contentRepo: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
 static: https://github.com/adobe/Adobe-Developer-Site.git#commit-fuckery
 staticRoot: /webroot
@@ -20,24 +15,8 @@ directoryIndex: README.html
 
 strains:
     default:
-        code: /io-solutions/default/git-github-com-adobe-Adobe-Developer-Site-git--
+        code: /io-solutions/default/git-github-com-adobe-Adobe-Developer-Site-git--commit-fuckery--
         content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
         static: https://github.com/adobe/Adobe-Developer-Site.git#commit-fuckery
         staticRoot: /webroot
         directoryIndex: README.html
-
-#strains:
- # default: 
-  #  content: https://github.com/adobe/adobe-developer-site.git#commit-fuckery
-   # code: git@github.com:adobe/Adobe-Developer-Site.git
-    #directoryIndex: README.html
-    #staticRoot: /webroot
-
-  #launch:
-   # url: http://helix.adobe.io/docs/launch
-    #content: git@github.com:Adobe-Marketing-Cloud/reactor-user-docs.git
-
-#content: 
-#code: git@github.com:adobe/Adobe-Developer-Site.git
-#directoryIndex: README.html
-#staticRoot: /webroot
