@@ -2,7 +2,9 @@
 Customize and extend Adobe’s products to create better customer experiences with our APIs, help guides and community support.
 
 LET’S BUILD SOMETHING GREAT TOGETHER
-[input]
+
+<input>
+
 ---
 
 # Start Building with Adobe XD today
