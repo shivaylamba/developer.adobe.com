@@ -28,13 +28,34 @@ async function pre(payload, action) {
   }
 
   const c = payload.content;
+
+  const body = c.document.body;
+  body.querySelectorAll('a').forEach((anchor) => {
+    anchor.classList.add('spectrum-Link');
+  });
+  body.querySelectorAll('p').forEach((paragraph) => {
+    paragraph.classList.add('spectrum-Body3');
+  });
+  [1, 2, 3, 4, 5].forEach((i) => {
+    body.querySelectorAll(`h${i}`).forEach((heading) => {
+      heading.classList.add(`spectrum-Heading${i}`);
+    });
+  });
+  body.querySelectorAll('code').forEach((code) => {
+    code.classList.add('spectrum-Code3');
+  });
+  body.querySelectorAll('li').forEach((li) => {
+    li.classList.add('spectrum-Body3');
+    li.style.marginBottom = '0';
+  });
+
+
   c.sectionsDocuments = [];
 
   c.sections.forEach((element, index) => {
     const transformer = new VDOM(element, secrets);
     const node = transformer.process();
-    node.classList.add(`section index${index} ${index%2 ? 'even' : 'odd'} ${element.types.join(' ')}`);
-
+    node.classList.add(`section index${index} ${index%2 ? 'even' : 'odd'} ${element.types.join(' ')} spectrum-grid-col-sm-12 spectrum-grid-col-md-6`);
     // missing in pipeline, need to be moved there
     if (node.innerHTML.includes('<img')) {
       node.classList.add('has-image');

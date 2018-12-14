@@ -18,12 +18,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="stylesheet" href="/styles.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" />
+    <link rel="stylesheet" href="/spectrum-core.css" />
+    <link rel="stylesheet" href="/spectrum-light.css" />
+    <link rel="stylesheet" href="/spectrum-lightest.css" />
+    <link rel="stylesheet" href="/spectrum-dark.css" />
+    <link rel="stylesheet" href="/spectrum-darkest.css" />
+    <link rel="stylesheet" href="/spectrum-flexbox-grid.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/ehj8kyw.css">
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script src="loadIcons.js"></script>
     <title>${content.title}</title>
 </head>
 
-<body>
-    <div data-sly-list="${content.sectionsDocuments}">${item.outerHTML}</div>
+<body class="spectrum--light">
+    <div class="spectrum-grid--fluid">
+        <div class="container spectrum-grid-row spectrum-Body3" data-sly-list="${content.sectionsDocuments}">${item.outerHTML}</div>
+    </div>
 </body>
 
 </html>
