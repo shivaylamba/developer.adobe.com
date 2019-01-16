@@ -54,8 +54,6 @@ We implement the new IA, which impacts top-level navigation and the footer. Curr
 
 Location: https://bluejeans.com/2066757215
 
- * Tuesday January 8, 2019 13:00 PDT
- * Tuesday January 22, 2019 13:00 PDT
  * Tuesday February 5, 2019 13:00 PDT
  * Tuesday February 19, 2019 13:00 PDT
 
@@ -63,8 +61,6 @@ Location: https://bluejeans.com/2066757215
 
 Location: https://bluejeans.com/2066757215
 
- * Wednesday January 9, 2019 13:00 PDT
- * Wednesday January 23, 2019 13:00 PDT
  * Wednesday February 6, 2019 13:00 PDT
  * Wednesday February 20, 2019 13:00 PDT
 
