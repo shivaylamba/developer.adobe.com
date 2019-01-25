@@ -8,29 +8,56 @@
 # OF ANY KIND, either express or implied. See the License for the specific language
 # governing permissions and limitations under the License.
 
-contentRepo: https://github.com/adobe/Adobe-Developer-Site.git#master
-static: https://github.com/adobe/Adobe-Developer-Site.git#master
-staticRoot: /webroot
-directoryIndex: README.html
+# contentRepo: https://github.com/adobe/Adobe-Developer-Site.git#master
+# static: https://github.com/adobe/Adobe-Developer-Site.git#master
+# staticRoot: /webroot
+# directoryIndex: README.html
+
+# strains:
+#     default:
+#         code: /io-solutions/default/git-github-com-adobe-Adobe-Developer-Site-git--master--
+#         content: https://github.com/adobe/Adobe-Developer-Site.git#master
+#         static: https://github.com/adobe/Adobe-Developer-Site.git#master
+#         staticRoot: /webroot
+#         directoryIndex: README.html
+#     launch-docs:
+#         url: https://stage-developer.helix-demo.xyz/docs/launch
+#         code: /io-solutions/default/git-github-com-adobe-Adobe-Developer-Site-git--master--
+#         content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
+#         static: https://github.com/adobe/Adobe-Developer-Site.git#master
+#         staticRoot: /webroot
+#         directoryIndex: README.html
+#     xd-docs:
+#         url: https://stage-developer.helix-demo.xyz/docs/xd
+#         code: /io-solutions/default/git-github-com-adobe-Adobe-Developer-Site-git--master--
+#         content: https://github.com/AdobeXD/plugin-docs.git#master
+#         static: https://github.com/adobe/Adobe-Developer-Site.git#master
+#         staticRoot: /webroot
+#         directoryIndex: README.html
+
+version: 1
+
+definitions:
+  defaults:
+    - &defaultRepo https://github.com/adobe/Adobe-Developer-Site.git#master
+  strains:
+    base:
+      &basestrain 
+      code: *defaultRepo
+      content: *defaultRepo
+      static: *defaultRepo
 
 strains:
-    default:
-        code: /io-solutions/default/git-github-com-adobe-Adobe-Developer-Site-git--master--
-        content: https://github.com/adobe/Adobe-Developer-Site.git#master
-        static: https://github.com/adobe/Adobe-Developer-Site.git#master
-        staticRoot: /webroot
-        directoryIndex: README.html
-    launch-docs:
-        url: https://stage-developer.helix-demo.xyz/docs/launch
-        code: /io-solutions/default/git-github-com-adobe-Adobe-Developer-Site-git--master--
-        content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
-        static: https://github.com/adobe/Adobe-Developer-Site.git#master
-        staticRoot: /webroot
-        directoryIndex: README.html
-    xd-docs:
-        url: https://stage-developer.helix-demo.xyz/docs/xd
-        code: /io-solutions/default/git-github-com-adobe-Adobe-Developer-Site-git--master--
-        content: https://github.com/AdobeXD/plugin-docs.git#master
-        static: https://github.com/adobe/Adobe-Developer-Site.git#master
-        staticRoot: /webroot
-        directoryIndex: README.html
+  default:
+    <<: *basestrain
+    url: https://www.adobe.io/
+
+  launch-docs:
+    <<: *basestrain
+    url: https://www.adobe.io/docs/launch
+    content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
+
+  xd-docs:
+    <<: *basestrain
+    url: https://www.adobe.io/docs/xd
+    content: https://github.com/AdobeXD/plugin-docs.git#master
