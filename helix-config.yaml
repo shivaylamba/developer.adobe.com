@@ -52,12 +52,22 @@ strains:
     <<: *basestrain
     url: https://www.adobe.io/
 
-  launch-docs:
+  launch-docs-prod:
     <<: *basestrain
-    url: https://www.adobe.io/docs/launch
+    url: https://www.adobe.io/launch/docs
     content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
 
-  xd-docs:
+  launch-docs-stage:
     <<: *basestrain
-    url: https://www.adobe.io/docs/xd
+    url: https://stage.adobe.io/launch/docs
+    content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
+
+  xd-docs-prod:
+    <<: *basestrain
+    url: https://www.adobe.io/xd/docs
+    content: https://github.com/AdobeXD/plugin-docs.git#master
+
+  xd-docs-stage:
+    <<: *basestrain
+    url: https://stage.adobe.io/xd/docs
     content: https://github.com/AdobeXD/plugin-docs.git#master
