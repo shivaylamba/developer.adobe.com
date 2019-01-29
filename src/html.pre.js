@@ -18,11 +18,14 @@
 
 function pre(payload) {
   payload.dispatch = {};
-  let selector = 'homepage';
-  if (payload.request.url.indexOf('/docs') !== -1) {
-    selector = 'docs';
+  if (payload.request.url){
+    if (payload.request.url.indexOf('/docs') !== -1) {
+      payload.dispatch.url = payload.request.url.replace(/\.html/, '.docs.html');
+    }
   }
-  payload.dispatch.url = payload.request.url.replace(/\.html/, `.${selector}.html`);
+    else {
+      payload.dispatch.url = '/index.homepage.html';
+    }
 }
 
 module.exports.pre = pre;

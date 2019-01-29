@@ -56,18 +56,34 @@ strains:
     <<: *basestrain
     url: https://www.adobe.io/launch/docs
     content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
+    directoryIndex: README.html
 
   launch-docs-stage:
     <<: *basestrain
     url: https://stage.adobe.io/launch/docs
     content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
+    directoryIndex: README.html
 
   xd-docs-prod:
     <<: *basestrain
     url: https://www.adobe.io/xd/docs
     content: https://github.com/AdobeXD/plugin-docs.git#master
+    directoryIndex: README.html
 
   xd-docs-stage:
     <<: *basestrain
     url: https://stage.adobe.io/xd/docs
     content: https://github.com/AdobeXD/plugin-docs.git#master
+    directoryIndex: README.html
+
+  xd-marketing-prod:
+    <<: *basestrain
+    url: https://www.adobe.io/xd
+    content: https://github.com/AdobeXD/plugin-docs.git#master
+    directoryIndex: README.html
+    
+  xd-marketing-stage:
+    <<: *basestrain
+    url: https://stage.adobe.io/xd
+    content: https://github.com/AdobeXD/plugin-docs.git#master
+    directoryIndex: README.html
