@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!--
 /*
 * Copyright 2018 Adobe. All rights reserved.
@@ -40,3 +41,9 @@
   </pre>
 </body>
 </html>
+=======
+<div>test</div>
+<esi:include src="${payload.dispatch.url}"/>
+<div>after</div>
+<div>${payload.dispatch.url}</div>
+>>>>>>> another test
