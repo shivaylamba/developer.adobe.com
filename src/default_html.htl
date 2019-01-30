@@ -1,0 +1,3 @@
+<div class="container spectrum-grid-row spectrum-Body3" data-sly-list="${content.sectionsDocuments}">
+    ${item.outerHTML}
+</div>

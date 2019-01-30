@@ -17,15 +17,20 @@
  */
 
 function pre(payload) {
+  console.log(payload.request);
   payload.dispatch = {};
-  if (payload.request.url){
-    if (payload.request.url.indexOf('/docs') !== -1) {
-      payload.dispatch.url = payload.request.url.replace(/\.html/, '.docs.html');
-    }
+
+  if (!payload.request.url){
+    payload.request.url = "/index.html";
+  }
+
+  if (payload.request.url.indexOf('/docs') !== -1) {
+    payload.dispatch.url = payload.request.url.replace(/\.html/, '.docs.html');
   }
   else {
-    payload.dispatch.url = '/index.homepage.html';
+    payload.dispatch.url = payload.request.url.replace(/\.html/, '.default.html');
   }
+
 }
 
 module.exports.pre = pre;
