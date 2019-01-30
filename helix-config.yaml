@@ -12,7 +12,7 @@ version: 1
 
 definitions:
   defaults:
-    - &defaultRepo https://github.com/adobe/Adobe-Developer-Site.git#master
+    - &defaultRepo https://github.com/adobe/Adobe-Developer-Site.git#testDeploy
     #- &defaultRepo "http://localhost/local/default.git"
   strains:
     base:
@@ -33,6 +33,7 @@ strains:
     <<: *basestrain
 
   test-config:
+    url: https://adobedevsite.helix-demo.xyz
     code: ssh://git@github.com/adobe/Adobe-Developer-Site.git#testDeploy
     content: https://github.com/adobe/Adobe-Developer-Site.git#master
     static: https://github.com/adobe/Adobe-Developer-Site.git/htdocs#master
