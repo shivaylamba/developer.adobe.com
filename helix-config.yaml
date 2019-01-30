@@ -39,10 +39,10 @@ version: 1
 
 definitions:
   defaults:
-    - &defaultRepo https://github.com/adobe/Adobe-Developer-Site.git#master
+    - &defaultRepo https://github.com/adobe/developer.adobe.com.git#master
   strains:
     base:
-      &basestrain 
+      &basestrain
       code: *defaultRepo
       content: *defaultRepo
       static: *defaultRepo
@@ -81,7 +81,7 @@ strains:
     url: https://www.adobe.io/xd
     content: https://github.com/AdobeXD/plugin-docs.git#master
     directoryIndex: README.html
-    
+
   xd-marketing-stage:
     <<: *basestrain
     url: https://stage.adobe.io/xd
