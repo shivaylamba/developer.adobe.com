@@ -6,3 +6,4 @@ pipeline.log
 logs
 env.inf
 test-results.xml
+.DS_Store

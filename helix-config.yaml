@@ -8,33 +8,6 @@
 # OF ANY KIND, either express or implied. See the License for the specific language
 # governing permissions and limitations under the License.
 
-# contentRepo: https://github.com/adobe/Adobe-Developer-Site.git#master
-# static: https://github.com/adobe/Adobe-Developer-Site.git#master
-# staticRoot: /webroot
-# directoryIndex: README.html
-
-# strains:
-#     default:
-#         code: /io-solutions/default/git-github-com-adobe-Adobe-Developer-Site-git--master--
-#         content: https://github.com/adobe/Adobe-Developer-Site.git#master
-#         static: https://github.com/adobe/Adobe-Developer-Site.git#master
-#         staticRoot: /webroot
-#         directoryIndex: README.html
-#     launch-docs:
-#         url: https://stage-developer.helix-demo.xyz/docs/launch
-#         code: /io-solutions/default/git-github-com-adobe-Adobe-Developer-Site-git--master--
-#         content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
-#         static: https://github.com/adobe/Adobe-Developer-Site.git#master
-#         staticRoot: /webroot
-#         directoryIndex: README.html
-#     xd-docs:
-#         url: https://stage-developer.helix-demo.xyz/docs/xd
-#         code: /io-solutions/default/git-github-com-adobe-Adobe-Developer-Site-git--master--
-#         content: https://github.com/AdobeXD/plugin-docs.git#master
-#         static: https://github.com/adobe/Adobe-Developer-Site.git#master
-#         staticRoot: /webroot
-#         directoryIndex: README.html
-
 version: 1
 
 definitions:
@@ -50,11 +23,17 @@ definitions:
 strains:
   default:
     <<: *basestrain
-    url: https://www.adobe.io/
+    #origin: 
 
   launch-docs-prod:
     <<: *basestrain
     url: https://www.adobe.io/launch/docs
+    content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
+    directoryIndex: README.html
+
+  launch-docs-prod-test:
+    <<: *basestrain
+    url: https://adobedevsite.helix-demo.xyz/launch/docs
     content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
     directoryIndex: README.html
 
