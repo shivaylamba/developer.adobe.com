@@ -17,14 +17,12 @@
  */
 
 function pre(payload) {
-  payload.dispatch = {};
-  if (payload.request.url){
-    if (payload.request.url.indexOf('/docs') !== -1) {
-      payload.dispatch.url = payload.request.url.replace(/\.html/, '.docs.html');
-    }
-  }
-  else {
-    payload.dispatch.url = '/index.homepage.html';
+  payload.dispatch = {
+    url: '/index.homepage.html'
+  };
+
+  if (payload.request.url.indexOf('/docs') !== -1) {
+    payload.dispatch.url = payload.request.url.replace(/\.html/, '.docs.html');
   }
 }
 
