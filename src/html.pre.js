@@ -16,9 +16,19 @@
  * @param payload.content The content
  */
 
-function pre(payload) {
+function pre(payload, action) {
   console.log(payload.request);
+  /*if (action.logger) {
+    action.logger.debug('payload.request');
+    action.logger.debug(payload.request);
+
+    action.logger.debug('action.request');
+    action.logger.debug(action.request);
+  } else {
+    console.log('no logger found')
+  }*/
   payload.dispatch = {};
+  //payload.dispatch.headers = action.headers;
 
   if (!payload.request.url){
     payload.request.url = "/index.html";

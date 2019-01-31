@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="/spectrum-darkest.css" />
     <link rel="stylesheet" href="/spectrum-flexbox-grid.css" />
     <link rel="stylesheet" href="/homepage.css" />
+    <link rel="stylesheet" href="/topnav.css" />
+    <link rel="stylesheet" href="/footer.css" />
     <link rel="stylesheet" href="https://use.typekit.net/ehj8kyw.css">
     <script src="https://momentjs.com/downloads/moment.min.js"></script>
     <script src="loadIcons.js"></script>
@@ -31,12 +33,36 @@
 </head>
 
 <body class="spectrum--light">
-  <div class="spectrum-grid--fluid">
-    <h1>Adobe</h1>
-    &lt;esi:include src="${payload.dispatch.url}"/>
-  </div>
-  <pre id="dev_debug">
+    <div class="global-navbar spectrum-grid--fluid">
+        <div class="spectrum-grid-row center">
+            <div class="Navbar_Logo">
+                <div class="Navbar_Link Navbar__Link-brand">
+                    Adobe I/O
+                </div>
+            </div>
+            <div class="Navbar_Links spectrum-grid-row">
+                <div class="Navbar_Link">
+                    Authentication
+                </div>
+                <div class="Navbar_Link">
+                    Open Source
+                </div>
+                <div class="Navbar_Link">
+                    Blog
+                </div>
+                <div class="Navbar_Link">
+                    Console
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="spectrum-grid--fluid">
+        <esi:include src="${payload.dispatch.url}" />
+    </div>
+    <div class="footer">Footer</div>
+    <pre id="dev_debug">
     payload.dispatch.url: ${payload.dispatch.url}
   </pre>
 </body>
+
 </html>
