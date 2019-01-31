@@ -33,7 +33,7 @@
 <body class="spectrum--light">
   <div class="spectrum-grid--fluid">
     <h1>Adobe</h1>
-    <esi:include src="${payload.dispatch.url}"/>
+    &lt;esi:include src="${payload.dispatch.url}"/>
   </div>
   <pre id="dev_debug">
     payload.dispatch.url: ${payload.dispatch.url}
