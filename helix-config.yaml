@@ -31,35 +31,35 @@ definitions:
 strains:
   default:
     <<: *basestrain
-    package: 3825102a6950a363212128f12be90b568d683526
+    package: 9033f80c921e5322ff267e08a63f2387c263cc41
 
   test-config:
     url: https://adobedevsite.helix-demo.xyz/
     code: ssh://git@github.com/adobe/Adobe-Developer-Site.git#testDeploy
     content: https://github.com/adobe/Adobe-Developer-Site.git#master
     static: https://github.com/adobe/Adobe-Developer-Site.git/htdocs#master
-    package: 3825102a6950a363212128f12be90b568d683526
+    package: 9033f80c921e5322ff267e08a63f2387c263cc41
 
   launch-docs-prod:
     <<: *basestrain
     url: https://www.adobe.io/launch/docs
     content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
     directoryIndex: README.html
-    package: 3825102a6950a363212128f12be90b568d683526
+    package: 9033f80c921e5322ff267e08a63f2387c263cc41
 
   launch-docs-prod-test:
     <<: *basestrain
     url: https://adobedevsite.helix-demo.xyz/launch/docs
     content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
     directoryIndex: README.html
-    package: 3825102a6950a363212128f12be90b568d683526
+    package: 9033f80c921e5322ff267e08a63f2387c263cc41
 
   launch-docs-stage:
     <<: *basestrain
     url: https://stage.adobe.io/launch/docs
     content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
     directoryIndex: README.html
-    package: 3825102a6950a363212128f12be90b568d683526
+    package: 9033f80c921e5322ff267e08a63f2387c263cc41
   # xd-docs-prod:
   #   <<: *basestrain
   #   url: https://www.adobe.io/xd/docs
