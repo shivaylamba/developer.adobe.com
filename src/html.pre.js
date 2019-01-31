@@ -19,7 +19,6 @@
 function pre(payload) {
   console.log(payload.request);
   payload.dispatch = {};
-<<<<<<< HEAD
 
   if (!payload.request.url){
     payload.request.url = "/index.html";
@@ -31,17 +30,6 @@ function pre(payload) {
   else {
     payload.dispatch.url = payload.request.url.replace(/\.html/, '.default.html');
   }
-
-=======
-  console.log(payload.request.url);
-  if (payload.request.url){
-    if (payload.request.url.indexOf('/docs') !== -1) {
-      payload.dispatch.url = payload.request.url.replace(/\.html/, '.docs.html');
-      return;
-    }
-  }
-  payload.dispatch.url = '/index.homepage.html';
->>>>>>> test 11
 }
 
 module.exports.pre = pre;
