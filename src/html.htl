@@ -12,7 +12,7 @@
 */
 -->
 <!DOCTYPE html>
-<html>
+<html class="spectrum--large"> <!-- TODO: this should be set to large or medium depending on mobile vs. desktop screens -->
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
@@ -63,5 +63,6 @@
     <pre id="dev_debug">
     payload.dispatch.url: ${payload.dispatch.url}
     </pre>
+    <script type="text/javascript">loadIcons('icons/spectrum-css-icons.svg');</script>
 </body>
 </html>
