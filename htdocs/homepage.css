@@ -1,5 +1,5 @@
 .container {
-    display: flex; 
+    display: flex;
     height: 100%;
     flex-wrap: wrap;
     align-content: flex-start;
@@ -36,17 +36,15 @@
     padding-top:10px;
 }
 
-.index2 {
-    background-color: #2C2C2C;
-    color: #FFFFFF;
+.index3 p:first-child {
+    display:flex;
+    align-items:center;
 }
-
-.index2 * {
-    color:#FFFFFF !important;
+.index3 p:first-child img {
+    width:15%;
 }
-
-.index3 {
-
+.index3 p:first-child code {
+    margin: 0 15px;
 }
 
 .index4 {

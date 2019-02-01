@@ -30,6 +30,8 @@ async function pre(payload, action) {
   const c = payload.content;
 
   const body = c.document.body;
+  // TODO: factor the below out into a generic "apply spectrum styles" function? it
+  // gets used below as well
   body.querySelectorAll('a').forEach((anchor) => {
     anchor.classList.add('spectrum-Link');
   });
@@ -48,7 +50,6 @@ async function pre(payload, action) {
     li.classList.add('spectrum-Body3');
     li.style.marginBottom = '0';
   });
-
 
   c.sectionsDocuments = [];
 
@@ -112,6 +113,7 @@ async function pre(payload, action) {
     }
 
     if (node.className.includes('index2')) {
+      body.childNodes[0].classList.add('spectrum--dark');
       // grab last link and style it like a button
       const list = body.querySelectorAll('ul');
       list.forEach((ul) => {
@@ -122,10 +124,16 @@ async function pre(payload, action) {
         if (index === 0 || index === 2) {
           link.classList.add('spectrum-Button', 'spectrum-Button--cta', 'button-read');
         } else {
-          link.classList.add('spectrum-Button', 'spectrum-Button--primary', 'list-button');
+          link.classList.add('spectrum-Button', 'spectrum-Button--primary');
         }
       });
       // links[links.length - 1].classList.add('spectrum-Button', 'spectrum-Button--primary');
+    }
+
+    if (node.className.includes('index3')) {
+      // grab last link and style it like a button
+      const links = body.querySelectorAll('a');
+      links[links.length - 1].classList.add('spectrum-Button', 'spectrum-Button--cta');
     }
 
 

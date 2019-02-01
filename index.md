@@ -33,7 +33,8 @@ API services tied to entitled Adobe products require a JSON Web Token (JWT) to r
 
 ---
 
-# Product highlight
+![Adobe Analytics Logo](https://www.adobe.com/content/dam/www/icons/analytics-cloud.svg)
+`Product Spotlight`
 
 ## Adobe Analytics APIs
 
