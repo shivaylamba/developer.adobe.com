@@ -89,20 +89,35 @@ spectrum-css-diff.css file as well -->
             <div class="spectrum-Accordion-itemContent">Adobe I/O</div>
             <div class="spectrum-Accordion-itemContent">Create Magazine</div>
             <div class="spectrum-Accordion-itemContent">Behance</div>
+            <div class="spectrum-Accordion-itemContent">99U</div>
+            <div class="spectrum-Accordion-itemContent">CMO.com</div>
+            <div class="spectrum-Accordion-itemContent">View All</div>
           </div>
           <div class="spectrum-Accordion-item">
             <div class="spectrum-Accordion-itemHeader" tabindex="0">Support</div>
             <svg class="spectrum-Icon spectrum-UIIcon-ChevronRightMedium spectrum-Accordion-itemIndicator" focusable="false" aria-hidden="true">
               <use xlink:href="#spectrum-css-icon-ChevronRightMedium" />
             </svg>
-            <div class="spectrum-Accordion-itemContent">Item 1</div>
+            <div class="spectrum-Accordion-itemContent">Help Center</div>
+            <div class="spectrum-Accordion-itemContent">Community forums</div>
+            <div class="spectrum-Accordion-itemContent">Contact Adobe</div>
+            <div class="spectrum-Accordion-itemContent">Enterprise Support</div>
+            <div class="spectrum-Accordion-itemContent">Download &amp; install</div>
           </div>
           <div class="spectrum-Accordion-item">
             <div class="spectrum-Accordion-itemHeader" tabindex="0">Adobe</div>
             <svg class="spectrum-Icon spectrum-UIIcon-ChevronRightMedium spectrum-Accordion-itemIndicator" focusable="false" aria-hidden="true">
               <use xlink:href="#spectrum-css-icon-ChevronRightMedium" />
             </svg>
-            <div class="spectrum-Accordion-itemContent">Item 1</div>
+            <div class="spectrum-Accordion-itemContent">Adobe</div>
+            <div class="spectrum-Accordion-itemContent">Newsroom</div>
+            <div class="spectrum-Accordion-itemContent">Corporate Responsibility</div>
+            <div class="spectrum-Accordion-itemContent">Investor Relations</div>
+            <div class="spectrum-Accordion-itemContent">Supply Chain</div>
+            <div class="spectrum-Accordion-itemContent">Trust Center</div>
+            <div class="spectrum-Accordion-itemContent">Events</div>
+            <div class="spectrum-Accordion-itemContent">Careers</div>
+            <div class="spectrum-Accordion-itemContent">Diversity &amp; inclusion</div>
           </div>
         </div>
     </nav>
@@ -112,19 +127,22 @@ spectrum-css-diff.css file as well -->
     <script type="text/javascript">
         window.loadIcons('/icons/spectrum-css-icons.svg');
         window.loadIcons('/icons/spectrum-icons.svg');
-        document.querySelector('#footer spectrum-Accordion-itemHeader').forEach(function(header) {
+        // Enable footer accordion
+        document.querySelectorAll('#footer .spectrum-Accordion-itemHeader').forEach(function(header) {
             header.addEventListener('click', function(evt) {
                 this.parentNode.classList.toggle('is-open');
             });
         });
 
+        // TODO: below code is borked
+        /*
         let mainNav = document.getElementById('js-menu');
         let navBarToggle = document.getElementById('js-navbar-toggle');
 
         navBarToggle.addEventListener('click', function () {
             mainNav.classList.toggle('active');
         });
-
+        */
     </script>
 </body>
 
