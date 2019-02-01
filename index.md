@@ -41,26 +41,3 @@ API services tied to entitled Adobe products require a JSON Web Token (JWT) to r
 The Adobe Analytics APIs are a collection of APIs that power Adobe Analytics products like Analysis Workspace. The APIs allow for the creation of data rich user interfaces that you can use to manipulate and integrate data. You can also create reports to explore, get insights, or answer important questions about your data.
 
 [Read the Docs]()
----
-
-# Recent Blog Articles
-
-## “None” Data Element Storage Duration
-
-What if you don’t want a data element value to be stored? When dealing with single page applications, this can be fairly common.
-
-## Meet the Adobe I/O Team: Jegan Thurai on Managing the BigData Processing Pipeline
-
-Jegan Thurai is a tech lead for the Insights team that provides analytical insights on Adobe I/O. He develops the BigData pipeline that processes more than six billion records per day to provide different metrics and is responsible for making the pipeline handle the ever-increasing traffic and ensuring the metrics are available at all times.
-
-## How to Call an Adobe API using Adobe I/O
-
-Adobe I/O is the place for developers looking to integrate, extend, and create apps and experiences based on Adobe’s products and technologies. In this post, I’ll break down the steps to making your first Adobe API call using Adobe I/O.
-
-# Upcoming Events
-
-## IBC 2018
-
-## B2B Next
-
-## PhotoPlus Expo
