@@ -13,9 +13,9 @@ version: 1
 definitions:
   defaults:
     # Run default content from github repo
-    - &defaultRepo https://github.com/adobe/developer.adobe.com.git#navs
+    # - &defaultRepo https://github.com/adobe/developer.adobe.com.git#navs
     # Run default content from this repo locally
-    #- &defaultRepo "http://localhost/local/default.git"
+    - &defaultRepo "http://localhost/local/default.git"
   strains:
     base:
       &basestrain
@@ -33,52 +33,53 @@ definitions:
 strains:
   default:
     <<: *basestrain
-    package: 58543a3b4aeef75857edb8db7ddf2aa7ee5c5bc5
+    package: d4429a768b94125bfabd4269b37acda37ab00461
 
   launch-docs-prod:
     <<: *basestrain
     url: https://www.adobe.io/launch/docs
     content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
     directoryIndex: README.html
-    package: 58543a3b4aeef75857edb8db7ddf2aa7ee5c5bc5
+    package: d4429a768b94125bfabd4269b37acda37ab00461
+
+  launch-docs-stage:
+    <<: *basestrain
+    url: https://stage.adobe.io/launch/docs
+    content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#author
+    directoryIndex: README.html
+    package: d4429a768b94125bfabd4269b37acda37ab00461
 
   launch-docs-prod-test:
     <<: *basestrain
     url: https://adobedevsite.helix-demo.xyz/launch/docs
     content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
     directoryIndex: README.html
-    package: 58543a3b4aeef75857edb8db7ddf2aa7ee5c5bc5
-
-  launch-docs-stage:
-    <<: *basestrain
-    url: https://stage.adobe.io/launch/docs
-    content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
-    directoryIndex: README.html
-    package: 58543a3b4aeef75857edb8db7ddf2aa7ee5c5bc5
+    package: d4429a768b94125bfabd4269b37acda37ab00461
 
   test-config:
     url: https://adobedevsite.helix-demo.xyz/
     code: ssh://git@github.com/adobe/developer.adobe.com.git#navs
     content: ssh://git@github.com/adobe/developer.adobe.com.git#navs
     static: https://github.com/adobe/developer.adobe.com.git/htdocs
-    package: 58543a3b4aeef75857edb8db7ddf2aa7ee5c5bc5
-  # xd-docs-prod:
-  #   <<: *basestrain
-  #   url: https://www.adobe.io/xd/docs
-  #   content: https://github.com/AdobeXD/plugin-docs.git#master
-  #   directoryIndex: README.html
-  # xd-docs-stage:
-  #   <<: *basestrain
-  #   url: https://stage.adobe.io/xd/docs
-  #   content: https://github.com/AdobeXD/plugin-docs.git#master
-  #   directoryIndex: README.html
-  # xd-marketing-prod:
-  #   <<: *basestrain
-  #   url: https://www.adobe.io/xd
-  #   content: https://github.com/AdobeXD/plugin-docs.git#master
-  #   directoryIndex: README.html
-  # xd-marketing-stage:
-  #   <<: *basestrain
-  #   url: https://stage.adobe.io/xd
-  #   content: https://github.com/AdobeXD/plugin-docs.git#master
-  #   directoryIndex: README.html
+    package: d4429a768b94125bfabd4269b37acda37ab00461
+
+  xd-docs-prod:
+    <<: *basestrain
+    url: https://www.adobe.io/xd/docs
+    content: https://github.com/AdobeXD/plugin-docs.git#master
+    directoryIndex: README.html
+  xd-docs-stage:
+    <<: *basestrain
+    url: https://stage.adobe.io/xd/docs
+    content: https://github.com/AdobeXD/plugin-docs.git#master
+    directoryIndex: README.html
+  xd-marketing-prod:
+    <<: *basestrain
+    url: https://www.adobe.io/xd
+    content: https://github.com/AdobeXD/plugin-docs.git#master
+    directoryIndex: README.html
+  xd-marketing-stage:
+    <<: *basestrain
+    url: https://stage.adobe.io/xd
+    content: https://github.com/AdobeXD/plugin-docs.git#master
+    directoryIndex: README.html
