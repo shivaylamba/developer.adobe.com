@@ -66,7 +66,39 @@
     <div class="spectrum-grid--fluid">
         <esi:include src="${payload.dispatch.url}" />
     </div>
-    <div class="footer">Footer</div>
+    <nav id="footer" class="spectrum--darkest">
+        <svg id="dark_logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 20" focusable="false"><path fill="#FF0000" d="M15.1,0H24v20L15.1,0z M8.9,0H0v20L8.9,0z M12,7.4L17.6,20h-3.8l-1.6-4H8.1L12,7.4z"></path></svg>
+        <div class="spectrum-Accordion">
+          <div class="spectrum-Accordion-item">
+            <div class="spectrum-Accordion-itemHeader" tabindex="0">Products</div>
+            <svg class="spectrum-Icon spectrum-UIIcon-ChevronRightMedium spectrum-Accordion-itemIndicator" focusable="false" aria-hidden="true">
+              <use xlink:href="#spectrum-css-icon-ChevronRightMedium" />
+            </svg>
+            <div class="spectrum-Accordion-itemContent">Item 1</div>
+          </div>
+          <div class="spectrum-Accordion-item">
+            <div class="spectrum-Accordion-itemHeader">Blogs &amp; Community</div>
+            <svg class="spectrum-Icon spectrum-UIIcon-ChevronRightMedium spectrum-Accordion-itemIndicator" focusable="false" aria-hidden="true">
+              <use xlink:href="#spectrum-css-icon-ChevronRightMedium" />
+            </svg>
+            <div class="spectrum-Accordion-itemContent">Item 1</div>
+          </div>
+          <div class="spectrum-Accordion-item">
+            <div class="spectrum-Accordion-itemHeader" tabindex="0">Support</div>
+            <svg class="spectrum-Icon spectrum-UIIcon-ChevronRightMedium spectrum-Accordion-itemIndicator" focusable="false" aria-hidden="true">
+              <use xlink:href="#spectrum-css-icon-ChevronRightMedium" />
+            </svg>
+            <div class="spectrum-Accordion-itemContent">Item 1</div>
+          </div>
+          <div class="spectrum-Accordion-item">
+            <div class="spectrum-Accordion-itemHeader" tabindex="0">Adobe</div>
+            <svg class="spectrum-Icon spectrum-UIIcon-ChevronRightMedium spectrum-Accordion-itemIndicator" focusable="false" aria-hidden="true">
+              <use xlink:href="#spectrum-css-icon-ChevronRightMedium" />
+            </svg>
+            <div class="spectrum-Accordion-itemContent">Item 1</div>
+          </div>
+        </div>
+    </nav>
     <pre id="dev_debug">
     payload.dispatch.url: ${payload.dispatch.url}
     </pre>

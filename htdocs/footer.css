@@ -1,0 +1,14 @@
+#footer {
+    padding: 25px;
+}
+
+#footer > svg#dark_logo {
+    max-width: 25px;
+    max-height: 25px;
+    margin-bottom: 10px;
+}
+
+#footer svg.spectrum-Icon {
+    width: 10px;
+    height: 12px;
+}
