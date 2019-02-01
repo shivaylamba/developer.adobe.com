@@ -67,6 +67,7 @@
 
 .button-read {
     background-color:white !important;
+    border-color:white !important;
     color: #2C2C2C !important;
     margin-right:10px;
 }
