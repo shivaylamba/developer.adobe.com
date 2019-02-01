@@ -86,10 +86,17 @@ async function pre(payload, action) {
 
 
     if (node.className.includes('index0')) {
+      body.childNodes[0].classList.add('spectrum--dark');
       // append the search bar to the end of the first section
       const searchDiv = transformer.getDocument().createElement('div');
       searchDiv.classList.add('search-control');
-      searchDiv.innerHTML = '<form class="spectrum-Search"><input type="search" placeholder="Search our products and Documentation" name="search" value="" class="spectrum-Textfield spectrum-Search-input search-bar"><svg class="spectrum-Icon spectrum-UIIcon-Magnifier spectrum-Search-icon" focusable="false" aria-hidden="true"><use xlink:href="#spectrum-css-icon-Magnifier" /></svg><button type="reset" class="spectrum-ClearButton"><svg class="spectrum-Icon spectrum-UIIcon-CrossSmall" focusable="false" aria-hidden="true"><use xlink:href="#spectrum-css-icon-CrossSmall" /></svg></button></form>';
+      searchDiv.innerHTML = `<div class="spectrum-DecoratedTextfield is-decorated">
+  <label for="search-input" class="spectrum-FieldLabel">Search our products and documentation</label>
+  <svg class="spectrum-Icon spectrum-UIIcon-Magnifier spectrum-Icon--sizeS spectrum-DecoratedTextfield-icon" focusable="false" aria-hidden="true">
+    <use xlink:href="#spectrum-css-icon-Magnifier" />
+  </svg>
+  <input id="search-input" class="spectrum-Textfield spectrum-DecoratedTextfield-field" aria-invalid="false" type="text">
+</div>`;
       node.appendChild(searchDiv);
 
       // bold and underline links in first section
@@ -109,67 +116,57 @@ async function pre(payload, action) {
       const list = body.querySelectorAll('ul');
       list.forEach((ul) => {
         ul.classList.add('removeStyle');
-      })
+      });
       const links = body.querySelectorAll('a');
       links.forEach((link, index) => {
-        if(index === 0 || index === 2){
-          link.classList.add('spectrum-Button', 'spectrum-Button--cta','button-read');
+        if (index === 0 || index === 2) {
+          link.classList.add('spectrum-Button', 'spectrum-Button--cta', 'button-read');
         } else {
           link.classList.add('spectrum-Button', 'spectrum-Button--primary', 'list-button');
         }
-        
-      })
-      //links[links.length - 1].classList.add('spectrum-Button', 'spectrum-Button--primary');
+      });
+      // links[links.length - 1].classList.add('spectrum-Button', 'spectrum-Button--primary');
     }
 
 
     // "state machine"
     if (previous) {
-
       // if 2 consecutive paragraphs contain an (image and a paragraph) OR (2 images), put them on the same "row"
       if (
-        !types.includes('index0') &&
-        (types.includes('has-paragraph') || types.includes('nb-image-2')) &&
-        types.includes('has-image') &&
-        (previous.className.includes('has-paragraph') || previous.className.includes('nb-image-2')) &&
-        previous.className.includes('has-image') &&
-        !previous.className.includes('left')) {
-
+        !types.includes('index0')
+        && (types.includes('has-paragraph') || types.includes('nb-image-2'))
+        && types.includes('has-image')
+        && (previous.className.includes('has-paragraph') || previous.className.includes('nb-image-2'))
+        && previous.className.includes('has-image')
+        && !previous.className.includes('left')) {
         // do nothing
-        console.log('nothing')
+        console.log('nothing');
+      } else if (
+      // if list only and no heading -> carousel
+        types.includes('is-list-only')
+          && !types.includes('has-heading')) {
+        // node.classList.add('carousel');
 
+        const carousel = node;
+
+        node = transformer.getDocument().createElement('div');
+        node.classList.add('carousel');
+
+        node.innerHTML = carousel.outerHTML;
+
+        const controlDiv = transformer.getDocument().createElement('div');
+        controlDiv.classList.add('carousel-control');
+        controlDiv.innerHTML = '<i class ="fa fa-angle-left fa-2x" id="carousel-l"></i><i class = "fa fa-angle-right fa-2x" id="carousel-r"></i>';
+
+        node.appendChild(controlDiv);
       } else {
-        if (
-          // if list only and no heading -> carousel
-          types.includes('is-list-only') &&
-          !types.includes('has-heading')) {
 
-          //node.classList.add('carousel');
-
-          const carousel = node;
-
-          node = transformer.getDocument().createElement('div');
-          node.classList.add('carousel');
-
-          node.innerHTML = carousel.outerHTML;
-
-          const controlDiv = transformer.getDocument().createElement('div');
-          controlDiv.classList.add('carousel-control');
-          controlDiv.innerHTML = '<i class ="fa fa-angle-left fa-2x" id="carousel-l"></i><i class = "fa fa-angle-right fa-2x" id="carousel-r"></i>';
-
-          node.appendChild(controlDiv);
-        } else {
-
-        }
       }
-
-
-
     }
 
     types.push('section');
     // add types as css class
-    types.forEach(t => {
+    types.forEach((t) => {
       node.classList.add(t);
     });
 

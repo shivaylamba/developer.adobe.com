@@ -1,20 +1,20 @@
-Find what you're looking for
-# Do More with Adobe
-Customize and extend Adobe’s products to create better customer experiences with [our APIs](), [help guides]() and [community support]().
+`Find what you're looking for`
 
+## Do More with Adobe
 
+Customize and extend Adobe’s products to create better customer experiences with our APIs, help guides and community support.
 
 ---
 
 ![XD Logo](https://www.adobe.io/content/dam/udp/language-masters/en/xd_logo_43733775.svg)
-The future of extending creative cloud apps
+`The future of extending creative cloud apps`
 # Start Building with Adobe XD today
 
 Create XD plugins to push the boundaries of experience design by adding new features to [Adobe XD](https://adobexdplatform.com/), automating workflows, connecting XD to external services, and more—all on a quick, modern JavaScript engine with native UI components.
 
-Let’s supercharge the future of design together with [XD plugins]().
+Let’s supercharge the future of design together with XD plugins.
 
-[See what's possible](https://adobexdplatform.com/)
+[See What's Possible](https://adobexdplatform.com/)
 
 ---
 
