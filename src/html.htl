@@ -135,14 +135,14 @@ spectrum-css-diff.css file as well -->
         });
 
         // TODO: below code is borked
-        /*
+        
         let mainNav = document.getElementById('js-menu');
         let navBarToggle = document.getElementById('js-navbar-toggle');
 
         navBarToggle.addEventListener('click', function () {
             mainNav.classList.toggle('active');
         });
-        */
+        
     </script>
 </body>
 
