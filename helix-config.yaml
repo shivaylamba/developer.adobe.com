@@ -13,9 +13,9 @@ version: 1
 definitions:
   defaults:
     # Run default content from github repo
-    #- &defaultRepo https://github.com/adobe/developer.adobe.com.git#navs
+    - &defaultRepo https://github.com/adobe/developer.adobe.com.git#navs
     # Run default content from this repo locally
-    - &defaultRepo "http://localhost/local/default.git"
+    #- &defaultRepo "http://localhost/local/default.git"
   strains:
     base:
       &basestrain

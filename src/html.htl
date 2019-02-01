@@ -121,9 +121,6 @@ spectrum-css-diff.css file as well -->
           </div>
         </div>
     </nav>
-    <pre id="dev_debug">
-    payload.dispatch.url: ${payload.dispatch.url}
-    </pre>
     <script type="text/javascript">
         window.loadIcons('/icons/spectrum-css-icons.svg');
         window.loadIcons('/icons/spectrum-icons.svg');
