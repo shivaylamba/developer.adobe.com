@@ -68,18 +68,21 @@ strains:
     url: https://www.adobe.io/xd/docs
     content: https://github.com/AdobeXD/plugin-docs.git#master
     directoryIndex: README.html
+    
   xd-docs-stage:
     <<: *basestrain
     url: https://stage.adobe.io/xd/docs
-    content: https://github.com/AdobeXD/plugin-docs.git#master
+    content: https://github.com/AdobeXD/plugin-docs.git#author
     directoryIndex: README.html
+
   xd-marketing-prod:
     <<: *basestrain
     url: https://www.adobe.io/xd
     content: https://github.com/AdobeXD/plugin-docs.git#master
     directoryIndex: README.html
+
   xd-marketing-stage:
     <<: *basestrain
     url: https://stage.adobe.io/xd
-    content: https://github.com/AdobeXD/plugin-docs.git#master
+    content: https://github.com/AdobeXD/plugin-docs.git#author
     directoryIndex: README.html
