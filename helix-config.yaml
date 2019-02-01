@@ -13,7 +13,7 @@ version: 1
 definitions:
   defaults:
     # Run default content from github repo
-    - &defaultRepo https://github.com/adobe/developer.adobe.com.git#navs
+    - &defaultRepo https://github.com/adobe/developer.adobe.com.git#master
     # Run default content from this repo locally
     #- &defaultRepo "http://localhost/local/default.git"
   strains:
@@ -58,8 +58,8 @@ strains:
 
   test-config:
     url: https://adobedevsite.helix-demo.xyz/
-    code: ssh://git@github.com/adobe/developer.adobe.com.git#navs
-    content: ssh://git@github.com/adobe/developer.adobe.com.git#navs
+    code: ssh://git@github.com/adobe/developer.adobe.com.git#master
+    content: ssh://git@github.com/adobe/developer.adobe.com.git#master
     static: https://github.com/adobe/developer.adobe.com.git/htdocs
     package: d4429a768b94125bfabd4269b37acda37ab00461
 
