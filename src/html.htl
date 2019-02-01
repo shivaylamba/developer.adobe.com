@@ -68,38 +68,42 @@ spectrum-css-diff.css file as well -->
             <path fill="#FF0000" d="M15.1,0H24v20L15.1,0z M8.9,0H0v20L8.9,0z M12,7.4L17.6,20h-3.8l-1.6-4H8.1L12,7.4z"></path>
         </svg>
         <div class="spectrum-Accordion">
-            <div class="spectrum-Accordion-item">
-                <div class="spectrum-Accordion-itemHeader" tabindex="0">Products</div>
-                <svg class="spectrum-Icon spectrum-UIIcon-ChevronRightMedium spectrum-Accordion-itemIndicator"
-                    focusable="false" aria-hidden="true">
-                    <use xlink:href="#spectrum-css-icon-ChevronRightMedium" />
-                </svg>
-                <div class="spectrum-Accordion-itemContent">Item 1</div>
-            </div>
-            <div class="spectrum-Accordion-item">
-                <div class="spectrum-Accordion-itemHeader">Blogs &amp; Community</div>
-                <svg class="spectrum-Icon spectrum-UIIcon-ChevronRightMedium spectrum-Accordion-itemIndicator"
-                    focusable="false" aria-hidden="true">
-                    <use xlink:href="#spectrum-css-icon-ChevronRightMedium" />
-                </svg>
-                <div class="spectrum-Accordion-itemContent">Item 1</div>
-            </div>
-            <div class="spectrum-Accordion-item">
-                <div class="spectrum-Accordion-itemHeader" tabindex="0">Support</div>
-                <svg class="spectrum-Icon spectrum-UIIcon-ChevronRightMedium spectrum-Accordion-itemIndicator"
-                    focusable="false" aria-hidden="true">
-                    <use xlink:href="#spectrum-css-icon-ChevronRightMedium" />
-                </svg>
-                <div class="spectrum-Accordion-itemContent">Item 1</div>
-            </div>
-            <div class="spectrum-Accordion-item">
-                <div class="spectrum-Accordion-itemHeader" tabindex="0">Adobe</div>
-                <svg class="spectrum-Icon spectrum-UIIcon-ChevronRightMedium spectrum-Accordion-itemIndicator"
-                    focusable="false" aria-hidden="true">
-                    <use xlink:href="#spectrum-css-icon-ChevronRightMedium" />
-                </svg>
-                <div class="spectrum-Accordion-itemContent">Item 1</div>
-            </div>
+          <div class="spectrum-Accordion-item">
+            <div class="spectrum-Accordion-itemHeader" tabindex="0">Products</div>
+            <svg class="spectrum-Icon spectrum-UIIcon-ChevronRightMedium spectrum-Accordion-itemIndicator" focusable="false" aria-hidden="true">
+              <use xlink:href="#spectrum-css-icon-ChevronRightMedium" />
+            </svg>
+            <div class="spectrum-Accordion-itemContent">Creative Cloud</div>
+            <div class="spectrum-Accordion-itemContent">Experience Cloud</div>
+            <div class="spectrum-Accordion-itemContent">Document Cloud</div>
+            <div class="spectrum-Accordion-itemContent">Elements 2019 Family</div>
+            <div class="spectrum-Accordion-itemContent">Special Offers</div>
+            <div class="spectrum-Accordion-itemContent">View All Products</div>
+          </div>
+          <div class="spectrum-Accordion-item">
+            <div class="spectrum-Accordion-itemHeader">Blogs &amp; Community</div>
+            <svg class="spectrum-Icon spectrum-UIIcon-ChevronRightMedium spectrum-Accordion-itemIndicator" focusable="false" aria-hidden="true">
+              <use xlink:href="#spectrum-css-icon-ChevronRightMedium" />
+            </svg>
+            <div class="spectrum-Accordion-itemContent">Adobe Blog</div>
+            <div class="spectrum-Accordion-itemContent">Adobe I/O</div>
+            <div class="spectrum-Accordion-itemContent">Create Magazine</div>
+            <div class="spectrum-Accordion-itemContent">Behance</div>
+          </div>
+          <div class="spectrum-Accordion-item">
+            <div class="spectrum-Accordion-itemHeader" tabindex="0">Support</div>
+            <svg class="spectrum-Icon spectrum-UIIcon-ChevronRightMedium spectrum-Accordion-itemIndicator" focusable="false" aria-hidden="true">
+              <use xlink:href="#spectrum-css-icon-ChevronRightMedium" />
+            </svg>
+            <div class="spectrum-Accordion-itemContent">Item 1</div>
+          </div>
+          <div class="spectrum-Accordion-item">
+            <div class="spectrum-Accordion-itemHeader" tabindex="0">Adobe</div>
+            <svg class="spectrum-Icon spectrum-UIIcon-ChevronRightMedium spectrum-Accordion-itemIndicator" focusable="false" aria-hidden="true">
+              <use xlink:href="#spectrum-css-icon-ChevronRightMedium" />
+            </svg>
+            <div class="spectrum-Accordion-itemContent">Item 1</div>
+          </div>
         </div>
     </nav>
     <pre id="dev_debug">
@@ -108,6 +112,11 @@ spectrum-css-diff.css file as well -->
     <script type="text/javascript">
         window.loadIcons('/icons/spectrum-css-icons.svg');
         window.loadIcons('/icons/spectrum-icons.svg');
+        document.querySelector('#footer spectrum-Accordion-itemHeader').forEach(function(header) {
+            header.addEventListener('click', function(evt) {
+                this.parentNode.classList.toggle('is-open');
+            });
+        });
 
         let mainNav = document.getElementById('js-menu');
         let navBarToggle = document.getElementById('js-navbar-toggle');
@@ -115,6 +124,7 @@ spectrum-css-diff.css file as well -->
         navBarToggle.addEventListener('click', function () {
             mainNav.classList.toggle('active');
         });
+
     </script>
 </body>
 
