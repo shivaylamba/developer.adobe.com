@@ -37,17 +37,17 @@ spectrum-css-diff.css file as well -->
 <body class="spectrum spectrum--light spectrum-Typography">
 
     <nav class="navbar">
-        <span class="navbar-toggle" id="js-navbar-toggle">
-            <svg class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" aria-hidden="true" aria-label="ShowMenu">
-                <use xlink:href="#spectrum-icon-18-ShowMenu"></use>
-            </svg>
-        </span>
-        <div class="logo-container">
+        <div class="navbar-logos">
+            <span class="navbar-toggle" id="js-navbar-toggle">
+                <svg class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" aria-hidden="true" aria-label="ShowMenu">
+                    <use xlink:href="#spectrum-icon-18-ShowMenu"></use>
+                </svg>
+            </span>
             <a href="#" class="logo">Adobe I/O</a>
         </div>
         <ul class="main-nav" id="js-menu">
             <li>
-                <a href="#" class="nav-links">Authentication</a>
+                <a href="#" class="nav-links first-nav">Authentication</a>
             </li>
             <li>
                 <a href="#" class="nav-links">Open Source</a>

@@ -6,7 +6,9 @@
 }
 .main-nav {
 	list-style-type: none;
+	padding-left: 20px;
 }
+
 .nav-links,
 .logo {
 	text-decoration: none;
@@ -18,16 +20,18 @@
 	margin: 15px auto;
 }
 
+.navbar-logos {
+	display:flex
+}
+
 .logo {
 	display: inline-block;
 	font-size: 22px;
-	margin-top: 10px;
-	margin-left: 20px;
+	margin-right:auto;
 }
 
-.logo-container {
-	display:flex;
-	justify-content: center;
+.navbar-toggle {
+	margin-right:auto;
 }
 
 .navbar-toggle {
@@ -50,30 +54,41 @@
 
 @media screen and (min-width: 768px) {
 	.navbar {
-			display: flex;
-			justify-content: space-between;
-			padding-bottom: 0;
-			height: 70px;
-			align-items: center;
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: 0;
+		height: 70px;
+		align-items: center;
 	}
 	.main-nav {
-			display: flex;
-			margin-right: 30px;
-			flex-direction: row;
-			justify-content: center;
+		display: flex;
+		margin-right:auto;
+		padding-left: 0px;
 	}
+
 	.main-nav li {
-			margin: 0;
+		margin: 0;
 	}
+
 	.nav-links {
-			margin-left: 40px;
+		margin-left: 30px;
 	}
+
+	.first-nav {
+		margin-left:0px;
+	}
+	
 	.logo {
-			margin-top: 0;
-			padding-left:0;
+		margin-top: 0;
+		padding-left:0;
 	}
+
+	.navbar-logos {
+		margin-right:auto
+	}
+
  .navbar-toggle {
-		 display: none;
+		display: none;
 	}
 	.logo:hover,
 	.nav-links:hover {
