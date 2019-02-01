@@ -142,9 +142,9 @@ async function pre(payload, action) {
         // do nothing
         console.log('nothing');
       } else if (
-      // if list only and no heading -> carousel
+        // if list only and no heading -> carousel
         types.includes('is-list-only')
-          && !types.includes('has-heading')) {
+        && !types.includes('has-heading')) {
         // node.classList.add('carousel');
 
         const carousel = node;

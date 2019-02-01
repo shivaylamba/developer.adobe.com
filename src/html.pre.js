@@ -34,10 +34,18 @@ function pre(payload, action) {
     payload.request.url = "/index.html";
   }
 
-  if (payload.request.url.indexOf('/docs') !== -1) {
-    payload.dispatch.url = payload.request.url.replace(/\.html/, '.docs.html');
+  if(payload.request.headers['x-strain'] === 'launch-docs-prod') {
+    console.log('docs', payload.request.url);
+    payload.dispatch.url = payload.request.path.replace(/\.md/, '.docs.html');
+    console.log('docs', payload.request.url);
+    payload.dispatch.url = '/launch/docs' + payload.dispatch.url;
   }
+  // if (payload.request.url.indexOf('/docs') !== -1) {
+  //   console.log('docs', payload.request.url);
+  //   payload.dispatch.url = payload.request.url.replace(/\.html/, '.docs.html');
+  // }
   else {
+    console.log('default', payload.request.url);
     payload.dispatch.url = payload.request.url.replace(/\.html/, '.default.html');
   }
 }

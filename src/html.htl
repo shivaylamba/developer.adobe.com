@@ -12,7 +12,8 @@
 */
 -->
 <!DOCTYPE html>
-<html class="spectrum--large"> <!-- TODO: this should be set to large or medium depending on mobile vs. desktop screens -->
+<html class="spectrum--large">
+<!-- TODO: this should be set to large or medium depending on mobile vs. desktop screens -->
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
@@ -27,35 +28,42 @@
     <link rel="stylesheet" href="/topnav.css" />
     <link rel="stylesheet" href="/footer.css" />
     <link rel="stylesheet" href="https://use.typekit.net/ehj8kyw.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+        crossorigin="anonymous">
     <script src="https://momentjs.com/downloads/moment.min.js"></script>
-    <script src="loadIcons.js"></script>
+    <script src="/icons/loadIcons.js"></script>
     <title>${content.title}</title>
 </head>
 
 <body class="spectrum spectrum--light spectrum-Typography">
-    <div class="global-navbar spectrum-grid--fluid">
-        <div class="spectrum-grid-row center">
-            <div class="Navbar_Logo">
-                <div class="Navbar_Link Navbar__Link-brand">
-                    Adobe I/O
-                </div>
-            </div>
-            <div class="Navbar_Links spectrum-grid-row">
-                <div class="Navbar_Link">
-                    Authentication
-                </div>
-                <div class="Navbar_Link">
-                    Open Source
-                </div>
-                <div class="Navbar_Link">
-                    Blog
-                </div>
-                <div class="Navbar_Link">
-                    Console
-                </div>
-            </div>
-        </div>
-    </div>
+
+    <nav class="navbar spectrum-grid--fluid">
+        <span class="navbar-toggle" id="js-navbar-toggle">
+            <i class="fas fa-bars"></i>
+        </span>
+        <!--
+        <button class="spectrum-ActionButton">
+            <svg class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" aria-hidden="true" aria-label="ShowMenu">
+                <use xlink:href="#spectrum-icon-18-ShowMenu"></use>
+            </svg>
+        </button>
+        -->
+        <a href="#" class="logo">Adobe I/O</a>
+        <ul class="main-nav" id="js-menu">
+            <li>
+                <a href="#" class="nav-links">Authentication</a>
+            </li>
+            <li>
+                <a href="#" class="nav-links">Open Source</a>
+            </li>
+            <li>
+                <a href="#" class="nav-links">Blog</a>
+            </li>
+            <li>
+                <a href="#" class="nav-links spectrum-Button spectrum-Button--cta">Console</a>
+            </li>
+        </ul>
+    </nav>
     <div class="spectrum-grid--fluid">
         <esi:include src="${payload.dispatch.url}" />
     </div>
@@ -64,5 +72,16 @@
     payload.dispatch.url: ${payload.dispatch.url}
     </pre>
     <script type="text/javascript">loadIcons('icons/spectrum-css-icons.svg');</script>
+    <script>
+        window.loadIcons('/icons/spectrum-css-icons.svg');
+
+        let mainNav = document.getElementById('js-menu');
+        let navBarToggle = document.getElementById('js-navbar-toggle');
+
+        navBarToggle.addEventListener('click', function () {
+            mainNav.classList.toggle('active');
+        });
+    </script>
 </body>
+
 </html>

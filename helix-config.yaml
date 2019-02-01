@@ -14,7 +14,7 @@ definitions:
   defaults:
     # Run default content from github repo
     #- &defaultRepo https://github.com/adobe/Adobe-Developer-Site.git#testDeploy
-    
+
     # Run default content from this repo locally
     - &defaultRepo "http://localhost/local/default.git"
   strains:
