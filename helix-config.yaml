@@ -13,10 +13,10 @@ version: 1
 definitions:
   defaults:
     # Run default content from github repo
-    #- &defaultRepo https://github.com/adobe/Adobe-Developer-Site.git#testDeploy
+    - &defaultRepo https://github.com/adobe/developer.adobe.com.git#navs
 
     # Run default content from this repo locally
-    - &defaultRepo "http://localhost/local/default.git"
+    #- &defaultRepo "http://localhost/local/default.git"
   strains:
     base:
       &basestrain
@@ -59,10 +59,11 @@ strains:
 
   test-config:
     url: https://adobedevsite.helix-demo.xyz/
-    code: ssh://git@github.com/adobe/Adobe-Developer-Site.git#testDeploy
-    content: https://github.com/adobe/Adobe-Developer-Site.git#master
-    static: https://github.com/adobe/Adobe-Developer-Site.git/htdocs#master
+    code: ssh://git@github.com/adobe/developer.adobe.com.git#navs
+    content: ssh://git@github.com/adobe/developer.adobe.com.git#navs
+    static: http://localhost/local/default.git/htdocs
     package: 5370e6a1904fb0fac6d027f1606e4882551cfbdb-dirty
+
   # xd-docs-prod:
   #   <<: *basestrain
   #   url: https://www.adobe.io/xd/docs
