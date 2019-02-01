@@ -13,7 +13,9 @@
 -->
 <!DOCTYPE html>
 <html class="spectrum--large">
-<!-- TODO: this should be set to large or medium depending on mobile vs. desktop screens -->
+<!-- TODO: this should be set to large or medium depending on mobile vs. desktop
+screens. if we change to medium at any point, then we'll need to import
+spectrum-css-diff.css file as well -->
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
@@ -37,16 +39,16 @@
 <body class="spectrum spectrum--light spectrum-Typography">
 
     <nav class="navbar spectrum-grid--fluid">
+        <!--
         <span class="navbar-toggle" id="js-navbar-toggle">
             <i class="fas fa-bars"></i>
         </span>
-        <!--
+        -->
         <button class="spectrum-ActionButton">
             <svg class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" aria-hidden="true" aria-label="ShowMenu">
                 <use xlink:href="#spectrum-icon-18-ShowMenu"></use>
             </svg>
         </button>
-        -->
         <a href="#" class="logo">Adobe I/O</a>
         <ul class="main-nav" id="js-menu">
             <li>
@@ -102,9 +104,9 @@
     <pre id="dev_debug">
     payload.dispatch.url: ${payload.dispatch.url}
     </pre>
-    <script type="text/javascript">loadIcons('icons/spectrum-css-icons.svg');</script>
     <script>
         window.loadIcons('/icons/spectrum-css-icons.svg');
+        window.loadIcons('/icons/spectrum-icons.svg');
 
         let mainNav = document.getElementById('js-menu');
         let navBarToggle = document.getElementById('js-navbar-toggle');
