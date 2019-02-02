@@ -131,15 +131,13 @@ spectrum-css-diff.css file as well -->
             });
         });
 
-        // TODO: below code is borked
-        
+        // Enable header navigation toggle
         let mainNav = document.getElementById('js-menu');
         let navBarToggle = document.getElementById('js-navbar-toggle');
 
         navBarToggle.addEventListener('click', function () {
             mainNav.classList.toggle('active');
         });
-        
     </script>
 </body>
 
