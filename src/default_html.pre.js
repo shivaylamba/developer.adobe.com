@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
-// eslint-disable-next-line import/no-unresolved
+// eslint-disable-next-line import/no-extraneous-dependencies, import/no-unresolved
 const VDOM = require('@adobe/helix-pipeline').utils.vdom;
 const RSSParser = require('rss-parser');
 const moment = require('moment');
