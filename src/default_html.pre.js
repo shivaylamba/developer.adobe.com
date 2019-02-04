@@ -13,6 +13,14 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 const VDOM = require('@adobe/helix-pipeline').utils.vdom;
 
+const DOMUtil = {
+  addClass(document, selector, classNames) {
+    document.querySelectorAll(selector).forEach((element) => {
+      classNames.split(' ').forEach(className => element.classList.add(className));
+    });
+  },
+};
+
 // module.exports.pre is a function (taking next as an argument)
 // that returns a function (with payload, config, logger as arguments)
 // that calls next (after modifying the payload a bit)
@@ -30,35 +38,21 @@ async function pre(payload, action) {
 
   const c = payload.content;
 
-  const body = c.document.body;
-  // TODO: factor the below out into a generic "apply spectrum styles" function? it
-  // gets used below as well
-  body.querySelectorAll('a').forEach((anchor) => {
-    anchor.classList.add('spectrum-Link');
-  });
-  body.querySelectorAll('p').forEach((paragraph) => {
-    paragraph.classList.add('spectrum-Body3');
-  });
+  const documentBody = c.document.body;
+
+  DOMUtil.addClass(documentBody, 'a', 'spectrum-Link');
+  DOMUtil.addClass(documentBody, 'p', 'spectrum-Body3');
   [1, 2, 3, 4, 5].forEach((i) => {
-    body.querySelectorAll(`h${i}`).forEach((heading) => {
-      heading.classList.add(`spectrum-Heading${i}`);
-    });
+    DOMUtil.addClass(documentBody, `h${i}`, `spectrum-Heading${i}`);
   });
-  body.querySelectorAll('code').forEach((code) => {
-    code.classList.add('spectrum-Code3');
-  });
-  body.querySelectorAll('li').forEach((li) => {
-    li.classList.add('spectrum-Body3');
-    li.style.marginBottom = '0';
-  });
+  DOMUtil.addClass(documentBody, 'code', 'spectrum-Code3');
+  DOMUtil.addClass(documentBody, 'li', 'spectrum-Body3 li-no-margin-bottom');
 
   c.sectionsDocuments = [];
 
-  let previous;
-
   c.sections.forEach((element, index) => {
     const transformer = new VDOM(element, secrets);
-    const body = transformer.getDocument().body;
+    const { body } = transformer.getDocument();
     const node = body.firstChild;
     `section index${index} ${index % 2 ? 'even' : 'odd'} ${element.types.join(' ')} spectrum-grid-col-sm-12 spectrum-grid-col-md-6`.split(' ').forEach((className) => {
       node.classList.add(className);
@@ -67,28 +61,18 @@ async function pre(payload, action) {
     types.push(`index${index}`);
     console.log(types);
 
-    body.querySelectorAll('a').forEach((anchor) => {
-      anchor.classList.add('spectrum-Link');
-    });
-    body.querySelectorAll('p').forEach((paragraph) => {
-      paragraph.classList.add('spectrum-Body3');
-    });
+    DOMUtil.addClass(body, 'a', 'spectrum-Link');
+    DOMUtil.addClass(body, 'p', 'spectrum-Body3');
     [1, 2, 3, 4, 5].forEach((i) => {
-      body.querySelectorAll(`h${i}`).forEach((heading) => {
-        heading.classList.add(`spectrum-Heading${i}`);
-      });
+      DOMUtil.addClass(body, `h${i}`, `spectrum-Heading${i}`);
     });
-    body.querySelectorAll('code').forEach((code) => {
-      code.classList.add('spectrum-Code3');
-    });
-    body.querySelectorAll('li').forEach((li) => {
-      li.classList.add('spectrum-Body3');
-      li.style.marginBottom = '0';
-    });
+    DOMUtil.addClass(body, 'code', 'spectrum-Code3');
+    DOMUtil.addClass(body, 'li', 'spectrum-Body3 li-no-margin-bottom');
 
 
     if (node.className.includes('index0')) {
-      body.childNodes[0].classList.add('spectrum--dark');
+      DOMUtil.addClass(body, 'div:nth-of-type(1)', 'spectrum--dark');
+
       // append the search bar to the end of the first section
       const searchDiv = transformer.getDocument().createElement('div');
       searchDiv.classList.add('search-control');
@@ -102,75 +86,31 @@ async function pre(payload, action) {
       node.appendChild(searchDiv);
 
       // bold and underline links in first section
-      body.querySelectorAll('a').forEach((anchor) => {
-        anchor.classList.add('index0-links');
-      });
+      DOMUtil.addClass(body, 'a', 'index0-links');
     }
 
     if (node.className.includes('index1')) {
-      // grab last link and style it like a button
-      const links = body.querySelectorAll('a');
-      links[links.length - 1].classList.add('spectrum-Button', 'spectrum-Button--primary');
+      DOMUtil.addClass(body, 'p:last-of-type a', 'spectrum-Button spectrum-Button--primary');
     }
 
     if (node.className.includes('index2')) {
-      body.childNodes[0].classList.add('spectrum--dark');
+      DOMUtil.addClass(body, 'div:nth-of-type(1)', 'spectrum--dark');
       // grab last link and style it like a button
-      const list = body.querySelectorAll('ul');
-      list.forEach((ul) => {
-        ul.classList.add('removeStyle');
-      });
+      DOMUtil.addClass(body, 'ul', 'removeStyle');
+
       const links = body.querySelectorAll('a');
-      links.forEach((link, index) => {
-        if (index === 0 || index === 2) {
+      links.forEach((link, i) => {
+        if (i === 0 || i === 2) {
           link.classList.add('spectrum-Button', 'spectrum-Button--cta', 'button-read');
         } else {
           link.classList.add('spectrum-Button', 'spectrum-Button--primary');
         }
       });
-      // links[links.length - 1].classList.add('spectrum-Button', 'spectrum-Button--primary');
     }
 
     if (node.className.includes('index3')) {
       // grab last link and style it like a button
-      const links = body.querySelectorAll('a');
-      links[links.length - 1].classList.add('spectrum-Button', 'spectrum-Button--cta');
-    }
-
-
-    // "state machine"
-    if (previous) {
-      // if 2 consecutive paragraphs contain an (image and a paragraph) OR (2 images), put them on the same "row"
-      if (
-        !types.includes('index0')
-        && (types.includes('has-paragraph') || types.includes('nb-image-2'))
-        && types.includes('has-image')
-        && (previous.className.includes('has-paragraph') || previous.className.includes('nb-image-2'))
-        && previous.className.includes('has-image')
-        && !previous.className.includes('left')) {
-        // do nothing
-        console.log('nothing');
-      } else if (
-        // if list only and no heading -> carousel
-        types.includes('is-list-only')
-        && !types.includes('has-heading')) {
-        // node.classList.add('carousel');
-
-        const carousel = node;
-
-        node = transformer.getDocument().createElement('div');
-        node.classList.add('carousel');
-
-        node.innerHTML = carousel.outerHTML;
-
-        const controlDiv = transformer.getDocument().createElement('div');
-        controlDiv.classList.add('carousel-control');
-        controlDiv.innerHTML = '<i class ="fa fa-angle-left fa-2x" id="carousel-l"></i><i class = "fa fa-angle-right fa-2x" id="carousel-r"></i>';
-
-        node.appendChild(controlDiv);
-      } else {
-
-      }
+      DOMUtil.addClass(body, 'p:last-of-type a', 'spectrum-Button spectrum-Button--cta');
     }
 
     types.push('section');
@@ -179,7 +119,6 @@ async function pre(payload, action) {
       node.classList.add(t);
     });
 
-    previous = node;
     c.sectionsDocuments.push(node);
   });
 }
