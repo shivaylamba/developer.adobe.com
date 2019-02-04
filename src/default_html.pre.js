@@ -10,6 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
+// eslint-disable-next-line import/no-extraneous-dependencies
 const VDOM = require('@adobe/helix-pipeline').utils.vdom;
 
 // module.exports.pre is a function (taking next as an argument)
