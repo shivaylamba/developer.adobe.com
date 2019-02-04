@@ -12,6 +12,10 @@
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 const VDOM = require('@adobe/helix-pipeline').utils.vdom;
+const RSSParser = require('rss-parser');
+const moment = require('moment');
+
+const rss = new RSSParser();
 
 const DOMUtil = {
   addClass(document, selector, classNames) {
@@ -35,6 +39,13 @@ async function pre(payload, action) {
     logger.debug('html-pre.js - Payload has no resource, nothing we can do');
     return payload;
   }
+  let feed = null;
+  try {
+    feed = await rss.parseURL('https://medium.com/feed/adobetech');
+  } catch (e) {
+    console.error('error durring parsing adobetech blog rss feed!', e);
+  }
+
 
   const c = payload.content;
 
@@ -51,6 +62,11 @@ async function pre(payload, action) {
   c.sectionsDocuments = [];
 
   c.sections.forEach((element, index) => {
+    console.log('processing section with index', index);
+    if (!element.children.length) {
+      console.warn('skipping childless node');
+      return;
+    }
     const transformer = new VDOM(element, secrets);
     const { body } = transformer.getDocument();
     const node = body.firstChild;
@@ -59,7 +75,6 @@ async function pre(payload, action) {
     });
     const types = element.types.slice();
     types.push(`index${index}`);
-    console.log(types);
 
     DOMUtil.addClass(body, 'a', 'spectrum-Link');
     DOMUtil.addClass(body, 'p', 'spectrum-Body3');
@@ -111,6 +126,32 @@ async function pre(payload, action) {
     if (node.className.includes('index3')) {
       // grab last link and style it like a button
       DOMUtil.addClass(body, 'p:last-of-type a', 'spectrum-Button spectrum-Button--cta');
+    }
+    if (node.className.includes('index4')) {
+      feed.items.slice(0, 3).forEach((item) => {
+        console.log('processing blog', item.title);
+        const pubMoment = moment(item.pubDate);
+        const ps = item['content:encoded'].split('<p>');
+        const firstStart = ps[1];
+        const firstParagraphContent = firstStart.split('</p>')[0];
+        const secondParagraphContent = (ps[2] ? ps[2].split('</p>')[0] : '');
+        let caption = `${firstParagraphContent} ${secondParagraphContent}`;
+        if (caption.length > 340) {
+          // TODO: this may cut content that is mid-html-tag. the
+          // `content:encoded` field contains html, too.
+          caption = caption.substring(0, 340);
+          caption = caption.replace(/\w+$/, '...');
+        }
+        const div = transformer.getDocument().createElement('div');
+        div.innerHTML = `<p class="spectrum-Body3"><strong>${item.creator}</strong></p>
+<code class="spectrum-Code5">${pubMoment.format('MMM Mo')} ${(moment().year() !== pubMoment.year() ? moment.year() : '')}</code>
+<h4 class="spectrum-Heading4">${item.title}</h4>
+<p class="spectrum-Body3">${caption}</p>
+<a href="${item.link}" class="spectrum-Button spectrum-Button--primary" style="margin: 20px 0;">Read On</a>
+<hr class="spectrum-Rule spectrum-Rule--medium">`;
+        div.classList.add('spectrum-Article');
+        node.appendChild(div);
+      });
     }
 
     types.push('section');

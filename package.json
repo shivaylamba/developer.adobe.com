@@ -21,8 +21,10 @@
   },
   "homepage": "https://github.com/adobe/Adobe-Developer-Site#readme",
   "dependencies": {
+    "moment": "^2.24.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
+    "rss-parser": "^3.6.2",
     "unist-util-visit": "^1.4.0",
     "uri-js": "^4.2.2"
   },
