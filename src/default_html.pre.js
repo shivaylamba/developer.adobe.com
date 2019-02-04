@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
-// eslint-disable-next-line import/no-extraneous-dependencies
+// eslint-disable-next-line import/no-unresolved
 const VDOM = require('@adobe/helix-pipeline').utils.vdom;
 const RSSParser = require('rss-parser');
 const moment = require('moment');
@@ -32,7 +32,6 @@ async function pre(payload, action) {
   const {
     logger,
     secrets,
-    request: actionReq,
   } = action;
 
   if (!payload.content) {
@@ -162,6 +161,7 @@ async function pre(payload, action) {
 
     c.sectionsDocuments.push(node);
   });
+  return payload;
 }
 
 module.exports.pre = pre;
