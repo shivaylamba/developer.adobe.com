@@ -19,8 +19,6 @@
  */
 
 function pre(payload) {
-  console.log(payload.request);
-
   /*
   if (action.logger) {
     action.logger.debug('payload.request');
@@ -41,12 +39,9 @@ function pre(payload) {
   }
 
   if (payload.request.headers['x-strain'] === 'launch-docs-prod') {
-    console.log('docs', payload.request.url);
     payload.dispatch.url = payload.request.path.replace(/\.md/, '.docs.html');
-    console.log('docs', payload.request.url);
     payload.dispatch.url = `/launch/docs${payload.dispatch.url}`;
   } else {
-    console.log('default', payload.request.url);
     payload.dispatch.url = payload.request.url.replace(/\.html/, '.default.html');
   }
 
