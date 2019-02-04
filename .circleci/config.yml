@@ -48,7 +48,7 @@ jobs:
 
         - run:
             name: Deploying to Adobe I/O Runtime
-            command: npx hlx deploy --no-auto --add ${CIRCLE_BRANCH}| cat && cat .hlx/strains.json
+            command: npx hlx deploy --no-auto --add ${CIRCLE_BRANCH}| cat
 
         - run:
             name: Activate CDN
