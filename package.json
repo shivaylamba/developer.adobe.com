@@ -1,7 +1,7 @@
 {
-  "name": "adobe.io",
+  "name": "developer.adobe.com",
   "version": "1.0.0",
-  "description": "Adobe I/O documentation",
+  "description": "Adobe Devs",
   "main": "index.js",
   "directories": {
     "doc": "doc",
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adobe/Adobe-Developer-Site.git"
+    "url": "git+https://github.com/adobe/developer.adobe.com.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Adobe",
+  "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/adobe/Adobe-Developer-Site/issues"
+    "url": "https://github.com/adobe/developer.adobe.com/issues"
   },
-  "homepage": "https://github.com/adobe/Adobe-Developer-Site#readme",
+  "homepage": "https://github.com/adobe/developer.adobe.com#readme",
   "dependencies": {
     "moment": "^2.24.0",
     "request": "^2.88.0",
