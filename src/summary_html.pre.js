@@ -10,6 +10,8 @@
  * governing permissions and limitations under the License.
  */
 
+/* eslint-disable no-param-reassign */
+
 function filterNav(document, path, logger) {
   logger.debug('summary_html.pre.js - Extracting nav');
   if (document.body.children[0].children && document.body.children[0].children.length > 0) {
