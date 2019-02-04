@@ -178,16 +178,15 @@ function computeNavPath(isDev, logger) {
 function createTOC(content, maxDepth, logger) {
   logger.debug('html-pre.js - Creating TOC');
   if (!content) return null;
-  const max = maxDepth || 6;
   const toc = [];
-  content.document.body.querySelectorAll("h1, h2, h3").forEach((heading, index) => {
-    if(index === 0) return null;
+  content.document.body.querySelectorAll('h1, h2, h3').forEach((heading, index) => {
+    if (index === 0) return;
     const level = heading.tagName;
     const title = heading.textContent;
-    const id = `${index}_${encodeURIComponent(title)}`
+    const id = `${index}_${encodeURIComponent(title)}`;
     // We are using spectrum sidenav component. Adding our own padding to h3 elements
     // padding is 24px as per spectrum-css mutli nav standards
-    toc.push(`<li class="level-${level} spectrum-SideNav-item"><a href="#${id}" class="spectrum-SideNav-itemLink">${title}</a></li>`)
+    toc.push(`<li class="level-${level} spectrum-SideNav-item"><a href="#${id}" class="spectrum-SideNav-itemLink">${title}</a></li>`);
     heading.setAttribute('id', id);
   });
   return toc;
@@ -210,7 +209,7 @@ async function pre(payload, action) {
     }
 
     const p = payload;
-    const body = p.content.document.body;
+    const { body } = p.content.document;
     body.querySelectorAll('a').forEach((anchor) => {
       anchor.classList.add('spectrum-Link');
     });
@@ -227,6 +226,7 @@ async function pre(payload, action) {
     });
     body.querySelectorAll('li').forEach((li) => {
       li.classList.add('spectrum-Body3');
+      // eslint-disable-next-line no-param-reassign
       li.style.marginBottom = '0';
     });
     // todo: tables
