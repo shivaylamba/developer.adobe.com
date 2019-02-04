@@ -38,9 +38,10 @@ function pre(payload) {
     payload.request.url = '/index.html';
   }
 
-  if (payload.request.headers['x-strain'] === 'launch-docs-prod') {
+  if (payload.request.headers['x-strain'].match('-docs-')) {
     payload.dispatch.url = payload.request.path.replace(/\.md/, '.docs.html');
-    payload.dispatch.url = `/launch/docs${payload.dispatch.url}`;
+    // TODO: Replace this hardcoded mount point with one passed in from the payload
+    payload.dispatch.url = `/starter/docs${payload.dispatch.url}`;
   } else {
     payload.dispatch.url = payload.request.url.replace(/\.html/, '.default.html');
   }
