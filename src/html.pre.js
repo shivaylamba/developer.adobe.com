@@ -10,15 +10,19 @@
  * governing permissions and limitations under the License.
  */
 
+/* eslint-disable no-param-reassign */
+
 /**
 * The 'pre' function that is executed before the HTML is rendered
  * @param payload The current payload of processing pipeline
  * @param payload.content The content
  */
 
-function pre(payload, action) {
+function pre(payload) {
   console.log(payload.request);
-  /*if (action.logger) {
+
+  /*
+  if (action.logger) {
     action.logger.debug('payload.request');
     action.logger.debug(payload.request);
 
@@ -26,28 +30,30 @@ function pre(payload, action) {
     action.logger.debug(action.request);
   } else {
     console.log('no logger found')
-  }*/
-  payload.dispatch = {};
-  //payload.dispatch.headers = action.headers;
+  } */
 
-  if (!payload.request.url){
-    payload.request.url = "/index.html";
+  payload.dispatch = {};
+
+  // payload.dispatch.headers = action.headers;
+
+  if (!payload.request.url) {
+    payload.request.url = '/index.html';
   }
 
-  if(payload.request.headers['x-strain'] === 'launch-docs-prod') {
+  if (payload.request.headers['x-strain'] === 'launch-docs-prod') {
     console.log('docs', payload.request.url);
     payload.dispatch.url = payload.request.path.replace(/\.md/, '.docs.html');
     console.log('docs', payload.request.url);
-    payload.dispatch.url = '/launch/docs' + payload.dispatch.url;
+    payload.dispatch.url = `/launch/docs${payload.dispatch.url}`;
+  } else {
+    console.log('default', payload.request.url);
+    payload.dispatch.url = payload.request.url.replace(/\.html/, '.default.html');
   }
+
   // if (payload.request.url.indexOf('/docs') !== -1) {
   //   console.log('docs', payload.request.url);
   //   payload.dispatch.url = payload.request.url.replace(/\.html/, '.docs.html');
   // }
-  else {
-    console.log('default', payload.request.url);
-    payload.dispatch.url = payload.request.url.replace(/\.html/, '.default.html');
-  }
 }
 
 module.exports.pre = pre;
