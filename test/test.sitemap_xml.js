@@ -44,23 +44,23 @@ const expectedOutput = {
   urlset: {
     url: [
       {
-        loc: 'https://www.project-helix.io/bla/README.html'
+        loc: 'https://www.project-helix.io/bla/README.html',
       },
       {
-        loc: 'https://www.project-helix.io/bla/contributing/README.html'
+        loc: 'https://www.project-helix.io/bla/contributing/README.html',
       },
       {
-        loc: 'https://www.project-helix.io/bla/contributing/adapters.html'
+        loc: 'https://www.project-helix.io/bla/contributing/adapters.html',
       },
       {
-        loc: 'https://www.project-helix.io/bla/contributing/companies.html'
+        loc: 'https://www.project-helix.io/bla/contributing/companies.html',
       },
       {
-        loc: 'https://www.project-helix.io/bla/contributing/data-elements.html'
+        loc: 'https://www.project-helix.io/bla/contributing/data-elements.html',
       },
     ],
   },
-}
+};
 
 describe('Testing pre requirements for main function', () => {
   it('Exports main', () => {
