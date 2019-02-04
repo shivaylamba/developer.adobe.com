@@ -137,6 +137,8 @@ async function pre(payload, action) {
         const secondParagraphContent = (ps[2] ? ps[2].split('</p>')[0] : '');
         let caption = `${firstParagraphContent} ${secondParagraphContent}`;
         if (caption.length > 340) {
+          // TODO: this may cut content that is mid-html-tag. the
+          // `content:encoded` field contains html, too.
           caption = caption.substring(0, 340);
           caption = caption.replace(/\w+$/, '...');
         }
