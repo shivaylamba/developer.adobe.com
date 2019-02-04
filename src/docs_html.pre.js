@@ -157,13 +157,16 @@ function computeNavPath(isDev, logger) {
   summaryPath = summaryPath ? summaryPath.replace('.md', '') : '';
   */
 
+  /*
   if (!isDev) {
     const summaryPath = 'https://www.project-helix.io/SUMMARY';
     logger.debug(`html-pre.js - Production path to SUMMARY.md to generate nav: ${summaryPath}`);
     return summaryPath;
-  }
+  }*/
 
   const summaryPath = '/SUMMARY';
+  //TODO: add mount point to the summary 
+  //const summaryPath = '/starter/docs/SUMMARY';
   logger.debug(`html-pre.js - Development path to SUMMARY.md to generate nav: ${summaryPath}`);
   return summaryPath;
 }

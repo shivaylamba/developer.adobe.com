@@ -13,9 +13,9 @@ version: 1
 definitions:
   defaults:
     # Run default content from github repo
-    - &defaultRepo https://github.com/adobe/developer.adobe.com.git#master
+    #- &defaultRepo https://github.com/adobe/developer.adobe.com.git#master
     # Run default content from this repo locally
-    #- &defaultRepo "http://localhost/local/default.git"
+    - &defaultRepo "http://localhost/local/default.git"
   strains:
     base:
       &basestrain
@@ -49,6 +49,13 @@ strains:
     directoryIndex: README.html
     package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
 
+  launch-docs-local:
+    <<: *basestrain
+    url: http://localhost:3000/launch/docs
+    content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
+    directoryIndex: README.html
+    package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
+
   launch-docs-prod-test:
     <<: *basestrain
     url: https://adobedevsite.helix-demo.xyz/launch/docs
@@ -77,6 +84,13 @@ strains:
     directoryIndex: README.html
     package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
 
+  xd-docs-local:
+    <<: *basestrain
+    url: http://localhost:3000/xd/docs
+    content: https://github.com/AdobeXD/plugin-docs.git#author
+    directoryIndex: README.html
+    package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
+
   xd-marketing-prod:
     <<: *basestrain
     url: https://www.adobe.io/xd
@@ -89,4 +103,32 @@ strains:
     url: https://stage.adobe.io/xd
     content: https://github.com/AdobeXD/plugin-docs.git#author
     directoryIndex: README.html
+    package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
+
+  xd-marketing-local:
+    <<: *basestrain
+    url: https://localhost:3000/xd
+    content: https://github.com/AdobeXD/plugin-docs.git#author
+    directoryIndex: README.html
+    package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
+
+  starter-docs-prod:
+    <<: *basestrain
+    url: https://www.adobe.io/starter/docs
+    content: https://github.com/AdobeDocs/starter-docs.git#master
+    directoryIndex: Overview.html
+    package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
+
+  starter-docs-stage:
+    <<: *basestrain
+    url: https://stage.adobe.io/starter/docs
+    content: https://github.com/AdobeDocs/starter-docs.git#author
+    directoryIndex: Overview.html
+    package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
+
+  starter-docs-local:
+    <<: *basestrain
+    url: http://localhost:3000/starter/docs
+    content: https://github.com/AdobeDocs/starter-docs.git#author
+    directoryIndex: Overview.html
     package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87

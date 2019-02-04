@@ -15,7 +15,7 @@
 function filterNav(document, path, logger) {
   logger.debug('summary_html.pre.js - Extracting nav');
   if (document.body.children[0].children && document.body.children[0].children.length > 0) {
-    /*
+    //TODO: add mount point here for rewriting side nave links to absolute
     document.body.querySelectorAll('a[href]:not([href=""])').forEach((anchor) => {
       const href = anchor.getAttribute('href');
       if (!href.match(/^https?:\/\//i)) {
@@ -23,7 +23,7 @@ function filterNav(document, path, logger) {
         anchor.setAttribute('href', `/${href}`);
       }
     });
-    */
+  
     document.body.querySelectorAll('ul').forEach((ul) => {
       ul.classList.add('spectrum-TreeView');
     });
