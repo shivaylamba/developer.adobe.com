@@ -12,15 +12,21 @@
 
 /* eslint-disable no-param-reassign */
 
-function filterNav(document, path, logger) {
+function filterNav(document, path, logger, strain) {
   logger.debug('summary_html.pre.js - Extracting nav');
   if (document.body.children[0].children && document.body.children[0].children.length > 0) {
     //TODO: add mount point here for rewriting side nave links to absolute
+<<<<<<< HEAD
+=======
+    const re = /(^\w*)-/;
+    let mountPoint = strain.match(re);
+    mountPoint = `${mountPoint[1]}/docs`;
+>>>>>>> used strain to figure out mount points
     document.body.querySelectorAll('a[href]:not([href=""])').forEach((anchor) => {
       const href = anchor.getAttribute('href');
       if (!href.match(/^https?:\/\//i)) {
         logger.debug('summary_html.pre.js - Setting href to absolute url in nav');
-        anchor.setAttribute('href', `/${href}`);
+        anchor.setAttribute('href', `/${mountPoint}/${href}`);
       }
     });
   
@@ -70,7 +76,7 @@ async function pre(payload, action) {
     const p = payload;
 
     // clean up the resource
-    p.content.nav = filterNav(p.content.document, action.request.params.path, logger);
+    p.content.nav = filterNav(p.content.document, action.request.params.path, logger, payload.request.headers['x-strain']);
 
     return p;
   } catch (e) {

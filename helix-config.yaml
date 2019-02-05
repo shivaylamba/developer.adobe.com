@@ -80,7 +80,14 @@ strains:
   xd-docs-stage:
     <<: *basestrain
     url: https://stage.adobe.io/xd/docs
-    content: https://github.com/AdobeXD/plugin-docs.git#author
+    content: https://github.com/AdobeXD/plugin-docs.git#master
+    directoryIndex: README.html
+    package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
+
+  xd-docs-local:
+    <<: *basestrain
+    url: http://localhost:3000/xd/docs
+    content: https://github.com/AdobeXD/plugin-docs.git#master
     directoryIndex: README.html
     package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
 
