@@ -13,6 +13,15 @@ We want to empower Adobe stakeholders by:
 
 To be notified of triage and project update calls, please subscribe here: GRP-developerwebsitereboot
 
+### Quick Start:
+
+```
+$ git clone git@github.com:adobe/developer.adobe.com.git
+$ npm install
+$ npm install -g helix-cli
+$ hlx up
+```
+
 ### Quick Links:
 
  * I'm a stakeholder for a product on https://adobe.io
