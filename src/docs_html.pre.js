@@ -118,7 +118,7 @@ function assembleEditUrl(owner, repo, ref, path, logger) {
  * @param String ref Ref
  * @param {Object} logger Logger
  */
-function computeNavPath(isDev, logger) {
+function computeNavPath(isDev, logger, strain) {
   logger.debug('html-pre.js - Fetching the nav');
 
   /*
@@ -164,7 +164,9 @@ function computeNavPath(isDev, logger) {
     return summaryPath;
   }*/
 
-  const summaryPath = '/SUMMARY';
+  const re = /(^\w*)-/;
+  const mountPoint = strain.match(re);
+  const summaryPath = `/${mountPoint[1]}/docs/SUMMARY`;
   //TODO: add mount point to the summary 
   //const summaryPath = '/starter/docs/SUMMARY';
   logger.debug(`html-pre.js - Development path to SUMMARY.md to generate nav: ${summaryPath}`);
@@ -282,6 +284,7 @@ async function pre(payload, action) {
       p.content.nav = computeNavPath(
         isDev,
         logger,
+        payload.request.headers['x-strain']
       );
     } else {
       logger.debug('html-pre.js - No REPO_RAW_ROOT provided');

@@ -41,7 +41,9 @@ function pre(payload) {
   if (payload.request.headers['x-strain'].match('-docs-')) {
     payload.dispatch.url = payload.request.path.replace(/\.md/, '.docs.html');
     // TODO: Replace this hardcoded mount point with one passed in from the payload
-    payload.dispatch.url = `/starter/docs${payload.dispatch.url}`;
+    const re = /(^\w*)-/;
+    const mountPoint = payload.request.headers['x-strain'].match(re);
+    payload.dispatch.url = `/${mountPoint[1]}/docs${payload.dispatch.url}`;
   } else {
     payload.dispatch.url = payload.request.url.replace(/\.html/, '.default.html');
   }
