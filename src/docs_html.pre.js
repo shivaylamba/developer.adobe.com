@@ -12,6 +12,7 @@
 
 const request = require('request-promise');
 const DOMUtil = require('./DOM_munging.js');
+const mountPointResolution = require('./mountpoint_resolution.js');
 
 /**
  * Fetches the commits history
@@ -164,10 +165,9 @@ function computeNavPath(isDev, logger, strain) {
     logger.debug(`html-pre.js - Production path to SUMMARY.md to generate nav: ${summaryPath}`);
     return summaryPath;
   } */
-
-  const re = /(^\w*)-/;
-  const mountPoint = strain.match(re);
-  const summaryPath = `/${mountPoint[1]}/docs/SUMMARY`;
+;
+  const mountPoint = mountPointResolution(strain);
+  const summaryPath = `/${mountPoint}/SUMMARY`;
   // TODO: add mount point to the summary
   // const summaryPath = '/starter/docs/SUMMARY';
   logger.debug(`html-pre.js - Development path to SUMMARY.md to generate nav: ${summaryPath}`);
