@@ -14,7 +14,7 @@ Create XD plugins to push the boundaries of experience design by adding new feat
 
 Let’s supercharge the future of design together with XD plugins.
 
-[See What's Possible](https://adobexdplatform.com/)
+[See What's Possible](/xd/docs)
 
 ---
 
