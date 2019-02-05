@@ -16,12 +16,9 @@ function filterNav(document, path, logger, strain) {
   logger.debug('summary_html.pre.js - Extracting nav');
   if (document.body.children[0].children && document.body.children[0].children.length > 0) {
     //TODO: add mount point here for rewriting side nave links to absolute
-<<<<<<< HEAD
-=======
     const re = /(^\w*)-/;
     let mountPoint = strain.match(re);
     mountPoint = `${mountPoint[1]}/docs`;
->>>>>>> used strain to figure out mount points
     document.body.querySelectorAll('a[href]:not([href=""])').forEach((anchor) => {
       const href = anchor.getAttribute('href');
       if (!href.match(/^https?:\/\//i)) {
