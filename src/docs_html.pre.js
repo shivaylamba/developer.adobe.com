@@ -11,6 +11,7 @@
  */
 
 const request = require('request-promise');
+const DOMUtil = require('./utils/DOM_munging.js');
 
 /**
  * Fetches the commits history
@@ -215,35 +216,7 @@ async function pre(payload, action) {
 
     const p = payload;
     const { body } = p.content.document;
-    body.querySelectorAll('a').forEach((anchor) => {
-      anchor.classList.add('spectrum-Link');
-    });
-    body.querySelectorAll('p').forEach((paragraph) => {
-      paragraph.classList.add('spectrum-Body3');
-    });
-    [1, 2, 3, 4, 5].forEach((i) => {
-      body.querySelectorAll(`h${i}`).forEach((heading) => {
-        heading.classList.add(`spectrum-Heading${i}`);
-      });
-    });
-    body.querySelectorAll('code').forEach((code) => {
-      code.classList.add('spectrum-Code3');
-    });
-    body.querySelectorAll('li').forEach((li) => {
-      li.classList.add('spectrum-Body3');
-      // eslint-disable-next-line no-param-reassign
-      li.style.marginBottom = '0';
-    });
-    // todo: tables
-
-    // spectrumify certain elements by blasting class names onto tags
-    /*
-     * TODO: cant do this as content.document is the entire document, not just
-     * the bit being rendered
-    p.content.document.querySelectorAll('p').forEach((paragraph) => {
-      if (!paragraph.className.includes('spectrum-Body1')) paragraph.className += ' spectrum-Body1';
-    });
-    */
+    DOMUtil.spectrumify(body);
 
     // extract committers info and last modified based on commits history
     if (secrets.REPO_API_ROOT) {

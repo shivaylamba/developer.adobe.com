@@ -14,16 +14,9 @@
 const VDOM = require('@adobe/helix-pipeline').utils.vdom;
 const RSSParser = require('rss-parser');
 const moment = require('moment');
+const DOMUtil = require('./utils/DOM_munging.js');
 
 const rss = new RSSParser();
-
-const DOMUtil = {
-  addClass(document, selector, classNames) {
-    document.querySelectorAll(selector).forEach((element) => {
-      classNames.split(' ').forEach(className => element.classList.add(className));
-    });
-  },
-};
 
 // module.exports.pre is a function (taking next as an argument)
 // that returns a function (with payload, config, logger as arguments)
@@ -45,18 +38,10 @@ async function pre(payload, action) {
     console.error('error durring parsing adobetech blog rss feed!', e);
   }
 
-
   const c = payload.content;
-
   const documentBody = c.document.body;
 
-  DOMUtil.addClass(documentBody, 'a', 'spectrum-Link');
-  DOMUtil.addClass(documentBody, 'p', 'spectrum-Body3');
-  [1, 2, 3, 4, 5].forEach((i) => {
-    DOMUtil.addClass(documentBody, `h${i}`, `spectrum-Heading${i}`);
-  });
-  DOMUtil.addClass(documentBody, 'code', 'spectrum-Code3');
-  DOMUtil.addClass(documentBody, 'li', 'spectrum-Body3 li-no-margin-bottom');
+  DOMUtil.spectrumify(documentBody);
 
   c.sectionsDocuments = [];
 
@@ -75,14 +60,7 @@ async function pre(payload, action) {
     const types = element.types.slice();
     types.push(`index${index}`);
 
-    DOMUtil.addClass(body, 'a', 'spectrum-Link');
-    DOMUtil.addClass(body, 'p', 'spectrum-Body3');
-    [1, 2, 3, 4, 5].forEach((i) => {
-      DOMUtil.addClass(body, `h${i}`, `spectrum-Heading${i}`);
-    });
-    DOMUtil.addClass(body, 'code', 'spectrum-Code3');
-    DOMUtil.addClass(body, 'li', 'spectrum-Body3 li-no-margin-bottom');
-
+    DOMUtil.spectrumify(body);
 
     if (node.className.includes('index0')) {
       DOMUtil.addClass(body, 'div:nth-of-type(1)', 'spectrum--dark');
