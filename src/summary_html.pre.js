@@ -9,7 +9,7 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-
+const DOMUtil = require('./DOM_munging.js');
 /* eslint-disable no-param-reassign */
 
 function filterNav(document, path, logger, strain) {
@@ -27,18 +27,7 @@ function filterNav(document, path, logger, strain) {
       }
     });
 
-    document.body.querySelectorAll('ul').forEach((ul) => {
-      ul.classList.add('spectrum-TreeView');
-    });
-    document.body.querySelectorAll('li').forEach((ul) => {
-      ul.classList.add('spectrum-TreeView-item');
-    });
-    document.body.querySelectorAll('li > a').forEach((a) => {
-      a.classList.add('spectrum-TreeView-itemLink');
-      a.innerHTML = `<svg class="spectrum-Icon spectrum-UIIcon-ChevronRightMedium spectrum-TreeView-indicator" focusable="false" aria-hidden="true">
-  <use xlink:href="#spectrum-css-icon-ChevronRightMedium" />
-</svg>${a.innerHTML}`;
-    });
+    DOMUtil.spectrumify(document.body);
     let nav = Array.from(document.body.children[0].children);
 
     // remove first title
