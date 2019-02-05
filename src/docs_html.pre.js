@@ -162,13 +162,13 @@ function computeNavPath(isDev, logger, strain) {
     const summaryPath = 'https://www.project-helix.io/SUMMARY';
     logger.debug(`html-pre.js - Production path to SUMMARY.md to generate nav: ${summaryPath}`);
     return summaryPath;
-  }*/
+  } */
 
   const re = /(^\w*)-/;
   const mountPoint = strain.match(re);
   const summaryPath = `/${mountPoint[1]}/docs/SUMMARY`;
-  //TODO: add mount point to the summary 
-  //const summaryPath = '/starter/docs/SUMMARY';
+  // TODO: add mount point to the summary
+  // const summaryPath = '/starter/docs/SUMMARY';
   logger.debug(`html-pre.js - Development path to SUMMARY.md to generate nav: ${summaryPath}`);
   return summaryPath;
 }
@@ -284,7 +284,7 @@ async function pre(payload, action) {
       p.content.nav = computeNavPath(
         isDev,
         logger,
-        payload.request.headers['x-strain']
+        payload.request.headers['x-strain'],
       );
     } else {
       logger.debug('html-pre.js - No REPO_RAW_ROOT provided');

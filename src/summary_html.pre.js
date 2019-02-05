@@ -15,7 +15,7 @@
 function filterNav(document, path, logger, strain) {
   logger.debug('summary_html.pre.js - Extracting nav');
   if (document.body.children[0].children && document.body.children[0].children.length > 0) {
-    //TODO: add mount point here for rewriting side nave links to absolute
+    // TODO: add mount point here for rewriting side nave links to absolute
     const re = /(^\w*)-/;
     let mountPoint = strain.match(re);
     mountPoint = `${mountPoint[1]}/docs`;
@@ -26,7 +26,7 @@ function filterNav(document, path, logger, strain) {
         anchor.setAttribute('href', `/${mountPoint}/${href}`);
       }
     });
-  
+
     document.body.querySelectorAll('ul').forEach((ul) => {
       ul.classList.add('spectrum-TreeView');
     });
