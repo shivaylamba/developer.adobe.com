@@ -43,7 +43,17 @@ spectrum-css-diff.css file as well -->
                     <use xlink:href="#spectrum-icon-18-ShowMenu"></use>
                 </svg>
             </span>
-            <a href="#" class="logo">Adobe I/O</a>
+            <a class="logo" href="//adobe.io/">
+                <svg class="logo-image" xmlns="http://www.w3.org/2000/svg"
+                    width="20" height="17" viewBox="0 0 24 20"
+                    focusable="false"
+                >
+                    <path fill="#FF0000"
+                        d="M15.1,0H24v20L15.1,0z M8.9,0H0v20L8.9,0z M12,7.4L17.6,20h-3.8l-1.6-4H8.1L12,7.4z"
+                    >
+                    </path>
+                </svg>
+            <span class="logo-text">Adobe Developers</span></a>
         </div>
         <ul class="main-nav" id="js-menu">
             <li>
