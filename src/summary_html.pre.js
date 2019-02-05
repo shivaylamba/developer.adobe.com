@@ -10,14 +10,53 @@
  * governing permissions and limitations under the License.
  */
 const DOMUtil = require('./DOM_munging.js');
-/* eslint-disable no-param-reassign */
-
 const mountPointResolution = require('./mountpoint_resolution.js');
 
+function anchorItem(a, path, close = true) {
+  const { href } = a;
+  let isSelected = '';
+  if (path === href) isSelected = 'is-selected';
+  return `<li class="spectrum-SideNav-item ${isSelected}">${a.outerHTML.replace(/spectrum-Link/, 'spectrum-SideNav-itemLink')}${(close ? '</li>' : '')}`;
+}
+
+function buildSideNavFromList(list, path) {
+  // console.log('list children', list.children);
+  let html = '';
+  Array.from(list.children).forEach((li) => {
+    // console.log('children of list item', li.children);
+    Array.from(li.children).forEach((paOrUl, index, sublist) => {
+      // console.log(paOrUl.tagName, paOrUl.children);
+      if (paOrUl.tagName === 'A') {
+        if (sublist[index + 1] && sublist[index + 1].tagName === 'UL') {
+          html += anchorItem(paOrUl, path, false);
+        } else {
+          html += anchorItem(paOrUl, path);
+        }
+      } else if (paOrUl.tagName === 'UL') {
+        html += '<ul class="spectrum-SideNav" style="padding-left:12px;">';
+        html += buildSideNavFromList(paOrUl, path);
+        html += '</ul></li>';
+      } else {
+        Array.from(paOrUl.children).forEach((aOrLi, idx, sbl) => {
+          if (aOrLi.tagName === 'A') {
+          // anchor tag, add the list item w/ a link
+            if (sbl[idx + 1] && sbl[idx + 1].tagName === 'UL') {
+              html += anchorItem(aOrLi, path, false);
+            } else {
+              html += anchorItem(aOrLi, path);
+            }
+          }
+        });
+      }
+    });
+  });
+  return html;
+}
+
+/* eslint-disable no-param-reassign */
 function filterNav(document, path, logger, mountPoint) {
   logger.debug('summary_html.pre.js - Extracting nav');
   if (document.body.children[0].children && document.body.children[0].children.length > 0) {
-
     // rewrite the links to abolsute with the mountPoint
     DOMUtil.replaceLinks(document.body, mountPoint);
     DOMUtil.spectrumify(document.body);
@@ -27,14 +66,32 @@ function filterNav(document, path, logger, mountPoint) {
     if (nav && nav.length > 0) {
       nav = nav.slice(1);
     }
+    let firstHeading = true;
+    let final = '';
+    nav.forEach((el) => {
+      if (el.tagName === 'H2') {
+        if (!firstHeading) {
+          final += '</ul></li>';
+        } else firstHeading = false;
+        const heading = el.innerHTML;
+        const slug = heading.replace(/\s/gi, '-').replace(/[^a-zA-Z0-9_-]/gi, '');
+        final += `<li class="spectrum-SideNav-item"><h2 class="spectrum-SideNav-heading" id="nav-heading-${slug}">${heading}</h2><ul class="spectrum-SideNav" aria-labelledby="nav-heading-${slug}">`;
+      } else if (el.tagName === 'UL') {
+        final += buildSideNavFromList(el, path);
+      }
+    });
+    final = `<div>${final}</div>`;
+    document.body.children[0].outerHTML = final;
+    // console.log(Array.from(document.body.children[0].children)[0].innerHTML);
 
     logger.debug(`summary_html.pre.js - Managed to collect some content for the nav: ${nav.length}`);
-    return nav;
+    return Array.from(document.body.children[0].children);
   }
 
   logger.debug('summary_html.pre.js - Navigation payload has no children');
   return [];
 }
+
 
 // module.exports.pre is a function (taking next as an argument)
 // that returns a function (with payload, config, logger as arguments)

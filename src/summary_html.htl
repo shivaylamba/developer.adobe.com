@@ -11,6 +11,12 @@
 * governing permissions and limitations under the License.
 */
 -->
-<div data-sly-test="${payload.content.nav}" data-sly-list="${payload.content.nav}">
+<nav data-sly-test="${payload.content.nav}">
+  <ul class="spectrum-SideNav spectrum-SideNav--multilevel" data-sly-list="${payload.content.nav}">
     ${item.outerHTML}
-</div>
+  </ul>
+</nav>
+<script type="text/javascript">
+var pathname = window.location.pathname;
+document.querySelector("a[href='" + pathname + "']").parentNode.classList.add('is-selected');
+</script>
