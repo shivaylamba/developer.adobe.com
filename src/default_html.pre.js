@@ -14,7 +14,7 @@
 const VDOM = require('@adobe/helix-pipeline').utils.vdom;
 const RSSParser = require('rss-parser');
 const moment = require('moment');
-const DOMUtil = require('./utils/DOM_munging.js');
+const DOMUtil = require('./DOM_munging.js');
 
 const rss = new RSSParser();
 

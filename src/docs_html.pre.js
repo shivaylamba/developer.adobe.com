@@ -11,7 +11,7 @@
  */
 
 const request = require('request-promise');
-const DOMUtil = require('./utils/DOM_munging.js');
+const DOMUtil = require('./DOM_munging.js');
 
 /**
  * Fetches the commits history
