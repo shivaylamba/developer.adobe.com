@@ -5,6 +5,7 @@ node_modules/
 pipeline.log
 logs
 env.inf
+.env
 test-results.xml
 .DS_Store
 helix-config.yaml.old
