@@ -51,7 +51,7 @@ describe('www.adobe.io renders properly', function suite() {
     assert.ok(html.includes('<div class="container spectrum-grid-row'), 'default content in index (default_html.htl) is included via ESI include');
   });
 
-  it.only('Test various urls', async () => {
+  it('Test various urls', async () => {
     let html = (await assertHttp('http://localhost:3000/launch/docs', 200)).toLowerCase();
     assert.ok(html.includes('<body class="spectrum spectrum--light spectrum-typography">'), '/launch/docs page is rendered - at least contains a body tag');
 
