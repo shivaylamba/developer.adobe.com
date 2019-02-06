@@ -27,6 +27,7 @@ $ hlx up
  * I'm a stakeholder for a product on https://adobe.io
  * [I’m a developer that wants to help contribute to the site](https://github.com/adobe/Adobe-Developer-Site/blob/master/CONTRIBUTING.md)
  * I’m interested in this project and I want to know about progress
+ * [A working version of the website, powered by Helix](https://adobedevsite.helix-demo.xyz/)
 
 # Project Roadmap
 
