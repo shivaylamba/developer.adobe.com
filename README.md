@@ -1,5 +1,7 @@
 # Welcome to the Adobe Developer Site project!
 
+[![CircleCI](https://circleci.com/gh/adobe/developer.adobe.com/tree/master.svg?style=svg)](https://circleci.com/gh/adobe/developer.adobe.com/tree/master)
+
 We're rebuilding the `adobe.io` site, and eventually moving to `https://developers.adobe.com`. Based on our research, we want to prioritize the following for ***developers*** that visit the site:
 
 ![Discover | Learn | Connect](https://user-images.githubusercontent.com/25260/49473633-73e8f680-f7c7-11e8-8b64-5731cbca5d70.png)
@@ -13,11 +15,21 @@ We want to empower Adobe stakeholders by:
 
 To be notified of triage and project update calls, please subscribe here: GRP-developerwebsitereboot
 
+### Quick Start:
+
+```
+$ git clone git@github.com:adobe/developer.adobe.com.git
+$ npm install
+$ npm install -g helix-cli
+$ hlx up
+```
+
 ### Quick Links:
 
  * I'm a stakeholder for a product on https://adobe.io
  * [I’m a developer that wants to help contribute to the site](https://github.com/adobe/Adobe-Developer-Site/blob/master/CONTRIBUTING.md)
  * I’m interested in this project and I want to know about progress
+ * [A working version of the website, powered by Helix](https://adobedevsite.helix-demo.xyz/)
 
 # Project Roadmap
 

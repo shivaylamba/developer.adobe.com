@@ -12,21 +12,14 @@
 const DOMUtil = require('./DOM_munging.js');
 /* eslint-disable no-param-reassign */
 
-function filterNav(document, path, logger, strain) {
+const mountPointResolution = require('./mountpoint_resolution.js');
+
+function filterNav(document, path, logger, mountPoint) {
   logger.debug('summary_html.pre.js - Extracting nav');
   if (document.body.children[0].children && document.body.children[0].children.length > 0) {
-    // TODO: add mount point here for rewriting side nave links to absolute
-    const re = /(^\w*)-/;
-    let mountPoint = strain.match(re);
-    mountPoint = `${mountPoint[1]}/docs`;
-    document.body.querySelectorAll('a[href]:not([href=""])').forEach((anchor) => {
-      const href = anchor.getAttribute('href');
-      if (!href.match(/^https?:\/\//i)) {
-        logger.debug('summary_html.pre.js - Setting href to absolute url in nav');
-        anchor.setAttribute('href', `/${mountPoint}/${href}`);
-      }
-    });
 
+    // rewrite the links to abolsute with the mountPoint
+    DOMUtil.replaceLinks(document.body, mountPoint);
     DOMUtil.spectrumify(document.body);
     let nav = Array.from(document.body.children[0].children);
 
@@ -60,9 +53,10 @@ async function pre(payload, action) {
     }
 
     const p = payload;
+    const mountPoint = mountPointResolution(payload.request.headers['x-strain']);
 
     // clean up the resource
-    p.content.nav = filterNav(p.content.document, action.request.params.path, logger, payload.request.headers['x-strain']);
+    p.content.nav = filterNav(p.content.document, action.request.params.path, logger, mountPoint);
 
     return p;
   } catch (e) {

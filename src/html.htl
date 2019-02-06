@@ -140,13 +140,20 @@ spectrum-css-diff.css file as well -->
                 this.parentNode.classList.toggle('is-open');
             });
         });
-
         // Enable header navigation toggle
         let mainNav = document.getElementById('js-menu');
         let navBarToggle = document.getElementById('js-navbar-toggle');
         navBarToggle.addEventListener('click', function () {
             mainNav.classList.toggle('active');
         });
+        // Set appropriate top-level spectrum class depending on screen size
+        // TODO: if you change the px value here, also update the relevant css
+        // media queries!
+        var mq = window.matchMedia( "(min-width: 900px)" );
+        if (mq.matches) {
+            document.documentElement.classList.remove('spectrum--large');
+            document.documentElement.classList.add('spectrum--medium');
+        }
     </script>
 </body>
 
