@@ -21,10 +21,6 @@ jobs:
             name: Installing Dependencies
             command: test -f package.json && npm install || echo "package.json does not exist"
 
-        - run:
-            name: Installing Helix CLI
-            command: npm install @adobe/helix-cli --save=false
-
         - save_cache:
             paths:
                 - node_modules

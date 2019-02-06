@@ -20,8 +20,7 @@ To be notified of triage and project update calls, please subscribe here: GRP-de
 ```
 $ git clone git@github.com:adobe/developer.adobe.com.git
 $ npm install
-$ npm install -g helix-cli
-$ hlx up
+$ npm start
 ```
 
 ### Quick Links:
@@ -81,5 +80,5 @@ Location: https://bluejeans.com/2066757215
 
 It's our intention for stakeholders to become empowered to meet the needs of their developer customers. We will strive to provide common tooling and systems support in a logical priority based on our research. To put this in plain english, we want stakeholders to be able to modify and publish their content without any consultation or delay!
 
-With over 50 stakeholders, we're not going to be able to build everything for everyone right away. We're following an open governance approach where we can enable you to publish content and systems outside of the current capabilities. We'd even like to help you do this! By appropriately using [Spectrum](https://spectrum.corp.adobe.com/) and implementing the shared IA, we can extend the developer domain to proxy your content and functionality. If you have needs, please [file an issue](https://github.com/adobe/Adobe-Developer-Site/issues) and join the next triage meeting.
+With over 50 stakeholders, we're not going to be able to build everything for everyone right away. We're following an open governance approach where we can enable you to publish content and systems outside of the current capabilities. We'd even like to help you do this! By appropriately using [Spectrum](https://spectrum.corp.adobe.com/) and implementing the shared IA, we can extend the developer domain to proxy your content and functionality. If you have needs, please [file an issue](https://github.com/adobe/developer.adobe.com/issues) and join the next triage meeting.
 
