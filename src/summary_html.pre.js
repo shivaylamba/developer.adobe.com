@@ -12,38 +12,50 @@
 const DOMUtil = require('./DOM_munging.js');
 const mountPointResolution = require('./mountpoint_resolution.js');
 
-function anchorItem(a, path, close = true) {
-  const { href } = a;
-  let isSelected = '';
-  if (path === href) isSelected = 'is-selected';
-  return `<li class="spectrum-SideNav-item ${isSelected}">${a.outerHTML.replace(/spectrum-Link/, 'spectrum-SideNav-itemLink')}${(close ? '</li>' : '')}`;
+function anchorItem(a, close = true) {
+  return `<li class="spectrum-SideNav-item">${a.outerHTML.replace(/spectrum-Link/, 'spectrum-SideNav-itemLink')}${(close ? '</li>' : '')}`;
 }
 
-function buildSideNavFromList(list, path) {
-  // console.log('list children', list.children);
+function buildSideNavFromList(list) {
   let html = '';
+  // The way spectrum sidenav works is that, for nested lists, you need to
+  // embed the sublist into the parent list item (<li>). we control this by
+  // passing in the close (default true) parameter to the `anchorItem` method
+  // above.
+  // The first level of child elements in summary lists are list items (<li> elements)
   Array.from(list.children).forEach((li) => {
-    // console.log('children of list item', li.children);
+    // The second level of child elements, the ones inside list items (<li>) are
+    // either paragraph <p>, anchor <a> or unordered list <ul> elements (thus
+    // the variable name `paOrUl`).
     Array.from(li.children).forEach((paOrUl, index, sublist) => {
-      // console.log(paOrUl.tagName, paOrUl.children);
+      // In the case the tag is an anchor tag at this level, we can generated a
+      // sidenav item immediately. Sometimes, anchor tags are embedded inside
+      // paragraph tags (which is why we have the final loop near the end of
+      // this function, to go one level deeper).
       if (paOrUl.tagName === 'A') {
+        // We check if the element _after_ the anchor tag is an unordered list,
+        // if it is, we need to keep the current sidenav item element open to
+        // embded the sublist in next.
         if (sublist[index + 1] && sublist[index + 1].tagName === 'UL') {
-          html += anchorItem(paOrUl, path, false);
+          html += anchorItem(paOrUl, false);
         } else {
-          html += anchorItem(paOrUl, path);
+          html += anchorItem(paOrUl);
         }
       } else if (paOrUl.tagName === 'UL') {
+        // Every time we recurse to generate a sublist sidenav, we pad the left
+        // side of the sidenav with 12 pixels, to create the indent.
         html += '<ul class="spectrum-SideNav" style="padding-left:12px;">';
-        html += buildSideNavFromList(paOrUl, path);
+        html += buildSideNavFromList(paOrUl);
         html += '</ul></li>';
       } else {
-        Array.from(paOrUl.children).forEach((aOrLi, idx, sbl) => {
-          if (aOrLi.tagName === 'A') {
-          // anchor tag, add the list item w/ a link
+        Array.from(paOrUl.children).forEach((anchor, idx, sbl) => {
+          if (anchor.tagName === 'A') {
+            // Same code as above, we need to keep anchor <a> closing tags
+            // optionally open depending on if a sublist follows the anchor.
             if (sbl[idx + 1] && sbl[idx + 1].tagName === 'UL') {
-              html += anchorItem(aOrLi, path, false);
+              html += anchorItem(anchor, false);
             } else {
-              html += anchorItem(aOrLi, path);
+              html += anchorItem(anchor);
             }
           }
         });
@@ -77,7 +89,7 @@ function filterNav(document, path, logger, mountPoint) {
         const slug = heading.replace(/\s/gi, '-').replace(/[^a-zA-Z0-9_-]/gi, '');
         final += `<li class="spectrum-SideNav-item"><h2 class="spectrum-SideNav-heading" id="nav-heading-${slug}">${heading}</h2><ul class="spectrum-SideNav" aria-labelledby="nav-heading-${slug}">`;
       } else if (el.tagName === 'UL') {
-        final += buildSideNavFromList(el, path);
+        final += buildSideNavFromList(el);
       }
     });
     final = `<div>${final}</div>`;
