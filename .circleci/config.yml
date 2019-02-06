@@ -44,14 +44,14 @@ jobs:
             command: npx mocha  --exit --reporter mocha-junit-reporter test/unit/*
             environment:
                 MOCHA_FILE: junit/test-results.xml
-            when: always    
+            when: always
 
-       - run:
+        - run:
             name: Running Smoke Tests
             command: npx mocha  --exit --reporter mocha-junit-reporter test/smoke/*
             environment:
                 MOCHA_FILE: junit/test-results.xml
-            when: always    
+            when: always
 
         - store_test_results:
             path: junit
