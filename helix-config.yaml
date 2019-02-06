@@ -40,21 +40,21 @@ strains:
     url: https://adobedevsite.helix-demo.xyz/launch/docs
     content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
     directoryIndex: README.html
-    package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
+    package: 829a271dfdd55c49d8a66d1f5796cc129824c117
 
   xd-docs-helixdemo:
     <<: *basestrain
     url: https://adobedevsite.helix-demo.xyz/xd/docs
     content: https://github.com/AdobeXD/plugin-docs.git#master
     directoryIndex: README.html
-    package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
+    package: 829a271dfdd55c49d8a66d1f5796cc129824c117
 
   helix-demo:
     url: https://adobedevsite.helix-demo.xyz/
     code: ssh://git@github.com/adobe/developer.adobe.com.git#master
     content: ssh://git@github.com/adobe/developer.adobe.com.git#master
     static: https://github.com/adobe/developer.adobe.com.git/htdocs#master
-    package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
+    package: 829a271dfdd55c49d8a66d1f5796cc129824c117
 
   launch-docs-prod:
     <<: *basestrain
