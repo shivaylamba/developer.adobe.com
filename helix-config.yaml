@@ -60,8 +60,8 @@ strains:
     url: https://adobedevsite.helix-demo.xyz/
     code: ssh://git@github.com/adobe/developer.adobe.com.git#master
     content: ssh://git@github.com/adobe/developer.adobe.com.git#master
-    static: https://github.com/adobe/developer.adobe.com.git#master/htdocs
-    package: 4e4f2a2b08ecc8b5509002511000b84000e00290
+    static: https://github.com/adobe/developer.adobe.com.git/htdocs#master
+    package: 890416d883fddf2fb10a39ff7f4e7cf105122c71
 
   launch-docs-helixdemo:
     <<: *basestrain
