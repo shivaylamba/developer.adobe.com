@@ -11,16 +11,16 @@
  */
 /* global describe, it */
 const assert = require('assert');
-const defaultPre = require('../src/summary_html.pre.js');
+const defaultPre = require('../../src/summary_html.pre.js');
 
-const loggerMock = {
-  log: () => {},
-  debug: () => {},
-  info: () => {},
-  warn: () => {},
-  error: () => {},
-  silly: () => {},
-};
+// const loggerMock = {
+//   log: () => {},
+//   debug: () => {},
+//   info: () => {},
+//   warn: () => {},
+//   error: () => {},
+//   silly: () => {},
+// };
 
 describe('Testing pre requirements for main function', () => {
   it('Exports pre', () => {
@@ -32,21 +32,21 @@ describe('Testing pre requirements for main function', () => {
   });
 });
 
-describe('Testing extractNav', () => {
-  it('filterNav - basic', () => {
-    const output = defaultPre.filterNav(
-      [
-        '<h1>Table of contents</h1>',
-        '\n',
-        '<ul>\n<li>a</li>\n<li>b</li>\n<li><a href="link.md">link</a></li>\n</ul>',
-      ],
-      '/current/path/index.md',
-      loggerMock,
-    );
+// describe('Testing extractNav', () => {
+//   it('filterNav - basic', () => {
+//     const output = defaultPre.filterNav(
+//       [
+//         '<h1>Table of contents</h1>',
+//         '\n',
+//         '<ul>\n<li>a</li>\n<li>b</li>\n<li><a href="link.md">link</a></li>\n</ul>',
+//       ],
+//       '/current/path/index.md',
+//       loggerMock,
+//     );
 
-    assert.deepEqual(output, [
-      '\n',
-      '<ul>\n<li>a</li>\n<li>b</li>\n<li><a href="/current/path/link.html">link</a></li>\n</ul>',
-    ]);
-  });
-});
+//     assert.deepEqual(output, [
+//       '\n',
+//       '<ul>\n<li>a</li>\n<li>b</li>\n<li><a href="/current/path/link.html">link</a></li>\n</ul>',
+//     ]);
+//   });
+// });

@@ -12,7 +12,7 @@
 /* global describe, it */
 const assert = require('assert');
 const remark = require('remark');
-const defaultMain = require('../src/sitemap_xml.js');
+const defaultMain = require('../../src/sitemap_xml.js');
 
 const loggerMock = {
   log: () => {},
