@@ -12,6 +12,8 @@
 
 /* eslint-disable no-param-reassign */
 
+const mountPointResolution = require('./mountpoint_resolution.js');
+
 /**
 * The 'pre' function that is executed before the HTML is rendered
  * @param payload The current payload of processing pipeline
@@ -40,10 +42,9 @@ function pre(payload) {
 
   if (payload.request.headers['x-strain'].match('-docs-')) {
     payload.dispatch.url = payload.request.path.replace(/\.md/, '.docs.html');
-    // TODO: Replace this hardcoded mount point with one passed in from the payload
-    const re = /(^\w*)-/;
-    const mountPoint = payload.request.headers['x-strain'].match(re);
-    payload.dispatch.url = `/${mountPoint[1]}/docs${payload.dispatch.url}`;
+    const mountPoint = mountPointResolution(payload.request.headers['x-strain']);
+
+    payload.dispatch.url = `/${mountPoint}${payload.dispatch.url}`;
   } else {
     payload.dispatch.url = payload.request.url.replace(/\.html/, '.default.html');
   }
