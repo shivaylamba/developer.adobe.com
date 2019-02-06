@@ -1,5 +1,7 @@
 # Welcome to the Adobe Developer Site project!
 
+[![CircleCI](https://circleci.com/gh/adobe/developer.adobe.com/tree/master.svg?style=svg)](https://circleci.com/gh/adobe/developer.adobe.com/tree/master)
+
 We're rebuilding the `adobe.io` site, and eventually moving to `https://developers.adobe.com`. Based on our research, we want to prioritize the following for ***developers*** that visit the site:
 
 ![Discover | Learn | Connect](https://user-images.githubusercontent.com/25260/49473633-73e8f680-f7c7-11e8-8b64-5731cbca5d70.png)
