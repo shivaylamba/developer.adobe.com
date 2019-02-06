@@ -78,8 +78,8 @@ function extractLastModifiedFromCommitsHistory(commits, logger) {
 
   if (commits) {
     const lastMod = commits.length > 0
-    && commits[0].commit
-    && commits[0].commit.author
+      && commits[0].commit
+      && commits[0].commit.author
       ? commits[0].commit.author.date : null;
 
     const display = new Date(lastMod);
@@ -120,7 +120,7 @@ function assembleEditUrl(owner, repo, ref, path, logger) {
  * @param String ref Ref
  * @param {Object} logger Logger
  */
-function computeNavPath(isDev, logger, strain) {
+function computeNavPath(isDev, logger, mountPoint) {
   logger.debug('html-pre.js - Fetching the nav');
 
   /*
@@ -165,8 +165,8 @@ function computeNavPath(isDev, logger, strain) {
     logger.debug(`html-pre.js - Production path to SUMMARY.md to generate nav: ${summaryPath}`);
     return summaryPath;
   } */
-;
-  const mountPoint = mountPointResolution(strain);
+  ;
+
   const summaryPath = `/${mountPoint}/SUMMARY`;
   // TODO: add mount point to the summary
   // const summaryPath = '/starter/docs/SUMMARY';
@@ -218,6 +218,9 @@ async function pre(payload, action) {
     const { body } = p.content.document;
     DOMUtil.spectrumify(body);
 
+    const mountPoint = mountPointResolution(payload.request.headers['x-strain']);
+    DOMUtil.replaceLinks(body, mountPoint);
+
     // extract committers info and last modified based on commits history
     if (secrets.REPO_API_ROOT) {
       p.content.commits = await fetchCommitsHistory(
@@ -257,7 +260,7 @@ async function pre(payload, action) {
       p.content.nav = computeNavPath(
         isDev,
         logger,
-        payload.request.headers['x-strain'],
+        mountPoint,
       );
     } else {
       logger.debug('html-pre.js - No REPO_RAW_ROOT provided');

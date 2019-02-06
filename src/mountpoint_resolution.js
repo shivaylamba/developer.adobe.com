@@ -29,5 +29,5 @@ module.exports = function resoloveMount(strain) {
     return `${firstWord}`
   } 
 
-  return '';
+  return null;
 };
