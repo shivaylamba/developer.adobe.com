@@ -165,7 +165,6 @@ function computeNavPath(isDev, logger, mountPoint) {
     logger.debug(`html-pre.js - Production path to SUMMARY.md to generate nav: ${summaryPath}`);
     return summaryPath;
   } */
-  ;
 
   const summaryPath = `/${mountPoint}/SUMMARY`;
   // TODO: add mount point to the summary

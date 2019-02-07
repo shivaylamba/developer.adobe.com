@@ -11,23 +11,25 @@
  */
 
 module.exports = function resoloveMount(strain) {
-  // Currently supports two strain types. 
+  // Currently supports two strain types.
   // xd-docs-* (returns xd/docs)
   // xd-marketing-* (returns xd)
 
-  //match first word
+  // match first word
   let firstWord = strain.match(/(^\w+)-/);
+  // eslint-disable-next-line prefer-destructuring
   firstWord = firstWord[1];
 
-  //match second word 
+  // match second word
   let secondWord = strain.match(/^\w+-(\w+)-/);
+  // eslint-disable-next-line prefer-destructuring
   secondWord = secondWord[1];
 
   if (secondWord === 'docs') {
     return `${firstWord}/${secondWord}`;
-  } else if (secondWord === 'marketing') {
-    return `${firstWord}`
-  } 
+  } if (secondWord === 'marketing') {
+    return `${firstWord}`;
+  }
 
   return null;
 };
