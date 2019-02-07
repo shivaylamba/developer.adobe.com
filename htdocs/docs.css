@@ -79,36 +79,6 @@ header .main {
     flex: auto;
 }
 
-header .main .title {
-    display: block;
-    margin: 0px;
-    padding: 0px;
-    flex: 0 0 auto;
-}
-
-header .main .title a {
-    -webkit-box-align: center;
-    cursor: pointer;
-    display: flex;
-    text-decoration: none;
-    align-items: center;
-}
-
-header .main .title a img {
-    max-width: 100%;
-    border-radius: 3px;
-    overflow: hidden;
-    width: 40px;
-    height: 40px;
-}
-
-header .main .title a h1 {
-    display: block;
-    margin: 0px;
-    padding: 0px;
-    padding-left: 16px;
-}
-
 header .main .center {
     display: flex;
     align-self: stretch;

@@ -16,13 +16,6 @@
 
 <header>
     <div class="main">
-        <div class="title">
-            <a href="/">
-                <span class="menu-icon"></span>
-                <img src="/logo.png" />
-                <h1 class="spectrum-Heading1">Adobe Devs</h1>
-            </a>
-        </div>
         <div class="center"></div>
         <div class="search">
             <form action="https://www.google.com/search" method="GET">
