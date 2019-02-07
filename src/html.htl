@@ -43,7 +43,7 @@ spectrum-css-diff.css file as well -->
                     <use xlink:href="#spectrum-icon-18-ShowMenu"></use>
                 </svg>
             </span>
-            <a class="logo" href="//adobe.io/">
+            <a class="logo" href="/">
                 <svg class="logo-image" xmlns="http://www.w3.org/2000/svg"
                     width="20" height="17" viewBox="0 0 24 20"
                     focusable="false"
