@@ -106,7 +106,6 @@ async function pre(payload, action) {
     }
     if (node.className.includes('index4')) {
       feed.items.slice(0, 3).forEach((item) => {
-        console.log('processing blog', item.title);
         const pubMoment = moment(item.pubDate);
         const ps = item['content:encoded'].split('<p>');
         const firstStart = ps[1];
@@ -121,7 +120,7 @@ async function pre(payload, action) {
         }
         const div = transformer.getDocument().createElement('div');
         div.innerHTML = `<p class="spectrum-Body3"><strong>${item.creator}</strong></p>
-<code class="spectrum-Code5">${pubMoment.format('MMM Mo')} ${(moment().year() !== pubMoment.year() ? moment.year() : '')}</code>
+<code class="spectrum-Code5">${pubMoment.format('MMM Do')} ${(moment().year() !== pubMoment.year() ? moment.year() : '')}</code>
 <h4 class="spectrum-Heading4">${item.title}</h4>
 <p class="spectrum-Body3">${caption}</p>
 <a href="${item.link}" class="spectrum-Button spectrum-Button--primary" style="margin: 20px 0;">Read On</a>
