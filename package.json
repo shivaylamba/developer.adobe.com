@@ -8,10 +8,11 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha --exit test/unit/*",
-    "smoke": "mocha --exit test/smoke/*",
-    "deploy": "hlx build && hlx deploy --no-auto && hlx publish",
-    "lint": "npx eslint ."
+    "lint": "npx eslint .",
+    "test:unit": "mocha --exit test/unit/*",
+    "test:e2e": "wdio test/e2e/wdio.conf.js",
+    "test": "npm run lint && npm run test:unit && npm run test:e2e",
+    "deploy": "hlx build && hlx deploy --no-auto && hlx publish"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,11 @@
     "uri-js": "^4.2.2"
   },
   "devDependencies": {
+    "@wdio/cli": "^5.4.17",
+    "@wdio/local-runner": "^5.4.17",
+    "@wdio/mocha-framework": "^5.4.14",
+    "@wdio/spec-reporter": "^5.4.15",
+    "chromedriver": "^2.46.0",
     "eslint": "^5.9.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-header": "^2.0.0",
@@ -44,6 +50,8 @@
     "nock": "^10.0.1",
     "path": "^0.12.7",
     "remark": "^10.0.1",
-    "shelljs": "^0.8.3"
+    "shelljs": "^0.8.3",
+    "wdio-chromedriver-service": "^5.0.0",
+    "webdriverio": "^5.4.17"
   }
 }
