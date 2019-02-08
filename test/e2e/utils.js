@@ -9,12 +9,8 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
+async function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
-module.exports = {
-  'env': {
-    'mocha': true
-  },
-  'rules': {
-    'import/no-extraneous-dependencies': 0
-  }
-};
+module.exports.sleep = sleep;
