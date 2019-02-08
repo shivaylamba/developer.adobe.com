@@ -9,8 +9,6 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-/* eslint-disable no-console */
-/* global describe, it, before, after */
 const assert = require('assert');
 const $ = require('shelljs');
 
@@ -19,7 +17,7 @@ const { assertHttp, sleep } = require('./utils');
 const HLX_SMOKE_EXEC = process.env.HLX_SMOKE_EXEC || 'hlx';
 console.debug(`Running smoke test using: ${HLX_SMOKE_EXEC}`);
 
-describe('www.adobe.io renders properly', function suite() {
+describe('local helix instance of site renders properly', function suite() {
   this.timeout(10000);
 
   let hlxup;
