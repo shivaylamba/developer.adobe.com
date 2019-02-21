@@ -61,7 +61,7 @@ strains:
     code: ssh://git@github.com/adobe/developer.adobe.com.git#master
     content: ssh://git@github.com/adobe/developer.adobe.com.git#master
     static: https://github.com/adobe/developer.adobe.com.git/htdocs#master
-    package: 77017e262a9aa0378abd02c098ecc82e9b6aa7dc
+    package: developer-adobe-com/c20ea5c5b64b5b7373bf6ff1c759c63678e90709
 
   launch-docs-prod:
     <<: *basestrain
