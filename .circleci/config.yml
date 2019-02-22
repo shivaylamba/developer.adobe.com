@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:8-jessie
+      - image: circleci/node:8-jessie-browsers
     steps:
         - checkout
 
@@ -30,34 +30,14 @@ jobs:
                 - node_modules
             key: v1-dependencies-{{ checksum "package-lock.json" }}
 
-        - run:
-            name: Lint
-            command: npm run lint
-
         # run tests!
-        - run: mkdir junit
         - run:
             name: prepare test git user
             command: git config --global user.email "you@example.com" && git config --global user.name "CircleCi Build"
-        - run:
-            name: Running Unit Tests
-            command: npx mocha  --exit --reporter mocha-junit-reporter test/unit/*
-            environment:
-                MOCHA_FILE: junit/unit-test-results.xml
-            when: always
 
         - run:
-            name: Running Smoke Tests
-            command: npx mocha  --exit --reporter mocha-junit-reporter test/smoke/*
-            environment:
-                MOCHA_FILE: junit/smoke-test-results.xml
-            when: always
-
-        - store_test_results:
-            path: junit
-
-        - store_artifacts:
-            path: junit
+            name: Test
+            command: npm test
 
         # - run:
         #     name: Reset package-lock.json
