@@ -63,19 +63,19 @@ strains:
     static: https://github.com/adobe/developer.adobe.com.git/htdocs#master
     package: developer-adobe-com/c20ea5c5b64b5b7373bf6ff1c759c63678e90709
 
-#  launch-docs-prod:
-#    <<: *basestrain
-#    url: https://www.adobe.io/launch/docs
-#    content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
-#    directoryIndex: README.html
-#    package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
+  #launch-docs-prod:
+    #<<: *basestrain
+    #url: https://www.adobe.io/launch/docs
+    #content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
+    #directoryIndex: README.html
+    #package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
 
-#  launch-docs-stage:
-#    <<: *basestrain
-#    url: https://stage.adobe.io/launch/docs
-#    content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#author
-#    directoryIndex: README.html
-#    package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
+  #launch-docs-stage:
+    #<<: *basestrain
+    #url: https://stage.adobe.io/launch/docs
+    #content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#author
+    #directoryIndex: README.html
+    #package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
 
   launch-docs-local:
     <<: *basestrain
@@ -84,19 +84,19 @@ strains:
     directoryIndex: README.html
     package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
 
-#  xd-docs-prod:
-#    <<: *basestrain
-#    url: https://www.adobe.io/xd/docs
-#    content: https://github.com/AdobeXD/plugin-docs.git#master
-#    directoryIndex: README.html
-#    package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
+  #xd-docs-prod:
+    #<<: *basestrain
+    #url: https://www.adobe.io/xd/docs
+    #content: https://github.com/AdobeXD/plugin-docs.git#master
+    #directoryIndex: README.html
+    #package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
 
-#  xd-docs-stage:
-#    <<: *basestrain
-#    url: https://stage.adobe.io/xd/docs
-#    content: https://github.com/AdobeXD/plugin-docs.git#master
-#    directoryIndex: README.html
-#    package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
+  #xd-docs-stage:
+    #<<: *basestrain
+    #url: https://stage.adobe.io/xd/docs
+    #content: https://github.com/AdobeXD/plugin-docs.git#master
+    #directoryIndex: README.html
+    #package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
 
   xd-docs-local:
     <<: *basestrain
@@ -105,19 +105,19 @@ strains:
     directoryIndex: README.html
     package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
 
-#  xd-marketing-prod:
-#    <<: *basestrain
-#    url: https://www.adobe.io/xd
-#    content: https://github.com/AdobeXD/plugin-docs.git#master
-#    directoryIndex: README.html
-#    package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
+  #xd-marketing-prod:
+    #<<: *basestrain
+    #url: https://www.adobe.io/xd
+    #content: https://github.com/AdobeXD/plugin-docs.git#master
+    #directoryIndex: README.html
+    #package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
 
-#  xd-marketing-stage:
-#    <<: *basestrain
-#    url: https://stage.adobe.io/xd
-#    content: https://github.com/AdobeXD/plugin-docs.git#author
-#    directoryIndex: README.html
-#    package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
+  #xd-marketing-stage:
+    #<<: *basestrain
+    #url: https://stage.adobe.io/xd
+    #content: https://github.com/AdobeXD/plugin-docs.git#author
+    #directoryIndex: README.html
+    #package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
 
   xd-marketing-local:
     <<: *basestrain
@@ -126,19 +126,19 @@ strains:
     directoryIndex: README.html
     package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
 
-#  starter-docs-prod:
-#    <<: *basestrain
-#    url: https://www.adobe.io/starter/docs
-#    content: https://github.com/AdobeDocs/starter-docs.git#master
-#    directoryIndex: Overview.html
-#    package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
+  #starter-docs-prod:
+    #<<: *basestrain
+    #url: https://www.adobe.io/starter/docs
+    #content: https://github.com/AdobeDocs/starter-docs.git#master
+    #directoryIndex: Overview.html
+    #package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
 
-#  starter-docs-stage:
-#    <<: *basestrain
-#    url: https://stage.adobe.io/starter/docs
-#    content: https://github.com/AdobeDocs/starter-docs.git#author
-#    directoryIndex: Overview.html
-#    package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
+  #starter-docs-stage:
+    #<<: *basestrain
+    #url: https://stage.adobe.io/starter/docs
+    #content: https://github.com/AdobeDocs/starter-docs.git#author
+    #directoryIndex: Overview.html
+    #package: 9e81a2d5d82f2a22bf218b446da32414f33c0d87
 
   starter-docs-local:
     <<: *basestrain
