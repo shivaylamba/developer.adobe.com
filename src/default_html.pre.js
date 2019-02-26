@@ -52,8 +52,10 @@ async function pre(payload, action) {
       return;
     }
     const transformer = new VDOM(element, secrets);
-    const { body } = transformer.getDocument();
-    const node = body.firstChild;
+    const document = transformer.getDocument();
+    const { body } = document;
+    const node = document.createElement('div');
+    node.innerHTML = body.innerHTML;
     `section index${index} ${index % 2 ? 'even' : 'odd'} ${element.types.join(' ')} spectrum-grid-col-sm-12 spectrum-grid-col-md-6`.split(' ').forEach((className) => {
       node.classList.add(className);
     });
@@ -66,7 +68,7 @@ async function pre(payload, action) {
       DOMUtil.addClass(body, 'div:nth-of-type(1)', 'spectrum--dark');
 
       // append the search bar to the end of the first section
-      const searchDiv = transformer.getDocument().createElement('div');
+      const searchDiv = document.createElement('div');
       searchDiv.classList.add('search-control');
       searchDiv.innerHTML = `<div class="spectrum-DecoratedTextfield is-decorated">
   <label for="search-input" class="spectrum-FieldLabel">Search our products and documentation</label>
