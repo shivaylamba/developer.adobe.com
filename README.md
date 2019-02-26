@@ -1,6 +1,6 @@
 # Welcome to the Adobe Developer Site project!
 
-[![CircleCI](https://circleci.com/gh/adobe/developer.adobe.com/tree/master.svg?style=svg)](https://circleci.com/gh/adobe/developer.adobe.com/tree/master)
+[![CircleCI](https://circleci.com/gh/adobe/developer.adobe.com/tree/master.svg?style=svg)](https://circleci.com/gh/adobe/developer.adobe.com/tree/master) [![Greenkeeper badge](https://badges.greenkeeper.io/adobe/developer.adobe.com.svg)](https://greenkeeper.io/)
 
 We're rebuilding the `adobe.io` site, and eventually moving to `https://developers.adobe.com`. Based on our research, we want to prioritize the following for ***developers*** that visit the site:
 
