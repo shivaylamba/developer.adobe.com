@@ -52,7 +52,6 @@
     "nock": "^10.0.1",
     "path": "^0.12.7",
     "remark": "^10.0.1",
-    "shelljs": "^0.8.3",
     "wdio-chromedriver-service": "^5.0.0",
     "webdriverio": "^5.4.17"
   }

@@ -10,32 +10,29 @@
  * governing permissions and limitations under the License.
  */
 const assert = require('assert');
-const $ = require('shelljs');
-
+const { spawn } = require('child_process');
 const { sleep } = require('./utils');
 
 const HLX_SMOKE_EXEC = process.env.HLX_SMOKE_EXEC || 'hlx';
 console.debug(`Running smoke test using: ${HLX_SMOKE_EXEC}`);
 
 describe('local helix instance of site renders properly', function suite() {
-  this.timeout(10000);
+  this.timeout(30000);
 
   let hlxup;
 
-  before(async () => {
-    // TODO: instead of callback for shelling out, can we have this use
-    // async/await?
-    hlxup = $.exec(`${HLX_SMOKE_EXEC} up --open false`, {
-      async: true,
-    }, (code, stdout) => {
-      assert.ok(!stdout.includes('[hlx] error'), 'No error message allowed');
-      assert.ok(!stdout.includes('[hlx] warn'), 'No warning message allowed');
+  before((done) => {
+    hlxup = spawn(`${HLX_SMOKE_EXEC}`, ['up', '--open', 'false'], { shell: true });
+    hlxup.stdout.on('data', (stdout) => {
+      const msg = stdout.toString();
+      if (msg.includes('Helix Dev server up and running')) {
+        done();
+      }
     });
-
-    // wait for server to properly start and hlx build to be completed
-    // TODO: instead of sleep, lets inspect the stdout to ensure the server is
-    // up and listening
-    await sleep(5000);
+    hlxup.stderr.on('data', (stderr) => {
+      const msg = stderr.toString();
+      assert.ok(!msg.includes('[hlx] error'), 'No helix error messages allowed!');
+    });
   });
 
   after(async () => {
