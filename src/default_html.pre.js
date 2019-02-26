@@ -65,7 +65,8 @@ async function pre(payload, action) {
     DOMUtil.spectrumify(body);
 
     if (node.className.includes('index0')) {
-      DOMUtil.addClass(body, 'div:nth-of-type(1)', 'spectrum--dark');
+      node.classList.add('spectrum--dark');
+      // DOMUtil.addClass(body, 'div:nth-of-type(1)', 'spectrum--dark');
 
       // append the search bar to the end of the first section
       const searchDiv = document.createElement('div');
@@ -80,19 +81,20 @@ async function pre(payload, action) {
       node.appendChild(searchDiv);
 
       // bold and underline links in first section
-      DOMUtil.addClass(body, 'a', 'index0-links');
+      DOMUtil.addClass(node, 'a', 'index0-links');
     }
 
     if (node.className.includes('index1')) {
-      DOMUtil.addClass(body, 'p:last-of-type a', 'spectrum-Button spectrum-Button--primary');
+      DOMUtil.addClass(node, 'p:last-of-type a', 'spectrum-Button spectrum-Button--primary');
     }
 
     if (node.className.includes('index2')) {
-      DOMUtil.addClass(body, 'div:nth-of-type(1)', 'spectrum--dark');
+      node.classList.add('spectrum--dark');
+      // DOMUtil.addClass(node, 'div:nth-of-type(1)', 'spectrum--dark');
       // grab last link and style it like a button
-      DOMUtil.addClass(body, 'ul', 'removeStyle');
+      DOMUtil.addClass(node, 'ul', 'removeStyle');
 
-      const links = body.querySelectorAll('a');
+      const links = node.querySelectorAll('a');
       links.forEach((link, i) => {
         if (i === 0 || i === 2) {
           link.classList.add('spectrum-Button', 'spectrum-Button--cta', 'button-read');
@@ -104,7 +106,7 @@ async function pre(payload, action) {
 
     if (node.className.includes('index3')) {
       // grab last link and style it like a button
-      DOMUtil.addClass(body, 'p:last-of-type a', 'spectrum-Button spectrum-Button--cta');
+      DOMUtil.addClass(node, 'p:last-of-type a', 'spectrum-Button spectrum-Button--cta');
     }
     if (node.className.includes('index4')) {
       feed.items.slice(0, 3).forEach((item) => {

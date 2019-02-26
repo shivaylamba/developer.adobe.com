@@ -67,11 +67,11 @@ function buildSideNavFromList(list) {
 /* eslint-disable no-param-reassign */
 function filterNav(document, path, logger, mountPoint) {
   logger.debug('summary_html.pre.js - Extracting nav');
-  if (document.body.children[0].children && document.body.children[0].children.length > 0) {
+  if (document.body.children && document.body.children.length > 0) {
     // rewrite the links to abolsute with the mountPoint
     DOMUtil.replaceLinks(document.body, mountPoint);
     DOMUtil.spectrumify(document.body);
-    let nav = Array.from(document.body.children[0].children);
+    let nav = Array.from(document.body.children);
 
     // remove first title
     if (nav && nav.length > 0) {
@@ -92,11 +92,11 @@ function filterNav(document, path, logger, mountPoint) {
       }
     });
     final = `<div>${final}</div>`;
-    document.body.children[0].outerHTML = final;
+    document.body.children.outerHTML = final;
     // console.log(Array.from(document.body.children[0].children)[0].innerHTML);
 
     logger.debug(`summary_html.pre.js - Managed to collect some content for the nav: ${nav.length}`);
-    return Array.from(document.body.children[0].children);
+    return Array.from(document.body.children);
   }
 
   logger.debug('summary_html.pre.js - Navigation payload has no children');

@@ -242,9 +242,9 @@ async function pre(payload, action) {
     }
 
     p.content.subcontent = [];
-    if (body.children[0].children && body.children[0].children.length) {
+    if (body.children && body.children.length) {
       logger.debug('html-pre.js - VDOM children processed (stripping leading title)');
-      p.content.subcontent = Array.from(body.children[0].children)
+      p.content.subcontent = Array.from(body.children)
         .slice(1); // remove the leading first title (redundant with page title)
     }
 
