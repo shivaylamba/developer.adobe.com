@@ -23,6 +23,8 @@ describe('local helix instance of site renders properly', function suite() {
   let hlxup;
 
   before(async () => {
+    // TODO: instead of callback for shelling out, can we have this use
+    // async/await?
     hlxup = $.exec(`${HLX_SMOKE_EXEC} up --open false`, {
       async: true,
     }, (code, stdout) => {
@@ -31,6 +33,8 @@ describe('local helix instance of site renders properly', function suite() {
     });
 
     // wait for server to properly start and hlx build to be completed
+    // TODO: instead of sleep, lets inspect the stdout to ensure the server is
+    // up and listening
     await sleep(5000);
   });
 
@@ -50,6 +54,7 @@ describe('local helix instance of site renders properly', function suite() {
     await browser.url('/xd/docs');
 
     const title = await browser.getTitle();
+    // TODO: this test should not assert based on document contents, see https://github.com/adobe/developer.adobe.com/issues/142
     assert.equal(title, 'An overview of creating Adobe XD plugins', 'xd docs title matches expectation');
   });
 });
