@@ -10,7 +10,6 @@
  * governing permissions and limitations under the License.
  */
 const DOMUtil = require('./DOM_munging.js');
-const mountPointResolution = require('./mountpoint_resolution.js');
 
 function anchorItem(a, close = true) {
   return `<li class="spectrum-SideNav-item">${a.outerHTML.replace(/spectrum-Link/, 'spectrum-SideNav-itemLink')}${(close ? '</li>' : '')}`;
@@ -122,11 +121,9 @@ async function pre(payload, action) {
     }
 
     const p = payload;
-    const mountPoint = mountPointResolution(payload.request.headers['x-strain']);
 
     // clean up the resource
-    p.content.nav = filterNav(p.content.document, action.request.params.path, logger, mountPoint);
-
+    p.content.nav = filterNav(p.content.document, action.request.params.path, logger, action.request.params.rootPath);
     return p;
   } catch (e) {
     logger.error(`summary_html.pre.js - Error while executing pre.js: ${e.stack || e}`);

@@ -38,13 +38,13 @@ module.exports = {
       body.querySelectorAll('a[href]:not([href=""])').forEach((anchor) => {
         const href = anchor.getAttribute('href');
         if (!href.match(/^https?:\/\//i)) {
-          anchor.setAttribute('href', `/${mountPoint}/${href}`);
+          anchor.setAttribute('href', `${mountPoint}/${href}`);
         }
       });
       body.querySelectorAll('img[src]:not([src=""])').forEach((img) => {
         const src = img.getAttribute('src');
         if (!src.match(/^https?:\/\//i)) {
-          img.setAttribute('src', `/${mountPoint}/${src}`);
+          img.setAttribute('src', `${mountPoint}/${src}`);
         }
       });
     }

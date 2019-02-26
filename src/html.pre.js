@@ -12,25 +12,13 @@
 
 /* eslint-disable no-param-reassign */
 
-const mountPointResolution = require('./mountpoint_resolution.js');
-
 /**
 * The 'pre' function that is executed before the HTML is rendered
  * @param payload The current payload of processing pipeline
  * @param payload.content The content
  */
 
-function pre(payload) {
-  /*
-  if (action.logger) {
-    action.logger.debug('payload.request');
-    action.logger.debug(payload.request);
-
-    action.logger.debug('action.request');
-    action.logger.debug(action.request);
-  } else {
-    console.log('no logger found')
-  } */
+function pre(payload, action) {
 
   payload.dispatch = {};
 
@@ -40,19 +28,24 @@ function pre(payload) {
     payload.request.url = '/index.html';
   }
 
-  if (payload.request.headers['x-strain'].match('-docs-')) {
-    payload.dispatch.url = payload.request.path.replace(/\.md/, '.docs.html');
-    const mountPoint = mountPointResolution(payload.request.headers['x-strain']);
+  console.log('request url', payload.request.url)
+  console.log('request path',payload.request.path)
+  console.log('action path',action.request.params.path)
+  console.log('action rootPath', action.request.params.rootPath)
+  console.log(payload.request.headers['x-strain']);
 
-    payload.dispatch.url = `/${mountPoint}${payload.dispatch.url}`;
+  if (!action.request.params.rootPath) {
+    console.log('no root path');
+    // home page
+    payload.dispatch.url = payload.request.url.replace(/\.html/, '.default.html');
+  } else if (action.request.params.rootPath.match('/docs')) {
+    payload.dispatch.url = payload.request.path.replace(/\.html/, '.docs.html');
+    console.log(payload.dispatch.url);
   } else {
+    // TODO: Create new template for marketing pages
+    // use homepage for now
     payload.dispatch.url = payload.request.url.replace(/\.html/, '.default.html');
   }
-
-  // if (payload.request.url.indexOf('/docs') !== -1) {
-  //   console.log('docs', payload.request.url);
-  //   payload.dispatch.url = payload.request.url.replace(/\.html/, '.docs.html');
-  // }
 }
 
 module.exports.pre = pre;

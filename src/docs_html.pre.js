@@ -12,7 +12,6 @@
 
 const request = require('request-promise');
 const DOMUtil = require('./DOM_munging.js');
-const mountPointResolution = require('./mountpoint_resolution.js');
 
 /**
  * Fetches the commits history
@@ -165,8 +164,7 @@ function computeNavPath(isDev, logger, mountPoint) {
     logger.debug(`html-pre.js - Production path to SUMMARY.md to generate nav: ${summaryPath}`);
     return summaryPath;
   } */
-
-  const summaryPath = `/${mountPoint}/SUMMARY`;
+  const summaryPath = `${mountPoint}/SUMMARY`;
   // TODO: add mount point to the summary
   // const summaryPath = '/starter/docs/SUMMARY';
   logger.debug(`html-pre.js - Development path to SUMMARY.md to generate nav: ${summaryPath}`);
@@ -217,8 +215,7 @@ async function pre(payload, action) {
     const { body } = p.content.document;
     DOMUtil.spectrumify(body);
 
-    const mountPoint = mountPointResolution(payload.request.headers['x-strain']);
-    DOMUtil.replaceLinks(body, mountPoint);
+    DOMUtil.replaceLinks(body, action.request.params.rootPath);
 
     // extract committers info and last modified based on commits history
     if (secrets.REPO_API_ROOT) {
@@ -259,12 +256,12 @@ async function pre(payload, action) {
       p.content.nav = computeNavPath(
         isDev,
         logger,
-        mountPoint,
+        action.request.params.rootPath,
       );
     } else {
       logger.debug('html-pre.js - No REPO_RAW_ROOT provided');
     }
-
+    
     return p;
   } catch (e) {
     logger.error(`Error while executing html.pre.js: ${e.stack || e}`);
