@@ -123,7 +123,10 @@ async function pre(payload, action) {
     const p = payload;
 
     // clean up the resource
-    p.content.nav = filterNav(p.content.document, action.request.params.path, logger, action.request.params.rootPath);
+    p.content.nav = filterNav(p.content.document,
+      action.request.params.path,
+      logger,
+      action.request.params.rootPath);
     return p;
   } catch (e) {
     logger.error(`summary_html.pre.js - Error while executing pre.js: ${e.stack || e}`);

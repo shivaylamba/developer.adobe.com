@@ -17,9 +17,7 @@
  * @param payload The current payload of processing pipeline
  * @param payload.content The content
  */
-
 function pre(payload, action) {
-
   payload.dispatch = {};
 
   // payload.dispatch.headers = action.headers;
@@ -28,10 +26,10 @@ function pre(payload, action) {
     payload.request.url = '/index.html';
   }
 
-  console.log('request url', payload.request.url)
-  console.log('request path',payload.request.path)
-  console.log('action path',action.request.params.path)
-  console.log('action rootPath', action.request.params.rootPath)
+  console.log('request url', payload.request.url);
+  console.log('request path', payload.request.path);
+  console.log('action path', action.request.params.path);
+  console.log('action rootPath', action.request.params.rootPath);
   console.log(payload.request.headers['x-strain']);
 
   if (!action.request.params.rootPath) {
