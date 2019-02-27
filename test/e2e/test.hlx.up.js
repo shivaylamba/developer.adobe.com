@@ -22,15 +22,15 @@ describe('local helix instance of site renders properly', function suite() {
   let hlxup;
 
   before((done) => {
+    // Run `hlx up` and dont start the tests until the dev server is up and running
     hlxup = spawn(`${HLX_SMOKE_EXEC}`, ['up', '--open', 'false'], { shell: true });
     hlxup.stdout.on('data', (stdout) => {
       const msg = stdout.toString();
-      if (msg.includes('Helix Dev server up and running')) {
-        done();
-      }
+      if (msg.includes('[hlx]') && msg.includes('error')) console.error(msg);
+      if (msg.includes('Helix Dev server up and running')) done();
     });
     hlxup.stderr.on('data', (stderr) => {
-      console.log('!!! hlx stderr:', stderr.toString());
+      console.error(stderr.toString());
     });
   });
 
