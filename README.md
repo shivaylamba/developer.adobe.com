@@ -26,10 +26,11 @@ $ npm start
 ### Quick Links:
 
  * I'm a stakeholder for a product on https://adobe.io
- * [I’m a developer that wants to help contribute to the site](https://github.com/adobe/Adobe-Developer-Site/blob/master/CONTRIBUTING.md)
+ * [I’m a developer that wants to help contribute to the site](./CONTRIBUTING.md)
  * I’m interested in this project and I want to know about progress
  * [A working version of the website, powered by Helix](https://adobedevsite.helix-demo.xyz/)
- * [XD Source of Truth for Redesigned IA](https://xd.adobe.com/view/8021d9d0-7575-4b01-4121-2fecf710494a-f610)
+ * [XD Source of Truth for Redesigned IA is in the `xd/` folder of this
+     repo](./xd)
 
 # Project Roadmap
 
