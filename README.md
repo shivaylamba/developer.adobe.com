@@ -2,6 +2,8 @@
 
 [![CircleCI](https://circleci.com/gh/adobe/developer.adobe.com/tree/master.svg?style=svg)](https://circleci.com/gh/adobe/developer.adobe.com/tree/master) [![Greenkeeper badge](https://badges.greenkeeper.io/adobe/developer.adobe.com.svg)](https://greenkeeper.io/)
 
+## Update! We are moving issues and planning over to the private repo https://github.com/adobe/developer.adobe.com-planning for now. 
+
 We're rebuilding the `adobe.io` site, and eventually moving to `https://developers.adobe.com`. Based on our research, we want to prioritize the following for ***developers*** that visit the site:
 
 ![Discover | Learn | Connect](https://user-images.githubusercontent.com/25260/49473633-73e8f680-f7c7-11e8-8b64-5731cbca5d70.png)
