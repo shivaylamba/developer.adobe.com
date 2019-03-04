@@ -62,7 +62,7 @@ async function pre(payload, action) {
     const types = element.types.slice();
     types.push(`index${index}`);
 
-    DOMUtil.spectrumify(body);
+    DOMUtil.spectrumify(node);
 
     if (node.className.includes('index0')) {
       node.classList.add('spectrum--dark');
@@ -73,10 +73,10 @@ async function pre(payload, action) {
       searchDiv.classList.add('search-control');
       searchDiv.innerHTML = `<div class="spectrum-DecoratedTextfield is-decorated">
   <label for="search-input" class="spectrum-FieldLabel">Search our products and documentation</label>
-  <svg class="spectrum-Icon spectrum-UIIcon-Magnifier spectrum-Icon--sizeS spectrum-DecoratedTextfield-icon" focusable="false" aria-hidden="true">
+  <svg class="spectrum-Icon spectrum-UIIcon-Magnifier spectrum-Icon--sizeS spectrum-DecoratedTextfield-icon" focusable="false" aria-hidden="true" style="color: rgb(75, 75, 75);transform: rotate(90deg);margin-left:10px;">
     <use xlink:href="#spectrum-css-icon-Magnifier" />
   </svg>
-  <input id="search-input" class="spectrum-Textfield spectrum-DecoratedTextfield-field" aria-invalid="false" type="text">
+  <input id="search-input" class="spectrum-Textfield spectrum-DecoratedTextfield-field" aria-invalid="false" type="text" style="background-color: rgb(255, 255, 255);border-color: rgb(225, 225, 225);color: rgb(75, 75, 75); border-radius: 30px;">
 </div>`;
       node.appendChild(searchDiv);
 
@@ -109,6 +109,8 @@ async function pre(payload, action) {
       DOMUtil.addClass(node, 'p:last-of-type a', 'spectrum-Button spectrum-Button--cta');
     }
     if (node.className.includes('index4')) {
+      node.appendChild(document.createElement('hr'));
+      // this is the medium blog feed
       feed.items.slice(0, 3).forEach((item) => {
         const pubMoment = moment(item.pubDate);
         const ps = item['content:encoded'].split('<p>');
@@ -122,7 +124,7 @@ async function pre(payload, action) {
           caption = caption.substring(0, 340);
           caption = caption.replace(/\w+$/, '...');
         }
-        const div = transformer.getDocument().createElement('div');
+        const div = document.createElement('div');
         div.innerHTML = `<p class="spectrum-Body3"><strong>${item.creator}</strong></p>
 <code class="spectrum-Code5">${pubMoment.format('MMM Do')} ${(moment().year() !== pubMoment.year() ? moment.year() : '')}</code>
 <h4 class="spectrum-Heading4">${item.title}</h4>
