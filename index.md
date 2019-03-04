@@ -46,5 +46,3 @@ The Adobe Analytics APIs are a collection of APIs that power Adobe Analytics pro
 
 ## Recent Blog Articles
 
-Latest from the [Adobe Tech Blog](https://medium.com/adobetech).
-
