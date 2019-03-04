@@ -109,7 +109,9 @@ async function pre(payload, action) {
       DOMUtil.addClass(node, 'p:last-of-type a', 'spectrum-Button spectrum-Button--cta');
     }
     if (node.className.includes('index4')) {
-      node.appendChild(document.createElement('hr'));
+      const hr = document.createElement('hr');
+      hr.classList.add('spectrum-Rule', 'spectrum-Rule--medium');
+      node.appendChild(hr);
       // this is the medium blog feed
       feed.items.slice(0, 3).forEach((item) => {
         const pubMoment = moment(item.pubDate);
@@ -125,13 +127,12 @@ async function pre(payload, action) {
           caption = caption.replace(/\w+$/, '...');
         }
         const div = document.createElement('div');
-        div.innerHTML = `<p class="spectrum-Body3"><strong>${item.creator}</strong></p>
-<code class="spectrum-Code5">${pubMoment.format('MMM Do')} ${(moment().year() !== pubMoment.year() ? moment.year() : '')}</code>
-<h4 class="spectrum-Heading4">${item.title}</h4>
-<p class="spectrum-Body3">${caption}</p>
-<a href="${item.link}" class="spectrum-Button spectrum-Button--primary" style="margin: 20px 0;">Read On</a>
-<hr class="spectrum-Rule spectrum-Rule--medium">`;
-        div.classList.add('spectrum-Article');
+        div.innerHTML = `<code class="spectrum-Code5">${pubMoment.format('MMM Do')} ${(moment().year() !== pubMoment.year() ? moment.year() : '')} · <strong>${item.creator}</strong></code>
+        <h4 class="spectrum-Heading4">${item.title}</h4>
+        <p class="spectrum-Body4">${caption}</p>
+        <a href="${item.link}" class="spectrum-Button spectrum-Button--primary" style="margin: 20px 0;">Read On</a>
+        <hr class="spectrum-Rule spectrum-Rule--medium">`;
+        DOMUtil.spectrumify(div.querySelector('p.spectrum-Body4'));
         node.appendChild(div);
       });
     }
