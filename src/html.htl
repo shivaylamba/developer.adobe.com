@@ -70,7 +70,7 @@ spectrum-css-diff.css file as well -->
             </li>
         </ul>
     </nav>
-    <div class="spectrum-grid--fluid">
+    <div class="spectrum-grid--fluid" style="padding: 0 8px;">
         <esi:include src="${payload.dispatch.url}" />
     </div>
     <nav id="footer" class="spectrum--darkest">
