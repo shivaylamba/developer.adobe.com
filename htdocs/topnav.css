@@ -8,12 +8,21 @@
 .main-nav {
         list-style-type: none;
         padding-left: 20px;
+        list-style-type: none;
+        display: none;
 }
 
 .nav-links,
 .logo {
         text-decoration: none;
         color: rgba(2, 2, 2, 0.7);
+}
+.logo {
+        display: inline-block;
+        font-size: 22px;
+        margin: 0 auto;
+        position:relative;
+        top:10px;
 }
 
 .logo-text {
@@ -22,7 +31,10 @@
         overflow: hidden;
         font-size: 18px;
         font-weight: 700;
-        color: #2d2d2d
+        color: #2d2d2d;
+        position:relative;
+        top: -4px;
+        left: 8px;
 }
 
 .main-nav li {
@@ -31,31 +43,16 @@
 }
 
 .navbar-logos {
-        display:flex
-}
-
-.logo {
-        display: inline-block;
-        font-size: 22px;
-        margin-right:auto;
+        display:flex;
 }
 
 .navbar-toggle {
-        margin-right:auto;
-}
-
-.navbar-toggle {
-        /*position: absolute;
-        top: 10px;*/
-        right: 20px;
+        position: absolute;
+        left: 15px;
+        top: 8px;
         cursor: pointer;
-        color: rgba(5, 5, 5, 0.8);
+        color: rgba(5, 5, 5, 0.5);
         font-size: 24px;
-}
-
-.main-nav {
-        list-style-type: none;
-        display: none;
 }
 
 .active {
