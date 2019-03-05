@@ -39,7 +39,7 @@ spectrum-css-diff.css file as well -->
     <nav class="navbar">
         <div class="navbar-logos">
             <span class="navbar-toggle" id="js-navbar-toggle">
-                <svg class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" aria-hidden="true" aria-label="ShowMenu">
+                <svg class="spectrum-Icon spectrum-Icon--sizeM" focusable="false" aria-hidden="true" aria-label="ShowMenu">
                     <use xlink:href="#spectrum-icon-18-ShowMenu"></use>
                 </svg>
             </span>
