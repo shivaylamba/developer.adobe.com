@@ -8,12 +8,21 @@
 .main-nav {
         list-style-type: none;
         padding-left: 20px;
+        list-style-type: none;
+        display: none;
 }
 
 .nav-links,
 .logo {
         text-decoration: none;
         color: rgba(2, 2, 2, 0.7);
+}
+.logo {
+        display: inline-block;
+        font-size: 22px;
+        margin: 0 auto;
+        position:relative;
+        top:10px;
 }
 
 .logo-text {
@@ -25,6 +34,7 @@
         color: #2d2d2d;
         position:relative;
         top: -4px;
+        left: 8px;
 }
 
 .main-nav li {
@@ -36,26 +46,13 @@
         display:flex;
 }
 
-.logo {
-        display: inline-block;
-        font-size: 22px;
-        margin-right:auto;
-        margin-top:5px;
-}
-
 .navbar-toggle {
-        position: relative;
-        left: 12px;
+        position: absolute;
+        left: 18px;
         top: 8px;
-        margin-right:auto;
         cursor: pointer;
         color: rgba(5, 5, 5, 0.5);
         font-size: 24px;
-}
-
-.main-nav {
-        list-style-type: none;
-        display: none;
 }
 
 .active {
