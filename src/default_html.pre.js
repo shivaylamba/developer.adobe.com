@@ -121,10 +121,11 @@ async function pre(payload, action) {
         const secondParagraphContent = (ps[2] ? ps[2].split('</p>')[0] : '');
         let caption = `${firstParagraphContent} ${secondParagraphContent}`;
         if (caption.length > 340) {
-          // TODO: this may cut content that is mid-html-tag. the
-          // `content:encoded` field contains html, too.
           caption = caption.substring(0, 340);
           caption = caption.replace(/\w+$/, '...');
+          const temp = document.createElement('p');
+          temp.innerHTML = caption;
+          caption = temp.innerHTML;
         }
         const div = document.createElement('div');
         div.innerHTML = `<code class="spectrum-Code5">${pubMoment.format('MMM Do')} ${(moment().year() !== pubMoment.year() ? moment.year() : '')} · <strong>${item.creator}</strong></code>
@@ -132,7 +133,7 @@ async function pre(payload, action) {
         <p class="spectrum-Body4">${caption}</p>
         <a href="${item.link}" class="spectrum-Button spectrum-Button--primary" style="margin: 20px 0;">Read On</a>
         <hr class="spectrum-Rule spectrum-Rule--medium">`;
-        DOMUtil.spectrumify(div.querySelector('p.spectrum-Body4'));
+        DOMUtil.spectrumify(div.querySelector('p.spectrum-Body4')); // spectrumify rando content from blog (in case there are links)
         node.appendChild(div);
       });
     }
