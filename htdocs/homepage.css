@@ -41,6 +41,11 @@ body { margin:0; }
     padding-top:10px;
 }
 
+.index2 .guide-indent {
+    border-left: solid #555555;
+    padding-left: 20px;
+}
+
 .index3 p:first-child {
     display:flex;
     align-items:center;
@@ -67,6 +72,7 @@ body { margin:0; }
 .removeStyle {
     display: inline-flex;
     padding: 0;
+    margin: 0;
     list-style-type: none;
 }
 

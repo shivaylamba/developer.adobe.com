@@ -90,11 +90,13 @@ async function pre(payload, action) {
 
     if (node.className.includes('index2')) {
       node.classList.add('spectrum--dark');
+      node.innerHTML = node.innerHTML.replace(/<h3/g, '<div class="guide-indent"><h3').replace(/<\/ul>/g, '</div></ul>');
       // DOMUtil.addClass(node, 'div:nth-of-type(1)', 'spectrum--dark');
       // grab last link and style it like a button
       DOMUtil.addClass(node, 'ul', 'removeStyle');
 
       const links = node.querySelectorAll('a');
+      // Alternating button colors
       links.forEach((link, i) => {
         if (i === 0 || i === 2) {
           link.classList.add('spectrum-Button', 'spectrum-Button--cta', 'button-read');
