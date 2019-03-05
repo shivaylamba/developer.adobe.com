@@ -1,3 +1,4 @@
+body { margin:0; }
 .container {
     display: flex;
     height: 100%;
@@ -40,6 +41,11 @@
     padding-top:10px;
 }
 
+.index2 .guide-indent {
+    border-left: solid #555555;
+    padding-left: 20px;
+}
+
 .index3 p:first-child {
     display:flex;
     align-items:center;
@@ -66,6 +72,7 @@
 .removeStyle {
     display: inline-flex;
     padding: 0;
+    margin: 0;
     list-style-type: none;
 }
 
