@@ -1,4 +1,4 @@
-<div class="container spectrum-grid-row spectrum-Body3">
+<div class="container spectrum-grid-row">
   <div class="section index0 odd has-paragraph has-heading has-inlineCode nb-paragraph-1 nb-heading-1 nb-inlineCode-1 is-paragraph-heading-inlineCode is-paragraph-heading is-paragraph spectrum-grid-col-sm-12 spectrum-grid-col-md-6 spectrum--dark"><p class="spectrum-Body3"><code class="spectrum-Code3">Find what you're looking for</code></p>
   <h2 class="spectrum-Heading2">Do More with Adobe</h2>
   <p class="spectrum-Body3">Customize and extend Adobe’s products to create better customer experiences with our APIs, help guides and community support.</p>
@@ -59,6 +59,18 @@
       <p class="spectrum-Body4">${item.caption}</p>
       <a href="${item.link}" class="spectrum-Button spectrum-Button--primary" style="margin: 20px 0;">Read On</a>
       <hr class="spectrum-Rule spectrum-Rule--medium">
+    </div>
+  </div>
+</div>
+<div class="section index5 even spectrum-grid-col-sm-12 spectrum-grid-col-md-6 spectrum--darkest">
+  <h2 class="spectrum-Heading2--quiet"><strong>Sign up</strong> for our developer newsletter</h2>
+  <div class="newsletter-control">
+    <div class="spectrum-DecoratedTextfield">
+      <label for="email-input" class="spectrum-FieldLabel">Enter your email address</label>
+      <button id="newsletter-submit" class="spectrum-Button spectrum-Button--primary spectrum-DecoratedTextfield-icon">
+        <span class="spectrum-Button-label">Subscribe →</span>
+      </button>
+      <input id="email-input" class="spectrum-Textfield" aria-invalid="false" type="text" style="background-color: rgb(255, 255, 255);border-color: rgb(225, 225, 225);color: rgb(75, 75, 75); border-radius: 30px;">
     </div>
   </div>
 </div>
