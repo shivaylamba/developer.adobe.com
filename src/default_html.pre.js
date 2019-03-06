@@ -18,6 +18,22 @@ const DOMUtil = require('./DOM_munging.js');
 
 const rss = new RSSParser();
 
+// Given a DOM node, recurse over its children and extract just text nodes
+// Used for estimating read length
+function getAllWords(node) {
+  let allText = [];
+  node.childNodes.forEach((child) => {
+    if (child.nodeType === 3) {
+      // node is text node
+      allText = allText.concat(child.textContent.split(' '));
+    } else {
+      // node is an element, recurse
+      allText = allText.concat(getAllWords(child));
+    }
+  });
+  return allText.filter(word => word.length && word.match(/^\w+\W?$/i));
+}
+
 // module.exports.pre is a function (taking next as an argument)
 // that returns a function (with payload, config, logger as arguments)
 // that calls next (after modifying the payload a bit)
@@ -27,135 +43,53 @@ async function pre(payload, action) {
     secrets,
   } = action;
 
-  if (!payload.content) {
-    logger.debug('html-pre.js - Payload has no resource, nothing we can do');
-    return payload;
-  }
   let feed = null;
   try {
     feed = await rss.parseURL('https://medium.com/feed/adobetech');
   } catch (e) {
-    console.error('error durring parsing adobetech blog rss feed!', e);
+    logger.warn('error durring parsing adobetech blog rss feed!', e);
+  }
+  const { content } = payload;
+  content.mediumArticles = false;
+
+  // pull recent blog posts from medium
+  if (feed) {
+    const transformer = new VDOM(payload.content.sections[0], secrets);
+    const document = transformer.getDocument();
+    content.mediumArticles = feed.items.slice(0, 3).map((item) => {
+      const pubMoment = moment(item.pubDate);
+      const temp = document.createElement('p');
+      temp.innerHTML = item['content:encoded'];
+      const articleWords = getAllWords(temp);
+      // brief googling yields a rough math of 265 words per minute read time
+      const minuteLength = Math.ceil(articleWords.length / 265);
+      const ps = item['content:encoded'].split('<p>');
+      const firstStart = ps[1];
+      const firstParagraphContent = firstStart.split('</p>')[0];
+      const secondParagraphContent = (ps[2] ? ps[2].split('</p>')[0] : '');
+      let caption = `${firstParagraphContent} ${secondParagraphContent}`;
+      if (caption.length > 340) {
+        // chop up caption into a tl;dr
+        caption = caption.substring(0, 340);
+        caption = caption.replace(/\w+$/, '...');
+      }
+      // let the virtual dom handle chopping up elements appropriately,
+      // otherwise we risk severing content mid-html-tag
+      temp.innerHTML = caption;
+      DOMUtil.spectrumify(temp);
+      caption = temp.innerHTML;
+      return {
+        pubDate: `${pubMoment.format('MMM Do')} ${(moment().year() !== pubMoment.year() ? moment.year() : '')}`,
+        creator: item.creator,
+        title: item.title,
+        caption,
+        minuteLength,
+        link: item.link,
+      };
+    });
   }
 
-  const c = payload.content;
-  const documentBody = c.document.body;
-
-  DOMUtil.spectrumify(documentBody);
-
-  c.sectionsDocuments = [];
-
-  c.sections.forEach((element, index) => {
-    console.log('processing section with index', index);
-    if (!element.children.length) {
-      console.warn('skipping childless node');
-      return;
-    }
-    const transformer = new VDOM(element, secrets);
-    const document = transformer.getDocument();
-    const { body } = document;
-    const node = document.createElement('div');
-    node.innerHTML = body.innerHTML;
-    `section index${index} ${index % 2 ? 'even' : 'odd'} ${element.types.join(' ')} spectrum-grid-col-sm-12 spectrum-grid-col-md-6`.split(' ').forEach((className) => {
-      node.classList.add(className);
-    });
-    const types = element.types.slice();
-    types.push(`index${index}`);
-
-    DOMUtil.spectrumify(node);
-
-    if (node.className.includes('index0')) {
-      node.classList.add('spectrum--dark');
-      // DOMUtil.addClass(body, 'div:nth-of-type(1)', 'spectrum--dark');
-
-      // append the search bar to the end of the first section
-      const searchDiv = document.createElement('div');
-      searchDiv.classList.add('search-control');
-      searchDiv.innerHTML = `<div class="spectrum-DecoratedTextfield is-decorated">
-  <label for="search-input" class="spectrum-FieldLabel">Search our products and documentation</label>
-  <svg class="spectrum-Icon spectrum-UIIcon-Magnifier spectrum-Icon--sizeS spectrum-DecoratedTextfield-icon" focusable="false" aria-hidden="true" style="color: rgb(75, 75, 75);transform: rotate(90deg);margin-left:10px;">
-    <use xlink:href="#spectrum-css-icon-Magnifier" />
-  </svg>
-  <input id="search-input" class="spectrum-Textfield spectrum-DecoratedTextfield-field" aria-invalid="false" type="text" style="background-color: rgb(255, 255, 255);border-color: rgb(225, 225, 225);color: rgb(75, 75, 75); border-radius: 30px;">
-</div>`;
-      node.appendChild(searchDiv);
-
-      // bold and underline links in first section
-      DOMUtil.addClass(node, 'a', 'index0-links');
-    }
-
-    if (node.className.includes('index1')) {
-      DOMUtil.addClass(node, 'p:last-of-type a', 'spectrum-Button spectrum-Button--primary');
-    }
-
-    if (node.className.includes('index2')) {
-      node.classList.add('spectrum--dark');
-      node.innerHTML = node.innerHTML.replace(/<h3/g, '<div class="guide-indent"><h3').replace(/<\/ul>/g, '</div></ul>');
-      // DOMUtil.addClass(node, 'div:nth-of-type(1)', 'spectrum--dark');
-      // grab last link and style it like a button
-      DOMUtil.addClass(node, 'ul', 'removeStyle');
-
-      const links = node.querySelectorAll('a');
-      // Alternating button colors
-      links.forEach((link, i) => {
-        if (i === 0 || i === 2) {
-          link.classList.add('spectrum-Button', 'spectrum-Button--cta', 'button-read');
-        } else {
-          link.classList.add('spectrum-Button', 'spectrum-Button--primary');
-        }
-      });
-    }
-
-    if (node.className.includes('index3')) {
-      // grab last link and style it like a button
-      DOMUtil.addClass(node, 'p:last-of-type a', 'spectrum-Button spectrum-Button--cta');
-    }
-    if (node.className.includes('index4')) {
-      const hr = document.createElement('hr');
-      hr.classList.add('spectrum-Rule', 'spectrum-Rule--medium');
-      node.appendChild(hr);
-      // this is the medium blog feed
-      feed.items.slice(0, 3).forEach((item) => {
-        const pubMoment = moment(item.pubDate);
-        console.log(item.pubDate);
-        const contentVDOM = new VDOM(item['content:encoded'], secrets);
-        const ps = item['content:encoded'].split('<p>');
-        const firstStart = ps[1];
-        const firstParagraphContent = firstStart.split('</p>')[0];
-        const secondParagraphContent = (ps[2] ? ps[2].split('</p>')[0] : '');
-        let caption = `${firstParagraphContent} ${secondParagraphContent}`;
-        if (caption.length > 340) {
-          caption = caption.substring(0, 340);
-          caption = caption.replace(/\w+$/, '...');
-          const temp = document.createElement('p');
-          temp.innerHTML = caption;
-          caption = temp.innerHTML;
-        }
-        const div = document.createElement('div');
-        div.innerHTML = `<code class="spectrum-Code5">${pubMoment.format('MMM Do')} ${(moment().year() !== pubMoment.year() ? moment.year() : '')} · <strong>${item.creator}</strong></code>
-        <h4 class="spectrum-Heading4">${item.title}</h4>
-        <p class="spectrum-Body4">${caption}</p>
-        <a href="${item.link}" class="spectrum-Button spectrum-Button--primary" style="margin: 20px 0;">Read On</a>
-        <hr class="spectrum-Rule spectrum-Rule--medium">`;
-        DOMUtil.spectrumify(div.querySelector('p.spectrum-Body4')); // spectrumify rando content from blog (in case there are links)
-        node.appendChild(div);
-      });
-    }
-
-    types.push('section');
-    // add types as css class
-    types.forEach((t) => {
-      node.classList.add(t);
-    });
-
-    c.sectionsDocuments.push(node);
-  });
   return payload;
 }
 
 module.exports.pre = pre;
-
-function getAllText(node) {
-  node.childNodes.forEach(function(child) {
-  });
-}

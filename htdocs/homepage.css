@@ -57,9 +57,9 @@ body { margin:0; }
     margin: 0 15px;
 }
 
-.index4 {
+#techblog {
     background-color:#EFEFEF;
-
+    width: 100%
 }
 
 .search-control {
