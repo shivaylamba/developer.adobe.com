@@ -18,6 +18,22 @@ const DOMUtil = require('./DOM_munging.js');
 
 const rss = new RSSParser();
 
+// Given a DOM node, recurse over its children and extract just text nodes
+// Used for estimating read length
+function getAllWords(node) {
+  let allText = [];
+  node.childNodes.forEach((child) => {
+    if (child.nodeType === 3) {
+      // node is text node
+      allText = allText.concat(child.textContent.split(' '));
+    } else {
+      // node is an element, recurse
+      allText = allText.concat(getAllWords(child));
+    }
+  });
+  return allText.filter(word => word.length && word.match(/^\w+\W?$/i));
+}
+
 // module.exports.pre is a function (taking next as an argument)
 // that returns a function (with payload, config, logger as arguments)
 // that calls next (after modifying the payload a bit)
@@ -77,17 +93,3 @@ async function pre(payload, action) {
 }
 
 module.exports.pre = pre;
-
-function getAllWords(node) {
-  let allText = [];
-  node.childNodes.forEach((child) => {
-    if (child.nodeType === 3) {
-      // node is text node
-      allText = allText.concat(child.textContent.split(' '));
-    } else {
-      // node is an element, recurse
-      allText = allText.concat(getAllWords(child));
-    }
-  });
-  return allText.filter(word => word.length && word.match(/^\w+\W?$/i));
-}
