@@ -6,7 +6,6 @@
 }
 
 .main-nav {
-        list-style-type: none;
         padding-left: 20px;
         list-style-type: none;
         display: none;
@@ -16,8 +15,6 @@
 .logo {
         text-decoration: none;
         color: rgba(2, 2, 2, 0.7);
-}
-.logo {
         display: inline-block;
         font-size: 22px;
         margin: 0 auto;

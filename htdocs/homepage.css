@@ -7,7 +7,7 @@ body { margin:0; }
 }
 
 .section {
-    padding: 70px 20px 20px 20px;
+    padding: 50px 20px 20px 20px;
 }
 
 .li-no-margin-bottom {
@@ -24,6 +24,10 @@ body { margin:0; }
 .index0 svg {
     left: 7px;
 }
+.index0 .search-control {
+    padding-top:20px;
+}
+
 
 .index1 p:first-child {
     display:flex;
@@ -56,17 +60,26 @@ body { margin:0; }
 .index3 p:first-child code {
     margin: 0 15px;
 }
+.index5 .spectrum-DecoratedTextfield {
+    display: inherit;
+}
+.index5 .newsletter-control input {
+    width: 100%;
+}
+.index5 #newsletter-submit {
+    border:none;
+    background-color:#EFEFEF;
+    top:24px;
+    right:0px;
+    bottom:0px;
+    width:inherit;
+    height:inherit;
+    color: #2b2b2b;
+}
 
 #techblog {
     background-color:#EFEFEF;
     width: 100%
-}
-
-.search-control {
-    padding-top:20px;
-}
-.search-bar {
-    width:180%;
 }
 
 .removeStyle {
