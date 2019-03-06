@@ -117,6 +117,8 @@ async function pre(payload, action) {
       // this is the medium blog feed
       feed.items.slice(0, 3).forEach((item) => {
         const pubMoment = moment(item.pubDate);
+        console.log(item.pubDate);
+        const contentVDOM = new VDOM(item['content:encoded'], secrets);
         const ps = item['content:encoded'].split('<p>');
         const firstStart = ps[1];
         const firstParagraphContent = firstStart.split('</p>')[0];
@@ -152,3 +154,8 @@ async function pre(payload, action) {
 }
 
 module.exports.pre = pre;
+
+function getAllText(node) {
+  node.childNodes.forEach(function(child) {
+  });
+}
