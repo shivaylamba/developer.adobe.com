@@ -30,7 +30,7 @@ exports.config = {
   // directory is where your package.json resides, so `wdio` will be called from there.
   //
   specs: [
-    'test/e2e/test*.js',
+    'test/e2e/aem/test*.js',
   ],
   // Patterns to exclude.
   exclude: [
@@ -92,7 +92,7 @@ exports.config = {
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'https://adobe.io',
   //
   // Default timeout for all waitFor* commands.
   waitforTimeout: 10000,
@@ -140,7 +140,7 @@ exports.config = {
      * @param {Object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-  // onPrepare: function (config, capabilities) {
+  // onPrepare(config/* , capabilities */) {
   // },
   /**
      * Gets executed just before initialising the webdriver session and test framework. allows you
@@ -237,7 +237,7 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {<Object>} results object containing test results
      */
-  // onComplete: function(exitCode, config, capabilities, results) {
+  // async onComplete() { // also supports exitCode, config, capabilities, results arguments
   // },
   /**
     * Gets executed when a refresh happens.

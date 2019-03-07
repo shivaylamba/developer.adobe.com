@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  sauce-connect: saucelabs/sauce-connect@volatile
 executors:
   helix:
     docker:
@@ -46,14 +48,27 @@ jobs:
             - v1-dependencies-{{ checksum "package-lock.json" }}
             - v1-dependencies-
 
+        # Open up the Sauce Labs tunnel
+        - sauce-connect/install:
+            version: 4.5.3
+        - sauce-connect/open_tunnel:
+            # NOTE: the env vars are hardcoded as SAUCELABS_USER and
+            # SAUCELABS_KEY
+            tunnel_identifier: ${SAUCELABS_USER}
+
         # run tests!
         - run:
             name: prepare test git user
             command: git config --global user.email "you@example.com" && git config --global user.name "CircleCi Build"
-
         - run:
             name: Test
-            command: npm test
+            command: npm run ci
+
+        - run:
+            name: Close Sauce Tunnel
+            command: |
+              pkill sc
+              sleep 5 # shutting down the tunnel usually takes a few second, lets let it clean up gracefully
 
 workflows:
   version: 2.1
