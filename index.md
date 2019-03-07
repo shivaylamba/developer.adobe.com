@@ -4,11 +4,15 @@
 
 Customize and extend Adobe’s products to create better customer experiences with our APIs, help guides and community support.
 
+Search our products and documentation
+
 ---
 
 ![XD Logo](https://www.adobe.io/content/dam/udp/language-masters/en/xd_logo_43733775.svg)
+
 `The future of extending creative cloud apps`
-# Start Building with Adobe XD today
+
+## Start Building with Adobe XD today
 
 Create XD plugins to push the boundaries of experience design by adding new features to [Adobe XD](https://adobexdplatform.com/), automating workflows, connecting XD to external services, and more—all on a quick, modern JavaScript engine with native UI components.
 
@@ -46,3 +50,10 @@ The Adobe Analytics APIs are a collection of APIs that power Adobe Analytics pro
 
 ## Recent Blog Articles
 
+---
+
+## **Sign up** for our developer newsletter
+
+Enter your email address
+
+Subscribe
