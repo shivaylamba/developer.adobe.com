@@ -30,6 +30,7 @@ $ npm start
  * I'm a stakeholder for a product on https://adobe.io
  * [I'm a developer that wants to help contribute to the site](./CONTRIBUTING.md)
      * [How do we do testing?](./docs/TESTING-CI-CD.md)
+     * [How do we operate the site?](./docs/ROLLOUT.md)
  * I'm interested in this project and I want to know about progress
  * [A working version of the website, powered by Helix](https://adobedevsite.helix-demo.xyz/)
  * [XD Source of Truth for Redesigned IA is in the `xd/` folder of this
