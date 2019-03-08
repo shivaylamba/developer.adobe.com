@@ -13,14 +13,11 @@
 -->
 <!DOCTYPE html>
 <html class="spectrum--large">
-<!-- TODO: this should be set to large or medium depending on mobile vs. desktop
-screens. if we change to medium at any point, then we'll need to import
-spectrum-css-diff.css file as well -->
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="stylesheet" href="/spectrum-core.css" />
+    <link rel="stylesheet" href="/spectrum-core-diff.css" />
     <link rel="stylesheet" href="/spectrum-light.css" />
     <link rel="stylesheet" href="/spectrum-lightest.css" />
     <link rel="stylesheet" href="/spectrum-dark.css" />
@@ -147,8 +144,9 @@ spectrum-css-diff.css file as well -->
             mainNav.classList.toggle('active');
         });
         // Set appropriate top-level spectrum class depending on screen size
-        // TODO: if you change the px value here, also update the relevant css
-        // media queries!
+        // if you change the px value here, also update the relevant css media queries!
+        // TODO: could mobile vs desktop versions be cached in fastly/helix
+        // instead of including all spectrum css files from the start?
         var mq = window.matchMedia( "(min-width: 900px)" );
         if (mq.matches) {
             document.documentElement.classList.remove('spectrum--large');

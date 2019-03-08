@@ -19,11 +19,11 @@
   /* Prevent tap highlights */
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
-/* generated from dna-version: 5.4.0 */
+/* generated from dna-version: 5.9.0 */
 .spectrum--light .spectrum-Body1 {
           color: rgb(75, 75, 75);
         }
-/* generated from dna-version: 5.4.0 */
+/* generated from dna-version: 5.9.0 */
 .spectrum--light .spectrum-Body2 {
           color: rgb(75, 75, 75);
         }
@@ -2697,92 +2697,60 @@
 /* topdoc
 {{ rating/rating.yml }}
 */
-.spectrum--light .spectrum-Rating-icon {
-  color: rgb(142, 142, 142);
-}
-/* Star */
-.spectrum--light .spectrum-Rating-icon .spectrum-Rating-starActive {
-    display: block;
+.spectrum--light .spectrum-Rating.is-focused {
+    box-shadow: 0 0 0 2px rgb(38, 128, 235);
   }
-.spectrum--light .spectrum-Rating-icon .spectrum-Rating-starInactive {
-    display: none;
-  }
-.spectrum--light .spectrum-Rating:not(:hover) .spectrum-Rating-icon:not(.is-selected) {
-    color: rgb(142, 142, 142);
-  }
-/* StarOutline */
-.spectrum--light .spectrum-Rating:not(:hover) .spectrum-Rating-icon:not(.is-selected) .spectrum-Rating-starActive {
-      display: none;
+.spectrum--light .spectrum-Rating:hover .spectrum-Rating-icon {
+      /* Make all stars colored when the component is hovered */
+      color: rgb(20, 115, 230);
     }
-.spectrum--light .spectrum-Rating:not(:hover) .spectrum-Rating-icon:not(.is-selected) .spectrum-Rating-starInactive {
-      display: block;
-    }
-.spectrum--light .spectrum-Rating-icon:hover ~ .spectrum-Rating-icon:not(.is-selected) {
-  color: rgb(142, 142, 142);
-}
-/* StarOutline */
-.spectrum--light .spectrum-Rating-icon:hover ~ .spectrum-Rating-icon:not(.is-selected) .spectrum-Rating-starActive {
-    display: none;
-  }
-.spectrum--light .spectrum-Rating-icon:hover ~ .spectrum-Rating-icon:not(.is-selected) .spectrum-Rating-starInactive {
-    display: block;
-  }
-/* topdoc
-{{ rating/rating-active.yml }}
-*/
-.spectrum--light .spectrum-Rating-icon:hover ~ .spectrum-Rating-icon.is-selected {
-  color: rgb(142, 142, 142);
-}
-/* Star */
-.spectrum--light .spectrum-Rating-icon:hover ~ .spectrum-Rating-icon.is-selected .spectrum-Rating-starActive {
-    display: block;
-  }
-.spectrum--light .spectrum-Rating-icon:hover ~ .spectrum-Rating-icon.is-selected .spectrum-Rating-starInactive {
-    display: none;
-  }
-.spectrum--light .spectrum-Rating-icon.is-selected {
-    color: rgb(75, 75, 75);
-  }
-/* Star */
-.spectrum--light .spectrum-Rating-icon.is-selected .spectrum-Rating-starActive {
-      display: block;
-    }
-.spectrum--light .spectrum-Rating-icon.is-selected .spectrum-Rating-starInactive {
-      display: none;
-    }
-/* topdoc
-{{ rating/rating-disabled.yml }}
-*/
-.spectrum--light .spectrum-Rating.is-disabled .spectrum-Rating-icon.is-selected {
-  color: rgb(225, 225, 225);
-}
-/* Star */
-.spectrum--light .spectrum-Rating.is-disabled .spectrum-Rating-icon.is-selected .spectrum-Rating-starActive {
-    display: block;
-  }
-.spectrum--light .spectrum-Rating.is-disabled .spectrum-Rating-icon.is-selected .spectrum-Rating-starInactive {
-    display: none;
-  }
-.spectrum--light .spectrum-Rating:not(:hover).is-disabled .spectrum-Rating-icon:not(.is-selected) {
-  color: rgb(225, 225, 225);
-}
-/* StarOutline */
-.spectrum--light .spectrum-Rating:not(:hover).is-disabled .spectrum-Rating-icon:not(.is-selected) .spectrum-Rating-starActive {
-    display: none;
-  }
-.spectrum--light .spectrum-Rating:not(:hover).is-disabled .spectrum-Rating-icon:not(.is-selected) .spectrum-Rating-starInactive {
-    display: block;
-  }
-.spectrum--light .spectrum-Rating:not(:hover) .spectrum-Rating-input.focus-ring ~ .spectrum-Rating-icon,
-      .spectrum--light .spectrum-Rating:not(:hover) .spectrum-Rating-input.focus-ring ~ .spectrum-Rating-icon:not(.is-selected),
-      .spectrum--light .spectrum-Rating:not(:hover) .spectrum-Rating-input.focus-ring ~ .spectrum-Rating-icon.is-selected {
-        color: rgb(20, 115, 230);
-
+.spectrum--light .spectrum-Rating:hover .spectrum-Rating-icon:hover {
+        /* The icon that's actually hovered is darker */
+        color: rgb(13, 102, 208);
       }
-.spectrum--light .spectrum-Rating:not(:hover) .spectrum-Rating-input.focus-ring ~ .spectrum-Rating-icon > .spectrum-Icon, .spectrum--light .spectrum-Rating:not(:hover) .spectrum-Rating-input.focus-ring ~ .spectrum-Rating-icon:not(.is-selected) > .spectrum-Icon, .spectrum--light .spectrum-Rating:not(:hover) .spectrum-Rating-input.focus-ring ~ .spectrum-Rating-icon.is-selected > .spectrum-Icon {
-          stroke: currentColor;
-          stroke-width: 1px;
+.spectrum--light .spectrum-Rating:hover .spectrum-Rating-icon:active {
+        /* The icon that's actually hovered is darker */
+        color: rgb(9, 90, 186);
+      }
+/* Show which star is currently selected */
+.spectrum--light .spectrum-Rating:hover .spectrum-Rating-icon.is-currentValue:after {
+          /* Match the color of the star */
+          background: currentColor;
         }
+.spectrum--light .spectrum-Rating-icon {
+  color: rgb(110, 110, 110);
+}
+.spectrum--light .spectrum-Rating-icon.is-selected {
+    color: rgb(20, 115, 230);
+  }
+/* All stars following the hovered star */
+.spectrum--light .spectrum-Rating-icon:hover ~ .spectrum-Rating-icon {
+      color: rgb(110, 110, 110);
+    }
+.spectrum--light .spectrum-Rating--quiet .spectrum-Rating-icon {
+    color: rgb(110, 110, 110);
+  }
+.spectrum--light .spectrum-Rating--quiet .spectrum-Rating-icon.is-selected {
+      color: rgb(110, 110, 110);
+    }
+.spectrum--light .spectrum-Rating--quiet:hover .spectrum-Rating-icon {
+      /* Make all stars selected when the component is hovered */
+      color: rgb(110, 110, 110);
+    }
+.spectrum--light .spectrum-Rating--quiet:hover .spectrum-Rating-icon:hover {
+        /* The icon that's actually hovered is darker */
+        color: rgb(75, 75, 75);
+      }
+.spectrum--light .spectrum-Rating--quiet:hover .spectrum-Rating-icon:active {
+        color: rgb(44, 44, 44);
+      }
+/* Disabled */
+.spectrum--light .spectrum-Rating.is-disabled .spectrum-Rating-icon {
+      color: rgb(202, 202, 202);
+    }
+.spectrum--light .spectrum-Rating.is-disabled .spectrum-Rating-icon.is-selected {
+        color: rgb(202, 202, 202);
+      }
 .spectrum--light .spectrum-Tags-item {
   color: rgb(110, 110, 110);
   background-color: rgb(250, 250, 250);

@@ -60,16 +60,26 @@ body { margin:0; }
 .index3 p:first-child code {
     margin: 0 15px;
 }
-.index5 .spectrum-DecoratedTextfield {
-    display: inherit;
-}
-.index5 .newsletter-control input {
+
+#top-github-repos {
     width: 100%;
 }
-.index5 #newsletter-submit {
+#top-github-repos h2>svg.spectrum-Icon {
+    position: relative;
+    top: 5px;
+    margin-right:10px;
+}
+
+.index6 .spectrum-DecoratedTextfield {
+    display: inherit;
+}
+.index6 .newsletter-control input {
+    width: 100%;
+}
+.index6 #newsletter-submit {
     border:none;
     background-color:#EFEFEF;
-    top:24px;
+    top:42%; /* bad hack, this is so the mobile sizing matches up with desktop sizing. plz halp */
     right:0px;
     bottom:0px;
     width:inherit;
