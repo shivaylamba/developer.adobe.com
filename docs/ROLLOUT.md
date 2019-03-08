@@ -172,11 +172,13 @@ changes have been made to the site, but Helix has the ability to manage the site
 
 - [ ] `helix-config.yaml` with a `default` strain pointing to the existing AEM
     site's dispatcher
+    ([adobe/developer.adobe.com-planning#162](https://github.com/adobe/developer.adobe.com-planning/issues/162))
 - [ ] Fastly has certificate for `www.adobe.io` domain
+    ([adobe/developer.adobe.com-planning#167](https://github.com/adobe/developer.adobe.com-planning/issues/167))
 - [ ] Fastly configuration receives traffic for `www.adobe.io` domain
-- [ ] CircleCI is set up to run `hlx publish` on `master` (see
-    [adobe/developer.com.adobe-planning#152](https://github.com/adobe/developer.adobe.com-planning/pull/152) for
-    work-in-progress proposal.
+    ([adobe/developer.adobe.com-planning#168](https://github.com/adobe/developer.adobe.com-planning/issues/168))
+- [ ] CircleCI is set up to run `hlx publish` on `master`
+    ([adobe/developer.adobe.com-planning#169](https://github.com/adobe/developer.adobe.com-planning/issues/169))
 - [ ] GitHub `master` branch is protected from accidental merges
 
 ### Phase 2: New Open page for some
@@ -202,10 +204,9 @@ be migrated yet, as there are no redirects associated with the Open page on AEM.
 #### Prerequisites
 
 - [ ] a `open-geo-ch` strain pointing to the new site
-- [ ] a finished Open page implementation (see [adobe/developer.adobe.com-planning#165](https://github.com/adobe/developer.adobe.com-planning/issues/165))
+- [ ] a finished Open page implementation ([adobe/developer.adobe.com-planning#165](https://github.com/adobe/developer.adobe.com-planning/issues/165))
 - [ ] a basic functional test for the new Open page
 - [x] Helix team on standby in `#helix-escalations` Slack channel
-- [ ] CircleCI set up to run `hlx publish` only when above test succeeds (see [adobe/developer.com.adobe-planning#152](https://github.com/adobe/developer.adobe.com-planning/pull/152))
 
 ### Phase 3: New Open page for more
 
