@@ -54,9 +54,8 @@ sections of the site.
 Helix provides a [status page](https://status.project-helix.io/) that should be
 used to identify helix service degradation.
 
-*TODO*: this project should implement its own monitoring - need issue to
-track implementation, document in here, and this should inform us about degraded
-service from [services we rely on](#services-we-rely-on) (see next section).
+*TODO*: to be implemented
+([adobe/developer.adobe.com-planning#172](https://github.com/adobe/developer.adobe.com-planning/issues/172))
 
 #### Services We Rely On
 
