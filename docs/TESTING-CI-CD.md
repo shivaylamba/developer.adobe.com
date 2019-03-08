@@ -26,13 +26,15 @@ environments.
 
 ## Implementation of Tests
 
-Two types of tests currently exist: [unit tests](#unit-tests) (fast, in-memory,
-purely logical) and [end-to-end/clicky/functional tests](#end-to-end-tests).
+Two types of tests currently exist:
 
-Additional testing to be implemented *TODO*:
+- [unit tests](#unit-tests)
+- [end-to-end/clicky/functional tests](#end-to-end-tests)
+
+Additional testing to be implemented:
 
 - [performance testing](#performance-testing)
-- [link and image checking](#link-and-image-checking)]
+- [link and image checking](#link-and-image-checking)
 
 ### Unit Tests
 
@@ -63,7 +65,8 @@ tests could be written in a manner that could be used for either implementation.
 
 *TODO*: End-to-end tests need to be implemented in such a way that they can be
 run in any environment, against either `hlx` or AEM powered versions of the
-site.
+site. Pull request open for this:
+[adobe/developer.adobe.com#13](https://github.com/adobe/developer.adobe.com/pull/13)
 
 However, because of all this power and flexibility, they are _much_ slower than
 unit tests. At the time of writing this document, `npm run test:unit` runs seven
@@ -71,18 +74,19 @@ tests and takes ~11ms, while `npm run test:e2e` runs 2 tests and takes 13.74s.
 
 End-to-end tests are currently enshrined only to run in CI, and leverage a
 remote service ([Sauce Labs](https://saucelabs.com)) to run them in parallel in
-order to provide fast feedback. *TODO* running e2e only in CI to be implemented.
+order to provide fast feedback.
 
 ### Performance Testing
 
-*TODO* this needs to be implemented, recommended to leverage sitespeed.io as
-part of this.
+*TODO* to be implemented
+([adobe/developer.adobe.com-planning#170](https://github.com/adobe/developer.adobe.com-planning/issues/170))
 
-Requirements here: want to keep load time under 4 seconds.
+Requirements: want to keep load time under 4 seconds.
 
 ### Link and Image Checking
 
-*TODO* this needs to be implemented, some options to try out:
+*TODO* to be implemented
+([adobe/developer.adobe.com-planning#171](https://github.com/adobe/developer.adobe.com-planning/issues/171))
 
 - [broken-link-checker](https://www.npmjs.com/package/broken-link-checker)
 - [using selenium to check for broken images on a
