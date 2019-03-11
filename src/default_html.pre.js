@@ -114,8 +114,8 @@ async function pre(payload, action) {
     content.heading = {
       title: getElement(action, heading, 'h2'),
       code: getElement(action, heading, 'code'),
-      description: getElement(action, heading, 'p.is-paragraph'),
-      label: getElement(action, heading, 'p.is-paragraph', 1),
+      description: getElement(action, heading, 'p.is-text'),
+      label: getElement(action, heading, 'p.is-text', 1),
     };
   }
 
@@ -124,8 +124,8 @@ async function pre(payload, action) {
     content.featured = {
       title: getElement(action, featured, 'h2'),
       code: getElement(action, featured, 'code'),
-      content1: getElement(action, featured, 'p.is-paragraph'),
-      content2: getElement(action, featured, 'p.is-paragraph', 1),
+      content1: getElement(action, featured, 'p.is-text'),
+      content2: getElement(action, featured, 'p.is-text', 1),
       img: getImage(action, featured),
       link: getLink(action, featured, 'last'),
     };
@@ -137,13 +137,13 @@ async function pre(payload, action) {
       title: getElement(action, auth, 'h2'),
       part1: {
         title: getElement(action, auth, 'h2', 1),
-        description: getElement(action, auth, 'p.is-paragraph'),
+        description: getElement(action, auth, 'p.is-text'),
         link1: getLink(action, auth),
         link2: getLink(action, auth, 1),
       },
       part2: {
         title: getElement(action, auth, 'h2', 2),
-        description: getElement(action, auth, 'p.is-paragraph', 1),
+        description: getElement(action, auth, 'p.is-text', 1),
         link1: getLink(action, auth, 2),
         link2: getLink(action, auth, 3),
       },
@@ -155,7 +155,7 @@ async function pre(payload, action) {
     content.spotlight = {
       title: getElement(action, spotlight, 'h2'),
       code: getElement(action, spotlight, 'code'),
-      description: getElement(action, spotlight, 'p.is-paragraph'),
+      description: getElement(action, spotlight, 'p.is-text'),
       img: getImage(action, spotlight),
       link: getLink(action, spotlight),
     };
