@@ -64,6 +64,9 @@
     </div>
   </div>
   <div id="top-github-repos" class="section index5 odd has-heading nb-heading-1 is-heading-only spectrum-grid-col-sm-12 spectrum-grid-col-md-6 spectrum--dark">
+    <!-- TODO: once we figure out how to cache stuff properly in fastly, we may
+    want to put pulling repos from the github API into the pre.js to extract
+    description, stars, etc. -->
     <h2 class="spectrum-Heading2">
       <svg class="spectrum-Icon spectrum-Icon--sizeL" focusable="false" aria-hidden="true" aria-label="GitHub">
         <use xlink:href="#spectrum-icon-24-GitHub"></use>
@@ -73,13 +76,43 @@
     <h4 class="spectrum-Heading4">spectrum-css</h4>
     <code class="spectrum-Code5"><strong>CSS ⭑ 105</strong></code>
     <p class="spectrum-Body4">The standard CSS implementation of the Spectrum design language.</p>
-    <a class="spectrum-Button spectrum-Button--primary spectrum-Button--quiet" href="https://github.com/adobe/spectrum-css">
-      <span class="spectrum-Button-label">View On GitHub</span>
-      <svg class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" aria-hidden="true" aria-label="View on GitHub">
+    <a class="spectrum-Link--quiet" href="https://github.com/adobe/spectrum-css"><strong>
+      View On GitHub<svg class="spectrum-Icon spectrum-Icon--sizeXS" focusable="false" aria-hidden="true" aria-label="View on GitHub">
         <use xlink:href="#spectrum-icon-18-LinkOut" />
       </svg>
-    </a>
+    </strong></a>
     <hr class="spectrum-Rule spectrum-Rule--medium">
+    <h4 class="spectrum-Heading4">magento2</h4>
+    <code class="spectrum-Code5"><strong>PHP ⭑ 6.9k</strong></code>
+    <p class="spectrum-Body4">A cutting-edge, feature-rich eCommerce solution that gets results.</p>
+    <a class="spectrum-Link--quiet" href="https://github.com/magento/magento2"><strong>
+      View On GitHub<svg class="spectrum-Icon spectrum-Icon--sizeXS" focusable="false" aria-hidden="true" aria-label="View on GitHub">
+        <use xlink:href="#spectrum-icon-18-LinkOut" />
+      </svg>
+    </strong></a>
+    <hr class="spectrum-Rule spectrum-Rule--medium">
+    <h4 class="spectrum-Heading4">XDM</h4>
+    <code class="spectrum-Code5"><strong>JavaScript ⭑ 79</strong></code>
+    <p class="spectrum-Body4">The Experience Data Model (XDM) is the language of digital experiences.</p>
+    <a class="spectrum-Link--quiet" href="https://github.com/adobe/xdm"><strong>
+      View On GitHub<svg class="spectrum-Icon spectrum-Icon--sizeXS" focusable="false" aria-hidden="true" aria-label="View on GitHub">
+        <use xlink:href="#spectrum-icon-18-LinkOut" />
+      </svg>
+    </strong></a>
+    <hr class="spectrum-Rule spectrum-Rule--medium">
+    <h4 class="spectrum-Heading4">brackets</h4>
+    <code class="spectrum-Code5"><strong>JavaScript ⭑ 29.6k</strong></code>
+    <p class="spectrum-Body4">An open source code editor for the web, written in JavaScript, HTML and CSS.</p>
+    <a class="spectrum-Link--quiet" href="https://github.com/adobe/brackets"><strong>
+      View On GitHub<svg class="spectrum-Icon spectrum-Icon--sizeXS" focusable="false" aria-hidden="true" aria-label="View on GitHub">
+        <use xlink:href="#spectrum-icon-18-LinkOut" />
+      </svg>
+    </strong></a>
+    <p>
+      <a role="button" href="#" class="spectrum-Button spectrum-Button--primary">
+        <span class="spectrum-Button-label">Open Source at Adobe</span>
+      </a>
+    </p>
   </div>
   <div class="section index6 even spectrum-grid-col-sm-12 spectrum-grid-col-md-6 spectrum--darkest">
     <h2 class="spectrum-Heading2--quiet"><strong>Sign up</strong> for our developer newsletter</h2>
