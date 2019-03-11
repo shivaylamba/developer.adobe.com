@@ -9,11 +9,9 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-const { spawn } = require('child_process');
+const { startAndWaitForHlxUp } = require('../utils.js');
 
-let hlxup;
-const HLX_SMOKE_EXEC = process.env.HLX_SMOKE_EXEC || 'hlx';
-console.debug(`Running smoke test using: ${HLX_SMOKE_EXEC}`);
+let hlxup = { process: null };
 
 exports.config = {
   //
@@ -147,23 +145,13 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      */
   onPrepare(config/* , capabilities */) {
-    // Run `hlx up` and dont start the tests until the dev server is up and running
-    // check if the config baseurl is localhost
-    // if its not we dont have to start `hlx up`.
+    // check if the test config baseurl is localhost
+    // if it's not we dont have to start helix, since we are running against a
+    // public URL.
     // may be useful if we want to use the local headless chrome to test against a
     // public url via `npm run test:helix-e2e-local -- --baseUrl https://adobedevsite.helix-demo.xyz`
     if (config.baseUrl !== 'http://localhost:3000') return true;
-    return new Promise(((resolve) => {
-      hlxup = spawn(`${HLX_SMOKE_EXEC}`, ['up', '--open', 'false'], { shell: true });
-      hlxup.stdout.on('data', (stdout) => {
-        const msg = stdout.toString();
-        if (msg.includes('[hlx]') && msg.includes('error')) console.error(msg);
-        if (msg.includes('Helix Dev server up and running')) resolve();
-      });
-      hlxup.stderr.on('data', (stderr) => {
-        console.error(stderr.toString());
-      });
-    }));
+    return startAndWaitForHlxUp(hlxup);
   },
   /**
      * Gets executed just before initialising the webdriver session and test framework. allows you
@@ -261,8 +249,8 @@ exports.config = {
      * @param {<Object>} results object containing test results
      */
   async onComplete() { // also supports exitCode, config, capabilities, results arguments
-    if (hlxup) hlxup.kill();
-    hlxup = null;
+    if (hlxup.process) hlxup.process.kill();
+    hlxup = { process: null };
   },
   /**
     * Gets executed when a refresh happens.

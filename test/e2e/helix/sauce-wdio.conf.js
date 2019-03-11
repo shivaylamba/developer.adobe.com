@@ -15,11 +15,9 @@ const assert = require('assert');
 assert(process.env.SAUCELABS_USER, 'no SAUCELABS_USER set!');
 assert(process.env.SAUCELABS_KEY, 'no SAUCELABS_KEY set!');
 
-const { spawn } = require('child_process');
+const { startAndWaitForHlxUp } = require('../utils.js');
 
-let hlxup;
-const HLX_SMOKE_EXEC = process.env.HLX_SMOKE_EXEC || 'hlx';
-console.debug(`Running smoke test using: ${HLX_SMOKE_EXEC}`);
+let hlxup = { process: null };
 
 exports.config = {
   //
@@ -154,23 +152,13 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      */
   onPrepare(config/* , capabilities */) {
-    // Run `hlx up` and dont start the tests until the dev server is up and running
     // check if the config baseurl is localhost
-    // if its not we dont have to start `hlx up`.
-    // useful if we want to execute the sauce browsers against a locally running
-    // helix instance
+    // if it's not we dont have to start helix, since we are running against a
+    // public URL.
+    // useful if we want to execute the sauce browsers against a public url e.g.
+    // `npm run test:helix-e2e-sauce -- --baseUrl https://adobedevsite.helix-demo.xyz` (as is done in `npm run ci`)
     if (config.baseUrl !== 'http://localhost:3000') return true;
-    return new Promise(((resolve) => {
-      hlxup = spawn(`${HLX_SMOKE_EXEC}`, ['up', '--open', 'false'], { shell: true });
-      hlxup.stdout.on('data', (stdout) => {
-        const msg = stdout.toString();
-        if (msg.includes('[hlx]') && msg.includes('error')) console.error(msg);
-        if (msg.includes('Helix Dev server up and running')) resolve();
-      });
-      hlxup.stderr.on('data', (stderr) => {
-        console.error(stderr.toString());
-      });
-    }));
+    return startAndWaitForHlxUp(hlxup);
   },
   /**
      * Gets executed just before initialising the webdriver session and test framework. allows you
@@ -268,8 +256,8 @@ exports.config = {
      * @param {<Object>} results object containing test results
      */
   async onComplete() { // also supports exitCode, config, capabilities, results arguments
-    if (hlxup) hlxup.kill();
-    hlxup = null;
+    if (hlxup.process) hlxup.process.kill();
+    hlxup = { process: null };
   },
   /**
     * Gets executed when a refresh happens.
