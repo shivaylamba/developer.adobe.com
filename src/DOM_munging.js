@@ -9,6 +9,9 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
+// eslint-disable-next-line import/no-extraneous-dependencies
+const VDOM = require('@adobe/helix-pipeline').utils.vdom;
+const visit = require('unist-util-visit');
 
 module.exports = {
   addClass(document, selector, classNames) {
@@ -48,5 +51,57 @@ module.exports = {
         }
       });
     }
+  },
+
+  getElement(action, section, tag, index = 0) {
+    const node = new VDOM(section, action.secrets).getNode();
+    const elements = node.querySelectorAll(tag);
+    const i = index === 'last' ? elements.length - 1 : index;
+    if (elements.length > i) {
+      return elements[i].innerHTML;
+    }
+    return '';
+  },
+
+  getLink(action, section, index = 0) {
+    let href = '';
+    let label = '';
+    const node = new VDOM(section, action.secrets).getNode();
+    const elements = node.getElementsByTagName('a');
+    const i = index === 'last' ? elements.length - 1 : index;
+    if (elements.length > i) {
+      ({ href } = elements[i]);
+      label = elements[i].innerHTML;
+    }
+
+    return { label, href };
+  },
+
+  getImage(action, section, index = 0) {
+    const node = new VDOM(section, action.secrets).getNode();
+    const elements = node.getElementsByTagName('img');
+    const i = index === 'last' ? elements.length - 1 : index;
+    if (elements.length > i) {
+      return elements[i].outerHTML;
+    }
+
+    return '';
+  },
+
+  applyTypesToCSSClasses(sections) {
+    // allow fine-grain search on the DOM
+    sections.forEach((section) => {
+      visit(section, (child) => {
+        if (child && child.data && child.data.types) {
+          // assign the child types to the child className so that they get rendered
+          // eslint-disable-next-line no-param-reassign
+          child.data = Object.assign({
+            hProperties: {
+              className: child.data.types,
+            },
+          }, child.data || {});
+        }
+      });
+    });
   },
 };

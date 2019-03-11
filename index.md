@@ -1,3 +1,7 @@
+---
+layout: heading
+---
+
 `Find what you're looking for`
 
 ## Do More with Adobe
@@ -6,6 +10,8 @@ Customize and extend Adobe’s products to create better customer experiences wi
 
 Search our products and documentation
 
+---
+layout: featured
 ---
 
 ![XD Logo](https://www.adobe.io/content/dam/udp/language-masters/en/xd_logo_43733775.svg)
@@ -20,6 +26,8 @@ Let’s supercharge the future of design together with XD plugins.
 
 [See What's Possible](/xd/docs)
 
+---
+layout: auth
 ---
 
 ## Authentication Guides
@@ -36,6 +44,8 @@ API services tied to entitled Adobe products require a JSON Web Token (JWT) to r
  * [Read our Guide](https://www.adobe.io/authentication/auth-methods.html#!adobeio/adobeio-documentation/master/auth/JWTAuthenticationQuickStart.md)
 
 ---
+layout: spotlight
+---
 
 ![Adobe Analytics Logo](https://www.adobe.com/content/dam/www/icons/analytics-cloud.svg)
 `Product Spotlight`
@@ -47,9 +57,13 @@ The Adobe Analytics APIs are a collection of APIs that power Adobe Analytics pro
 [Read the Docs]()
 
 ---
+layout: medium
+---
 
 ## Recent Blog Articles
 
+---
+layout: signup
 ---
 
 ## **Sign up** for our developer newsletter

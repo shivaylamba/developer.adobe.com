@@ -14,7 +14,6 @@
 const VDOM = require('@adobe/helix-pipeline').utils.vdom;
 const RSSParser = require('rss-parser');
 const moment = require('moment');
-const visit = require('unist-util-visit');
 const DOMUtil = require('./DOM_munging.js');
 
 const rss = new RSSParser();
@@ -35,46 +34,9 @@ function getAllWords(node) {
   return allText.filter(word => word.length && word.match(/^\w+\W?$/i));
 }
 
-function getSection(sections, index) {
-  if (sections && sections.length > index) {
-    return sections[index];
-  }
-  return null;
-}
-
-function getElement(action, section, tag, index = 0) {
-  const node = new VDOM(section, action.secrets).getNode();
-  const elements = node.querySelectorAll(tag);
-  const i = index === 'last' ? elements.length - 1 : index;
-  if (elements.length > i) {
-    return elements[i].innerHTML;
-  }
-  return '';
-}
-
-function getLink(action, section, index = 0) {
-  let href = '';
-  let label = '';
-  const node = new VDOM(section, action.secrets).getNode();
-  const elements = node.getElementsByTagName('a');
-  const i = index === 'last' ? elements.length - 1 : index;
-  if (elements.length > i) {
-    ({ href } = elements[i]);
-    label = elements[i].innerHTML;
-  }
-
-  return { label, href };
-}
-
-function getImage(action, section, index = 0) {
-  const node = new VDOM(section, action.secrets).getNode();
-  const elements = node.getElementsByTagName('img');
-  const i = index === 'last' ? elements.length - 1 : index;
-  if (elements.length > i) {
-    return elements[i].outerHTML;
-  }
-
-  return '';
+function getSection(sections, layout) {
+  const ret = sections.filter(section => section.meta && section.meta.layout === layout);
+  return ret && ret.length > 0 ? ret[0] : null;
 }
 
 // module.exports.pre is a function (taking next as an argument)
@@ -95,69 +57,57 @@ async function pre(payload, action) {
   const { content } = payload;
 
   // allow fine-grain search on the DOM
-  content.sections.forEach((section) => {
-    visit(section, (child) => {
-      if (child && child.data && child.data.types) {
-        // assign the child types to the child className so that they get rendered
-        // eslint-disable-next-line no-param-reassign
-        child.data = Object.assign({
-          hProperties: {
-            className: child.data.types,
-          },
-        }, child.data || {});
-      }
-    });
-  });
+  DOMUtil.applyTypesToCSSClasses(content.sections);
 
-  const heading = getSection(content.sections, 0);
+  const heading = getSection(content.sections, 'heading');
   if (heading) {
     content.heading = {
-      title: getElement(action, heading, 'h2'),
-      code: getElement(action, heading, 'code'),
-      description: getElement(action, heading, 'p.is-text'),
-      label: getElement(action, heading, 'p.is-text', 1),
+      title: DOMUtil.getElement(action, heading, 'h2'),
+      code: DOMUtil.getElement(action, heading, 'code'),
+      description: DOMUtil.getElement(action, heading, 'p.is-text'),
+      label: DOMUtil.getElement(action, heading, 'p.is-text', 1),
     };
   }
 
-  const featured = getSection(content.sections, 1);
+  const featured = getSection(content.sections, 'featured');
   if (featured) {
     content.featured = {
-      title: getElement(action, featured, 'h2'),
-      code: getElement(action, featured, 'code'),
-      content1: getElement(action, featured, 'p.is-text'),
-      content2: getElement(action, featured, 'p.is-text', 1),
-      img: getImage(action, featured),
-      link: getLink(action, featured, 'last'),
+      title: DOMUtil.getElement(action, featured, 'h2'),
+      code: DOMUtil.getElement(action, featured, 'code'),
+      content1: DOMUtil.getElement(action, featured, 'p.is-text'),
+      content2: DOMUtil.getElement(action, featured, 'p.is-text', 1),
+      img: DOMUtil.getImage(action, featured),
+      link: DOMUtil.getLink(action, featured, 'last'),
     };
   }
 
-  const auth = getSection(content.sections, 2);
+  const auth = getSection(content.sections, 'auth');
   if (auth) {
     content.auth = {
-      title: getElement(action, auth, 'h2'),
+      title: DOMUtil.getElement(action, auth, 'h2'),
       part1: {
-        title: getElement(action, auth, 'h2', 1),
-        description: getElement(action, auth, 'p.is-text'),
-        link1: getLink(action, auth),
-        link2: getLink(action, auth, 1),
+        title: DOMUtil.getElement(action, auth, 'h2', 1),
+        description: DOMUtil.getElement(action, auth, 'p.is-text'),
+        link1: DOMUtil.getLink(action, auth),
+        link2: DOMUtil.getLink(action, auth, 1),
       },
       part2: {
-        title: getElement(action, auth, 'h2', 2),
-        description: getElement(action, auth, 'p.is-text', 1),
-        link1: getLink(action, auth, 2),
-        link2: getLink(action, auth, 3),
+        title: DOMUtil.getElement(action, auth, 'h2', 2),
+        description: DOMUtil.getElement(action, auth, 'p.is-text', 1),
+        link1: DOMUtil.getLink(action, auth, 2),
+        link2: DOMUtil.getLink(action, auth, 3),
       },
     };
   }
 
-  const spotlight = getSection(content.sections, 3);
+  const spotlight = getSection(content.sections, 'spotlight');
   if (spotlight) {
     content.spotlight = {
-      title: getElement(action, spotlight, 'h2'),
-      code: getElement(action, spotlight, 'code'),
-      description: getElement(action, spotlight, 'p.is-text'),
-      img: getImage(action, spotlight),
-      link: getLink(action, spotlight),
+      title: DOMUtil.getElement(action, spotlight, 'h2'),
+      code: DOMUtil.getElement(action, spotlight, 'code'),
+      description: DOMUtil.getElement(action, spotlight, 'p.is-text'),
+      img: DOMUtil.getImage(action, spotlight),
+      link: DOMUtil.getLink(action, spotlight),
     };
   }
 
@@ -171,7 +121,7 @@ async function pre(payload, action) {
       title: 'Some Default Title',
     };
 
-    const medium = getSection(content.sections, 4);
+    const medium = getSection(content.sections, 'medium');
     if (medium) {
       meta.title = medium.title;
     }
@@ -212,12 +162,12 @@ async function pre(payload, action) {
     };
   }
 
-  const signup = getSection(content.sections, 5);
+  const signup = getSection(content.sections, 'signup');
   if (signup) {
     content.signup = {
-      title: getElement(action, signup, 'h2'),
-      label: getElement(action, signup, 'p'),
-      action: getElement(action, signup, 'p', 1),
+      title: DOMUtil.getElement(action, signup, 'h2'),
+      label: DOMUtil.getElement(action, signup, 'p'),
+      action: DOMUtil.getElement(action, signup, 'p', 1),
     };
   }
 
