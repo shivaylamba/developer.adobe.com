@@ -33,35 +33,35 @@ definitions:
 strains:
   default:
     <<: *basestrain
-    package: developer-adobe-com/a31a62ae0d2e92de2b60241284dd2205725ef9c7
+    package: developer-adobe-com/4fe816aa4d9370e7d200bdd234915551d120cf1d
 
   launch-docs-helixdemo:
     <<: *basestrain
     url: https://adobedevsite.helix-demo.xyz/launch/docs
     content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
     directoryIndex: README.html
-    package: developer-adobe-com/a31a62ae0d2e92de2b60241284dd2205725ef9c7
+    package: developer-adobe-com/4fe816aa4d9370e7d200bdd234915551d120cf1d
 
   xd-docs-helixdemo:
     <<: *basestrain
     url: https://adobedevsite.helix-demo.xyz/xd/docs
     content: https://github.com/AdobeXD/plugin-docs.git#master
     directoryIndex: README.html
-    package: developer-adobe-com/a31a62ae0d2e92de2b60241284dd2205725ef9c7
+    package: developer-adobe-com/4fe816aa4d9370e7d200bdd234915551d120cf1d
 
   starter-docs-helixdemo:
     <<: *basestrain
     url: https://adobedevsite.helix-demo.xyz/starter/docs
     content: https://github.com/AdobeDocs/starter-docs.git#master
     directoryIndex: Overview.html
-    package: developer-adobe-com/a31a62ae0d2e92de2b60241284dd2205725ef9c7
+    package: developer-adobe-com/4fe816aa4d9370e7d200bdd234915551d120cf1d
 
   helix-demo:
     url: https://adobedevsite.helix-demo.xyz/
     code: ssh://git@github.com/adobe/developer.adobe.com.git#master
     content: ssh://git@github.com/adobe/developer.adobe.com.git#master
     static: https://github.com/adobe/developer.adobe.com.git/htdocs#master
-    package: developer-adobe-com/a31a62ae0d2e92de2b60241284dd2205725ef9c7
+    package: developer-adobe-com/4fe816aa4d9370e7d200bdd234915551d120cf1d
     #launch-docs-prod:
     #<<: *basestrain
     #url: https://www.adobe.io/launch/docs
@@ -80,7 +80,7 @@ strains:
     url: http://localhost:3000/launch/docs
     content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
     directoryIndex: README.html
-    package: developer-adobe-com/a31a62ae0d2e92de2b60241284dd2205725ef9c7
+    package: developer-adobe-com/4fe816aa4d9370e7d200bdd234915551d120cf1d
     #xd-docs-prod:
     #<<: *basestrain
     #url: https://www.adobe.io/xd/docs
@@ -99,7 +99,7 @@ strains:
     url: http://localhost:3000/xd/docs
     content: https://github.com/AdobeXD/plugin-docs.git#master
     directoryIndex: README.html
-    package: developer-adobe-com/a31a62ae0d2e92de2b60241284dd2205725ef9c7
+    package: developer-adobe-com/4fe816aa4d9370e7d200bdd234915551d120cf1d
     #xd-marketing-prod:
     #<<: *basestrain
     #url: https://www.adobe.io/xd
@@ -118,7 +118,7 @@ strains:
     url: https://localhost:3000/xd
     content: https://github.com/AdobeXD/plugin-docs.git#author
     directoryIndex: README.html
-    package: developer-adobe-com/a31a62ae0d2e92de2b60241284dd2205725ef9c7
+    package: developer-adobe-com/4fe816aa4d9370e7d200bdd234915551d120cf1d
     #starter-docs-prod:
     #<<: *basestrain
     #url: https://www.adobe.io/starter/docs
@@ -137,4 +137,4 @@ strains:
     url: http://localhost:3000/starter/docs
     content: https://github.com/AdobeDocs/starter-docs.git#author
     directoryIndex: Overview.html
-    package: developer-adobe-com/a31a62ae0d2e92de2b60241284dd2205725ef9c7
+    package: developer-adobe-com/4fe816aa4d9370e7d200bdd234915551d120cf1d
