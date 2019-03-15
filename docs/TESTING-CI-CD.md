@@ -88,10 +88,6 @@ Requirements: want to keep load time under 4 seconds.
 *TODO* to be implemented
 ([adobe/developer.adobe.com-planning#171](https://github.com/adobe/developer.adobe.com-planning/issues/171))
 
-- [broken-link-checker](https://www.npmjs.com/package/broken-link-checker)
-- [using selenium to check for broken images on a
-    page](https://watirmelon.blog/2016/03/09/checking-an-image-is-actually-visible-in-webdriverjs/)
-
 ## Continous Delivery Pipeline
 
 What could a realistic, implemetable-in-the-short-term CD pipeline implementation
@@ -145,7 +141,8 @@ Outline of a continuous delivery (CD) pipeline implementation:
 3. deploy code to Runtime (`hlx deploy`); code in Runtime is enshrined based on
    `git` SHAs in this repo, so production, staging and pull request deployments
    are isolated.
-4. ensure runtime actions respond as expected, e.g. serve up HTTP 200
+4. ensure runtime actions respond as expected, e.g. serve up HTTP 200 and
+   expected content
     - *TODO*: what does this mean? some suggestions:
         - `hlx publish` to verify Runtime functionality (see proposal in
             [adobe/helix-cli#373](https://github.com/adobe/helix-cli/issues/373))
