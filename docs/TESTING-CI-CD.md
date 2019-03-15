@@ -154,7 +154,7 @@ Outline of a continuous delivery (CD) pipeline implementation:
             verifying Runtime output using known content
 5. commit the config and ensure CI skips it (`git commit -am '⚙️ saving deploy
     changes [ci skip]`)
-6. publish the changes to Fastly (`hlx publish`)
+6. publish the changes to Fastly (`hlx publish --remote`)
     - *TODO*: I _think_, but am not sure, that publishing a branch (PR) would
         work differently than publishing `master` to either staging or
         production [environments](#environments). I _think_, but am not sure,
