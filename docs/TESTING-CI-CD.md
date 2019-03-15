@@ -8,6 +8,7 @@ is called out and an issue is linked.
 2. [Implementation of Tests](#implementation-of-tests)
     - [Unit Tests](#unit-tests)
     - [End to End Tests](#end-to-end-tests)
+    - [Adobe Runtime Action Tests](#adobe-runtime-action-tests)
     - [Performance Testing](#performance-testing)
     - [Link and Image Checking](#link-and-image-checking)
 3. [Continuous Delivery Pipeline](#continous-delivery-pipeline)
@@ -26,10 +27,11 @@ environments.
 
 ## Implementation of Tests
 
-Two types of tests currently exist:
+Three types of tests currently exist:
 
 - [unit tests](#unit-tests)
 - [end-to-end/clicky/functional tests](#end-to-end-tests)
+- [Adobe Runtime action tests](#adobe-runtime-action-tests)
 
 Additional testing to be implemented:
 
@@ -37,6 +39,8 @@ Additional testing to be implemented:
 - [link and image checking](#link-and-image-checking)
 
 ### Unit Tests
+
+    npm run test:unit
 
 [This project's unit tests](../test/unit) are fast, run in memory and exercise
 purely logical functionality revisioned in this project. As such, most programming
@@ -53,28 +57,36 @@ Things that are a good fit for unit testing include:
 
 ### End to End Tests
 
-[This project's end-to-end tests](../test/e2e) currently require Chrome to be
-installed. These tests spin up a real browser (not necessarily Chrome) and
-automate the browser to load URLs, find elements, click them, run JavaScript in
-these browser sessions - the automation possibilities are endless. Unlike unit
-tests, these tests can be executed against any environment - local, staging, and
-production. Going even further, the implementation of the underlying website is
-irrelevant. That is a big deal for us as we have an AEM-powered version of the
-site being maintained alongside a Helix-powered version. If done well, these
-tests could be written in a manner that could be used for either implementation.
+    # check out the various npm run scripts for variations on how to run the end
+    # to end tests.
+    grep e2e package.json
 
-*TODO*: End-to-end tests need to be implemented in such a way that they can be
-run in any environment, against either `hlx` or AEM powered versions of the
-site. Pull request open for this:
-[adobe/developer.adobe.com#13](https://github.com/adobe/developer.adobe.com/pull/13)
+[This project's end-to-end tests](../test/e2e) spin up a real browser and automate
+the browser to load URLs, find elements, click them, run JavaScript in these browser
+sessions - the automation possibilities are endless. Unlike the [unit tests](#unit-tests),
+these tests can be executed against any environment - local, staging, and production.
+Going even further, the implementation of the underlying website is irrelevant.
+That is a big deal for us as we have an AEM-powered version of the site being maintained
+alongside a Helix-powered version. If done well, these tests could be written in
+a manner that could be used for either implementation.
 
 However, because of all this power and flexibility, they are _much_ slower than
 unit tests. At the time of writing this document, `npm run test:unit` runs seven
-tests and takes ~11ms, while `npm run test:e2e` runs 2 tests and takes 13.74s.
+tests and takes ~11ms, while a local end-to-end test runs 2 tests and takes 13.74s.
 
 End-to-end tests are currently enshrined only to run in CI, and leverage a
 remote service ([Sauce Labs](https://saucelabs.com)) to run them in parallel in
 order to provide fast feedback.
+
+### Adobe Runtime Action Tests
+
+    npm run test:post-deploy
+
+[This project's Adobe Runtime action tests](../test/post_deploy) are used to
+verify the helix serverless actions perform as desired. These are typically only
+run as part of the continuous deployment pipeline ([gory details available in
+the `.circleci/config.yaml` file](../.circleci/config.yaml)), but they can be
+run manually too.
 
 ### Performance Testing
 
@@ -90,10 +102,8 @@ Requirements: want to keep load time under 4 seconds.
 
 ## Continous Delivery Pipeline
 
-What could a realistic, implemetable-in-the-short-term CD pipeline implementation
-look like for the Helix Site? This would need to balance with [future Helix testing goodness](#future-helix-testing-goodness)
-and short-term automation needs of this site. Ideally, both are developed in
-tandem and both inform each other.
+We want to build in automation from the beginning to make deployment easy and
+painless.
 
 ### Environments
 
@@ -113,11 +123,11 @@ The target environments, from least public-facing to most, are as follows:
    cookie or header to be set to view this deployment which could be easily done
    by stakeholders interested by installing a browser extension.
 3. **Staging**. We have a staging domain set up which is used when code lands in
-   the `master` branch. This environment is the first location where reviewed
-   and approved code lands. A fully automated test suite would execute against
-   this environment. If any failures arise, we stop the [delivery
-   pipeline](#delivery-pipeline-implementation) from executing so that no
-   regressions land in...
+   the `master` branch: https://adobedevsite.helix-demo.xyz. This environment is
+   the first location where reviewed and approved code lands. A fully automated
+   test suite would execute against this environment. If any failures arise, we
+   stop the [delivery pipeline](#delivery-pipeline-implementation) from executing
+   so that no regressions land in...
 4. **Production**. Our public environment. If our test suite passes in our
    staging environment, then the [delivery
    pipeline](#delivery-pipeline-implementation) will continue its execution and
@@ -125,48 +135,18 @@ The target environments, from least public-facing to most, are as follows:
 
 ### Delivery Pipeline Implementation
 
-We want our delivery pipeline to be able to target intermediate (staging)
-as well as production environments in order to enable previewing and testing of
-pull requests.
+We want our delivery pipeline to be able to target staging as well as production
+environments in order to enable previewing and testing of pull requests.
 
-Outline of a continuous delivery (CD) pipeline implementation:
+It is always best to read the source so don't be afraid to look at the
+[CircleCI config file](`../.circleci/config.yaml).
 
-1. build the site and ensure there are no errors (`hlx clean && hlx build`)
-2. run the "full" test suite against a _local_ instance of the site, which includes:
-    - run linter and [unit tests](#unit-tests) (`npm test`)
-    - run [end-to-end tests](#end-to-end-tests) (`npm run test:e2e`)
-    - *TODO*: [performance testing](#performance-testing) should be added here
-    - *TODO*: [link and image checking](#link-and-image-checking) should be added here
-    - ⚠️ if any of the above fail, we abort deployment.
-3. deploy code to Runtime (`hlx deploy`); code in Runtime is enshrined based on
-   `git` SHAs in this repo, so production, staging and pull request deployments
-   are isolated.
-4. ensure runtime actions respond as expected, e.g. serve up HTTP 200 and
-   expected content
-    - *TODO*: what does this mean? some suggestions:
-        - `hlx publish` to verify Runtime functionality (see proposal in
-            [adobe/helix-cli#373](https://github.com/adobe/helix-cli/issues/373))
-        - have a set of lighter integration tests (one might call these
-            [component tests](https://martinfowler.com/bliki/ComponentTest.html))
-            verifying Runtime output using known content
-5. commit the config and ensure CI skips it (`git commit -am '⚙️ saving deploy
-    changes [ci skip]`)
-6. publish the changes to Fastly (`hlx publish --remote`)
-    - *TODO*: I _think_, but am not sure, that publishing a branch (PR) would
-        work differently than publishing `master` to either staging or
-        production [environments](#environments). I _think_, but am not sure,
-        that auto-generated strains are involved when publishing a non-master
-        branch (PR). Let's clarify and ensure we have the correct command in
-        each case.
-7. ensure everything is as expected by running the following in the deployed
-   [environment](#environments):
-    - run [end-to-end tests](#end-to-end-tests) (`npm run test:e2e`)
-    - *TODO*: [performance testing](#performance-testing) should be added here
-    - *TODO*: [link and image checking](#link-and-image-checking) should be added here
-    - ⚠️ if any of the above fail, we abort deployment and rollback (rollback to
-        only ever happen in our production [environment](#environment)). *TODO* link
-        to rollback documentation in the operational rollout document once
-        merged.
+#### Delivery Pipeline TODOs
+
+- [ ] [performance testing](#performance-testing); both pre and post deploy
+- [ ] [link and image checking](#link-and-image-checking); both pre and post
+    deploy
+- [ ] `hlx rollback` support
 
 ## Future Helix Testing Goodness
 

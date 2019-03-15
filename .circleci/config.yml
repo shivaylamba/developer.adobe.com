@@ -1,83 +1,181 @@
+# the easiest way to read this config is from the end of the file working
+# backwards: `workflows` are composed of `jobs`, `jobs` are composed of `commands`
+# (built-into circleci, from orbs, or custom defined).
 version: 2.1
+
+# for easier referencing in the rest of the config
+references:
+  js_deps_cache_key: &js_deps_cache_key
+    v1-dependencies-{{ checksum "package-lock.json" }}
+  js_deps_backup_cache_key: &js_deps_backup_cache_key
+    v1-dependencies-
+  # workspace saves files across different `jobs` in a single `workflow`
+  workspace_root: &workspace_root
+    /tmp/workspace
+  attach_workspace: &attach_workspace
+    attach_workspace:
+      at: *workspace_root
+
+commands:
+  setup_fs:
+    description: "Attaches workspace, checks out code and restores node_modules, .hlx and helix-config.yaml"
+    steps:
+      - *attach_workspace
+      - checkout
+      - restore_cache:
+          keys:
+          - *js_deps_cache_key
+          - *js_deps_backup_cache_key
+      - run:
+          name: Set adobe-bot as git user
+          command: |
+            git config user.name "adobe-bot"
+            git config user.email "grp-opensourceoffice@adobe.com"
+      - run:
+          name: Restore built helix site
+          command: |
+            set -exu
+            # restore .hlx folder and helix-config.yaml
+            mkdir -p /tmp/workspace/.hlx
+            mkdir -p .hlx
+            # dont bomb if they are not there - in earlier jobs, they won't be
+            # present yet
+            [ -d /tmp/workspace/.hlx/build ] && mv -f /tmp/workspace/.hlx/build .hlx/. || true
+            [ -f /tmp/workspace/.hlx/helix-config.yaml ] && mv -f /tmp/workspace/helix-config.yaml . || true
+
 orbs:
   sauce-connect: saucelabs/sauce-connect@volatile
+  slack: circleci/slack@2.0.0
+
 executors:
   helix:
     docker:
       - image: circleci/node:8-jessie-browsers
+
 jobs:
   install:
     executor: helix
     steps:
-        - checkout
-
-        # Download and cache dependencies
-        - restore_cache:
-            keys:
-            - v1-dependencies-{{ checksum "package-lock.json" }}
-            - v1-dependencies-
-
-        - run:
-            name: Installing Dependencies
-            command: npm install
-
-        - save_cache:
-            paths:
-              - node_modules
-            key: v1-dependencies-{{ checksum "package-lock.json" }}
+      - setup_fs
+      - run:
+          name: Installing Dependencies
+          command: npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: *js_deps_cache_key
 
   build:
     executor: helix
     steps:
-        - checkout
-        - restore_cache:
-            keys:
-            - v1-dependencies-{{ checksum "package-lock.json" }}
-            - v1-dependencies-
+      - setup_fs
+      - run:
+          name: Build helix
+          command: npm run build
+      - run:
+          name: Persist built helix site
+          command: |
+            set -exu
+            mkdir -p /tmp/workspace/.hlx
+            mv .hlx/* /tmp/workspace/.hlx/.
+      - persist_to_workspace:
+          root: *workspace_root
+          paths:
+            - .hlx
 
-        - run:
-            name: Build helix
-            command: npm run build
-
-  test:
+  lint:
     executor: helix
     steps:
-        - checkout
-        - restore_cache:
-            keys:
-            - v1-dependencies-{{ checksum "package-lock.json" }}
-            - v1-dependencies-
+      - setup_fs
+      - run:
+          name: Lint via eslint
+          command: npm run lint
 
-        # Open up the Sauce Labs tunnel
-        - sauce-connect/install:
-            version: 4.5.3
-        - sauce-connect/open_tunnel:
-            # NOTE: the env vars are hardcoded as SAUCELABS_USER and
-            # SAUCELABS_KEY
-            tunnel_identifier: ${SAUCELABS_USER}
+  unit_tests:
+    executor: helix
+    steps:
+      - setup_fs
+      - run:
+          name: Run unit tests
+          command: npm run test:unit
 
-        # run tests!
-        - run:
-            name: prepare test git user
-            command: git config --global user.email "you@example.com" && git config --global user.name "CircleCi Build"
-        - run:
-            name: Test
-            command: npm run ci
+  end_to_end_localhost_tests:
+    executor: helix
+    steps:
+      - setup_fs
+      # Open up the Sauce Labs tunnel
+      - sauce-connect/install:
+          version: 4.5.3
+      - sauce-connect/open_tunnel:
+          # NOTE: the env vars are hardcoded as SAUCELABS_USER and
+          # SAUCELABS_KEY
+          tunnel_identifier: ${SAUCELABS_USER}
+      - run:
+          name: Run end to end tests
+          command: npm run test:e2e-helix-sauce -- --baseUrl http://localhost:3000
+      - run:
+          name: Close Sauce Tunnel
+          command: |
+            pkill sc
+            sleep 5 # shutting down the tunnel usually takes a few second, lets let it clean up gracefully
 
-        - run:
-            name: Close Sauce Tunnel
-            command: |
-              pkill sc
-              sleep 5 # shutting down the tunnel usually takes a few second, lets let it clean up gracefully
+  deploy_commit_and_publish:
+    executor: helix
+    steps:
+      - setup_fs
+      - run:
+          name: hlx deploy
+          command: npm run deploy
+      - run:
+          name: Run post-deploy tests
+          command: npm run test:post-deploy
+      - add_ssh_keys
+      - run:
+          name: Commit helix config to master
+          command: |
+            git checkout master
+            git pull --tags origin
+            git commit -am "🚢 enshrining config post-deploy [ci skip]"
+      - run:
+          name: hlx publish
+          command: npm run publish
+      # TODO: should we `curl` the site's strains to warm the fastly cache up?
+      - run:
+          name: Run end to end tests on sauce against production site
+          command: npm run test:e2e-helix-sauce
+      # post status of above post-publish end to end tests
+      - slack/status # status posts to a slack webhook that is picked up via circleci env var
+      - run:
+          name: Tag known good deploy
+          command: |
+            git tag `date "+known-good-%Y%m%d%H%M%S"`
+            git tag -f published
+            git push --tags origin
 
 workflows:
   version: 2.1
-  continously_integrate:
+  continously_deploy:
     jobs:
       - install
       - build:
           requires:
             - install
-      - test:
+      # next three in parallel; fan out
+      - lint:
           requires:
             - build
+      - unit_tests:
+          requires:
+            - build
+      - end_to_end_localhost_tests:
+          requires:
+            - build
+      # last deploy step relies on tests to pass; fan back in
+      - deploy_commit_and_publish:
+          requires:
+            - lint
+            - unit_tests
+            - end_to_end_localhost_tests
+          filters:
+            branches:
+              only: master

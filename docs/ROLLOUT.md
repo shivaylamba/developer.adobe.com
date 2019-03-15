@@ -196,8 +196,7 @@ changes have been made to the site, but Helix has the ability to manage the site
     ([adobe/developer.adobe.com-planning#167](https://github.com/adobe/developer.adobe.com-planning/issues/167))
 - [ ] Fastly configuration receives traffic for `www.adobe.io` domain
     ([adobe/developer.adobe.com-planning#168](https://github.com/adobe/developer.adobe.com-planning/issues/168))
-- [ ] CircleCI is set up to run `hlx publish` on `master`
-    ([adobe/developer.adobe.com-planning#169](https://github.com/adobe/developer.adobe.com-planning/issues/169))
+- [x] CircleCI is set up to run `hlx publish` on `master`
 - [ ] GitHub `master` branch is protected from accidental merges
 
 ### Phase 2: New Open page for some
