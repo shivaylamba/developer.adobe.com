@@ -21,7 +21,8 @@
     "deploy": "hlx deploy --default HTTP_TIMEOUT 5000",
     "publish:dev": "hlx publish --log-level=debug --only \"*dev\"",
     "publish:production": "hlx publish --log-level=debug --only \"*production\"",
-    "start": "hlx up --host adobedevsite.helix-demo.xyz --local-repo=."
+    "start": "hlx up --host adobedevsite.helix-demo.xyz --local-repo=.",
+    "dev": "browser-sync start --proxy 'localhost:3000' --files 'src/**/*.*' 'htdocs/**/*.*'"
   },
   "repository": {
     "type": "git",
