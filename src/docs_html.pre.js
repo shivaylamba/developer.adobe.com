@@ -161,7 +161,6 @@ function computeNavPath(isDev, logger, mountPoint) {
   /*
   if (!isDev) {
     const summaryPath = 'https://www.project-helix.io/SUMMARY';
-    logger.debug(`docs_html.pre.js - Production path to SUMMARY.md to generate nav: ${summaryPath}`);
     return summaryPath;
   } */
   const summaryPath = `${mountPoint}/SUMMARY`;
