@@ -23,7 +23,7 @@ const DOMUtil = require('./DOM_munging.js');
  * @param {Object} logger Logger
  */
 async function fetchCommitsHistory(apiRoot, owner, repo, ref, path, logger) {
-  logger.debug('html-pre.js - Fetching the commits history');
+  logger.debug('docs_html.pre.js - Fetching the commits history');
 
   const options = {
     uri: `${apiRoot}repos/${owner}/${repo}/commits?path=${path}&sha=${ref}`,
@@ -33,7 +33,7 @@ async function fetchCommitsHistory(apiRoot, owner, repo, ref, path, logger) {
     json: true,
   };
 
-  logger.debug(`html-pre.js - Fetching... ${options.uri}`);
+  logger.debug(`docs_html.pre.js - Fetching... ${options.uri}`);
   return request(options);
 }
 
@@ -44,7 +44,7 @@ async function fetchCommitsHistory(apiRoot, owner, repo, ref, path, logger) {
  * @param {Object} logger Logger
  */
 function extractCommittersFromCommitsHistory(commits, logger) {
-  logger.debug('html-pre.js - Extracting committers from metadata');
+  logger.debug('docs_html.pre.js - Extracting committers from metadata');
   if (commits) {
     const committers = [];
 
@@ -58,11 +58,11 @@ function extractCommittersFromCommitsHistory(commits, logger) {
         });
       }
     });
-    logger.debug(`html-pre.js - Number of committers extracted: ${committers.length}`);
+    logger.debug(`docs_html.pre.js - Number of committers extracted: ${committers.length}`);
     return committers;
   }
 
-  logger.debug('html-pre.js - No committers found!');
+  logger.debug('docs_html.pre.js - No committers found!');
   return [];
 }
 
@@ -73,7 +73,7 @@ function extractCommittersFromCommitsHistory(commits, logger) {
  * @param {Object} logger Logger
  */
 function extractLastModifiedFromCommitsHistory(commits, logger) {
-  logger.debug('html-pre.js - Extracting last modified from metadata');
+  logger.debug('docs_html.pre.js - Extracting last modified from metadata');
 
   if (commits) {
     const lastMod = commits.length > 0
@@ -87,11 +87,11 @@ function extractLastModifiedFromCommitsHistory(commits, logger) {
       raw: lastMod,
       display: lastMod ? display : 'Unknown',
     };
-    logger.debug(`html-pre.js - Managed to fetch a last modified: ${display}`);
+    logger.debug(`docs_html.pre.js - Managed to fetch a last modified: ${display}`);
     return lastModified;
   }
 
-  logger.debug('html-pre.js - No last modified found!');
+  logger.debug('docs_html.pre.js - No last modified found!');
   return {
     raw: 'Unknown',
     display: 'Unknown',
@@ -107,7 +107,7 @@ function extractLastModifiedFromCommitsHistory(commits, logger) {
  * @param {Object} logger Logger
  */
 function assembleEditUrl(owner, repo, ref, path, logger) {
-  logger.debug('html-pre.js - Assembling edit URL');
+  logger.debug('docs_html.pre.js - Assembling edit URL');
   return `https://github.com/${owner}/${repo}/edit/${ref}${path}`;
 }
 
@@ -120,7 +120,7 @@ function assembleEditUrl(owner, repo, ref, path, logger) {
  * @param {Object} logger Logger
  */
 function computeNavPath(isDev, logger, mountPoint) {
-  logger.debug('html-pre.js - Fetching the nav');
+  logger.debug('docs_html.pre.js - Fetching the nav');
 
   /*
   // fetch the whole tree...
@@ -139,7 +139,7 @@ function computeNavPath(isDev, logger, mountPoint) {
     json: true,
   };
 
-  logger.debug(`html-pre.js - Fetching... ${options.uri}`);
+  logger.debug(`docs_html.pre.js - Fetching... ${options.uri}`);
   const json = await request(options);
 
   // ...to find the "closest" SUMMARY.md
@@ -161,13 +161,13 @@ function computeNavPath(isDev, logger, mountPoint) {
   /*
   if (!isDev) {
     const summaryPath = 'https://www.project-helix.io/SUMMARY';
-    logger.debug(`html-pre.js - Production path to SUMMARY.md to generate nav: ${summaryPath}`);
+    logger.debug(`docs_html.pre.js - Production path to SUMMARY.md to generate nav: ${summaryPath}`);
     return summaryPath;
   } */
   const summaryPath = `${mountPoint}/SUMMARY`;
   // TODO: add mount point to the summary
   // const summaryPath = '/starter/docs/SUMMARY';
-  logger.debug(`html-pre.js - Development path to SUMMARY.md to generate nav: ${summaryPath}`);
+  logger.debug(`docs_html.pre.js - Development path to SUMMARY.md to generate nav: ${summaryPath}`);
   return summaryPath;
 }
 
@@ -179,7 +179,7 @@ function computeNavPath(isDev, logger, mountPoint) {
  * @returns {Array} New children, {Array} TOC
  */
 function createTOC(content, maxDepth, logger) {
-  logger.debug('html-pre.js - Creating TOC');
+  logger.debug('docs_html.pre.js - Creating TOC');
   if (!content) return null;
   const toc = [];
   content.document.body.querySelectorAll('h1, h2, h3').forEach((heading, index) => {
@@ -207,7 +207,7 @@ async function pre(payload, action) {
 
   try {
     if (!payload.content) {
-      logger.debug('html-pre.js - Payload has no resource, nothing we can do');
+      logger.debug('docs_html.pre.js - Payload has no resource, nothing we can do');
       return payload;
     }
 
@@ -238,12 +238,12 @@ async function pre(payload, action) {
       );
       p.content.toc = createTOC(p.content, 3, logger);
     } else {
-      logger.debug('html-pre.js - No REPO_API_ROOT provided');
+      logger.debug('docs_html.pre.js - No REPO_API_ROOT provided');
     }
 
     p.content.subcontent = [];
     if (body.children && body.children.length) {
-      logger.debug('html-pre.js - VDOM children processed (stripping leading title)');
+      logger.debug('docs_html.pre.js - VDOM children processed (stripping leading title)');
       p.content.subcontent = Array.from(body.children)
         .slice(1); // remove the leading first title (redundant with page title)
     }
@@ -259,7 +259,7 @@ async function pre(payload, action) {
         action.request.params.rootPath,
       );
     } else {
-      logger.debug('html-pre.js - No REPO_RAW_ROOT provided');
+      logger.debug('docs_html.pre.js - No REPO_RAW_ROOT provided');
     }
 
     return p;
