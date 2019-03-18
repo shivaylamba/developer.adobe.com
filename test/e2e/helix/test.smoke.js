@@ -22,9 +22,14 @@ describe('helix site smoke tests', function suite() {
   });
   it('should load xd docs substrain', async () => {
     await browser.url('/xd/docs');
-
-    const title = await browser.getTitle();
-    // TODO: this test should not assert based on document contents, see https://github.com/adobe/developer.adobe.com/issues/142
-    assert.equal(title, 'An overview of creating Adobe XD plugins');
+    const docsSummary = await browser.$('#docs-summary');
+    const summaryDisplayed = await docsSummary.isExisting();
+    assert(summaryDisplayed, 'docs summary does not exist!');
+    const editButton = await browser.$('#edit-button');
+    const buttonDisplayed = await editButton.isExisting();
+    assert(buttonDisplayed, 'edit button does not exist!');
+    const articleContents = await browser.$('#article-contents');
+    const contentsDisplayed = await articleContents.isExisting();
+    assert(contentsDisplayed, 'content container does not exist!');
   });
 });
