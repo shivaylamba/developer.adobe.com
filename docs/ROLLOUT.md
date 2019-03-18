@@ -11,7 +11,9 @@ updates with solid automation.
 1. [Monitoring](#monitoring)
     - [Uptime](#uptime)
     - [Implementation](#implementation)
-    - [Services We Rely On](#services-we-rely-on)
+        - [Pingdom](#pingdom)
+        - [Calibre](#calibre)
+        - [Services We Rely On](#services-we-rely-on)
 2. [Fallback vs. Rollback](#fallback-vs-rollback)
 3. [Escalation](#escalation)
     - [Legacy Escalation Process](#legacy-escalation-process)
@@ -51,15 +53,45 @@ sections of the AEM-based site, we must ensure monitoring is rolled out as well.
 That is, monitoring *must* be part of the definition of done for helix-powered
 sections of the site.
 
-Helix provides a [status page](https://status.project-helix.io/) that should be
-used to identify helix service degradation.
+Two third party applications are used for monitoring: [Pingdom](#pingdom) and
+[Calibre](#calibre).
 
-*TODO*: to be implemented
-([adobe/developer.adobe.com-planning#172](https://github.com/adobe/developer.adobe.com-planning/issues/172))
+#### Pingdom
+
+We [have an account with Pingdom](https://my.pingdom.com/newchecks/checks) where
+we track uptime for https://adobe.io and https://adobedevsite.helix-demo.xyz.
+https://adobe.io is checked every minute and uptime state change events are
+posted to `#dev-adobe-com-alerts`. https://adobedevsite.helix-demo.xyz is
+checked every 5 minutes and uptime state change events are posted to
+`#dev-adobe-com-bot`.
+
+#### Calibre
+
+We [have an account with Calibre](https://calibreapp.com/adobe) where we track
+performance metrics such as time to interactive, time to first byte, and a slew
+of others against both https://adobe.io and https://adobedevsite.helix-demo.xyz.
+We also track these sites, against these metrics, using two profiles: a typical
+desktop computer on high-speed internet, and a typical mobile device on a slower
+network.
+
+We have a [budget](https://calibreapp.com/docs/metrics/budgets) set for one such
+performance metric: [time to
+interactive](https://calibreapp.com/blog/time-to-interactive/). We have a **4
+and 25 second budget set for desktop and mobile, respectively**. Budget
+notifications for https://adobedevsite.helxi-demo.xyz are sent to the `#dev-adobe-com-bot`
+channel.
+
+*TODO*: calibre currently only support posting both budget met and exceeded
+notifications via Slack. As such, notifications for https://adobe.io to the
+`#dev-adobe-com-alerts` channel are disabled for now. In the future, should the
+option to post only budget exceeded events (or a 'budget state change' event),
+then we will re-enable these notifications.
 
 #### Services We Rely On
 
-- helix
+Ultimately, the site is powered by two services:
+
+- helix, which has its own [status page](https://status.project-helix.io/)
 - https://medium.com/feed/adobetech
 
 ## Fallback vs. Rollback
@@ -69,6 +101,8 @@ procedures that can alleviate errors until a more permanent fix has been provide
 
 ### Fallback
 
+*TODO*: to be implemented
+
 While we are running AEM and helix in parallel, we will have two versions of the
 site available. Fallback is defined as directing traffic from one source to
 another.
@@ -77,10 +111,9 @@ To enable fallback in a helix-powered reality, we turn off the strain(s) to the
 affected area(s) of the site so that the `default` (proxy to existing AEM site)
 gets applied, showing the "old" version of the site.
 
-*TODO*: How does this implementation look like? Can we enshrine as an `npm run`
-script?
-
 ### Rollback
+
+*TODO*: to be implemented
 
 Rollback is defined as going back to a known-good previous version. In a
 helix-powered reality this means rolling back to a previous commit and running a
@@ -91,14 +124,7 @@ Perform a `hlx publish` using an older `helix-config.yaml` that has been committ
 as part of an older, successful rollout. This will replace the entire site with
 a slightly older version.
 
-*TODO*: How does this implementation look like? Can we enshrine as an `npm run`
-script?
-
 ## Escalation
-
-*TODO*: helix is figuring out its escalation process, so the below is in much
-flux until [adobe/project-helix#382](https://github.com/adobe/project-helix/pull/382)
-is resolved.
 
 The [existing escalation paths](#legacy-escalation-process) stay in place, with
 one modification: **For every escalation, the Helix team will be involved**.
@@ -113,11 +139,8 @@ are notified of the issue and a war room is opened as needed.
 
 ### Responding to Incidents
 
-*TODO*: helix is figuring out its escalation process, so the below is in much
-flux until [adobe/project-helix#382](https://github.com/adobe/project-helix/pull/382)
-is resolved.
-
-The Helix team is providing and monitoring the `#helix-escalations` Slack channel.
+The Helix team is providing and monitoring the `#helix-escalations` Slack channel
+and has [its own escalation process](https://github.com/adobe/project-helix/tree/master/escalations).
 Every message in the `#helix-escalations` Slack channel will create a notification
 and wake people up, so use this channel with caution!
 
@@ -141,9 +164,6 @@ covers all Asian timezones himself!).
 During work hours, @trieloff expects a response time of a few minutes.
 Early afternoon during American hours may be problematic if helix team involvement
 is necessary as it will be evening in Europe and sleeptime in Asia.
-
-*TODO*: On-call support from helix is evolving as per
-[adobe/project-helix#382](https://github.com/adobe/project-helix/pull/382)
 
 ### Runbooks
 
