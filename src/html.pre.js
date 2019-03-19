@@ -32,12 +32,16 @@ function pre(payload, action) {
   console.log('action rootPath', action.request.params.rootPath);
   console.log(payload.request.headers['x-strain']);
 
-  if (!action.request.params.rootPath) {
+  if (!action.request.params.rootPath && payload.request.path.match('index.html')) {
     console.log('no root path');
     // home page
     payload.dispatch.url = payload.request.url.replace(/\.html/, '.default.html');
   } else if (action.request.params.rootPath.match('/docs')) {
     payload.dispatch.url = payload.request.path.replace(/\.html/, '.docs.html');
+    console.log(payload.dispatch.url);
+  } else if (!action.request.params.rootPath && payload.request.path.match('open.html')) {
+    console.log('open dispatch');
+    payload.dispatch.url = payload.request.path.replace(/\.html/, '.open.html');
     console.log(payload.dispatch.url);
   } else {
     // TODO: Create new template for marketing pages
