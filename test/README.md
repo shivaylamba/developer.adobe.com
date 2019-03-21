@@ -15,6 +15,25 @@ Make sure you write your JavaScript the way we want you to!
 
     npm run test:unit
 
+## Link Checker
+
+    node --max-old-space-size=8192 check_links.js https://www.adobe.io
+
+The link checker is a RAM hog, so make sure you run it with extra memory (as
+with the flag above).
+
+The first argument provided to the script is the "base" site to crawl. The link
+checker will crawl that site, and for any links on the same domain, will recursively
+crawl through those links as well. It will verify that external links do not 404.
+It also has custom code to try to catch Kirby's "soft" 404s.
+
+At the time of writing this, the above takes about 5 minutes to execute on a
+decent network and crawls between 3,000 to 4,000 links.
+
+Note that the link checker uses HEAD requests to verify links and this sometimes
+returns false positives. As such, consider this system an "early warning" system
+rather than a pass/fail. Manual review of link checker results is a must!
+
 ## End to End Tests
 
 Here's where it gets fun! We support a variety of ways to run the end to end
