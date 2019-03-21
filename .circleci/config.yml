@@ -143,6 +143,8 @@ jobs:
       - run:
           name: Run end to end tests on sauce against production site
           command: npm run test:e2e-helix-sauce
+          environment:
+            POSTPUBLISH: true
       # post status of above post-publish end to end tests
       - slack/status # status posts to a slack webhook that is picked up via circleci env var
       - run:
