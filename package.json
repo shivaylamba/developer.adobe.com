@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/adobe/developer.adobe.com#readme",
   "dependencies": {
-    "@adobe/helix-cli": "0.13.11-pre.8-test",
+    "@adobe/helix-cli": "0.13.11",
     "moment": "^2.24.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
