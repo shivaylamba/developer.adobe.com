@@ -19,6 +19,7 @@
  */
 function pre(context, action) {
   context.dispatch = {};
+  const { logger } = action;
 
   // context.dispatch.headers = action.headers;
 
@@ -26,28 +27,25 @@ function pre(context, action) {
     context.request.url = '/index.html';
   }
 
-  console.log('request url', context.request.url);
-  console.log('request path', context.request.path);
-  console.log('action path', action.request.params.path);
-  console.log('action rootPath', action.request.params.rootPath);
-  console.log(context.request.headers['x-strain']);
+  logger.debug('request url:', context.request.url);
+  logger.debug('request path:', context.request.path);
+  logger.debug('action path:', action.request.params.path);
+  logger.debug('action rootPath:', action.request.params.rootPath);
+  logger.debug('strain header:', context.request.headers['x-strain']);
 
   if (!action.request.params.rootPath && context.request.path.match('index.html')) {
-    console.log('no root path');
     // home page
     context.dispatch.url = context.request.url.replace(/\.html/, '.default.html');
   } else if (action.request.params.rootPath.match('/docs')) {
     context.dispatch.url = context.request.path.replace(/\.html/, '.docs.html');
-    console.log(context.dispatch.url);
   } else if (!action.request.params.rootPath && context.request.path.match('open.html')) {
-    console.log('open dispatch');
     context.dispatch.url = context.request.path.replace(/\.html/, '.open.html');
-    console.log(context.dispatch.url);
   } else {
     // TODO: Create new template for marketing pages
     // use homepage for now
     context.dispatch.url = context.request.url.replace(/\.html/, '.default.html');
   }
+  logger.debug('dispatch url:', context.dispatch.url);
 }
 
 module.exports.pre = pre;

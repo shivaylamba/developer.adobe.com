@@ -50,19 +50,7 @@
     <p class="spectrum-Body4">The Adobe Analytics APIs are a collection of APIs that power Adobe Analytics products like Analysis Workspace. The APIs allow for the creation of data rich user interfaces that you can use to manipulate and integrate data. You can also create reports to explore, get insights, or answer important questions about your data.</p>
     <p class="spectrum-Body3"><a href="" class="spectrum-Link spectrum-Button spectrum-Button--cta">Read the Docs</a></p>
   </div>
-  <div id="techblog" class="section index4 odd has-heading nb-heading-1 is-heading-only spectrum-grid-col-sm-12 spectrum-grid-col-md-6" data-sly-test="${content.mediumArticles}">
-    <h2 class="spectrum-Heading2">Recent Blog Articles</h2>
-    <hr class="spectrum-Rule spectrum-Rule--medium">
-    <div id="techblog-article-container" data-sly-list="${content.mediumArticles}">
-      <div>
-        <code class="spectrum-Code5">${item.pubDate} · ${item.minuteLength} min read · <strong>${item.creator}</strong></code>
-        <h4 class="spectrum-Heading4">${item.title}</h4>
-        <p class="spectrum-Body4">${item.caption}</p>
-        <a href="${item.link}" class="spectrum-Button spectrum-Button--primary" style="margin: 20px 0;">Read On</a>
-        <hr class="spectrum-Rule spectrum-Rule--medium">
-      </div>
-    </div>
-  </div>
+  <esi:include src="index.feed.html" />
   <div id="top-github-repos" class="section index5 odd has-heading nb-heading-1 is-heading-only spectrum-grid-col-sm-12 spectrum-grid-col-md-6 spectrum--dark">
     <!-- TODO: once we figure out how to cache stuff properly in fastly, we may
     want to put pulling repos from the github API into the pre.js to extract

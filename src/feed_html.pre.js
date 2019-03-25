@@ -51,7 +51,7 @@ async function pre(context, action) {
 
   // pull recent blog posts from medium
   if (feed) {
-    const transformer = new VDOM(context.content.sections[0], secrets);
+    const transformer = new VDOM(content.sections[0], secrets);
     const document = transformer.getDocument();
     content.mediumArticles = feed.items.slice(0, 3).map((item) => {
       const pubMoment = moment(item.pubDate);
@@ -90,3 +90,12 @@ async function pre(context, action) {
 }
 
 module.exports.pre = pre;
+module.exports.after = {
+  html: () => ({ // this function also gets a context argument (if needed)
+    response: {
+      headers: {
+        'Cache-Control': 'max-age=900',
+      },
+    },
+  }),
+};
