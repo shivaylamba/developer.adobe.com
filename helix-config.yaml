@@ -21,7 +21,7 @@ definitions:
       &basestrain
       code: *defaultRepo
       content: *defaultRepo
-      static: https://github.com/adobe/developer.adobe.com.git#d3d40f47c733da349e6cf7ff0a3344048228b29d
+      static: *defaultRepo
     proxy:
       &proxystrain
       origin:
