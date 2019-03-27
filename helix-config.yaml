@@ -21,7 +21,7 @@ definitions:
       &basestrain
       code: *defaultRepo
       content: *defaultRepo
-      static: *defaultRepo
+      static: https://github.com/adobe/developer.adobe.com.git#d3d40f47c733da349e6cf7ff0a3344048228b29d
     proxy:
       &proxystrain
       origin:
@@ -56,8 +56,6 @@ strains:
     package: developer-adobe-com/1e21313f7542fd3e00ff0b4601f566375b813bcc
 
   helix-demo:
+    <<: *basestrain
     url: https://adobedevsite.helix-demo.xyz
-    code: ssh://git@github.com/adobe/developer.adobe.com.git#master
-    content: ssh://git@github.com/adobe/developer.adobe.com.git#master
-    static: https://github.com/adobe/developer.adobe.com.git/htdocs#master
     package: developer-adobe-com/1e21313f7542fd3e00ff0b4601f566375b813bcc
