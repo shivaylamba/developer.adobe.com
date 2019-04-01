@@ -31,26 +31,26 @@ definitions:
 strains:
   - name: default
     <<: *basestrain
-    package: developer-adobe-com/a4ffc65af292c60d34ffe01a052b14228ccf8520
+    package: developer-adobe-com/9ed5e11bec0077a7d154cbfcad413605f2a5e47c
   - name: launch-docs-helixdemo
     <<: *basestrain
     url: https://adobedevsite.helix-demo.xyz/launch/docs
     content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
     directoryIndex: README.html
-    package: developer-adobe-com/a4ffc65af292c60d34ffe01a052b14228ccf8520
+    package: developer-adobe-com/9ed5e11bec0077a7d154cbfcad413605f2a5e47c
   - name: xd-docs-helixdemo
     <<: *basestrain
     url: https://adobedevsite.helix-demo.xyz/xd/docs
     content: https://github.com/AdobeXD/plugin-docs.git#master
     directoryIndex: README.html
-    package: developer-adobe-com/a4ffc65af292c60d34ffe01a052b14228ccf8520
+    package: developer-adobe-com/9ed5e11bec0077a7d154cbfcad413605f2a5e47c
   - name: starter-docs-helixdemo
     <<: *basestrain
     url: https://adobedevsite.helix-demo.xyz/starter/docs
     content: https://github.com/AdobeDocs/starter-docs.git#master
     directoryIndex: Overview.html
-    package: developer-adobe-com/a4ffc65af292c60d34ffe01a052b14228ccf8520
+    package: developer-adobe-com/9ed5e11bec0077a7d154cbfcad413605f2a5e47c
   - name: helix-demo
     <<: *basestrain
-    url: https://adobedevsite.helix-demo.xyz
-    package: developer-adobe-com/a4ffc65af292c60d34ffe01a052b14228ccf8520
+    url: https://adobedevsite.helix-demo.xyz/
+    package: developer-adobe-com/9ed5e11bec0077a7d154cbfcad413605f2a5e47c
