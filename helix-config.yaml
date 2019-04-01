@@ -1,139 +1,56 @@
+# Copyright 2018 Adobe. All rights reserved.
+# This file is licensed to you under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License. You may obtain a copy
+# of the License at http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software distributed under
+# the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+# OF ANY KIND, either express or implied. See the License for the specific language
+# governing permissions and limitations under the License.
+
 version: 1
+definitions:
+  defaults:
+    # Run default content from github repo
+    - &defaultRepo https://github.com/adobe/developer.adobe.com.git#master
+    # Run default content from this repo locally
+    #- &defaultRepo "http://localhost/local/default.git"
+  strains:
+    base:
+      &basestrain
+      code: *defaultRepo
+      content: *defaultRepo
+      static: *defaultRepo
+    proxy:
+      &proxystrain
+      origin:
+        address: 34.227.208.69
+        use_ssl: true
+        ssl_cert_hostname: www.adobe.io
+
 strains:
-  - code:
-      protocol: https
-      host: github.com
-      hostname: github.com
-      owner: adobe
-      repo: developer.adobe.com
-      ref: master
-    content:
-      protocol: https
-      host: github.com
-      hostname: github.com
-      owner: adobe
-      repo: developer.adobe.com
-      ref: master
-    static:
-      protocol: https
-      host: github.com
-      hostname: github.com
-      owner: adobe
-      repo: developer.adobe.com
-      ref: master
-      path: /htdocs
-    directoryIndex: index.html
+  - name: default
+    <<: *basestrain
     package: developer-adobe-com/a4ffc65af292c60d34ffe01a052b14228ccf8520
-    name: default
-  - code:
-      protocol: https
-      host: github.com
-      hostname: github.com
-      owner: adobe
-      repo: developer.adobe.com
-      ref: master
-    content:
-      protocol: https
-      host: github.com
-      hostname: github.com
-      owner: Adobe-Marketing-Cloud
-      repo: reactor-user-docs
-      ref: master
-    static:
-      protocol: https
-      host: github.com
-      hostname: github.com
-      owner: adobe
-      repo: developer.adobe.com
-      ref: master
-      path: /htdocs
-    directoryIndex: README.html
-    package: developer-adobe-com/a4ffc65af292c60d34ffe01a052b14228ccf8520
-    name: launch-docs-helixdemo
-    urls:
-      - https://adobedevsite.helix-demo.xyz/launch/docs
+  - name: launch-docs-helixdemo
+    <<: *basestrain
     url: https://adobedevsite.helix-demo.xyz/launch/docs
-  - code:
-      protocol: https
-      host: github.com
-      hostname: github.com
-      owner: adobe
-      repo: developer.adobe.com
-      ref: master
-    content:
-      protocol: https
-      host: github.com
-      hostname: github.com
-      owner: AdobeXD
-      repo: plugin-docs
-      ref: master
-    static:
-      protocol: https
-      host: github.com
-      hostname: github.com
-      owner: adobe
-      repo: developer.adobe.com
-      ref: master
-      path: /htdocs
+    content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
     directoryIndex: README.html
     package: developer-adobe-com/a4ffc65af292c60d34ffe01a052b14228ccf8520
-    name: xd-docs-helixdemo
-    urls:
-      - https://adobedevsite.helix-demo.xyz/xd/docs
+  - name: xd-docs-helixdemo
+    <<: *basestrain
     url: https://adobedevsite.helix-demo.xyz/xd/docs
-  - code:
-      protocol: https
-      host: github.com
-      hostname: github.com
-      owner: adobe
-      repo: developer.adobe.com
-      ref: master
-    content:
-      protocol: https
-      host: github.com
-      hostname: github.com
-      owner: AdobeDocs
-      repo: starter-docs
-      ref: master
-    static:
-      protocol: https
-      host: github.com
-      hostname: github.com
-      owner: adobe
-      repo: developer.adobe.com
-      ref: master
-      path: /htdocs
+    content: https://github.com/AdobeXD/plugin-docs.git#master
+    directoryIndex: README.html
+    package: developer-adobe-com/a4ffc65af292c60d34ffe01a052b14228ccf8520
+  - name: starter-docs-helixdemo
+    <<: *basestrain
+    url: https://adobedevsite.helix-demo.xyz/starter/docs
+    content: https://github.com/AdobeDocs/starter-docs.git#master
     directoryIndex: Overview.html
     package: developer-adobe-com/a4ffc65af292c60d34ffe01a052b14228ccf8520
-    name: starter-docs-helixdemo
-    urls:
-      - https://adobedevsite.helix-demo.xyz/starter/docs
-    url: https://adobedevsite.helix-demo.xyz/starter/docs
-  - code:
-      protocol: https
-      host: github.com
-      hostname: github.com
-      owner: adobe
-      repo: developer.adobe.com
-      ref: master
-    content:
-      protocol: https
-      host: github.com
-      hostname: github.com
-      owner: adobe
-      repo: developer.adobe.com
-      ref: master
-    static:
-      protocol: https
-      host: github.com
-      hostname: github.com
-      owner: adobe
-      repo: developer.adobe.com
-      ref: master
-      path: /htdocs
-    directoryIndex: index.html
+  - name: helix-demo
+    <<: *basestrain
+    url: https://adobedevsite.helix-demo.xyz
     package: developer-adobe-com/a4ffc65af292c60d34ffe01a052b14228ccf8520
-    name: helix-demo
-    urls:
-      - https://adobedevsite.helix-demo.xyz/
-    url: https://adobedevsite.helix-demo.xyz/
