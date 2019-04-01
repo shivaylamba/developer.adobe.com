@@ -3,208 +3,137 @@ strains:
   - code:
       protocol: https
       host: github.com
-      port: ""
       hostname: github.com
       owner: adobe
       repo: developer.adobe.com
       ref: master
-      path: ""
     content:
       protocol: https
       host: github.com
-      port: ""
       hostname: github.com
       owner: adobe
       repo: developer.adobe.com
       ref: master
-      path: ""
     static:
-      magic: false
-      allow: []
-      deny: []
       protocol: https
       host: github.com
-      port: ""
       hostname: github.com
       owner: adobe
       repo: developer.adobe.com
       ref: master
       path: /htdocs
     directoryIndex: index.html
-    package: developer-adobe-com/f1c5e1bc1c7fe401dd85fd439c1c89113a5cd92e
+    package: developer-adobe-com/a4ffc65af292c60d34ffe01a052b14228ccf8520
     name: default
-    sticky: false
-    condition: ""
-    perf:
-      device: ""
-      location: ""
-      connection: ""
-    urls: []
   - code:
       protocol: https
       host: github.com
-      port: ""
       hostname: github.com
       owner: adobe
       repo: developer.adobe.com
       ref: master
-      path: ""
     content:
       protocol: https
       host: github.com
-      port: ""
       hostname: github.com
       owner: Adobe-Marketing-Cloud
       repo: reactor-user-docs
       ref: master
-      path: ""
     static:
-      magic: false
-      allow: []
-      deny: []
       protocol: https
       host: github.com
-      port: ""
       hostname: github.com
       owner: adobe
       repo: developer.adobe.com
       ref: master
       path: /htdocs
     directoryIndex: README.html
-    package: developer-adobe-com/f1c5e1bc1c7fe401dd85fd439c1c89113a5cd92e
+    package: developer-adobe-com/a4ffc65af292c60d34ffe01a052b14228ccf8520
     name: launch-docs-helixdemo
-    sticky: false
-    condition: ""
-    perf:
-      device: ""
-      location: ""
-      connection: ""
     urls:
       - https://adobedevsite.helix-demo.xyz/launch/docs
     url: https://adobedevsite.helix-demo.xyz/launch/docs
   - code:
       protocol: https
       host: github.com
-      port: ""
       hostname: github.com
       owner: adobe
       repo: developer.adobe.com
       ref: master
-      path: ""
     content:
       protocol: https
       host: github.com
-      port: ""
       hostname: github.com
       owner: AdobeXD
       repo: plugin-docs
       ref: master
-      path: ""
     static:
-      magic: false
-      allow: []
-      deny: []
       protocol: https
       host: github.com
-      port: ""
       hostname: github.com
       owner: adobe
       repo: developer.adobe.com
       ref: master
       path: /htdocs
     directoryIndex: README.html
-    package: developer-adobe-com/f1c5e1bc1c7fe401dd85fd439c1c89113a5cd92e
+    package: developer-adobe-com/a4ffc65af292c60d34ffe01a052b14228ccf8520
     name: xd-docs-helixdemo
-    sticky: false
-    condition: ""
-    perf:
-      device: ""
-      location: ""
-      connection: ""
     urls:
       - https://adobedevsite.helix-demo.xyz/xd/docs
     url: https://adobedevsite.helix-demo.xyz/xd/docs
   - code:
       protocol: https
       host: github.com
-      port: ""
       hostname: github.com
       owner: adobe
       repo: developer.adobe.com
       ref: master
-      path: ""
     content:
       protocol: https
       host: github.com
-      port: ""
       hostname: github.com
       owner: AdobeDocs
       repo: starter-docs
       ref: master
-      path: ""
     static:
-      magic: false
-      allow: []
-      deny: []
       protocol: https
       host: github.com
-      port: ""
       hostname: github.com
       owner: adobe
       repo: developer.adobe.com
       ref: master
       path: /htdocs
     directoryIndex: Overview.html
-    package: developer-adobe-com/f1c5e1bc1c7fe401dd85fd439c1c89113a5cd92e
+    package: developer-adobe-com/a4ffc65af292c60d34ffe01a052b14228ccf8520
     name: starter-docs-helixdemo
-    sticky: false
-    condition: ""
-    perf:
-      device: ""
-      location: ""
-      connection: ""
     urls:
       - https://adobedevsite.helix-demo.xyz/starter/docs
     url: https://adobedevsite.helix-demo.xyz/starter/docs
   - code:
       protocol: https
       host: github.com
-      port: ""
       hostname: github.com
       owner: adobe
       repo: developer.adobe.com
       ref: master
-      path: ""
     content:
       protocol: https
       host: github.com
-      port: ""
       hostname: github.com
       owner: adobe
       repo: developer.adobe.com
       ref: master
-      path: ""
     static:
-      magic: false
-      allow: []
-      deny: []
       protocol: https
       host: github.com
-      port: ""
       hostname: github.com
       owner: adobe
       repo: developer.adobe.com
       ref: master
       path: /htdocs
     directoryIndex: index.html
-    package: developer-adobe-com/f1c5e1bc1c7fe401dd85fd439c1c89113a5cd92e
+    package: developer-adobe-com/a4ffc65af292c60d34ffe01a052b14228ccf8520
     name: helix-demo
-    sticky: false
-    condition: ""
-    perf:
-      device: ""
-      location: ""
-      connection: ""
     urls:
       - https://adobedevsite.helix-demo.xyz/
     url: https://adobedevsite.helix-demo.xyz/
