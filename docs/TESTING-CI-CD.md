@@ -1,6 +1,6 @@
 # Testing Strategy
 
-This document aims to detail how testing and continuous integration + deployment
+This document aims to detail how testing and continuous integration (CI) + deployment (CD)
 works for this project. Parts of it may be aspirational, and when possible, this
 is called out and an issue is linked.
 
@@ -88,6 +88,13 @@ run as part of the continuous deployment pipeline ([gory details available in
 the `.circleci/config.yaml` file](../.circleci/config.yaml)), but they can be
 run manually too.
 
+The benefit for having this be a separate testing task and thus individually
+runable (manually or as part of CI/CD) is that in a helix reality, pushing to
+production is a two-step process: `hlx deploy` followed by `hlx publish`. No changes
+hit production until `hlx publish` completes successfully. As such, if we
+discover an issue after `hlx deploy`, but before `hlx publish`, we can abort the
+`publish` and thus save ourselves some embarassment!
+
 ### Performance Testing
 
 *TODO* to be implemented
@@ -131,7 +138,8 @@ The target environments, from least public-facing to most, are as follows:
 4. **Production**. Our public environment. If our test suite passes in our
    staging environment, then the [delivery
    pipeline](#delivery-pipeline-implementation) will continue its execution and
-   push changes up to production automatically.
+   push changes up to production automatically. The production environment
+   target is https://developer.adobe.com.
 
 ### Delivery Pipeline Implementation
 
@@ -139,14 +147,23 @@ We want our delivery pipeline to be able to target staging as well as production
 environments in order to enable previewing and testing of pull requests.
 
 It is always best to read the source so don't be afraid to look at the
-[CircleCI config file](`../.circleci/config.yaml).
+[CircleCI config file](`../.circleci/config.yaml) - best to start by looking at
+the [`continuously_deploy` workflow
+definition](https://github.com/adobe/developer.adobe.com/blob/master/.circleci/config.yml#L160). [Continuous deployment only
+operates on the `master`
+branch](https://github.com/adobe/developer.adobe.com/blob/master/.circleci/config.yml#L182-L184) and a high-level overview includes:
+
+1. [Install, build and
+   test](https://github.com/adobe/developer.adobe.com/blob/master/.circleci/config.yml#L162-L175) the commit - just like we do on pull requests.
+2. [Deploy, test, publish, test again, and finally commit and
+   tag](https://github.com/adobe/developer.adobe.com/blob/master/.circleci/config.yml#L177)
+   the repo as a known-good state.
 
 #### Delivery Pipeline TODOs
 
 - [ ] [performance testing](#performance-testing); both pre and post deploy
 - [ ] [link and image checking](#link-and-image-checking); both pre and post
     deploy
-- [ ] `hlx rollback` support
 
 ## Future Helix Testing Goodness
 

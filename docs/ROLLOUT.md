@@ -1,9 +1,9 @@
 # Operational Rollout, Monitoring and Escalation
 
 This is a [rollout plan](#rollout-phases) that details the path to go-live for the
-helix-powered version of the site and includes sections around monitoring and escalation.
-The rollout will use a progressive delivery approach that allows incremental, risk-minimizing
-updates with solid automation.
+helix-powered version of the site and includes sections around [monitoring](#monitoring)
+and [escalation](#escalation). The rollout will use a progressive delivery approach
+that allows incremental, risk-minimizing updates with solid automation.
 
 **Many aspects of this plan are yet to be implemented**. Where applicable, such
 *TODOs* are linked to open issues or pull requests.
@@ -34,15 +34,18 @@ updates with solid automation.
 
 ## Monitoring
 
+Being aware of the availability and performance of the live site is important.
+This section details how we inform ourselves of our uptime.
+
 ### Uptime
 
 The requirement for uptime is 99.99% which allows for 52 minutes and 36 seconds
 of downtime per year.
 
-A "publishing failure" should be considered as downtime. Time-to-live should be
-taken into account and clearly documented for content repository updates, but
-this time-to-live (TTL) should be treated as a service-level agreement between us
-(the site) and our customers (content authors and consumers).
+A "publishing failure" should be considered as downtime. Time-to-live (TTL) should
+be taken into account and clearly documented for content repository updates, but
+this TTL should be treated as a service-level agreement between us (the site) and
+our customers (content authors and consumers).
 
 ### Implementation
 
@@ -114,6 +117,7 @@ gets applied, showing the "old" version of the site.
 ### Rollback
 
 *TODO*: to be implemented
+[adobe/developer.adobe.com#198](https://github.com/adobe/developer.adobe.com-planning/issues/198)
 
 Rollback is defined as going back to a known-good previous version. In a
 helix-powered reality this means rolling back to a previous commit and running a
@@ -122,7 +126,9 @@ AEM-powered version of the site does not come into play.
 
 Perform a `hlx publish` using an older `helix-config.yaml` that has been committed
 as part of an older, successful rollout. This will replace the entire site with
-a slightly older version.
+a slightly older version. These mechanics are completely handled by CircleCI and
+helix. The only decision a human needs to make is when to rollback (e.g. the
+site is down!) and to which last known-good version to roll back to.
 
 ## Escalation
 
@@ -182,19 +188,21 @@ ditch" maneuvers. They should be linked here.
 
 ## Rollout Phases
 
-### Phase 1: Everything still looks the same
+### Phase 1: Everything still looks the same and developers.adobe.com is live
 
 The existing site will be served though a Helix proxy strain, so that no visible
 changes have been made to the site, but Helix has the ability to manage the site.
+The existing site will be available on https://adobe.io as before, but now
+https://developers.adobe.com will direct traffic through helix.
 
 #### Prerequisites
 
 - [ ] `helix-config.yaml` with a `default` strain pointing to the existing AEM
     site's dispatcher
     ([adobe/developer.adobe.com-planning#162](https://github.com/adobe/developer.adobe.com-planning/issues/162))
-- [ ] Fastly has certificate for `www.adobe.io` domain
+- [ ] Fastly has certificate for `developers.adobe.com` domain
     ([adobe/developer.adobe.com-planning#167](https://github.com/adobe/developer.adobe.com-planning/issues/167))
-- [ ] Fastly configuration receives traffic for `www.adobe.io` domain
+- [ ] Fastly configuration receives traffic for `developers.adobe.com` domain
     ([adobe/developer.adobe.com-planning#168](https://github.com/adobe/developer.adobe.com-planning/issues/168))
 - [x] CircleCI is set up to run `hlx publish` on `master`
 - [ ] GitHub `master` branch is protected from accidental merges
@@ -202,8 +210,7 @@ changes have been made to the site, but Helix has the ability to manage the site
 ### Phase 2: New Open page for some
 
 The [Open page](https://www.adobe.io/open.html) will be powered by helix and made
-available to visitors in a restricted geography (e.g. Switzerland) (work tracked
-in ).
+available to visitors in a restricted geography (e.g. Switzerland).
 All other visitors will still see all other pages powered by AEM (based on the
 default proxy strain).
 
