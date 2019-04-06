@@ -18,6 +18,12 @@ if [ "$BRANCH" = "refs/heads/master" ]; then
             exit 1;
         fi;
     fi;
+    # Check if $TARGET points to same ref as `published` - it would be silly to
+    # roll back to the already-published SHA, now, wouldn't it?
+    if [ "$(git rev-list -n 1 $TARGET)" = "$(git rev-list -n 1 published)" ]; then
+        echo "${TARGET} is currently live! That's not how rollback works! Please specify a 'known-good-*' tag as an argument to this script and make sure it points to a different SHA than the 'published' tag.";
+        exit 1;
+    fi;
     echo "Will rollback to: ${TARGET}";
     echo "This will blast away any uncommitted/untracked work in your tree.";
     echo "Proceed? (enter a number)";
