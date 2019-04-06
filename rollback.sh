@@ -34,6 +34,7 @@ if [ "$BRANCH" = "refs/heads/master" ]; then
             # Move the branch pointer back to the previous HEAD
             git reset --soft HEAD@{1};
             git commit -m "🚑 Rolling back to previous commit ${TARGET}!";
+            git push origin master;
             exit 0;
         else
             echo "Aborting!";
