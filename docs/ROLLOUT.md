@@ -116,29 +116,19 @@ gets applied, showing the "old" version of the site.
 
 ### Rollback
 
+*TODO*: to be implemented
+[adobe/developer.adobe.com#198](https://github.com/adobe/developer.adobe.com-planning/issues/198)
+
 Rollback is defined as going back to a known-good previous version. In a
 helix-powered reality this means rolling back to a previous commit and running a
 deployment. Note that this is distinct from [fallback](#fallback) in that the
 AEM-powered version of the site does not come into play.
 
-Rollback is implemented as a script available in this repo:
-[`rollback.sh`](../rollback.sh). The script does nothing more than change the
-`git` tree to a previous-known-good state, and does so without rewriting `git`
-history. The script has two modes:
-
-- Without any arguments. In this mode, the script will determine the previous
-    known-good state (by inspecting [continuous delivery
-    `git` tags](TESTING-CI-CD.md#L158)), roll the repo forward to this state,
-    and push up to `master`.
-- With an argument. In this mode, the script will verify that the argument
-    passed is a `git` reference, roll the repo forward to this state, and push
-    up to `master`.
-
-After the script pushes the rollback to the `master` branch, the rest of the rollback
-mechanics are completely handled by CircleCI and helix as continuous deployment
-will kick in and deploy out the version rolled back to. The only decision a human
-needs to make is when to rollback (e.g. the site is down!) and, optionally, to
-which last known-good version to roll back to.
+Perform a `hlx publish` using an older `helix-config.yaml` that has been committed
+as part of an older, successful rollout. This will replace the entire site with
+a slightly older version. These mechanics are completely handled by CircleCI and
+helix. The only decision a human needs to make is when to rollback (e.g. the
+site is down!) and to which last known-good version to roll back to.
 
 ## Escalation
 
@@ -193,8 +183,8 @@ plenty of prior art in this area, with inspiration available at:
     organization.
 
 *TODO*: These will be written as incidents are dealt with. Such runbooks should
-include referencing [fallback](#fallback) and [rollback](#rollback) instructions
-as "last ditch" maneuvers. They should be linked here.
+include referencing [fallback](#fallback) and [rollback](#instructions) as "last
+ditch" maneuvers. They should be linked here.
 
 ## Rollout Phases
 
@@ -303,9 +293,12 @@ Phase 5.1 and 5.2 will get repeated for more and more existing product pages.
 
 Until this phase, no new product pages have been introduced, giving us an easy
 [fallback](#fallback) option in case of errors (see [Rollback vs. Fallback](#rollback-vs-fallback)).
+From this phase on, it is necessary to provide [rollbacks](#rollback) in case of errors.
 
 #### Prerequisites
 
+- [ ] `hlx rollback` command for restoring an old release; *TODO* this is not
+    implemented yet in helix
 - [ ] `hlx deploy --cleanup` command for cleaning up outdated deployments
 - [ ] updated CircleCI config to perform live-site testing after a `hlx publish`
     with automated rollback
