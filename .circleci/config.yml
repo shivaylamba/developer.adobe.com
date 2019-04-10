@@ -50,7 +50,7 @@ orbs:
 executors:
   helix:
     docker:
-      - image: circleci/node:8-jessie-browsers
+      - image: circleci/node:10-jessie-browsers
 
 jobs:
   install:
