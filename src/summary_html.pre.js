@@ -99,15 +99,11 @@ function filterNav(document, path, logger, mountPoint) {
     return Array.from(document.body.children);
   }
 
-  logger.debug('summary_html.pre.js - Navigation payload has no children');
+  logger.debug('summary_html.pre.js - Navigation context has no children');
   return [];
 }
 
-
-// module.exports.pre is a function (taking next as an argument)
-// that returns a function (with payload, config, logger as arguments)
-// that calls next (after modifying the payload a bit)
-async function pre(payload, action) {
+async function pre(context, action) {
   const {
     logger,
   } = action;
@@ -115,12 +111,12 @@ async function pre(payload, action) {
   logger.debug(`summary_html.pre.js - Requested path: ${action.request.params.path}`);
 
   try {
-    if (!payload.content) {
-      logger.debug('summary_html.pre.js - Payload has no resource, nothing we can do');
-      return payload;
+    if (!context.content) {
+      logger.debug('summary_html.pre.js - context has no resource, nothing we can do');
+      return context;
     }
 
-    const p = payload;
+    const p = context;
 
     // clean up the resource
     p.content.nav = filterNav(p.content.document,

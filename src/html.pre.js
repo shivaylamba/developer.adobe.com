@@ -14,39 +14,39 @@
 
 /**
 * The 'pre' function that is executed before the HTML is rendered
- * @param payload The current payload of processing pipeline
- * @param payload.content The content
+ * @param context The current context of processing pipeline
+ * @param context.content The content
  */
-function pre(payload, action) {
-  payload.dispatch = {};
+function pre(context, action) {
+  context.dispatch = {};
 
-  // payload.dispatch.headers = action.headers;
+  // context.dispatch.headers = action.headers;
 
-  if (!payload.request.url) {
-    payload.request.url = '/index.html';
+  if (!context.request.url) {
+    context.request.url = '/index.html';
   }
 
-  console.log('request url', payload.request.url);
-  console.log('request path', payload.request.path);
+  console.log('request url', context.request.url);
+  console.log('request path', context.request.path);
   console.log('action path', action.request.params.path);
   console.log('action rootPath', action.request.params.rootPath);
-  console.log(payload.request.headers['x-strain']);
+  console.log(context.request.headers['x-strain']);
 
-  if (!action.request.params.rootPath && payload.request.path.match('index.html')) {
+  if (!action.request.params.rootPath && context.request.path.match('index.html')) {
     console.log('no root path');
     // home page
-    payload.dispatch.url = payload.request.url.replace(/\.html/, '.default.html');
+    context.dispatch.url = context.request.url.replace(/\.html/, '.default.html');
   } else if (action.request.params.rootPath.match('/docs')) {
-    payload.dispatch.url = payload.request.path.replace(/\.html/, '.docs.html');
-    console.log(payload.dispatch.url);
-  } else if (!action.request.params.rootPath && payload.request.path.match('open.html')) {
+    context.dispatch.url = context.request.path.replace(/\.html/, '.docs.html');
+    console.log(context.dispatch.url);
+  } else if (!action.request.params.rootPath && context.request.path.match('open.html')) {
     console.log('open dispatch');
-    payload.dispatch.url = payload.request.path.replace(/\.html/, '.open.html');
-    console.log(payload.dispatch.url);
+    context.dispatch.url = context.request.path.replace(/\.html/, '.open.html');
+    console.log(context.dispatch.url);
   } else {
     // TODO: Create new template for marketing pages
     // use homepage for now
-    payload.dispatch.url = payload.request.url.replace(/\.html/, '.default.html');
+    context.dispatch.url = context.request.url.replace(/\.html/, '.default.html');
   }
 }
 

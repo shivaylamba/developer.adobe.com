@@ -12,12 +12,9 @@
 
 // eslint-disable-next-line import/no-extraneous-dependencies, import/no-unresolved
 
-// module.exports.pre is a function (taking next as an argument)
-// that returns a function (with payload, config, logger as arguments)
-// that calls next (after modifying the payload a bit)
-async function pre(payload) {
+async function pre(context) {
   console.log('open pre.js');
-  return payload;
+  return context;
 }
 
 module.exports.pre = pre;

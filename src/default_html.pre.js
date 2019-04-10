@@ -34,10 +34,7 @@ function getAllWords(node) {
   return allText.filter(word => word.length && word.match(/^\w+\W?$/i));
 }
 
-// module.exports.pre is a function (taking next as an argument)
-// that returns a function (with payload, config, logger as arguments)
-// that calls next (after modifying the payload a bit)
-async function pre(payload, action) {
+async function pre(context, action) {
   const {
     logger,
     secrets,
@@ -49,12 +46,12 @@ async function pre(payload, action) {
   } catch (e) {
     logger.warn('error durring parsing adobetech blog rss feed!', e);
   }
-  const { content } = payload;
+  const { content } = context;
   content.mediumArticles = false;
 
   // pull recent blog posts from medium
   if (feed) {
-    const transformer = new VDOM(payload.content.sections[0], secrets);
+    const transformer = new VDOM(context.content.sections[0], secrets);
     const document = transformer.getDocument();
     content.mediumArticles = feed.items.slice(0, 3).map((item) => {
       const pubMoment = moment(item.pubDate);
@@ -89,7 +86,7 @@ async function pre(payload, action) {
     });
   }
 
-  return payload;
+  return context;
 }
 
 module.exports.pre = pre;
