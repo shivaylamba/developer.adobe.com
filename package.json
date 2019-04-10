@@ -19,7 +19,7 @@
     "build": "hlx clean && hlx build",
     "deploy": "hlx deploy --no-auto --default HTTP_TIMEOUT 5000",
     "publish": "hlx publish --remote",
-    "start": "hlx up --host adobedevsite.helix-demo.xyz"
+    "start": "hlx up --host adobedevsite.helix-demo.xyz --local-repo=."
   },
   "repository": {
     "type": "git",
