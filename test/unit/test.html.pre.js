@@ -24,7 +24,7 @@ const payload = {
 describe('html.pre.js', () => {
   it('should dispatch to default html if there is no root path', () => {
     html.pre(payload, { request: { params: {} }, logger: console });
-    assert.equal(payload.dispatch.url, '/index.default.html');
+    assert.equal(payload.dispatch.url, 'index.default.html');
   });
   it('should dispatch to docs html if docs is in root path', () => {
     html.pre(payload, { request: { params: { rootPath: '/product/docs' } }, logger: console });

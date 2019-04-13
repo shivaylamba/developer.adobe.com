@@ -44,7 +44,7 @@ async function pre(context, action) {
   try {
     feed = await rss.parseURL('https://medium.com/feed/adobetech');
   } catch (e) {
-    logger.warn('error durring parsing adobetech blog rss feed!', e);
+    logger.warn(`error during parsing adobetech blog rss feed! ${e.stack || e}`);
   }
   const { content } = context;
   content.mediumArticles = false;
