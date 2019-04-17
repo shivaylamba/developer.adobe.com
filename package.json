@@ -41,12 +41,12 @@
     "uri-js": "^4.2.2"
   },
   "devDependencies": {
-    "@wdio/cli": "5.7.13",
-    "@wdio/local-runner": "5.7.13",
-    "@wdio/mocha-framework": "5.7.13",
+    "@wdio/cli": "5.7.14",
+    "@wdio/local-runner": "5.7.14",
+    "@wdio/mocha-framework": "5.7.14",
     "@wdio/sauce-service": "5.7.8",
     "@wdio/spec-reporter": "5.7.13",
-    "chromedriver": "^2.46.0",
+    "chromedriver": "^73.0.0",
     "eslint": "^5.9.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-header": "^3.0.0",
@@ -59,6 +59,6 @@
     "sinon": "^7.3.1",
     "supertest": "^4.0.2",
     "wdio-chromedriver-service": "5.0.1",
-    "webdriverio": "5.7.13"
+    "webdriverio": "5.7.14"
   }
 }
