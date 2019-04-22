@@ -14,11 +14,11 @@ const assert = require('assert');
 describe('helix site smoke tests', function suite() {
   this.timeout(30000);
 
-  it('should load homepage', async () => {
+  it('should load homepage which proxies to adobe i/o', async () => {
     await browser.url('/');
 
     const title = await browser.getTitle();
-    assert.equal(title, 'Do More with Adobe');
+    assert.equal(title, 'Adobe I/O');
   });
   it('should load xd docs substrain', async () => {
     await browser.url('/xd/docs');
