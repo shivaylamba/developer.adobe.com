@@ -21,10 +21,7 @@ definitions:
       static: *defaultRepo
     proxy:
       &proxystrain
-      origin:
-        address: 34.227.208.69
-        use_ssl: true
-        ssl_cert_hostname: www.adobe.io
+      origin: https://www.adobe.io/
 
 strains:
   - name: default
