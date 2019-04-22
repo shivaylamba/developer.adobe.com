@@ -210,9 +210,9 @@ https://developers.adobe.com will direct traffic through helix.
 - [ ] `helix-config.yaml` with a `default` strain pointing to the existing AEM
     site's dispatcher
     ([adobe/developer.adobe.com-planning#162](https://github.com/adobe/developer.adobe.com-planning/issues/162))
-- [ ] Fastly has certificate for `developers.adobe.com` domain
+- [x] Fastly has certificate for `developer.adobe.com` domain
     ([adobe/developer.adobe.com-planning#167](https://github.com/adobe/developer.adobe.com-planning/issues/167))
-- [ ] Fastly configuration receives traffic for `developers.adobe.com` domain
+- [ ] Fastly configuration receives traffic for `developer.adobe.com` domain
     ([adobe/developer.adobe.com-planning#168](https://github.com/adobe/developer.adobe.com-planning/issues/168))
 - [x] CircleCI is set up to run `hlx publish` on `master`
 - [ ] GitHub `master` branch is protected from accidental merges
