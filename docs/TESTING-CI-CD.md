@@ -132,10 +132,10 @@ The target environments, from least public-facing to most, are as follows:
 3. **Staging**. We have a staging domain set up which is used when code lands in
    the `master` branch: https://adobedevsite.helix-demo.xyz. This environment is
    the first location where reviewed and approved code lands. A fully automated
-   test suite would execute against this environment. If any failures arise, we
-   stop the [delivery pipeline](#delivery-pipeline-implementation) from executing
-   so that no regressions land in...
-4. **Production**. Our public environment. If our test suite passes in our
+   test suite would execute against this environment. *TODO* (not implemented yet,
+   this is difficult with Helix): If any failures arise, we stop the [delivery pipeline](#delivery-pipeline-implementation)
+   from executing so that no regressions land in...
+4. **Production**. Our public environment. *TODO*: If our test suite passes in our
    staging environment, then the [delivery
    pipeline](#delivery-pipeline-implementation) will continue its execution and
    push changes up to production automatically. The production environment

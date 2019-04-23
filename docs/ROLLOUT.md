@@ -62,20 +62,20 @@ Two third party applications are used for monitoring: [Pingdom](#pingdom) and
 #### Pingdom
 
 We [have an account with Pingdom](https://my.pingdom.com/newchecks/checks) where
-we track uptime for https://adobe.io and https://adobedevsite.helix-demo.xyz.
-https://adobe.io is checked every minute and uptime state change events are
-posted to `#dev-adobe-com-alerts`. https://adobedevsite.helix-demo.xyz is
-checked every 5 minutes and uptime state change events are posted to
-`#dev-adobe-com-bot`.
+we track uptime for https://adobe.io, https://adobedevsite.helix-demo.xyz and
+https://developer.adobe.com. https://adobe.io and https://developer.adobe.com is
+checked every minute and uptime state change events are posted to
+`#dev-adobe-com-alerts`. https://adobedevsite.helix-demo.xyz is checked every 5
+minutes and uptime state change events are posted to `#dev-adobe-com-bot`.
 
 #### Calibre
 
 We [have an account with Calibre](https://calibreapp.com/adobe) where we track
 performance metrics such as time to interactive, time to first byte, and a slew
-of others against both https://adobe.io and https://adobedevsite.helix-demo.xyz.
-We also track these sites, against these metrics, using two profiles: a typical
-desktop computer on high-speed internet, and a typical mobile device on a slower
-network.
+of others against https://adobe.io, https://developer.adobe.com and
+https://adobedevsite.helix-demo.xyz. We also track these sites, against these metrics,
+using two profiles: a typical desktop computer on high-speed internet, and a typical
+mobile device on a slower network.
 
 We have a [budget](https://calibreapp.com/docs/metrics/budgets) set for one such
 performance metric: [time to
@@ -85,10 +85,10 @@ notifications for https://adobedevsite.helxi-demo.xyz are sent to the `#dev-adob
 channel.
 
 *TODO*: calibre currently only support posting both budget met and exceeded
-notifications via Slack. As such, notifications for https://adobe.io to the
-`#dev-adobe-com-alerts` channel are disabled for now. In the future, should the
-option to post only budget exceeded events (or a 'budget state change' event),
-then we will re-enable these notifications.
+notifications via Slack. As such, notifications for https://adobe.io and
+https://developer.adobe.com to the `#dev-adobe-com-alerts` channel are disabled
+for now. In the future, should the option to post only budget exceeded events (or
+a 'budget state change' event), then we will re-enable these notifications.
 
 #### Services We Rely On
 
@@ -198,12 +198,12 @@ as "last ditch" maneuvers. They should be linked here.
 
 ## Rollout Phases
 
-### Phase 1: Everything still looks the same and developers.adobe.com is live
+### Phase 1: Everything still looks the same and developer.adobe.com is live
 
 The existing site will be served though a Helix proxy strain, so that no visible
 changes have been made to the site, but Helix has the ability to manage the site.
 The existing site will be available on https://adobe.io as before, but now
-https://developers.adobe.com will direct traffic through helix.
+https://developer.adobe.com will proxy traffic through helix.
 
 #### Prerequisites
 
