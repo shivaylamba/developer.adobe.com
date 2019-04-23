@@ -30,7 +30,7 @@
   "bugs": {
     "url": "https://github.com/adobe/developer.adobe.com/issues"
   },
-  "homepage": "https://github.com/adobe/developer.adobe.com#readme",
+  "homepage": "https://developer.adobe.com",
   "dependencies": {
     "@adobe/helix-cli": "0.14.18",
     "moment": "^2.24.0",
