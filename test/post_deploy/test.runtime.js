@@ -16,13 +16,16 @@ const assert = require('assert');
 
 const DOMAIN = 'https://adobeioruntime.net';
 const BASEPATH = '/api/v1/web/';
-const STRAIN = 'helix-demo';
+const STRAIN = 'default';
 const HOME_QUERY = `?owner=adobe&repo=developer.adobe.com&ref=master&path=/index.md&strain=${STRAIN}`;
 const config = yaml.safeLoad(fs.readFileSync('helix-config.yaml', 'utf8'));
 const strainObj = config.strains.find(s => s.name === STRAIN);
 const PACKAGE = strainObj.package;
 assert(PACKAGE.includes('developer-adobe-com'), 'package does not contain runtime namespace!');
 const agent = supertest(DOMAIN);
+
+// TODO: do proxy strains get their own runtime actions, and if so, how can we
+// test that?
 
 describe('runtime action post-deploy tests', () => {
   describe('"html" action HTTP tests', () => {
