@@ -77,7 +77,7 @@ strains:
     package: developer-adobe-com/6b3ea246719f1fdc5bc0e1f41027afc00fd069b0
   - name: support-production
     origin: https://adobedocs.github.io/support/
-    url: https://adobedevsite.helix-demo.xyz/support
+    url: https://developer.adobe.com/support
   - name: production
     <<: *proxystrain
     url: https://developer.adobe.com/
