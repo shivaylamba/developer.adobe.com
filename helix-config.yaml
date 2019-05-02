@@ -26,7 +26,7 @@ definitions:
 strains:
   - name: default
     <<: *basestrain
-    package: developer-adobe-com/6b3ea246719f1fdc5bc0e1f41027afc00fd069b0
+    package: developer-adobe-com/6f58f37dd65aacba9cff843dc9f268ccc933840e
 
   # === STAGING URLS FOLLOW ===
   - name: launch-docs-staging
@@ -35,20 +35,20 @@ strains:
     # TODO: the following repo has no author or staging branch
     content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
     directoryIndex: README.html
-    package: developer-adobe-com/6b3ea246719f1fdc5bc0e1f41027afc00fd069b0
+    package: developer-adobe-com/6f58f37dd65aacba9cff843dc9f268ccc933840e
   - name: xd-docs-staging
     <<: *basestrain
     url: https://adobedevsite.helix-demo.xyz/xd/docs
     # TODO: the following repo has no author or staging branch
     content: https://github.com/AdobeXD/plugin-docs.git#master
     directoryIndex: README.html
-    package: developer-adobe-com/6b3ea246719f1fdc5bc0e1f41027afc00fd069b0
+    package: developer-adobe-com/6f58f37dd65aacba9cff843dc9f268ccc933840e
   - name: starter-docs-staging
     <<: *basestrain
     url: https://adobedevsite.helix-demo.xyz/starter/docs
     content: https://github.com/AdobeDocs/starter-docs.git#author
     directoryIndex: Overview.html
-    package: developer-adobe-com/6b3ea246719f1fdc5bc0e1f41027afc00fd069b0
+    package: developer-adobe-com/6f58f37dd65aacba9cff843dc9f268ccc933840e
   - name: staging
     <<: *proxystrain
     url: https://adobedevsite.helix-demo.xyz/
@@ -59,19 +59,19 @@ strains:
     url: https://developer.adobe.com/launch/docs
     content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
     directoryIndex: README.html
-    package: developer-adobe-com/6b3ea246719f1fdc5bc0e1f41027afc00fd069b0
+    package: developer-adobe-com/6f58f37dd65aacba9cff843dc9f268ccc933840e
   - name: xd-docs-production
     <<: *basestrain
     url: https://developer.adobe.com/xd/docs
     content: https://github.com/AdobeXD/plugin-docs.git#master
     directoryIndex: README.html
-    package: developer-adobe-com/6b3ea246719f1fdc5bc0e1f41027afc00fd069b0
+    package: developer-adobe-com/6f58f37dd65aacba9cff843dc9f268ccc933840e
   - name: starter-docs-production
     <<: *basestrain
     url: https://developer.adobe.com/starter/docs
     content: https://github.com/AdobeDocs/starter-docs.git#master
     directoryIndex: Overview.html
-    package: developer-adobe-com/6b3ea246719f1fdc5bc0e1f41027afc00fd069b0
+    package: developer-adobe-com/6f58f37dd65aacba9cff843dc9f268ccc933840e
   - name: production
     <<: *proxystrain
     url: https://developer.adobe.com/
