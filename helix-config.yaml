@@ -49,6 +49,9 @@ strains:
     content: https://github.com/AdobeDocs/starter-docs.git#author
     directoryIndex: Overview.html
     package: developer-adobe-com/6b3ea246719f1fdc5bc0e1f41027afc00fd069b0
+  - name: support-staging
+    origin: https://adobedocs.github.io/support/
+    url: https://adobedevsite.helix-demo.xyz/support
   - name: staging
     <<: *proxystrain
     url: https://adobedevsite.helix-demo.xyz/
@@ -72,6 +75,9 @@ strains:
     content: https://github.com/AdobeDocs/starter-docs.git#master
     directoryIndex: Overview.html
     package: developer-adobe-com/6b3ea246719f1fdc5bc0e1f41027afc00fd069b0
+  - name: support-production
+    origin: https://adobedocs.github.io/support/
+    url: https://adobedevsite.helix-demo.xyz/support
   - name: production
     <<: *proxystrain
     url: https://developer.adobe.com/
