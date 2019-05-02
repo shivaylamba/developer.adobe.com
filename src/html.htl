@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="/spectrum/spectrum-core.css" />
     <link rel="stylesheet" href="/spectrum/spectrum-core-diff.css" media="(min-width: 900px)" />
     <link rel="stylesheet" href="/spectrum/spectrum-light.css" />
-    <link rel="stylesheet" href="/spectrum/spectrum-css-grid.css" />
     <link rel="stylesheet" href="/global/frame.css" />
     <link rel="stylesheet" href="https://use.typekit.net/ehj8kyw.css">
     <script src="/spectrum/icons/loadIcons.js" type="text/javascript" async></script>
