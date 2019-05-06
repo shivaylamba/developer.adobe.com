@@ -32,7 +32,7 @@
   },
   "homepage": "https://developer.adobe.com",
   "dependencies": {
-    "@adobe/helix-cli": "1.0.0",
+    "@adobe/helix-cli": "2.0.0",
     "moment": "^2.24.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
