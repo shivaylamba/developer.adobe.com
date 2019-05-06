@@ -99,6 +99,14 @@ jobs:
           name: Run unit tests
           command: npm run test:unit
 
+  config_tests:
+    executor: helix
+    steps:
+      - setup_fs
+      - run:
+          name: Run helix config static analysis tests
+          command: npm run test:helix-config
+
   end_to_end_localhost_tests:
     executor: helix
     steps:
@@ -163,11 +171,14 @@ workflows:
       - build:
           requires:
             - install
-      # next three in parallel; fan out
+      # next test tasks in parallel; fan out
       - lint:
           requires:
             - build
       - unit_tests:
+          requires:
+            - build
+      - config_tests:
           requires:
             - build
       - end_to_end_localhost_tests:
@@ -178,6 +189,7 @@ workflows:
           requires:
             - lint
             - unit_tests
+            - config_tests
             - end_to_end_localhost_tests
           filters:
             branches:
