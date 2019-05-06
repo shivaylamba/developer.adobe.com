@@ -11,10 +11,7 @@
 version: 1
 definitions:
   defaults:
-    # Run default content from github repo
     - &defaultRepo https://github.com/adobe/developer.adobe.com.git#master
-    # Run default content from this repo locally
-    # - &defaultRepo "http://localhost/local/default.git"
   strains:
     base:
       &basestrain
@@ -51,9 +48,15 @@ strains:
     content: https://github.com/AdobeDocs/starter-docs.git#author
     directoryIndex: Overview.html
     package: developer-adobe-com/a4f299bc6643efcb891f4a8816baf840782dc5ec
-  - name: staging
-    <<: *proxystrain
-    url: https://adobedevsite.helix-demo.xyz/
+  - name: open-staging
+    <<: *basestrain
+    url: https://adobedevsite.helix-demo.xyz/open
+    package: developer-adobe-com/a4f299bc6643efcb891f4a8816baf840782dc5ec
+    # TODO: the below is commented out until
+    # https://github.com/adobe/developer.adobe.com-planning/issues/209 is fixed
+    #- name: staging
+    #<<: *proxystrain
+    #url: https://adobedevsite.helix-demo.xyz/
 
   # === PRODUCTION URLS FOLLOW ===
   - name: launch-docs-production
