@@ -1,5 +1,5 @@
 <div class="container spectrum-grid-row">
-    <link rel="stylesheet" href="/openpage.css" />
+    <link rel="stylesheet" href="/static/openpage.css" />
   <div class="section index0 odd has-paragraph has-heading has-inlineCode nb-paragraph-1 nb-heading-1 nb-inlineCode-1 is-paragraph-heading-inlineCode is-paragraph-heading is-paragraph spectrum-grid-col-sm-12 spectrum-grid-col-md-6 spectrum--dark">
     <p class="spectrum-Body5"><code class="spectrum-Code5">OPENNNN</code></p>
     <h2 class="spectrum-Heading2">OPEN2</h2>
