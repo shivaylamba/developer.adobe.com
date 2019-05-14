@@ -49,6 +49,9 @@ strains:
     content: https://github.com/AdobeDocs/starter-docs.git#author
     directoryIndex: Overview.html
     package: developer-adobe-com/8ef30744fda90c1c2fc0d66b7e38ebfe3a25c1ed
+  - name: support-staging
+    origin: https://adobedocs.github.io/developer-support/
+    url: https://adobedevsite.helix-demo.xyz/support
   - name: static-staging
     <<: *basestrain
     url: https://adobedevsite.helix-demo.xyz/static/
@@ -76,6 +79,9 @@ strains:
     content: https://github.com/AdobeDocs/starter-docs.git#master
     directoryIndex: Overview.html
     package: developer-adobe-com/8ef30744fda90c1c2fc0d66b7e38ebfe3a25c1ed
+  - name: support-production
+    origin: https://adobedocs.github.io/developer-support/
+    url: https://developer.adobe.com/support
   - name: static-production
     <<: *basestrain
     url: https://developer.adobe.com/static/
