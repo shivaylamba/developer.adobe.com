@@ -57,7 +57,6 @@
         Site Spectific
     ************************************************* -->
     <link rel="stylesheet" href="https://use.typekit.net/flt1txg.css">
-    <script src="/static/spectrum/icons/loadIcons.js" type="text/javascript"></script>
     <!--
         TODO: add better meta data attributes for SEO etc.
     -->
@@ -71,11 +70,6 @@
     <script type="text/javascript">
         ;
         (function (AD, undefined) {
-
-            // TODO: icons should be inlined as part of helix build
-            window.loadIcons('/static/spectrum/icons/spectrum-css-icons.svg');
-            window.loadIcons('/static/spectrum/icons/spectrum-icons.svg');
-
             // Switch spectrum flavour at different viewports
             const mq = window.matchMedia("(min-width: 900px)");
             function adjustSpectrumSizeOnResize () {

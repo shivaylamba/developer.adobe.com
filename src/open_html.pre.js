@@ -11,6 +11,7 @@
  */
 
 // eslint-disable-next-line import/no-extraneous-dependencies, import/no-unresolved
+const SpectrumSVGUtil = require('./SpectrumSVGUtil.js');
 
 async function pre(context, action) {
   const { logger } = action;
@@ -19,3 +20,8 @@ async function pre(context, action) {
 }
 
 module.exports.pre = pre;
+module.exports.after = { 
+  hast: (context, action) => {
+    SpectrumSVGUtil.injectSpectrumIconsAsSVG(context, action);
+  }
+};
