@@ -133,7 +133,7 @@ jobs:
       - setup_fs
       - run:
           name: modify default dev repo for dev environment to match current branch for its code
-          command: sed -i "s/devRepo https:\/\/github.com\/adobe\/developer.adobe.com.git#REPLACED_BY_CI/devRepo https:\/\/github.com\/adobe\/developer.adobe.com.git#$CIRCLE_BRANCH/g" helix-config.yaml
+          command: sed -i "s/devRepo https:\/\/github.com\/adobe\/developer.adobe.com.git#REPLACED_BY_CI/devRepo https:\/\/github.com\/adobe\/developer.adobe.com.git#${CIRCLE_BRANCH//\//\\/}/g" helix-config.yaml
       - run:
           name: hlx deploy dirty
           command: npm run deploy -- --dirty
