@@ -12,7 +12,7 @@
 */
 -->
 <!DOCTYPE html>
-<html class="spectrum--large" lang="en">
+<html lang="en">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,6 +33,11 @@
     <!-- Typography -->
     <link rel="stylesheet" href="/static/spectrum/components/icon/index.css" />
     <link rel="stylesheet" href="/static/spectrum/components/icon/index-diff.css" media="(min-width: 900px)" />
+    <!-- Link -->
+    <link rel="stylesheet" href="/static/spectrum/components/link/index.css" />
+    <link rel="stylesheet" href="/static/spectrum/components/link/index-diff.css" media="(min-width: 900px)" />
+    <link rel="stylesheet" href="/static/spectrum/components/link/multistops/light.css" />
+    <link rel="stylesheet" href="/static/spectrum/components/link/multistops/dark.css" />
     <!-- Button -->
     <link rel="stylesheet" href="/static/spectrum/components/button/index.css" />
     <link rel="stylesheet" href="/static/spectrum/components/button/index-diff.css" media="(min-width: 900px)" />
@@ -56,10 +61,10 @@
     <!--
         TODO: add better meta data attributes for SEO etc.
     -->
-    <title>${content.title}</title>
+    <title>${content.title || "Adobe I/O"}</title>
 </head>
 
-<body class="spectrum spectrum-Typography">
+<body class="spectrum spectrum-Typography spectrum--large">
     <esi:include src="/static/global.topnav.html"></esi:include>
     <esi:include src="/static/${payload.dispatch.url}"></esi:include>
     <esi:include src="/static/global.footer.html"></esi:include>
@@ -73,10 +78,17 @@
 
             // Switch spectrum flavour at different viewports
             const mq = window.matchMedia("(min-width: 900px)");
-            if (mq.matches) {
-                document.documentElement.classList.remove('spectrum--large');
-                document.documentElement.classList.add('spectrum--medium');
+            function adjustSpectrumSizeOnResize () {
+                if (mq.matches) {
+                    document.body.classList.remove('spectrum--large');
+                    document.body.classList.add('spectrum--medium');
+                } else {
+                    document.body.classList.add('spectrum--large');
+                    document.body.classList.remove('spectrum--medium');
+                }
             }
+            adjustSpectrumSizeOnResize();
+            window.addEventListener('resize', adjustSpectrumSizeOnResize)
 
         }(window.AD = window.AD || {}));
     </script>
