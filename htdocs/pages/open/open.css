@@ -32,6 +32,7 @@
 
 .openPage-hero {
     color: #2D2D2D;
+    background: #fff;
 }
 
 .openPage-hero-activity {
@@ -373,6 +374,7 @@
     margin-bottom: 100px;
     padding-left: 12px;
     padding-right: 12px;
+    background: transparent;
 }
 
 @media screen and (min-width: 768px) {
@@ -883,6 +885,7 @@
 
 .openPage-standards {
     position: relative;
+    background: transparent;
 }
 
 .openPage-standards:before {
@@ -913,7 +916,17 @@
 @media screen and (min-width: 768px) {
     .openPage-standards-formatGroup {
         grid-column: 4/13;
+        flex-wrap: wrap;
         display: flex;
+    }
+    .openPage-standards-format {
+        width: 33%;
+    }
+}
+
+@media screen and (min-width: 1320px) {
+    .openPage-standards-format {
+        width: 16.66%;
     }
 }
 
@@ -1157,6 +1170,10 @@
 
 .openPage-blog-postAuthor {
     font-weight: 600;
+}
+
+.openPage-blog-otherPosts {
+    background: transparent;
 }
 
 .openPage-blog-otherPosts .openPage-blog-postMetadata {
