@@ -149,6 +149,10 @@
   	max-width: var(--spectrum-global-dimension-static-grid-fixed-max-width);
   	margin: 0 auto;
 }
+.spectrum-grid--fixedWide {
+	max-width: 1600px;
+	margin: 0 auto;
+}
 @supports (grid-template-areas: ".") and (--foo: "bar")  {
 
 	:root {
@@ -169,7 +173,8 @@
 		grid-template-columns: repeat(var(--columns), minmax(0,1fr));
 		grid-column-gap: inherit;
 		grid-row-gap: inherit;
-		grid-auto-rows: inherit;
+    grid-auto-rows: inherit;
+    padding: 0;
 	}
 
 	@media screen and (min-width: 304px) {

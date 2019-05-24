@@ -1,10 +1,13 @@
-<link rel="stylesheet" href="/static/spectrum/spectrum-dark.css" />
-<link rel="stylesheet" href="/static/spectrum/spectrum-light.css" />
+<!-- Button -->
+<link rel="stylesheet" href="/static/spectrum/components/coachmark/index.css" />
+<link rel="stylesheet" href="/static/spectrum/components/coachmark/index-diff.css" media="(min-width: 900px)" />
+<link rel="stylesheet" href="/static/spectrum/components/coachmark/multistops/dark.css" />
+
 <link rel="stylesheet" href="/static/spectrum/spectrum-css-grid.css" />
 <link rel="stylesheet" href="/static/pages/open/open.css" />
 
 <div class="page-container openPage">
-  <section class="openPage-hero spectrum-grid spectrum-grid--fixed">
+  <section class="openPage-hero spectrum-grid spectrum-grid--fixedWide">
     <figure class="openPage-hero-activity">
       <svg id="openPage-visualization" width="100%" viewBox="0 0 700 700" version="1.1"
         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -140,11 +143,11 @@
   </section>
   <section class="openPage-orientation">
     <div class="openPage-orientation-backgroundEffects"></div>
-    <div class="openPage-orientation-grid spectrum-grid spectrum-grid--fixed">
+    <div class="openPage-orientation-grid spectrum-grid spectrum-grid--fixedWide">
       <div class="openPage-gettingStarted spectrum--dark">
-        <h1 class="spectrum-Heading2--quiet">Get started</h1>
-        <p>Are you new to Open Source? We welcome contributors of all skill levels. Here are the basics you need to get
-          started. </p>
+        <h1 class="openPage-sectionHeader">Get started</h1>
+        <p class="openPage-gettingStarted-intro">Are you new to Open Source? We welcome contributors of all skill
+          levels. Here are the basics you need to get&nbsp;started.</p>
         <div class="openPage-gettingStarted-documents ">
           <div class="openPage-gettingStarted-document">
             <div class="openPage-gettingStarted-documentName">
@@ -152,6 +155,11 @@
             </div>
           </div>
           <div class="openPage-gettingStarted-document">
+            <div class="openPage-gettingStarted-coachmark spectrum-CoachMarkIndicator" style="display: inline-block;">
+              <div class="spectrum-CoachMarkIndicator-ring"></div>
+              <div class="spectrum-CoachMarkIndicator-ring"></div>
+              <div class="spectrum-CoachMarkIndicator-ring"></div>
+            </div>
             <div class="openPage-gettingStarted-documentName">
               Contributor License
               Agreement*
@@ -161,9 +169,10 @@
             </span>
           </div>
         </div>
-        <p>Ready to go? Sign the <a href="https://github.com/adobe" target="_blank" rel="noopener noreferrer" class="spectrum-Link">Contributor
-            License Agreement</a> then jump right into the <a href="https://github.com/adobe" class="spectrum-Link" target="_blank"
-            rel="noopener noreferrer">Adobe organization on Github.</a></p>
+        <p class="openPage-gettingStarted-firstSteps">Ready to go? Sign the <a href="https://github.com/adobe"
+            target="_blank" rel="noopener noreferrer" class="spectrum-Link">Contributor
+            License Agreement</a> then jump right into the <a href="https://github.com/adobe" class="spectrum-Link"
+            target="_blank" rel="noopener noreferrer">Adobe organization on Github.</a></p>
         <footer class="openPage-gettingStarted-ctas">
           <a href="https://github.com/adobe" target="_blank" rel="noopener noreferrer"
             class="spectrum-Button spectrum-Button--cta">
@@ -176,227 +185,312 @@
         </footer>
       </div>
       <div class="openPage-testimonial spectrum--light">
-          <div class="openPage-testimonial-attribution">
-            <figure class="openPage-testimonial-attributionAvatar">
-              <img src="/pages/open/368b5013.david-nuescheler@2x.png" alt="A happy user" />
-            </figure>
-            <div class="openPage-testimonial-attributionTitle">
-              David Nuescheler<br /> Fellow & VP, Developer Platform & Ecosystem
-            </div>
+        <div class="openPage-testimonial-attribution">
+          <figure class="openPage-testimonial-attributionAvatar">
+            <img src="/pages/open/368b5013.david-nuescheler@2x.png" alt="A happy user" />
+          </figure>
+          <div class="openPage-testimonial-attributionTitle">
+            David Nuescheler<br /> Fellow & VP, Developer Platform & Ecosystem
           </div>
-          <blockquote class="openPage-testimonial-quote">
-            <h1>Open Source is more about the culture of how you develop software</h1>
-            <p>rather than the license in which you release something. It’s mostly by collaboration, about transparency,
-              about accepting pull requests and input from everybody not just from the people that work on your team.</p>
-          </blockquote>
         </div>
+        <blockquote class="openPage-testimonial-quote">
+          <h1 class="openPage-sectionHeader">Open Source is more about the culture of how you develop software</h1>
+          <p>rather than the license in which you release something. It’s mostly by collaboration, about transparency,
+            about accepting pull requests and input from everybody not just from the people that work on your team.</p>
+        </blockquote>
+      </div>
     </div>
   </section>
-  <section class="openPage-spotlight spectrum--dark">
+  <section class="openPage-spotlight">
     <div class="openPage-spotlight-backgroundEffects"></div>
-    <div class="spectrum-grid spectrum-grid--fixed">
+    <div class="spectrum-grid spectrum-grid--fixedWide">
       <div class="openPage-spotlight-details spectrum--dark">
-        <h1 class="openPage-spotlight-header">We built the Spectrum design language framework so that you can build
+        <h1 class="openPage-sectionHeader openPage-spotlight-header">We built the Spectrum design language framework so
+          that you can build
           better and faster.</h1>
         <div class="openPage-spotlight-info">
-          <h1 class="spectrum-Heading2--quiet">Demos</h1>
-          <p>Check out the full range of Spectrum examples, from accordions, button styles, form fields and nav
+          <h1 class="openPage-spotlight-infoHeader">Demos</h1>
+          <p class="openPage-spotlight-infoDesc">Check out the full range of Spectrum examples, from accordions, button
+            styles, form fields and nav
             permutations.</p>
-          <a href="http://github.com/adobe/" target="_blank" rel="noopener noreferrer"
-            class="spectrum-Button spectrum-Button--primary">Spectrum on Github</a>
-          <a href="http://github.com/adobe/" target="_blank" rel="noopener noreferrer"
-            class="spectrum-Button spectrum-Button--secondary">Documentation</a>
+          <div class="openPage-spotlight-infoCTAs">
+            <a href="http://github.com/adobe/" target="_blank" rel="noopener noreferrer"
+              class="spectrum-Button spectrum-Button--primary">Spectrum on Github</a>
+            <a href="http://github.com/adobe/" target="_blank" rel="noopener noreferrer"
+              class="spectrum-Button spectrum-Button--secondary">Documentation</a>
+          </div>
         </div>
       </div>
-      <div class="openPage-spotlight-carousel">
-        <button class="openPage-spotlight-carousel-nextBtn">Next</button>
-        <button class="openPage-spotlight-carousel-prevBtn">Prev</button>
-        <div class="openPage-spotlight-carouselItem">
-          <div class="openPage-spotlight-carouselItem-image">
-            carousel image
+      <div id="spotlightCarousel" class="openPage-spotlight-carousel spectrum--light">
+        <div class="slides openPage-spotlight-carouselItemGroup">
+          <div class="slide openPage-spotlight-carouselItem">
+            <div class="openPage-spotlight-carouselItem-image">
+
+            </div>
+            <div class="openPage-spotlight-carouselItem-details">
+              <figure>
+                logo
+              </figure>
+              <p>Product Spotlight</p>
+              <p>Spectrum CSS</p>
+              <p>The goal of this project is to provide a standard CSS implementation of the Spectrum design language
+                for
+                internal and 3rd party use on Adobe’s platforms.</p>
+              <a href="https://github.com/adobe/spectrum-css" target="_blank"
+                class="spectrum-Button spectrum-Button--cta">Spectrum on Github</a>
+            </div>
           </div>
-          <div class="openPage-spotlight-carouselItem-details">
-            <figure>
-              logo
-            </figure>
-            <p>Product Spotlight</p>
-            <p>Spectrum CSS</p>
-            <p>The goal of this project is to provide a standard CSS implementation of the Spectrum design language for
-              internal and 3rd party use on Adobe’s platforms.</p>
-            <a href="https://github.com/adobe/spectrum-css" target="_blank"
-              class="spectrum-Button spectrum-Button--cta">Spectrum on Github</a>
+          <div class="slide openPage-spotlight-carouselItem">
+            <div class="openPage-spotlight-carouselItem-image">
+
+            </div>
+            <div class="openPage-spotlight-carouselItem-details">
+              <figure>
+                logo
+              </figure>
+              <p>TWO</p>
+              <p>Spectrum CSS</p>
+              <p>The goal of this project is to provide a standard CSS implementation of the Spectrum design language
+                for
+                internal and 3rd party use on Adobe’s platforms.</p>
+              <a href="https://github.com/adobe/spectrum-css" target="_blank"
+                class="spectrum-Button spectrum-Button--cta">Spectrum on Github</a>
+            </div>
+          </div>
+          <div class="slide openPage-spotlight-carouselItem">
+            <div class="openPage-spotlight-carouselItem-image">
+
+            </div>
+            <div class="openPage-spotlight-carouselItem-details">
+              <figure>
+                logo
+              </figure>
+              <p>THREE</p>
+              <p>Spectrum CSS</p>
+              <p>The goal of this project is to provide a standard CSS implementation of the Spectrum design language
+                for
+                internal and 3rd party use on Adobe’s platforms.</p>
+              <a href="https://github.com/adobe/spectrum-css" target="_blank"
+                class="spectrum-Button spectrum-Button--cta">Spectrum on Github</a>
+            </div>
+          </div>
+          <div class="slide openPage-spotlight-carouselItem">
+            <div class="openPage-spotlight-carouselItem-image">
+
+            </div>
+            <div class="openPage-spotlight-carouselItem-details">
+              <figure>
+                logo
+              </figure>
+              <p>FOUR</p>
+              <p>Spectrum CSS</p>
+              <p>The goal of this project is to provide a standard CSS implementation of the Spectrum design language
+                for
+                internal and 3rd party use on Adobe’s platforms.</p>
+              <a href="https://github.com/adobe/spectrum-css" target="_blank"
+                class="spectrum-Button spectrum-Button--cta">Spectrum on Github</a>
+            </div>
           </div>
         </div>
-        <div class="openPage-spotlight-carousel-indicators">
-          <div class="selected"></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <div class="openPage-spotlight-carousel-itemCount">
-          01 / 04
+        <div class="carouselUI">
+          <button class="nextSlide spectrum-Button--cta openPage-spotlight-carousel-nextBtn"></button>
+          <button class="prevSlide spectrum-Button--cta openPage-spotlight-carousel-prevBtn"></button>
+          <div class="slideIndicators openPage-spotlight-carousel-indicators">
+            <div class="selected"></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <div class="openPage-spotlight-carousel-itemCount">
+            <span class="currentSlideCount">01</span> / <span class="totalSlideCount">04</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
-  <section class="openPage-popularProjects spectrum--light spectrum-grid spectrum-grid--fixed">
-    <div class="openPage-popularProjects-intro">
-      <h1 class="spectrum-Heading2--quiet">Popular projects</h1>
-      <p>Helping you find interesting open source</p>
-    </div>
-    <div class="openPage-popularProjects-projectContainer">
-      <div class="openPage-popularProjects-projectInfo">
-        <div class="openPage-popularProjects-projectLogo"></div>
-        <h1 class="openPage-popularProjects-projectName">Brackets</h1>
-        <div class="openPage-popularProjects-projectStats">
-          <span>29.7k stars</span><span>6.4k forks</span>
-        </div>
-        <p class="openPage-popularProjects-projectDescription">An open source code editor for the web, written in
-          JavaScript, HTML and CSS. www.brackets.io</p>
+  <section class="openPage-contributions">
+    <section class="openPage-popularProjects spectrum--light spectrum-grid spectrum-grid--fixedWide">
+      <div class="openPage-popularProjects-intro">
+        <h1 class="openPage-sectionHeader">Popular projects</h1>
+        <p class="openPage-popularProjects-subHeader">Helping you find interesting open source</p>
       </div>
-      <nav class="openPage-popularProjects-projectLinks">
-        <a class="spectrum-Link" href="https://github.com/adobe/brackets">Contribution guidelines</a>
-        <a class="spectrum-Link" href="#">API Reference</a>
-        <a class="spectrum-Link" href="#">Latest Release</a>
-      </nav>
-      <div class="openPage-popularProjects-projectHomepage">
-        <a href="https://github.com/adobe/spectrum-css" target="_blank"
-          class="spectrum-Button spectrum-Button--cta">brackets on Github</a>
-      </div>
-    </div>
-    <div class="openPage-popularProjects-projectContainer">
-      <div class="openPage-popularProjects-projectInfo">
-        <div class="openPage-popularProjects-projectLogo"></div>
-        <h1 class="openPage-popularProjects-projectName">AEM Core Components</h1>
-        <div class="openPage-popularProjects-projectStats">
-          <span>257 stars</span><span>203 forks</span>
-        </div>
-        <p class="openPage-popularProjects-projectDescription">Adobe Experience Manager (AEM) Sites Core Components -
-          flexible, extensible, and feature-rich components to build sites.</p>
-      </div>
-      <nav class="openPage-popularProjects-projectLinks">
-        <a class="spectrum-Link" href="#">Contribution guidelines</a>
-        <a class="spectrum-Link" href="#">API Reference</a>
-        <a class="spectrum-Link" href="#">Latest Release</a>
-      </nav>
-      <div class="openPage-popularProjects-projectHomepage">
-        <a href="#" target="_blank" class="spectrum-Button spectrum-Button--cta">AEM on Github</a>
-      </div>
-    </div>
-    <div class="openPage-popularProjects-projectContainer">
-      <div class="openPage-popularProjects-projectInfo">
-        <div class="openPage-popularProjects-projectLogo"></div>
-        <h1 class="openPage-popularProjects-projectName">hyde</h1>
-        <div class="openPage-popularProjects-projectStats">
-          <span>206 stars</span><span>8 forks</span>
-        </div>
-        <p class="openPage-popularProjects-projectDescription">
-          A front-end to Jekyll that parses C++ sources to produce and enforce out-of-line documentation.
-        </p>
-      </div>
-      <nav class="openPage-popularProjects-projectLinks">
-        <a class="spectrum-Link" href="#">What is hyde</a>
-        <a class="spectrum-Link" href="#">API Reference</a>
-        <a class="spectrum-Link" href="#">Latest Release</a>
-      </nav>
-      <div class="openPage-popularProjects-projectHomepage">
-        <a href="#" target="_blank" class="spectrum-Button spectrum-Button--cta">hyde on Github</a>
-      </div>
-    </div>
-    <div class="openPage-popularProjects-projectContainer">
-      <div class="openPage-popularProjects-projectInfo">
-        <div class="openPage-popularProjects-projectLogo"></div>
-        <h1 class="openPage-popularProjects-projectName">Magento</h1>
-        <div class="openPage-popularProjects-projectStats">
-          <span>... stars</span><span>... forks</span>
-        </div>
-        <p class="openPage-popularProjects-projectDescription">...</p>
-      </div>
-      <nav class="openPage-popularProjects-projectLinks">
-        <a class="spectrum-Link" href="#">Contribution guidelines</a>
-        <a class="spectrum-Link" href="#">API Reference</a>
-        <a class="spectrum-Link" href="#">Latest Release</a>
-      </nav>
-      <div class="openPage-popularProjects-projectHomepage">
-        <a href="#" target="_blank" class="spectrum-Button spectrum-Button--cta">Magento on Github</a>
-      </div>
-    </div>
-  </section>
-  <section class="openPage-standards spectrum--light">
-    <section class="spectrum-grid spectrum-grid--fixed">
-      <div class="openPage-standards-intro">
-        <h1>Open Standards</h1>
-        <p>Adobe has a history of publishing and contributing to a number of open standards that guarantee the
-          interoperability of our products and solutions.</p>
-      </div>
-      <div class="openPage-standards-formatGroup">
-        <div class="openPage-standards-format">
-          <div class="openPage-standards-formatDate">1986</div>
-          <div class="openPage-standards-formatDetails">
-            <h1 class="openPage-standards-formatAcronym">Tiff</h1>
-            <p class="openPage-standards-formatFullname">Tagged Image File Format (TIFF)</p>
-            <p class="openPage-standards-formatDescription">Adobe’s tag-based file format for storing and interchanging
-              raster images.</p>
-            <a class="spectrum-Link" href="#">Docs</a>
+      <div id="projectsCarousel" class="openPage-popularProjects-carousel">
+        <div class="slides openPage-popularProjects-projectsGroup">
+          <div class="slide openPage-popularProjects-projectContainer">
+            <div class="openPage-popularProjects-projectInfo">
+              <div class="openPage-popularProjects-projectLogo">
+                
+              </div>
+              <h1 class="openPage-popularProjects-projectName">Brackets</h1>
+              <p class="openPage-popularProjects-projectDescription">An open source code editor for the web, written in
+                JavaScript, HTML and CSS. www.brackets.io</p>
+            </div>
+            <nav class="openPage-popularProjects-projectLinks">
+              <a class="spectrum-Link" href="https://github.com/adobe/brackets">Contribution guidelines</a>
+              <a class="spectrum-Link" href="#">API Reference</a>
+              <a class="spectrum-Link" href="#">Latest Release</a>
+            </nav>
+            <div class="openPage-popularProjects-projectHomepage">
+              <div class="openPage-popularProjects-projectStats">
+                <span>29.7k stars</span><span>6.4k forks</span>
+              </div>
+              <a href="https://github.com/adobe/spectrum-css" target="_blank"
+                class="spectrum-Button spectrum-Button--cta">brackets on Github</a>
+            </div>
+          </div>
+          <div class="slide openPage-popularProjects-projectContainer">
+            <div class="openPage-popularProjects-projectInfo">
+              <div class="openPage-popularProjects-projectLogo"></div>
+              <h1 class="openPage-popularProjects-projectName">AEM Core Components</h1>
+              <p class="openPage-popularProjects-projectDescription">Adobe Experience Manager (AEM) Sites Core
+                Components -
+                flexible, extensible, and feature-rich components to build sites.</p>
+            </div>
+            <nav class="openPage-popularProjects-projectLinks">
+              <a class="spectrum-Link" href="#">Contribution guidelines</a>
+              <a class="spectrum-Link" href="#">API Reference</a>
+              <a class="spectrum-Link" href="#">Latest Release</a>
+            </nav>
+            <div class="openPage-popularProjects-projectHomepage">
+              <div class="openPage-popularProjects-projectStats">
+                <span>257 stars</span><span>203 forks</span>
+              </div>
+              <a href="#" target="_blank" class="spectrum-Button spectrum-Button--cta">AEM on Github</a>
+            </div>
+          </div>
+          <div class="slide openPage-popularProjects-projectContainer">
+            <div class="openPage-popularProjects-projectInfo">
+              <div class="openPage-popularProjects-projectLogo"></div>
+              <h1 class="openPage-popularProjects-projectName">hyde</h1>
+              <p class="openPage-popularProjects-projectDescription">
+                A front-end to Jekyll that parses C++ sources to produce and enforce out-of-line documentation.
+              </p>
+            </div>
+            <nav class="openPage-popularProjects-projectLinks">
+              <a class="spectrum-Link" href="#">What is hyde</a>
+              <a class="spectrum-Link" href="#">API Reference</a>
+              <a class="spectrum-Link" href="#">Latest Release</a>
+            </nav>
+            <div class="openPage-popularProjects-projectHomepage">
+              <div class="openPage-popularProjects-projectStats">
+                <span>206 stars</span><span>8 forks</span>
+              </div>
+              <a href="#" target="_blank" class="spectrum-Button spectrum-Button--cta">hyde on Github</a>
+            </div>
+          </div>
+          <div class="slide openPage-popularProjects-projectContainer">
+            <div class="openPage-popularProjects-projectInfo">
+              <div class="openPage-popularProjects-projectLogo"></div>
+              <h1 class="openPage-popularProjects-projectName">Magento</h1>
+              <p class="openPage-popularProjects-projectDescription">...</p>
+            </div>
+            <nav class="openPage-popularProjects-projectLinks">
+              <a class="spectrum-Link" href="#">Contribution guidelines</a>
+              <a class="spectrum-Link" href="#">API Reference</a>
+              <a class="spectrum-Link" href="#">Latest Release</a>
+            </nav>
+            <div class="openPage-popularProjects-projectHomepage">
+              <div class="openPage-popularProjects-projectStats">
+                <span>... stars</span><span>... forks</span>
+              </div>
+              <a href="#" target="_blank" class="spectrum-Button spectrum-Button--cta">Magento on Github</a>
+            </div>
           </div>
         </div>
-        <div class="openPage-standards-format">
-          <div class="openPage-standards-formatDate">1993</div>
-          <div class="openPage-standards-formatDetails">
-            <h1 class="openPage-standards-formatAcronym">PDF</h1>
-            <p class="openPage-standards-formatFullname">Portable Document Format (PDF)</p>
-            <p class="openPage-standards-formatDescription">Originally published by Adobe, PDF is now the ISO 32000-1
-              standard.</p>
-            <a class="spectrum-Link" href="#">Learn more</a>
+        <div class="carouselUI">
+          <button class="nextSlide spectrum-Button--cta openPage-popularProjects-carousel-nextBtn"></button>
+          <button class="prevSlide spectrum-Button--cta openPage-popularProjects-carousel-prevBtn"></button>
+          <div class="slideIndicators openPage-popularProjects-carousel-indicators">
+            <div class="selected"></div>
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
-        </div>
-        <div class="openPage-standards-format openPage-standards-format--quiet">
-          <div class="openPage-standards-formatDate">1996</div>
-          <div class="openPage-standards-formatDetails">
-            <h1 class="openPage-standards-formatAcronym">OpenType</h1>
-            <p class="openPage-standards-formatDescription">Scalable computer font format developed by Microsoft,
-              contributed to by Adobe.</p>
-            <a class="spectrum-Link" href="#">Learn more</a>
-          </div>
-        </div>
-        <div class="openPage-standards-format openPage-standards-format--quiet">
-          <div class="openPage-standards-formatDate">1999</div>
-          <div class="openPage-standards-formatDetails">
-            <h1 class="openPage-standards-formatAcronym">SVG</h1>
-            <p class="openPage-standards-formatFullname">Scalable Vector Graphics (SVG)</p>
-            <p class="openPage-standards-formatDescription">Adobe contributed to the vector image format originally
-              developed by W3C.</p>
-            <a class="spectrum-Link" href="#">Learn more</a>
-          </div>
-        </div>
-        <div class="openPage-standards-format">
-          <div class="openPage-standards-formatDate">2001</div>
-          <div class="openPage-standards-formatDetails">
-            <h1 class="openPage-standards-formatAcronym">XMP</h1>
-            <p class="openPage-standards-formatFullname">Extensible Metadata Platform (XMP)</p>
-            <p class="openPage-standards-formatDescription">Adobe’s file labeling technology that lets you embed metadata
-              into files themselves during the content
-              creation process.</p>
-            <a class="spectrum-Link" href="#">Learn more</a>
-          </div>
-        </div>
-        <div class="openPage-standards-format">
-          <div class="openPage-standards-formatDate">2015</div>
-          <div class="openPage-standards-formatDetails">
-            <h1 class="openPage-standards-formatAcronym">XDM</h1>
-            <p class="openPage-standards-formatFullname">Experience Data Model (XDM)</p>
-            <p class="openPage-standards-formatDescription">Adobe defines one interoperable language that makes
-              integration, data portability, and innovation easy.</p>
-            <a class="spectrum-Link" href="#">Learn more</a>
+          <div class="openPage-popularProjects-carousel-itemCount">
+            <span class="currentSlideCount">01</span> / <span class="totalSlideCount">04</span>
           </div>
         </div>
       </div>
     </section>
+    <section class="openPage-standards spectrum--light">
+      <section class="spectrum-grid spectrum-grid--fixedWide">
+        <div class="openPage-standards-intro">
+          <h1 class="openPage-standards-header openPage-sectionHeader">Open Standards</h1>
+          <p>Adobe has a history of publishing and contributing to a number of open standards that guarantee the
+            interoperability of our products and solutions.</p>
+        </div>
+        <div class="openPage-standards-formatGroup">
+          <div class="openPage-standards-format">
+            <div class="openPage-standards-formatDate">1986</div>
+            <div class="openPage-standards-formatDetails">
+              <h1 class="openPage-standards-formatAcronym">Tiff</h1>
+              <p class="openPage-standards-formatFullname">Tagged Image File Format (TIFF)</p>
+              <p class="openPage-standards-formatDescription">Adobe’s tag-based file format for storing and
+                interchanging
+                raster images.</p>
+              <a class="spectrum-Link" href="#">Docs</a>
+            </div>
+          </div>
+          <div class="openPage-standards-format">
+            <div class="openPage-standards-formatDate">1993</div>
+            <div class="openPage-standards-formatDetails">
+              <h1 class="openPage-standards-formatAcronym">PDF</h1>
+              <p class="openPage-standards-formatFullname">Portable Document Format (PDF)</p>
+              <p class="openPage-standards-formatDescription">Originally published by Adobe, PDF is now the ISO 32000-1
+                standard.</p>
+              <a class="spectrum-Link" href="#">Learn more</a>
+            </div>
+          </div>
+          <div class="openPage-standards-format">
+            <div class="openPage-standards-formatDate">1996</div>
+            <div class="openPage-standards-formatDetails">
+              <h1 class="openPage-standards-formatAcronym">OpenType</h1>
+              <p class="openPage-standards-formatDescription">Scalable computer font format developed by Microsoft,
+                contributed to by Adobe.</p>
+              <a class="spectrum-Link" href="#">Learn more</a>
+            </div>
+          </div>
+          <div class="openPage-standards-format">
+            <div class="openPage-standards-formatDate">1999</div>
+            <div class="openPage-standards-formatDetails">
+              <h1 class="openPage-standards-formatAcronym">SVG</h1>
+              <p class="openPage-standards-formatFullname">Scalable Vector Graphics (SVG)</p>
+              <p class="openPage-standards-formatDescription">Adobe contributed to the vector image format originally
+                developed by W3C.</p>
+              <a class="spectrum-Link" href="#">Learn more</a>
+            </div>
+          </div>
+          <div class="openPage-standards-format">
+            <div class="openPage-standards-formatDate">2001</div>
+            <div class="openPage-standards-formatDetails">
+              <h1 class="openPage-standards-formatAcronym">XMP</h1>
+              <p class="openPage-standards-formatFullname">Extensible Metadata Platform (XMP)</p>
+              <p class="openPage-standards-formatDescription">Adobe’s file labeling technology that lets you embed
+                metadata
+                into files themselves during the content
+                creation process.</p>
+              <a class="spectrum-Link" href="#">Learn more</a>
+            </div>
+          </div>
+          <div class="openPage-standards-format">
+            <div class="openPage-standards-formatDate">2015</div>
+            <div class="openPage-standards-formatDetails">
+              <h1 class="openPage-standards-formatAcronym">XDM</h1>
+              <p class="openPage-standards-formatFullname">Experience Data Model (XDM)</p>
+              <p class="openPage-standards-formatDescription">Adobe defines one interoperable language that makes
+                integration, data portability, and innovation easy.</p>
+              <a class="spectrum-Link" href="#">Learn more</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
   </section>
+
   <section class="openPage-partners spectrum--light">
     <section class="openPage-partners-backgroundEffects"></section>
-    <div class="openPage-partners-container spectrum-grid spectrum-grid--fixed">
-      <h1>Community partners & projects</h1>
+    <div class="openPage-partners-container spectrum-grid spectrum-grid--fixedWide">
+      <h1 class="openPage-sectionHeader">Community partners & projects</h1>
       <figure class="openPage-partnerItem">
         <img width="323"
           srcset="/static/pages/open/partner-logos/magento.png, htdocs/pages/open/partner-logos/magento@2x.png 2x"
@@ -404,23 +498,23 @@
       </figure>
       <figure class="openPage-partnerItem">
         <img width="239" srcset="/static/pages/open/partner-logos/kubernetes.png,
-        htdocs/pages/open/partner-logos/kubernetes@2x.png 2x"
-          src="/static/pages/open/partner-logos/kubernetes.png" loading="lazy" alt="Kubernetes" />
+        htdocs/pages/open/partner-logos/kubernetes@2x.png 2x" src="/static/pages/open/partner-logos/kubernetes.png"
+          loading="lazy" alt="Kubernetes" />
       </figure>
       <figure class="openPage-partnerItem">
         <img width="274" srcset="/static/pages/open/partner-logos/eslint.png,
-        htdocs/pages/open/partner-logos/eslint@2x.png 2x"
-          src="/static/pages/open/partner-logos/eslint.png" loading="lazy" alt="ESLint" />
+        htdocs/pages/open/partner-logos/eslint@2x.png 2x" src="/static/pages/open/partner-logos/eslint.png"
+          loading="lazy" alt="ESLint" />
       </figure>
       <figure class="openPage-partnerItem">
         <img width="392" srcset="/static/pages/open/partner-logos/open-whisk.png,
-        htdocs/pages/open/partner-logos/open-whisk@2x.png 2x" src="/static/pages/open/partner-logos/open-whisk.png" loading="lazy"
-          alt="Apache OpenWhisk" />
+        htdocs/pages/open/partner-logos/open-whisk@2x.png 2x" src="/static/pages/open/partner-logos/open-whisk.png"
+          loading="lazy" alt="Apache OpenWhisk" />
       </figure>
       <figure class="openPage-partnerItem">
         <img width="282" srcset="/static/pages/open/partner-logos/babel.png,
-        htdocs/pages/open/partner-logos/babel@2x.png 2x"
-          src="/static/pages/open/partner-logos/babel.png" loading="lazy" alt="Babel" />
+        htdocs/pages/open/partner-logos/babel@2x.png 2x" src="/static/pages/open/partner-logos/babel.png"
+          loading="lazy" alt="Babel" />
       </figure>
       <figure class="openPage-partnerItem">
         <img width="193" srcset="/static/pages/open/partner-logos/parceljs.png,
@@ -429,13 +523,13 @@
       </figure>
       <figure class="openPage-partnerItem">
         <img width="170" srcset="/static/pages/open/partner-logos/sling.png,
-        /static/pages/open/partner-logos/sling@2x.png 2x"
-          src="/static/pages/open/partner-logos/sling.png" loading="lazy" alt="Sling" />
+        /static/pages/open/partner-logos/sling@2x.png 2x" src="/static/pages/open/partner-logos/sling.png"
+          loading="lazy" alt="Sling" />
       </figure>
       <figure class="openPage-partnerItem">
         <img width="186" srcset="/static/pages/open/partner-logos/w3c.png,
-        /static/pages/open/partner-logos/w3c@2x.png 2x" src="/static/pages/open/partner-logos/w3c.png"
-          loading="lazy" alt="W3C" />
+        /static/pages/open/partner-logos/w3c@2x.png 2x" src="/static/pages/open/partner-logos/w3c.png" loading="lazy"
+          alt="W3C" />
       </figure>
     </div>
   </section>
@@ -443,3 +537,52 @@
     <esi:include src="/static/open.openFeed.html"></esi:include>
   </section>
 </div>
+
+<script type="text/javascript">
+  function Carousel(id, offset) {
+    var offset = offset || 0;
+    var carouselEl = document.getElementById(id);
+    var nextBtn = carouselEl.querySelector('.nextSlide');
+    var prevBtn = carouselEl.querySelector('.prevSlide');
+    var indicators = carouselEl.querySelectorAll('.slideIndicators div');
+    var totalSlideCountEl = carouselEl.querySelector('.totalSlideCount');
+    var currentSlideCountEl = carouselEl.querySelector('.currentSlideCount');
+    var slideIndex = 0;
+    var slides = carouselEl.querySelectorAll('.slide');
+    var numOfSlides = slides.length;
+
+    function nextSlide() {
+      slideIndex++;
+      if (slideIndex > numOfSlides - 1) {
+        slideIndex = 0;
+      }
+      updateCarouselState();
+    }
+
+    function prevSlide() {
+      slideIndex--;
+      if (slideIndex < 0) {
+        slideIndex = numOfSlides - 1;
+      }
+      updateCarouselState();
+    }
+
+    function updateCarouselState() {
+      indicators.forEach(function (el, index) {
+        el.classList.remove('selected');
+        if (index === slideIndex) {
+          el.classList.add('selected');
+        }
+      });
+      slides.forEach(function (el, index) {
+        el.style.left = -(100+offset) * slideIndex + '%';
+      });
+      currentSlideCountEl.innerHTML = '0' + (slideIndex + 1);
+      totalSlideCountEl.innerHTML = '0' + numOfSlides;
+    }
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+  }
+  new Carousel('spotlightCarousel');
+  new Carousel('projectsCarousel',3);
+</script>

@@ -3,11 +3,19 @@
         position: relative;
         position: sticky;
         top: 0;
+        background: #fff;
+        z-index: 100;
+        height: 80px;
+        border-bottom: 1px solid #D5D5D5;
+    }
+
+    .AD-topbar-container {
+        position: relative;
+        max-width: 1600px;
+        margin: 0 auto;
         display: flex;
         flex-direction: column;
-        background:#fff;
-        z-index: 100;
-        border-bottom: 1px solid #D5D5D5;
+        height: 100%;
     }
 
     .AD-topbar a {
@@ -20,6 +28,7 @@
         align-items: center;
         justify-content: center;
         padding: 16px;
+        height: 100%;
     }
 
     .AD-topbar-logo {
@@ -28,7 +37,7 @@
     }
 
     .AD-topbar-logoText {
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 700;
         color: #2d2d2d;
         padding-left: 8px;
@@ -36,9 +45,10 @@
 
     .AD-topbar-toggle {
         position: absolute;
-        top: 0; left: 0;
+        top: 0;
+        left: 0;
         bottom: 0;
-        background: transparent; 
+        background: transparent;
         border: 0 none;
         cursor: pointer;
         color: #2d2d2d;
@@ -51,7 +61,8 @@
         flex-direction: column;
         list-style-type: none;
         display: none;
-        margin: 0; padding: 0;
+        margin: 0;
+        padding: 0;
     }
 
     .AD-topbar-itemGroup.active {
@@ -64,6 +75,7 @@
                 background: #fff;
                 z-index: 3;
             }
+
             .AD-topbar-itemGroup {
                 position: absolute;
                 top: 100%;
@@ -76,6 +88,7 @@
                 transition-timing-function: cubic-bezier(0.45, 0, 0.40, 1);
                 transition-duration: 300ms;
             }
+
             .AD-topbar-itemGroup.active {
                 transform: translateY(0%);
             }
@@ -88,9 +101,11 @@
 
     .AD-topbar-itemLink {
         display: block;
-        padding: 16px;
+        padding: 20px;
+        font-size: 14px;
         text-align: left;
         color: #2d2d2d;
+        font-weight: 700;
     }
 
     .AD-topbar-item--console {
@@ -99,7 +114,8 @@
     }
 
     @media screen and (min-width: 900px) {
-        .AD-topbar {
+
+        .AD-topbar-container {
             flex-direction: row;
             align-items: center;
             justify-content: center;
@@ -107,7 +123,8 @@
 
         .AD-topbar-main {
             position: absolute;
-            top: 0; left: 0;
+            top: 0;
+            left: 0;
             bottom: 0;
         }
 
@@ -119,7 +136,7 @@
 
         .AD-topbar-item {
             border-top: 0 solid transparent;
-            font-size: 18px;
+            /* font-size: 18px; */
         }
 
         .AD-topbar-toggle {
@@ -130,35 +147,42 @@
 </style>
 
 <nav class="AD-topbar spectrum--light">
-    <div class="AD-topbar-main">
-        <button class="AD-topbar-toggle" id="AD-topbar-toggle" aria-label="Show Menu">
-            <svg class="spectrum-Icon spectrum-Icon--sizeM" focusable="false" aria-hidden="true" aria-label="ShowMenu">
-                <use xlink:href="#spectrum-icon-18-ShowMenu"></use>
-            </svg>
-        </button>
-        <a class="AD-topbar-logo" href="/">
-            <svg class="AD-topbar-logoIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 24 20"
-                focusable="false">
-                <path fill="#FF0000" d="M15.1,0H24v20L15.1,0z M8.9,0H0v20L8.9,0z M12,7.4L17.6,20h-3.8l-1.6-4H8.1L12,7.4z">
-                </path>
-            </svg>
-            <span class="AD-topbar-logoText">Adobe Developers</span>
-        </a>
+    <div class="AD-topbar-container">
+        <div class="AD-topbar-main">
+            <button class="AD-topbar-toggle" id="AD-topbar-toggle" aria-label="Show Menu">
+                <svg class="spectrum-Icon spectrum-Icon--sizeM" focusable="false" aria-hidden="true"
+                    aria-label="ShowMenu">
+                    <use xlink:href="#spectrum-icon-18-ShowMenu"></use>
+                </svg>
+            </button>
+            <a class="AD-topbar-logo" href="/">
+                <!-- <svg class="AD-topbar-logoIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="20"
+                    viewBox="0 0 24 20" focusable="false">
+                    <path fill="#FF0000"
+                        d="M15.1,0H24v20L15.1,0z M8.9,0H0v20L8.9,0z M12,7.4L17.6,20h-3.8l-1.6-4H8.1L12,7.4z">
+                    </path>
+                </svg> -->
+                <span class="AD-topbar-logoText">Adobe I/O</span>
+            </a>
+        </div>
+        <ul class="AD-topbar-itemGroup" id="AD-topbar-itemGroup">
+            <li class="AD-topbar-item">
+                <a href="/apis.html" class="AD-topbar-itemLink">APIs</a>
+            </li>
+            <li class="AD-topbar-item">
+                <a href="/authentication.html" class="AD-topbar-itemLink">Authentication</a>
+            </li>
+            <li class="AD-topbar-item">
+                <a href="/open.html" class="AD-topbar-itemLink">Open Source</a>
+            </li>
+            <li class="AD-topbar-item">
+                <a href="/blog.html" class="AD-topbar-itemLink">Blog</a>
+            </li>
+            <li class="AD-topbar-item AD-topbar-item--console">
+                <a href="https://console.adobe.io/" class="spectrum-Button spectrum-Button--cta">Console</a>
+            </li>
+        </ul>
     </div>
-    <ul class="AD-topbar-itemGroup" id="AD-topbar-itemGroup">
-        <li class="AD-topbar-item">
-            <a href="#" class="AD-topbar-itemLink">Authentication</a>
-        </li>
-        <li class="AD-topbar-item">
-            <a href="/open.html" class="AD-topbar-itemLink">Open Source</a>
-        </li>
-        <li class="AD-topbar-item">
-            <a href="#" class="AD-topbar-itemLink">Blog</a>
-        </li>
-        <li class="AD-topbar-item AD-topbar-item--console">
-            <a href="#" class="spectrum-Button spectrum-Button--cta">Console</a>
-        </li>
-    </ul>
 </nav>
 
 <script type="text/javascript">
