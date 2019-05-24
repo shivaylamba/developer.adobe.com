@@ -12,7 +12,7 @@
       <a target="_blank" rel="noopener noreferrer" href="http://github.com/adobe/" class="spectrum-Button spectrum-Button--primary">Read more</a>
     </div>
   </div>
-  <div class="openPage-blog-otherPosts" data-sly-list="${content.mediumArticles}">
+  <div class="openPage-blog-otherPosts spectrum--light" data-sly-list="${content.mediumArticles}">
     <a href="${item.link}" class="openPage-blog-postAbstract" data-sly-test="${!itemList.first}">
       <span class="openPage-blog-postMetadata">
         <span class="openPage-blog-postDate">Jan 2</span>
