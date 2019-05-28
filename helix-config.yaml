@@ -32,7 +32,7 @@ definitions:
 strains:
   - name: default
     <<: *productionDefaults
-    package: developer-adobe-com/864a359aaa305491fea8b94748c0a8d120e89fd0
+    package: developer-adobe-com/644b95f0306ca7e682ec5dd230cc7e62d33fe537
 
   # === DEV ENVIRONMENT URLS FOLLOW ===
   - name: launch-docs-dev
@@ -73,27 +73,27 @@ strains:
     # TODO: the following repo has no author or staging branch
     content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
     directoryIndex: README.html
-    package: developer-adobe-com/864a359aaa305491fea8b94748c0a8d120e89fd0
+    package: developer-adobe-com/644b95f0306ca7e682ec5dd230cc7e62d33fe537
   - name: xd-docs-staging
     <<: *productionDefaults
     url: https://adobedevsite.helix-demo.xyz/xd/docs
     # TODO: the following repo has no author or staging branch
     content: https://github.com/AdobeXD/plugin-docs.git#master
     directoryIndex: README.html
-    package: developer-adobe-com/864a359aaa305491fea8b94748c0a8d120e89fd0
+    package: developer-adobe-com/644b95f0306ca7e682ec5dd230cc7e62d33fe537
   - name: starter-docs-staging
     <<: *productionDefaults
     url: https://adobedevsite.helix-demo.xyz/starter/docs
     content: https://github.com/AdobeDocs/starter-docs.git#author
     directoryIndex: Overview.html
-    package: developer-adobe-com/864a359aaa305491fea8b94748c0a8d120e89fd0
+    package: developer-adobe-com/644b95f0306ca7e682ec5dd230cc7e62d33fe537
   - name: support-staging
     origin: https://adobedocs.github.io/developer-support/
     url: https://adobedevsite.helix-demo.xyz/support
   - name: static-staging
     <<: *productionDefaults
     url: https://adobedevsite.helix-demo.xyz/static/
-    package: developer-adobe-com/864a359aaa305491fea8b94748c0a8d120e89fd0
+    package: developer-adobe-com/644b95f0306ca7e682ec5dd230cc7e62d33fe537
   - name: staging
     <<: *proxyToAdobeIO
     url: https://adobedevsite.helix-demo.xyz/
@@ -104,26 +104,26 @@ strains:
     url: https://developer.adobe.com/launch/docs
     content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
     directoryIndex: README.html
-    package: developer-adobe-com/864a359aaa305491fea8b94748c0a8d120e89fd0
+    package: developer-adobe-com/644b95f0306ca7e682ec5dd230cc7e62d33fe537
   - name: xd-docs-production
     <<: *productionDefaults
     url: https://developer.adobe.com/xd/docs
     content: https://github.com/AdobeXD/plugin-docs.git#master
     directoryIndex: README.html
-    package: developer-adobe-com/864a359aaa305491fea8b94748c0a8d120e89fd0
+    package: developer-adobe-com/644b95f0306ca7e682ec5dd230cc7e62d33fe537
   - name: starter-docs-production
     <<: *productionDefaults
     url: https://developer.adobe.com/starter/docs
     content: https://github.com/AdobeDocs/starter-docs.git#master
     directoryIndex: Overview.html
-    package: developer-adobe-com/864a359aaa305491fea8b94748c0a8d120e89fd0
+    package: developer-adobe-com/644b95f0306ca7e682ec5dd230cc7e62d33fe537
   - name: support-production
     origin: https://adobedocs.github.io/developer-support/
     url: https://developer.adobe.com/support
   - name: static-production
     <<: *productionDefaults
     url: https://developer.adobe.com/static/
-    package: developer-adobe-com/864a359aaa305491fea8b94748c0a8d120e89fd0
+    package: developer-adobe-com/644b95f0306ca7e682ec5dd230cc7e62d33fe537
   - name: production
     <<: *proxyToAdobeIO
     url: https://developer.adobe.com/
