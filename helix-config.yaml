@@ -32,7 +32,7 @@ definitions:
 strains:
   - name: default
     <<: *productionDefaults
-    package: developer-adobe-com/4467d8a5d8e283eccd6531f42c69422c11409f07
+    package: developer-adobe-com/c60599a7bc5913af96af59189177a854aa3cb91f
 
   # === DEV ENVIRONMENT URLS FOLLOW ===
   - name: launch-docs-dev
@@ -72,26 +72,26 @@ strains:
     url: https://developer.adobe.com/launch/docs
     content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
     directoryIndex: README.html
-    package: developer-adobe-com/4467d8a5d8e283eccd6531f42c69422c11409f07
+    package: developer-adobe-com/c60599a7bc5913af96af59189177a854aa3cb91f
   - name: xd-docs-production
     <<: *productionDefaults
     url: https://developer.adobe.com/xd/docs
     content: https://github.com/AdobeXD/plugin-docs.git#master
     directoryIndex: README.html
-    package: developer-adobe-com/4467d8a5d8e283eccd6531f42c69422c11409f07
+    package: developer-adobe-com/c60599a7bc5913af96af59189177a854aa3cb91f
   - name: starter-docs-production
     <<: *productionDefaults
     url: https://developer.adobe.com/starter/docs
     content: https://github.com/AdobeDocs/starter-docs.git#master
     directoryIndex: Overview.html
-    package: developer-adobe-com/4467d8a5d8e283eccd6531f42c69422c11409f07
+    package: developer-adobe-com/c60599a7bc5913af96af59189177a854aa3cb91f
   - name: support-production
     origin: https://adobedocs.github.io/developer-support/
     url: https://developer.adobe.com/support
   - name: static-production
     <<: *productionDefaults
     url: https://developer.adobe.com/static/
-    package: developer-adobe-com/4467d8a5d8e283eccd6531f42c69422c11409f07
+    package: developer-adobe-com/c60599a7bc5913af96af59189177a854aa3cb91f
   - name: production
     <<: *proxyToAdobeIO
     url: https://developer.adobe.com/
