@@ -20,7 +20,6 @@
     "build": "hlx clean && hlx build",
     "deploy": "hlx deploy --default HTTP_TIMEOUT 5000",
     "publish:dev": "hlx publish --log-level=debug --only \"*dev\"",
-    "publish:staging": "hlx publish --log-level=debug --only \"*staging\"",
     "publish:production": "hlx publish --log-level=debug --only \"*production\"",
     "start": "hlx up --host adobedevsite.helix-demo.xyz --local-repo=."
   },

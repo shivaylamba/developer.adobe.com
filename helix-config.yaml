@@ -66,38 +66,6 @@ strains:
     <<: *proxyToAdobeIO
     url: https://adobedevsite.helix-demo.xyz/
 
-  # === STAGING ENVIRONMENT URLS FOLLOW ===
-  - name: launch-docs-staging
-    <<: *productionDefaults
-    url: https://adobedevsite.helix-demo.xyz/launch/docs
-    # TODO: the following repo has no author or staging branch
-    content: https://github.com/Adobe-Marketing-Cloud/reactor-user-docs.git#master
-    directoryIndex: README.html
-    package: developer-adobe-com/644b95f0306ca7e682ec5dd230cc7e62d33fe537
-  - name: xd-docs-staging
-    <<: *productionDefaults
-    url: https://adobedevsite.helix-demo.xyz/xd/docs
-    # TODO: the following repo has no author or staging branch
-    content: https://github.com/AdobeXD/plugin-docs.git#master
-    directoryIndex: README.html
-    package: developer-adobe-com/644b95f0306ca7e682ec5dd230cc7e62d33fe537
-  - name: starter-docs-staging
-    <<: *productionDefaults
-    url: https://adobedevsite.helix-demo.xyz/starter/docs
-    content: https://github.com/AdobeDocs/starter-docs.git#author
-    directoryIndex: Overview.html
-    package: developer-adobe-com/644b95f0306ca7e682ec5dd230cc7e62d33fe537
-  - name: support-staging
-    origin: https://adobedocs.github.io/developer-support/
-    url: https://adobedevsite.helix-demo.xyz/support
-  - name: static-staging
-    <<: *productionDefaults
-    url: https://adobedevsite.helix-demo.xyz/static/
-    package: developer-adobe-com/644b95f0306ca7e682ec5dd230cc7e62d33fe537
-  - name: staging
-    <<: *proxyToAdobeIO
-    url: https://adobedevsite.helix-demo.xyz/
-
   # === PRODUCTION ENVIRONMENT URLS FOLLOW ===
   - name: launch-docs-production
     <<: *productionDefaults

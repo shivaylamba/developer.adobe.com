@@ -147,7 +147,7 @@ jobs:
             NO_TUNNEL: true
 
 
-  deploy_to_staging_then_production_and_commit:
+  deploy_to_production_and_commit:
     executor: helix
     steps:
       - setup_fs
@@ -164,14 +164,6 @@ jobs:
             git checkout master
             git pull --tags origin
             git commit -am "🚢 enshrining config post-deploy [ci skip]"
-      - run:
-          name: hlx publish to staging
-          command: npm run publish:staging
-      - run:
-          name: Run end to end tests on sauce against staging environment
-          command: npm run test:e2e-helix-sauce -- --baseUrl https://adobedevsite.helix-demo.xyz
-          environment:
-            NO_TUNNEL: true
       - run:
           name: hlx publish to production
           command: npm run publish:production
@@ -212,22 +204,14 @@ workflows:
           requires:
             - build
       - deploy_to_dev_and_test:
-          filters:
-            branches:
-              ignore: master
           requires:
             - lint
             - unit_tests
             - config_tests
             - end_to_end_localhost_tests
-      # deploy to staging and run e2e tests there; if good, deploy to prod and
-      # run e2e tests there. if good, finally tag and commit
-      - deploy_to_staging_then_production_and_commit:
+      - deploy_to_production_and_commit:
           filters:
             branches:
               only: master
           requires:
-            - lint
-            - unit_tests
-            - config_tests
-            - end_to_end_localhost_tests
+            - deploy_to_dev_and_test
