@@ -13,7 +13,8 @@ definitions:
   defaults:
     # Run default content from github repo
     - &productionRepo https://github.com/adobe/developer.adobe.com.git#master
-    - &devRepo https://github.com/adobe/developer.adobe.com.git#REPLACED_BY_CI
+    # The master reference below gets replaced by CI; search for "sed" in .circleci/config.yaml for more details
+    - &devRepo https://github.com/adobe/developer.adobe.com.git#master
   strains:
     base:
       &productionDefaults
