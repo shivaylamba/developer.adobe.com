@@ -128,7 +128,7 @@ The target environments, from least public-facing to most, are as follows:
    is still a work-in-progress. The ideal implementation of this environment
    would provide a publicly-accessible URL dedicated to the pull request. In the
    mean time, every pull request open or update follows the **Staging** flow...
-3. **Staging**. We have a staging domain set up: https://adobedevsite.helix-demo.xyz.
+3. **Dev**. We have a development domain set up: https://adobedevsite.helix-demo.xyz.
    When a pull request is opened or updated, or when code is pushed to the
    `master` branch, code is deployed and published to this environment. A fully
    automated test suite executes against this environment. This is the final destination
