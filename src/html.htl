@@ -23,31 +23,31 @@
     <!-- Page -->
     <link rel="stylesheet" href="/static/spectrum/components/page/index.css" />
     <link rel="stylesheet" href="/static/spectrum/components/page/index-diff.css" media="(min-width: 900px)" />
-    <link rel="stylesheet" href="/static/spectrum/components/page/multistops/light.css" />
-    <link rel="stylesheet" href="/static/spectrum/components/page/multistops/dark.css" />
+    <link rel="stylesheet" href="/static/spectrum/components/page/multiStops/light.css" />
+    <link rel="stylesheet" href="/static/spectrum/components/page/multiStops/dark.css" />
     <!-- Typography -->
     <link rel="stylesheet" href="/static/spectrum/components/typography/index.css" />
     <link rel="stylesheet" href="/static/spectrum/components/typography/index-diff.css" media="(min-width: 900px)" />
-    <link rel="stylesheet" href="/static/spectrum/components/typography/multistops/light.css" />
-    <link rel="stylesheet" href="/static/spectrum/components/typography/multistops/dark.css" />
+    <link rel="stylesheet" href="/static/spectrum/components/typography/multiStops/light.css" />
+    <link rel="stylesheet" href="/static/spectrum/components/typography/multiStops/dark.css" />
     <!-- Typography -->
     <link rel="stylesheet" href="/static/spectrum/components/icon/index.css" />
     <link rel="stylesheet" href="/static/spectrum/components/icon/index-diff.css" media="(min-width: 900px)" />
     <!-- Link -->
     <link rel="stylesheet" href="/static/spectrum/components/link/index.css" />
     <link rel="stylesheet" href="/static/spectrum/components/link/index-diff.css" media="(min-width: 900px)" />
-    <link rel="stylesheet" href="/static/spectrum/components/link/multistops/light.css" />
-    <link rel="stylesheet" href="/static/spectrum/components/link/multistops/dark.css" />
+    <link rel="stylesheet" href="/static/spectrum/components/link/multiStops/light.css" />
+    <link rel="stylesheet" href="/static/spectrum/components/link/multiStops/dark.css" />
     <!-- Button -->
     <link rel="stylesheet" href="/static/spectrum/components/button/index.css" />
     <link rel="stylesheet" href="/static/spectrum/components/button/index-diff.css" media="(min-width: 900px)" />
-    <link rel="stylesheet" href="/static/spectrum/components/button/multistops/light.css" />
-    <link rel="stylesheet" href="/static/spectrum/components/button/multistops/dark.css" />
+    <link rel="stylesheet" href="/static/spectrum/components/button/multiStops/light.css" />
+    <link rel="stylesheet" href="/static/spectrum/components/button/multiStops/dark.css" />
     <!-- Accordion -->
     <link rel="stylesheet" href="/static/spectrum/components/accordion/index.css" />
     <link rel="stylesheet" href="/static/spectrum/components/accordion/index-diff.css" media="(min-width: 900px)" />
-    <link rel="stylesheet" href="/static/spectrum/components/accordion/multistops/light.css" />
-    <link rel="stylesheet" href="/static/spectrum/components/accordion/multistops/dark.css" />
+    <link rel="stylesheet" href="/static/spectrum/components/accordion/multiStops/light.css" />
+    <link rel="stylesheet" href="/static/spectrum/components/accordion/multiStops/dark.css" />
     <!-- *************************************************
         Site Spectific
     ************************************************* -->

@@ -1,7 +1,7 @@
 <!-- Button -->
 <link rel="stylesheet" href="/static/spectrum/components/coachmark/index.css" />
 <link rel="stylesheet" href="/static/spectrum/components/coachmark/index-diff.css" media="(min-width: 900px)" />
-<link rel="stylesheet" href="/static/spectrum/components/coachmark/multistops/dark.css" />
+<link rel="stylesheet" href="/static/spectrum/components/coachmark/multiStops/dark.css" />
 
 <link rel="stylesheet" href="/static/spectrum/spectrum-css-grid.css" />
 <link rel="stylesheet" href="/static/pages/open/open.css" />
