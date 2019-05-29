@@ -66,7 +66,7 @@
 
 <body class="spectrum spectrum-Typography spectrum--large">
     <esi:include src="/static/global.topnav.html"></esi:include>
-    <esi:include src="/static/${payload.dispatch.url}"></esi:include>
+    <esi:include src="${payload.dispatch.url}"></esi:include>
     <esi:include src="/static/global.footer.html"></esi:include>
     <script type="text/javascript">
         ;
