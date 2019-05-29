@@ -224,17 +224,21 @@
       <div id="spotlightCarousel" class="openPage-spotlight-carousel spectrum--light">
         <div class="slides openPage-spotlight-carouselItemGroup">
           <div class="slide openPage-spotlight-carouselItem">
-            <figure class="openPage-spotlight-carouselItem-image" style="background-image: url(/static/pages/open/spotlight-assets/spectrum-illustration@2x.png)">
+            <figure class="openPage-spotlight-carouselItem-image"
+              style="background-image: url(/static/pages/open/spotlight-assets/spectrum-illustration@2x.png)">
             </figure>
             <div class="openPage-spotlight-carouselItem-details">
-              <figure class="openPage-spotlight-slide1-logo">
-                <img width="64" srcset="/static/pages/open/spotlight-assets/spectrum-logo.png,
-                /static/pages/open/spotlight-assets/spectrum-logo@2x.png 2x" src="/static/pages/open/spotlight-assets/spectrum-logo.png"
-                  loading="lazy" alt="Spectrum Logo" />
-              </figure>
-              <p>Product Spotlight</p>
-              <p>Spectrum CSS</p>
-              <p>The goal of this project is to provide a standard CSS implementation of the Spectrum design language
+              <div class="openPage-spotlight-carouselItem-header">
+                <figure class="openPage-spotlight-carouselItem-logo">
+                  <img width="64" srcset="/static/pages/open/spotlight-assets/spectrum-logo.png,
+                  /static/pages/open/spotlight-assets/spectrum-logo@2x.png 2x"
+                    src="/static/pages/open/spotlight-assets/spectrum-logo.png" loading="lazy" alt="Spectrum Logo" />
+                </figure>
+                <h2 class="openPage-spotlight-carouselItem-subtitle">Product Spotlight</h2>
+                <h1 class="openPage-spotlight-carouselItem-title">Spectrum CSS</h1>
+              </div>
+              <p class="openPage-spotlight-carouselItem-description">The goal of this project is to provide a standard
+                CSS implementation of the Spectrum design language
                 for internal and 3rd party use on Adobe’s platforms.</p>
               <a href="https://github.com/adobe/spectrum-css" target="_blank"
                 class="spectrum-Button spectrum-Button--cta">Spectrum on Github</a>
@@ -248,11 +252,11 @@
               <figure>
                 logo
               </figure>
-              <p>TWO</p>
-              <p>Spectrum CSS</p>
-              <p>The goal of this project is to provide a standard CSS implementation of the Spectrum design language
-                for
-                internal and 3rd party use on Adobe’s platforms.</p>
+              <h2 class="openPage-spotlight-carouselItem-subtitle">Product Spotlight</h2>
+              <h1 class="openPage-spotlight-carouselItem-title">Spectrum CSS</h1>
+              <p class="openPage-spotlight-carouselItem-description">The goal of this project is to provide a standard
+                CSS implementation of the Spectrum design language
+                for internal and 3rd party use on Adobe’s platforms.</p>
               <a href="https://github.com/adobe/spectrum-css" target="_blank"
                 class="spectrum-Button spectrum-Button--cta">Spectrum on Github</a>
             </div>
@@ -265,11 +269,11 @@
               <figure>
                 logo
               </figure>
-              <p>THREE</p>
-              <p>Spectrum CSS</p>
-              <p>The goal of this project is to provide a standard CSS implementation of the Spectrum design language
-                for
-                internal and 3rd party use on Adobe’s platforms.</p>
+              <h2 class="openPage-spotlight-carouselItem-subtitle">Product Spotlight</h2>
+              <h1 class="openPage-spotlight-carouselItem-title">Spectrum CSS</h1>
+              <p class="openPage-spotlight-carouselItem-description">The goal of this project is to provide a standard
+                CSS implementation of the Spectrum design language
+                for internal and 3rd party use on Adobe’s platforms.</p>
               <a href="https://github.com/adobe/spectrum-css" target="_blank"
                 class="spectrum-Button spectrum-Button--cta">Spectrum on Github</a>
             </div>
@@ -282,27 +286,28 @@
               <figure>
                 logo
               </figure>
-              <p>FOUR</p>
-              <p>Spectrum CSS</p>
-              <p>The goal of this project is to provide a standard CSS implementation of the Spectrum design language
-                for
-                internal and 3rd party use on Adobe’s platforms.</p>
+              <h2 class="openPage-spotlight-carouselItem-subtitle">Product Spotlight</h2>
+              <h1 class="openPage-spotlight-carouselItem-title">Spectrum CSS</h1>
+              <p class="openPage-spotlight-carouselItem-description">The goal of this project is to provide a standard
+                CSS implementation of the Spectrum design language
+                for internal and 3rd party use on Adobe’s platforms.</p>
               <a href="https://github.com/adobe/spectrum-css" target="_blank"
                 class="spectrum-Button spectrum-Button--cta">Spectrum on Github</a>
             </div>
           </div>
         </div>
-        <div class="carouselUI">
-          <button class="nextSlide spectrum-Button--cta openPage-spotlight-carousel-nextBtn"></button>
-          <button class="prevSlide spectrum-Button--cta openPage-spotlight-carousel-prevBtn"></button>
-          <div class="slideIndicators openPage-spotlight-carousel-indicators">
+        <div class="openPage-carouselUI">
+          <button class="openPage-carouselUI-nextBtn spectrum-Button--cta openPage-spotlight-carousel-nextBtn"></button>
+          <button class="openPage-carouselUI-prevBtn spectrum-Button--cta openPage-spotlight-carousel-prevBtn"></button>
+          <div class="openPage-carouselUI-indicators openPage-spotlight-carousel-indicators">
             <div class="selected"></div>
             <div></div>
             <div></div>
             <div></div>
           </div>
-          <div class="openPage-spotlight-carousel-itemCount">
-            <span class="currentSlideCount">01</span> / <span class="totalSlideCount">04</span>
+          <div class="openPage-carouselUI-itemCount openPage-spotlight-carousel-itemCount">
+            <span class="openPage-carouselUI-currentCount">01</span> / <span
+              class="openPage-carouselUI-totalCount">04</span>
           </div>
         </div>
       </div>
@@ -320,8 +325,8 @@
             <div class="openPage-popularProjects-projectInfo">
               <figure class="openPage-popularProjects-projectLogo">
                 <img width="48" srcset="/static/pages/open/popular-project-logos/brackets-logo.png,
-                /static/pages/open/popular-project-logos/brackets-logo@2x.png 2x" src="/static/pages/open/popular-project-logos/brackets-logo.png"
-                  loading="lazy" alt="Brackets Logo" />
+                /static/pages/open/popular-project-logos/brackets-logo@2x.png 2x"
+                  src="/static/pages/open/popular-project-logos/brackets-logo.png" loading="lazy" alt="Brackets Logo" />
               </figure>
               <h1 class="openPage-popularProjects-projectName">Brackets</h1>
               <p class="openPage-popularProjects-projectDescription">An open source code editor for the web, written in
@@ -334,7 +339,8 @@
             </nav>
             <div class="openPage-popularProjects-projectHomepage">
               <div class="openPage-popularProjects-projectStats">
-                <span>29.7k stars</span><span>6.4k forks</span>
+                <span class="openPage-popularProjects-projectStars">29.7k stars</span>
+                <span class="openPage-popularProjects-projectForks">6.4k forks</span>
               </div>
               <a href="https://github.com/adobe/spectrum-css" target="_blank"
                 class="spectrum-Button spectrum-Button--cta">brackets on Github</a>
@@ -343,9 +349,34 @@
           <div class="slide openPage-popularProjects-projectContainer">
             <div class="openPage-popularProjects-projectInfo">
               <figure class="openPage-popularProjects-projectLogo">
+                <img width="48" srcset="/static/pages/open/popular-project-logos/magento-logo.png,
+                  /static/pages/open/popular-project-logos/magento-logo@2x.png 2x"
+                  src="/static/pages/open/popular-project-logos/magento-logo.png" loading="lazy" alt="Magento Logo" />
+              </figure>
+              <h1 class="openPage-popularProjects-projectName">Magento</h1>
+              <p class="openPage-popularProjects-projectDescription">A cutting-edge, feature-rich eCommerce solution
+                that gets results. <a class="spectum-Link"
+                  href="http://developer.magento.com/">developer.magento.com/</a></p>
+            </div>
+            <nav class="openPage-popularProjects-projectLinks">
+              <a class="spectrum-Link" href="#">Documentation</a>
+              <a class="spectrum-Link" href="#">Developer Portal</a>
+              <a class="spectrum-Link" href="#">Community Hub</a>
+            </nav>
+            <div class="openPage-popularProjects-projectHomepage">
+              <div class="openPage-popularProjects-projectStats">
+                <span class="openPage-popularProjects-projectStars">7.4k stars</span>
+                <span class="openPage-popularProjects-projectForks">6.4k forks</span>
+              </div>
+              <a href="#" target="_blank" class="spectrum-Button spectrum-Button--cta">Magento on Github</a>
+            </div>
+          </div>
+          <div class="slide openPage-popularProjects-projectContainer">
+            <div class="openPage-popularProjects-projectInfo">
+              <figure class="openPage-popularProjects-projectLogo">
                 <img width="48" srcset="/static/pages/open/popular-project-logos/aem-logo.png,
-                /static/pages/open/popular-project-logos/aem-logo@2x.png 2x" src="/static/pages/open/popular-project-logos/aem-logo.png"
-                  loading="lazy" alt="AEM Logo" />
+                /static/pages/open/popular-project-logos/aem-logo@2x.png 2x"
+                  src="/static/pages/open/popular-project-logos/aem-logo.png" loading="lazy" alt="AEM Logo" />
               </figure>
               <h1 class="openPage-popularProjects-projectName">AEM Core Components</h1>
               <p class="openPage-popularProjects-projectDescription">Adobe Experience Manager (AEM) Sites Core
@@ -359,7 +390,8 @@
             </nav>
             <div class="openPage-popularProjects-projectHomepage">
               <div class="openPage-popularProjects-projectStats">
-                <span>257 stars</span><span>203 forks</span>
+                <span class="openPage-popularProjects-projectStars">257 stars</span>
+                <span class="openPage-popularProjects-projectForks">203 forks</span>
               </div>
               <a href="#" target="_blank" class="spectrum-Button spectrum-Button--cta">AEM on Github</a>
             </div>
@@ -368,8 +400,8 @@
             <div class="openPage-popularProjects-projectInfo">
               <figure class="openPage-popularProjects-projectLogo">
                 <img width="48" srcset="/static/pages/open/popular-project-logos/hyde-logo.png,
-                /static/pages/open/popular-project-logos/hyde-logo@2x.png 2x" src="/static/pages/open/popular-project-logos/hyde-logo.png"
-                  loading="lazy" alt="Hyde Logo" />
+                /static/pages/open/popular-project-logos/hyde-logo@2x.png 2x"
+                  src="/static/pages/open/popular-project-logos/hyde-logo.png" loading="lazy" alt="Hyde Logo" />
               </figure>
               <h1 class="openPage-popularProjects-projectName">hyde</h1>
               <p class="openPage-popularProjects-projectDescription">
@@ -383,45 +415,27 @@
             </nav>
             <div class="openPage-popularProjects-projectHomepage">
               <div class="openPage-popularProjects-projectStats">
-                <span>206 stars</span><span>8 forks</span>
+                <span class="openPage-popularProjects-projectStars">206 stars</span>
+                <span class="openPage-popularProjects-projectForks">8 forks</span>
               </div>
               <a href="#" target="_blank" class="spectrum-Button spectrum-Button--cta">hyde on Github</a>
             </div>
           </div>
-          <div class="slide openPage-popularProjects-projectContainer">
-            <div class="openPage-popularProjects-projectInfo">
-              <figure class="openPage-popularProjects-projectLogo">
-                <img width="48" srcset="/static/pages/open/popular-project-logos/magento-logo.png,
-                /static/pages/open/popular-project-logos/magento-logo@2x.png 2x" src="/static/pages/open/popular-project-logos/magento-logo.png"
-                  loading="lazy" alt="Magento Logo" />
-              </figure>
-              <h1 class="openPage-popularProjects-projectName">Magento</h1>
-              <p class="openPage-popularProjects-projectDescription">A cutting-edge, feature-rich eCommerce solution that gets results. <a class="spectum-Link" href="http://developer.magento.com/">developer.magento.com/</a></p>
-            </div>
-            <nav class="openPage-popularProjects-projectLinks">
-              <a class="spectrum-Link" href="#">Contribution guidelines</a>
-              <a class="spectrum-Link" href="#">API Reference</a>
-              <a class="spectrum-Link" href="#">Latest Release</a>
-            </nav>
-            <div class="openPage-popularProjects-projectHomepage">
-              <div class="openPage-popularProjects-projectStats">
-                <span>... stars</span><span>... forks</span>
-              </div>
-              <a href="#" target="_blank" class="spectrum-Button spectrum-Button--cta">Magento on Github</a>
-            </div>
-          </div>
         </div>
-        <div class="carouselUI">
-          <button class="nextSlide spectrum-Button--cta openPage-popularProjects-carousel-nextBtn"></button>
-          <button class="prevSlide spectrum-Button--cta openPage-popularProjects-carousel-prevBtn"></button>
-          <div class="slideIndicators openPage-popularProjects-carousel-indicators">
+        <div class="openPage-carouselUI">
+          <button
+            class="openPage-carouselUI-nextBtn spectrum-Button--cta openPage-popularProjects-carousel-nextBtn"></button>
+          <button
+            class="openPage-carouselUI-prevBtn spectrum-Button--cta openPage-popularProjects-carousel-prevBtn"></button>
+          <div class="openPage-carouselUI-indicators openPage-popularProjects-carousel-indicators">
             <div class="selected"></div>
             <div></div>
             <div></div>
             <div></div>
           </div>
-          <div class="openPage-popularProjects-carousel-itemCount">
-            <span class="currentSlideCount">01</span> / <span class="totalSlideCount">04</span>
+          <div class="openPage-carouselUI-itemCount openPage-popularProjects-carousel-itemCount">
+            <span class="openPage-carouselUI-currentCount">01</span> / <span
+              class="openPage-carouselUI-totalCount">04</span>
           </div>
         </div>
       </div>
@@ -556,11 +570,11 @@
   function Carousel(id, offset) {
     var offset = offset || 0;
     var carouselEl = document.getElementById(id);
-    var nextBtn = carouselEl.querySelector('.nextSlide');
-    var prevBtn = carouselEl.querySelector('.prevSlide');
-    var indicators = carouselEl.querySelectorAll('.slideIndicators div');
-    var totalSlideCountEl = carouselEl.querySelector('.totalSlideCount');
-    var currentSlideCountEl = carouselEl.querySelector('.currentSlideCount');
+    var nextBtn = carouselEl.querySelector('.openPage-carouselUI-nextBtn');
+    var prevBtn = carouselEl.querySelector('.openPage-carouselUI-prevBtn');
+    var indicators = carouselEl.querySelectorAll('.openPage-carouselUI-indicators div');
+    var totalSlideCountEl = carouselEl.querySelector('.openPage-carouselUI-totalCount');
+    var currentSlideCountEl = carouselEl.querySelector('.openPage-carouselUI-currentCount');
     var slideIndex = 0;
     var slides = carouselEl.querySelectorAll('.slide');
     var numOfSlides = slides.length;
@@ -589,7 +603,7 @@
         }
       });
       slides.forEach(function (el, index) {
-        el.style.left = -(100+offset) * slideIndex + '%';
+        el.style.left = -(100 + offset) * slideIndex + '%';
       });
       currentSlideCountEl.innerHTML = '0' + (slideIndex + 1);
       totalSlideCountEl.innerHTML = '0' + numOfSlides;
@@ -598,5 +612,5 @@
     prevBtn.addEventListener('click', prevSlide);
   }
   new Carousel('spotlightCarousel');
-  new Carousel('projectsCarousel',3);
+  new Carousel('projectsCarousel', 3);
 </script>
