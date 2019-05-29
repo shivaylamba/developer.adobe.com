@@ -204,7 +204,7 @@ async function pre(payload, action) {
 
   try {
     if (!payload.content) {
-      logger.debug('docs_html.pre.js - Payload has no resource, nothing we can do');
+      logger.warn('docs_html.pre.js - Payload has no resource, nothing we can do');
       return payload;
     }
 
@@ -235,12 +235,12 @@ async function pre(payload, action) {
       );
       p.content.toc = createTOC(p.content, 3, logger);
     } else {
-      logger.debug('docs_html.pre.js - No REPO_API_ROOT provided');
+      logger.warn('docs_html.pre.js - No REPO_API_ROOT provided');
     }
 
     p.content.subcontent = [];
     if (body.children && body.children.length) {
-      logger.debug('docs_html.pre.js - VDOM children processed (stripping leading title)');
+      logger.info('docs_html.pre.js - VDOM children processed (stripping leading title)');
       p.content.subcontent = Array.from(body.children)
         .slice(1); // remove the leading first title (redundant with page title)
     }
