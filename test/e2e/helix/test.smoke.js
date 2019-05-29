@@ -33,7 +33,7 @@ describe('helix site smoke tests', function suite() {
     assert(contentsDisplayed, 'content container does not exist!');
     // properly loaded css should have a non-zero number of rules
     // eslint-disable-next-line no-undef
-    const cssRules = await browser.execute(() => document.styleSheets[0].cssRules.length);
+    const cssRules = await browser.execute(() => Array.from(document.styleSheets).find(css => css.href.endsWith('spectrum/components/typography/index.css')).cssRules.length);
     assert(cssRules > 0, 'css rules not greater than zero; css probably didnt load!');
   });
 
