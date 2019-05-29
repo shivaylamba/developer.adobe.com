@@ -330,7 +330,8 @@
               </figure>
               <h1 class="openPage-popularProjects-projectName">Brackets</h1>
               <p class="openPage-popularProjects-projectDescription">An open source code editor for the web, written in
-                JavaScript, HTML and CSS. www.brackets.io</p>
+                JavaScript, HTML and CSS. <a class="spectrum-Link"
+                href="http://www.brackets.io">www.brackets.io</a></p>
             </div>
             <nav class="openPage-popularProjects-projectLinks">
               <a class="spectrum-Link" href="https://github.com/adobe/brackets">Contribution guidelines</a>
@@ -339,11 +340,11 @@
             </nav>
             <div class="openPage-popularProjects-projectHomepage">
               <div class="openPage-popularProjects-projectStats">
-                <span class="openPage-popularProjects-projectStars">29.7k stars</span>
-                <span class="openPage-popularProjects-projectForks">6.4k forks</span>
+                <span class="openPage-popularProjects-projectStars">29.7k</span>
+                <span class="openPage-popularProjects-projectForks">6.4k</span>
               </div>
               <a href="https://github.com/adobe/spectrum-css" target="_blank"
-                class="spectrum-Button spectrum-Button--cta">brackets on Github</a>
+                class="spectrum-Button spectrum-Button--primary">Brackets on Github</a>
             </div>
           </div>
           <div class="slide openPage-popularProjects-projectContainer">
@@ -355,7 +356,7 @@
               </figure>
               <h1 class="openPage-popularProjects-projectName">Magento</h1>
               <p class="openPage-popularProjects-projectDescription">A cutting-edge, feature-rich eCommerce solution
-                that gets results. <a class="spectum-Link"
+                that gets results. <a class="spectrum-Link"
                   href="http://developer.magento.com/">developer.magento.com/</a></p>
             </div>
             <nav class="openPage-popularProjects-projectLinks">
@@ -365,10 +366,10 @@
             </nav>
             <div class="openPage-popularProjects-projectHomepage">
               <div class="openPage-popularProjects-projectStats">
-                <span class="openPage-popularProjects-projectStars">7.4k stars</span>
-                <span class="openPage-popularProjects-projectForks">6.4k forks</span>
+                <span class="openPage-popularProjects-projectStars">7.4k</span>
+                <span class="openPage-popularProjects-projectForks">6.4k</span>
               </div>
-              <a href="#" target="_blank" class="spectrum-Button spectrum-Button--cta">Magento on Github</a>
+              <a href="#" target="_blank" class="spectrum-Button spectrum-Button--primary">Magento on Github</a>
             </div>
           </div>
           <div class="slide openPage-popularProjects-projectContainer">
@@ -390,10 +391,10 @@
             </nav>
             <div class="openPage-popularProjects-projectHomepage">
               <div class="openPage-popularProjects-projectStats">
-                <span class="openPage-popularProjects-projectStars">257 stars</span>
-                <span class="openPage-popularProjects-projectForks">203 forks</span>
+                <span class="openPage-popularProjects-projectStars">257</span>
+                <span class="openPage-popularProjects-projectForks">203</span>
               </div>
-              <a href="#" target="_blank" class="spectrum-Button spectrum-Button--cta">AEM on Github</a>
+              <a href="#" target="_blank" class="spectrum-Button spectrum-Button--primary">AEM on Github</a>
             </div>
           </div>
           <div class="slide openPage-popularProjects-projectContainer">
@@ -415,10 +416,10 @@
             </nav>
             <div class="openPage-popularProjects-projectHomepage">
               <div class="openPage-popularProjects-projectStats">
-                <span class="openPage-popularProjects-projectStars">206 stars</span>
-                <span class="openPage-popularProjects-projectForks">8 forks</span>
+                <span class="openPage-popularProjects-projectStars">206</span>
+                <span class="openPage-popularProjects-projectForks">8</span>
               </div>
-              <a href="#" target="_blank" class="spectrum-Button spectrum-Button--cta">hyde on Github</a>
+              <a href="#" target="_blank" class="spectrum-Button spectrum-Button--primary">hyde on Github</a>
             </div>
           </div>
         </div>

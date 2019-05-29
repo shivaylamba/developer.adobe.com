@@ -1187,6 +1187,10 @@
     margin-top: 0;
 }
 
+.openPage-popularProjects-projectDescription {
+    color: #6E6E6E;
+}
+
 .openPage-popularProjects-projectLogo {
     width: 48px;
     height: 48px;
@@ -1202,6 +1206,11 @@
     .openPage-popularProjects-projectsGroup {
         flex-wrap: wrap;
     }
+
+    .openPage-popularProjects-projectDescription {
+        font-size: 16px;
+    }
+    
 }
 
 .openPage-popularProjects-projectContainer {
@@ -1269,7 +1278,7 @@
 }
 
 .openPage-popularProjects-projectStats {
-    
+    color: #6E6E6E;
 }
 
 .openPage-popularProjects-projectStars,
