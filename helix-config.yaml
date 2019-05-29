@@ -56,6 +56,10 @@ strains:
     content: https://github.com/AdobeDocs/starter-docs.git#author
     directoryIndex: Overview.html
     package: developer-adobe-com/c397c173b4dfeaaba3ffbcd1ce429f0bec3c6a24
+  - name: open-dev
+    <<: *devDefaults
+    url: https://adobedevsite.helix-demo.xyz/open
+    package: developer-adobe-com/c397c173b4dfeaaba3ffbcd1ce429f0bec3c6a24
   - name: support-dev
     origin: https://adobedocs.github.io/developer-support/
     url: https://adobedevsite.helix-demo.xyz/support
@@ -85,6 +89,10 @@ strains:
     url: https://developer.adobe.com/starter/docs
     content: https://github.com/AdobeDocs/starter-docs.git#master
     directoryIndex: Overview.html
+    package: developer-adobe-com/c397c173b4dfeaaba3ffbcd1ce429f0bec3c6a24
+  - name: open-production
+    <<: *productionDefaults
+    url: https://developer.adobe.com/open
     package: developer-adobe-com/c397c173b4dfeaaba3ffbcd1ce429f0bec3c6a24
   - name: support-production
     origin: https://adobedocs.github.io/developer-support/

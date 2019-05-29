@@ -1,7 +1,7 @@
 <!-- Button -->
 <link rel="stylesheet" href="/static/spectrum/components/coachmark/index.css" />
 <link rel="stylesheet" href="/static/spectrum/components/coachmark/index-diff.css" media="(min-width: 900px)" />
-<link rel="stylesheet" href="/static/spectrum/components/coachmark/multistops/dark.css" />
+<link rel="stylesheet" href="/static/spectrum/components/coachmark/multiStops/dark.css" />
 
 <link rel="stylesheet" href="/static/spectrum/spectrum-css-grid.css" />
 <link rel="stylesheet" href="/static/pages/open/open.css" />
@@ -187,10 +187,10 @@
       <div class="openPage-testimonial spectrum--light">
         <div class="openPage-testimonial-attribution">
           <figure class="openPage-testimonial-attributionAvatar">
-            <img src="/pages/open/368b5013.david-nuescheler@2x.png" alt="A happy user" />
+            <img src="/static/pages/open/368b5013.david-nuescheler@2x.png" alt="A happy user" />
           </figure>
           <div class="openPage-testimonial-attributionTitle">
-            David Nuescheler<br /> Fellow & VP, Developer Platform & Ecosystem
+            David Nuescheler<br /> Fellow &amp; VP, Developer Platform &amp; Ecosystem
           </div>
         </div>
         <blockquote class="openPage-testimonial-quote">
