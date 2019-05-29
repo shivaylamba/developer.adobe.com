@@ -193,9 +193,9 @@ function createTOC(content, maxDepth, logger) {
 }
 
 // module.exports.pre is a function (taking next as an argument)
-// that returns a function (with payload, config, logger as arguments)
-// that calls next (after modifying the payload a bit)
-async function pre(payload, action) {
+// that returns a function (with context, config, logger as arguments)
+// that calls next (after modifying the context a bit)
+async function pre(context, action) {
   const {
     logger,
     secrets,
@@ -203,12 +203,12 @@ async function pre(payload, action) {
   } = action;
 
   try {
-    if (!payload.content) {
-      logger.warn('docs_html.pre.js - Payload has no resource, nothing we can do');
-      return payload;
+    if (!context.content) {
+      logger.warn('docs_html.pre.js - Context has no resource, nothing we can do');
+      return context;
     }
 
-    const p = payload;
+    const p = context;
     const { body } = p.content.document;
     DOMUtil.spectrumify(body);
 
