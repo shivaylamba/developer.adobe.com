@@ -187,10 +187,10 @@
       <div class="openPage-testimonial spectrum--light">
         <div class="openPage-testimonial-attribution">
           <figure class="openPage-testimonial-attributionAvatar">
-            <img src="/pages/open/368b5013.david-nuescheler@2x.png" alt="A happy user" />
+            <img src="/static/pages/open/368b5013.david-nuescheler@2x.png" alt="A happy user" />
           </figure>
           <div class="openPage-testimonial-attributionTitle">
-            David Nuescheler<br /> Fellow & VP, Developer Platform & Ecosystem
+            David Nuescheler<br /> Fellow &amp; VP, Developer Platform &amp; Ecosystem
           </div>
         </div>
         <blockquote class="openPage-testimonial-quote">
@@ -493,27 +493,27 @@
       <h1 class="openPage-sectionHeader">Community partners & projects</h1>
       <figure class="openPage-partnerItem">
         <img width="323"
-          srcset="/static/pages/open/partner-logos/magento.png, htdocs/pages/open/partner-logos/magento@2x.png 2x"
+          srcset="/static/pages/open/partner-logos/magento.png, /static/pages/open/partner-logos/magento@2x.png 2x"
           src="/static/pages/open/partner-logos/magento.png" loading="lazy" alt="Magento" />
       </figure>
       <figure class="openPage-partnerItem">
         <img width="239" srcset="/static/pages/open/partner-logos/kubernetes.png,
-        htdocs/pages/open/partner-logos/kubernetes@2x.png 2x" src="/static/pages/open/partner-logos/kubernetes.png"
+        /static/pages/open/partner-logos/kubernetes@2x.png 2x" src="/static/pages/open/partner-logos/kubernetes.png"
           loading="lazy" alt="Kubernetes" />
       </figure>
       <figure class="openPage-partnerItem">
         <img width="274" srcset="/static/pages/open/partner-logos/eslint.png,
-        htdocs/pages/open/partner-logos/eslint@2x.png 2x" src="/static/pages/open/partner-logos/eslint.png"
+        /static/pages/open/partner-logos/eslint@2x.png 2x" src="/static/pages/open/partner-logos/eslint.png"
           loading="lazy" alt="ESLint" />
       </figure>
       <figure class="openPage-partnerItem">
         <img width="392" srcset="/static/pages/open/partner-logos/open-whisk.png,
-        htdocs/pages/open/partner-logos/open-whisk@2x.png 2x" src="/static/pages/open/partner-logos/open-whisk.png"
+        /static/pages/open/partner-logos/open-whisk@2x.png 2x" src="/static/pages/open/partner-logos/open-whisk.png"
           loading="lazy" alt="Apache OpenWhisk" />
       </figure>
       <figure class="openPage-partnerItem">
         <img width="282" srcset="/static/pages/open/partner-logos/babel.png,
-        htdocs/pages/open/partner-logos/babel@2x.png 2x" src="/static/pages/open/partner-logos/babel.png"
+        /static/pages/open/partner-logos/babel@2x.png 2x" src="/static/pages/open/partner-logos/babel.png"
           loading="lazy" alt="Babel" />
       </figure>
       <figure class="openPage-partnerItem">
