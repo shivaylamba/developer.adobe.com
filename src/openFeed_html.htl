@@ -4,22 +4,22 @@
   <div class="openPage-blog-heroPost spectrum--dark" data-sly-list="${content.mediumArticles}" >
     <div class="openPage-blog-postAbstract" data-sly-test="${itemList.first}">
       <span class="openPage-blog-postMetadata">
-          <b>Kerri Shotts</b>
-        <span>Jan 2</span>
-        <span>2 min read</span>
+        <b>${item.creator}</b>
+        <span>${item.pubDate}</span>
+        <span>${item.readingLength} min read</span>
       </span>
       <h1 class="openPage-sectionHeader">${item.title}</h1>
       <p class="openPage-blog-heroCaption">${item.caption}</p>
-      <a target="_blank" rel="noopener noreferrer" href="http://github.com/adobe/"
+      <a target="_blank" rel="noopener noreferrer" href="${item.link}"
         class="openPage-blog-heroLink spectrum-Button spectrum-Button--primary">Read more</a>
     </div>
   </div>
   <div class="openPage-blog-otherPosts spectrum--light" data-sly-list="${content.mediumArticles}">
     <a href="${item.link}" class="openPage-blog-postAbstract" data-sly-test="${!itemList.first}">
       <span class="openPage-blog-postMetadata">
-          <b class="openPage-blog-postAuthor">Kerri Shotts</b>
-        <span class="openPage-blog-postDate">Jan 2</span>
-        <span class="openPage-blog-postLength">2 min read</span>
+        <b class="openPage-blog-postAuthor">${item.creator}</b>
+        <span class="openPage-blog-postDate">${item.pubDate}</span>
+        <span class="openPage-blog-postLength">${item.readingLength} min read</span>
       </span>
       <h1 class="openPage-blog-postTitle">${item.title}</h1>
       <p class="openPage-blog-postCaption">${item.caption}</p>
