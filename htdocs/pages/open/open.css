@@ -421,16 +421,17 @@
 @media screen and (min-width: 768px) {
     .openPage-testimonial {
         flex-direction: row;
-        margin: 100px auto;
+        margin: 100px auto 0;
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 
 @media screen and (min-width: 1280px) {
     .openPage-testimonial {
-        grid-column: 2/9;
+        grid-column: 2/8;
         flex-direction: row;
-        margin-top: 80px;
-        margin-bottom: 130px;
+        margin-top: 150px;
     }
 }
 
@@ -472,7 +473,7 @@
     content: '“';
     font-size: 154px;
     font-weight: 800;
-    color: #D3D3D3;
+    color: #D6D6D6;
     position: absolute;
     top: -58px;
     left: -16px;
@@ -481,8 +482,8 @@
 
 @media screen and (min-width: 768px) {
     .openPage-testimonial-attribution:before {
-        top: -55px;
-        left: -90px;
+        top: -60px;
+        left: -110px;
     }
 }
 
@@ -515,7 +516,7 @@
 .openPage-testimonial-quote h1 {
     font-family: var(--serifFont);
     font-weight: 500;
-    max-width: 30ch;
+    max-width: 40ch;
     margin-bottom: 8px;
 }
 
@@ -528,7 +529,7 @@
 
 @media screen and (min-width: 768px) {
     .openPage-testimonial-quote {
-        margin-top: 90px;
+        margin-top: 70px;
     }
 
     .openPage-testimonial-quote h1 {
@@ -566,13 +567,12 @@
     }
 
     .openPage-gettingStarted-intro {
-        font-size: 25px;
         font-weight: 400;
     }
 }
 
 .openPage-gettingStarted-documents {
-    margin: 32px 0;
+    margin: 16px 0;
     flex-grow: 1;
     display: flex;
     align-items: flex-start;
@@ -651,9 +651,13 @@
     }
 }
 
+.openPage-gettingStarted-firstSteps {
+    margin: 8px 0;
+}
+
 @media screen and (min-width: 768px) {
     .openPage-gettingStarted {
-        padding: 32px;
+        padding: 16px 32px;
     }
 
     .openPage-gettingStarted-ctas {
@@ -785,7 +789,8 @@
     font-family: var(--serifFont);
     font-size: 36px;
     margin-top: 0;
-    flex-grow: 1;
+    margin-bottom: 36px;
+    /* flex-grow: 1; */
 }
 
 .openPage-spotlight-info {
@@ -851,6 +856,7 @@
 @media screen and (min-width: 768px) {
     .openPage-spotlight-carouselItem {
         flex-direction: row;
+        min-height: 480px;
     }
 }
 
