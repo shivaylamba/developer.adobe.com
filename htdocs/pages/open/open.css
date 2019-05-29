@@ -951,7 +951,7 @@
     height: 160px;
     flex-shrink: 0;
     background: whitesmoke;
-
+    background-size: cover;
 }
 
 @media screen and (min-width: 768px) {
@@ -1036,11 +1036,9 @@
 }
 
 .openPage-popularProjects-projectLogo {
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
     margin-bottom: 16px;
-    border-radius: 5px;
-    background: blue;
 }
 
 .openPage-popularProjects-projectsGroup {
