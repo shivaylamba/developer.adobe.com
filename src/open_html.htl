@@ -187,7 +187,9 @@
       <div class="openPage-testimonial spectrum--light">
         <div class="openPage-testimonial-attribution">
           <figure class="openPage-testimonial-attributionAvatar">
-            <img src="/static/pages/open/368b5013.david-nuescheler@2x.png" alt="A happy user" />
+            <img srcset="/static/pages/open/368b5013.david-nuescheler.jpg,
+            /static/pages/open/368b5013.david-nuescheler@2x.jpg 2x"
+              src="/static/pages/open/368b5013.david-nuescheler.jpg" loading="lazy" alt="David Nuescheler" />
           </figure>
           <div class="openPage-testimonial-attributionTitle">
             David Nuescheler<br /> Fellow &amp; VP, Developer Platform &amp; Ecosystem
@@ -225,14 +227,14 @@
         <div class="slides openPage-spotlight-carouselItemGroup">
           <div class="slide openPage-spotlight-carouselItem">
             <figure class="openPage-spotlight-carouselItem-image"
-              style="background-image: url(/static/pages/open/spotlight-assets/spectrum-illustration@2x.png)">
+              style="background-image: url(/static/pages/open/spotlight-assets/spectrum-illustration@2x.jpg)">
             </figure>
             <div class="openPage-spotlight-carouselItem-details">
               <div class="openPage-spotlight-carouselItem-header">
                 <figure class="openPage-spotlight-carouselItem-logo">
-                  <img width="64" srcset="/static/pages/open/spotlight-assets/spectrum-logo.png,
-                  /static/pages/open/spotlight-assets/spectrum-logo@2x.png 2x"
-                    src="/static/pages/open/spotlight-assets/spectrum-logo.png" loading="lazy" alt="Spectrum Logo" />
+                  <img width="64" srcset="/static/pages/open/spotlight-assets/spectrum-logo.jpg,
+                  /static/pages/open/spotlight-assets/spectrum-logo@2x.jpg 2x"
+                    src="/static/pages/open/spotlight-assets/spectrum-logo.jpg" loading="lazy" alt="Spectrum Logo" />
                 </figure>
                 <h2 class="openPage-spotlight-carouselItem-subtitle">Product Spotlight</h2>
                 <h1 class="openPage-spotlight-carouselItem-title">Spectrum CSS</h1>
@@ -375,9 +377,9 @@
           <div class="slide openPage-popularProjects-projectContainer">
             <div class="openPage-popularProjects-projectInfo">
               <figure class="openPage-popularProjects-projectLogo">
-                <img width="48" srcset="/static/pages/open/popular-project-logos/aem-logo.png,
-                /static/pages/open/popular-project-logos/aem-logo@2x.png 2x"
-                  src="/static/pages/open/popular-project-logos/aem-logo.png" loading="lazy" alt="AEM Logo" />
+                <img width="48" srcset="/static/pages/open/popular-project-logos/aem-logo.jpg,
+                /static/pages/open/popular-project-logos/aem-logo@2x.jpg 2x"
+                  src="/static/pages/open/popular-project-logos/aem-logo.jpg" loading="lazy" alt="AEM Logo" />
               </figure>
               <h1 class="openPage-popularProjects-projectName">AEM Core Components</h1>
               <p class="openPage-popularProjects-projectDescription">Adobe Experience Manager (AEM) Sites Core
