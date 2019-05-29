@@ -224,18 +224,18 @@
       <div id="spotlightCarousel" class="openPage-spotlight-carousel spectrum--light">
         <div class="slides openPage-spotlight-carouselItemGroup">
           <div class="slide openPage-spotlight-carouselItem">
-            <div class="openPage-spotlight-carouselItem-image">
-
-            </div>
+            <figure class="openPage-spotlight-carouselItem-image" style="background-image: url(/static/pages/open/spotlight-assets/spectrum-illustration@2x.png)">
+            </figure>
             <div class="openPage-spotlight-carouselItem-details">
-              <figure>
-                logo
+              <figure class="openPage-spotlight-slide1-logo">
+                <img width="64" srcset="/static/pages/open/spotlight-assets/spectrum-logo.png,
+                /static/pages/open/spotlight-assets/spectrum-logo@2x.png 2x" src="/static/pages/open/spotlight-assets/spectrum-logo.png"
+                  loading="lazy" alt="Spectrum Logo" />
               </figure>
               <p>Product Spotlight</p>
               <p>Spectrum CSS</p>
               <p>The goal of this project is to provide a standard CSS implementation of the Spectrum design language
-                for
-                internal and 3rd party use on Adobe’s platforms.</p>
+                for internal and 3rd party use on Adobe’s platforms.</p>
               <a href="https://github.com/adobe/spectrum-css" target="_blank"
                 class="spectrum-Button spectrum-Button--cta">Spectrum on Github</a>
             </div>
@@ -318,9 +318,11 @@
         <div class="slides openPage-popularProjects-projectsGroup">
           <div class="slide openPage-popularProjects-projectContainer">
             <div class="openPage-popularProjects-projectInfo">
-              <div class="openPage-popularProjects-projectLogo">
-                
-              </div>
+              <figure class="openPage-popularProjects-projectLogo">
+                <img width="48" srcset="/static/pages/open/popular-project-logos/brackets-logo.png,
+                /static/pages/open/popular-project-logos/brackets-logo@2x.png 2x" src="/static/pages/open/popular-project-logos/brackets-logo.png"
+                  loading="lazy" alt="Brackets Logo" />
+              </figure>
               <h1 class="openPage-popularProjects-projectName">Brackets</h1>
               <p class="openPage-popularProjects-projectDescription">An open source code editor for the web, written in
                 JavaScript, HTML and CSS. www.brackets.io</p>
@@ -340,7 +342,11 @@
           </div>
           <div class="slide openPage-popularProjects-projectContainer">
             <div class="openPage-popularProjects-projectInfo">
-              <div class="openPage-popularProjects-projectLogo"></div>
+              <figure class="openPage-popularProjects-projectLogo">
+                <img width="48" srcset="/static/pages/open/popular-project-logos/aem-logo.png,
+                /static/pages/open/popular-project-logos/aem-logo@2x.png 2x" src="/static/pages/open/popular-project-logos/aem-logo.png"
+                  loading="lazy" alt="AEM Logo" />
+              </figure>
               <h1 class="openPage-popularProjects-projectName">AEM Core Components</h1>
               <p class="openPage-popularProjects-projectDescription">Adobe Experience Manager (AEM) Sites Core
                 Components -
@@ -360,7 +366,11 @@
           </div>
           <div class="slide openPage-popularProjects-projectContainer">
             <div class="openPage-popularProjects-projectInfo">
-              <div class="openPage-popularProjects-projectLogo"></div>
+              <figure class="openPage-popularProjects-projectLogo">
+                <img width="48" srcset="/static/pages/open/popular-project-logos/hyde-logo.png,
+                /static/pages/open/popular-project-logos/hyde-logo@2x.png 2x" src="/static/pages/open/popular-project-logos/hyde-logo.png"
+                  loading="lazy" alt="Hyde Logo" />
+              </figure>
               <h1 class="openPage-popularProjects-projectName">hyde</h1>
               <p class="openPage-popularProjects-projectDescription">
                 A front-end to Jekyll that parses C++ sources to produce and enforce out-of-line documentation.
@@ -380,9 +390,13 @@
           </div>
           <div class="slide openPage-popularProjects-projectContainer">
             <div class="openPage-popularProjects-projectInfo">
-              <div class="openPage-popularProjects-projectLogo"></div>
+              <figure class="openPage-popularProjects-projectLogo">
+                <img width="48" srcset="/static/pages/open/popular-project-logos/magento-logo.png,
+                /static/pages/open/popular-project-logos/magento-logo@2x.png 2x" src="/static/pages/open/popular-project-logos/magento-logo.png"
+                  loading="lazy" alt="Magento Logo" />
+              </figure>
               <h1 class="openPage-popularProjects-projectName">Magento</h1>
-              <p class="openPage-popularProjects-projectDescription">...</p>
+              <p class="openPage-popularProjects-projectDescription">A cutting-edge, feature-rich eCommerce solution that gets results. <a class="spectum-Link" href="http://developer.magento.com/">developer.magento.com/</a></p>
             </div>
             <nav class="openPage-popularProjects-projectLinks">
               <a class="spectrum-Link" href="#">Contribution guidelines</a>
@@ -493,27 +507,27 @@
       <h1 class="openPage-sectionHeader">Community partners & projects</h1>
       <figure class="openPage-partnerItem">
         <img width="323"
-          srcset="/static/pages/open/partner-logos/magento.png, htdocs/pages/open/partner-logos/magento@2x.png 2x"
+          srcset="/static/pages/open/partner-logos/magento.png, /static/pages/open/partner-logos/magento@2x.png 2x"
           src="/static/pages/open/partner-logos/magento.png" loading="lazy" alt="Magento" />
       </figure>
       <figure class="openPage-partnerItem">
         <img width="239" srcset="/static/pages/open/partner-logos/kubernetes.png,
-        htdocs/pages/open/partner-logos/kubernetes@2x.png 2x" src="/static/pages/open/partner-logos/kubernetes.png"
+        /static/pages/open/partner-logos/kubernetes@2x.png 2x" src="/static/pages/open/partner-logos/kubernetes.png"
           loading="lazy" alt="Kubernetes" />
       </figure>
       <figure class="openPage-partnerItem">
         <img width="274" srcset="/static/pages/open/partner-logos/eslint.png,
-        htdocs/pages/open/partner-logos/eslint@2x.png 2x" src="/static/pages/open/partner-logos/eslint.png"
+        /static/pages/open/partner-logos/eslint@2x.png 2x" src="/static/pages/open/partner-logos/eslint.png"
           loading="lazy" alt="ESLint" />
       </figure>
       <figure class="openPage-partnerItem">
         <img width="392" srcset="/static/pages/open/partner-logos/open-whisk.png,
-        htdocs/pages/open/partner-logos/open-whisk@2x.png 2x" src="/static/pages/open/partner-logos/open-whisk.png"
+        /static/pages/open/partner-logos/open-whisk@2x.png 2x" src="/static/pages/open/partner-logos/open-whisk.png"
           loading="lazy" alt="Apache OpenWhisk" />
       </figure>
       <figure class="openPage-partnerItem">
         <img width="282" srcset="/static/pages/open/partner-logos/babel.png,
-        htdocs/pages/open/partner-logos/babel@2x.png 2x" src="/static/pages/open/partner-logos/babel.png"
+        /static/pages/open/partner-logos/babel@2x.png 2x" src="/static/pages/open/partner-logos/babel.png"
           loading="lazy" alt="Babel" />
       </figure>
       <figure class="openPage-partnerItem">
