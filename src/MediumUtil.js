@@ -42,8 +42,8 @@ function formatPostAsHTML(post) {
   const secondParagraphContent = (paragraphs[1] ? paragraphs[1].textContent : '');
 
   let caption = `${firstParagraphContent} ${secondParagraphContent}`;
-  if (caption.length > 340) {
-    caption = caption.substring(0, 340);
+  if (caption.length > 120) {
+    caption = caption.substring(0, 120);
     caption = caption.replace(/\w+$/, '...');
   }
   temp.innerHTML = caption;
