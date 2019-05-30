@@ -169,12 +169,12 @@
             </span>
           </div>
         </div>
-        <p class="openPage-gettingStarted-firstSteps">Ready to go? Sign the <a href="https://github.com/adobe"
+        <p class="openPage-gettingStarted-firstSteps">Ready to go? Sign the <a href="http://opensource.adobe.com/cla.html"
             target="_blank" rel="noopener noreferrer" class="spectrum-Link">Contributor
             License Agreement</a> then jump right into the <a href="https://github.com/adobe" class="spectrum-Link"
             target="_blank" rel="noopener noreferrer">Adobe organization on Github.</a></p>
         <footer class="openPage-gettingStarted-ctas">
-          <a href="https://github.com/adobe" target="_blank" rel="noopener noreferrer"
+          <a href="http://opensource.adobe.com/cla.html" target="_blank" rel="noopener noreferrer"
             class="spectrum-Button spectrum-Button--cta">
             Sign the CLA
           </a>
@@ -336,16 +336,16 @@
                 href="http://www.brackets.io">www.brackets.io</a></p>
             </div>
             <nav class="openPage-popularProjects-projectLinks">
-              <a class="spectrum-Link" href="https://github.com/adobe/brackets">Contribution guidelines</a>
-              <a class="spectrum-Link" href="#">API Reference</a>
-              <a class="spectrum-Link" href="#">Latest Release</a>
+              <a class="spectrum-Link" href="https://github.com/adobe/brackets/blob/master/CONTRIBUTING.md">Contribution guidelines</a>
+              <a class="spectrum-Link" href="http://brackets.io/docs/current/modules/brackets.html">API Reference</a>
+              <a class="spectrum-Link" href="https://github.com/adobe/brackets/releases">Latest Release</a>
             </nav>
             <div class="openPage-popularProjects-projectHomepage">
               <div class="openPage-popularProjects-projectStats">
                 <span class="openPage-popularProjects-projectStars">29.7k</span>
                 <span class="openPage-popularProjects-projectForks">6.4k</span>
               </div>
-              <a href="https://github.com/adobe/spectrum-css" target="_blank"
+              <a href="https://github.com/adobe/brackets" target="_blank"
                 class="spectrum-Button spectrum-Button--primary">Brackets on Github</a>
             </div>
           </div>
@@ -362,16 +362,16 @@
                   href="http://developer.magento.com/">developer.magento.com/</a></p>
             </div>
             <nav class="openPage-popularProjects-projectLinks">
-              <a class="spectrum-Link" href="#">Documentation</a>
-              <a class="spectrum-Link" href="#">Developer Portal</a>
-              <a class="spectrum-Link" href="#">Community Hub</a>
+              <a class="spectrum-Link" href="https://docs.magento.com/marketplace/user_guide/getting-started.html">Documentation</a>
+              <a class="spectrum-Link" href="https://devdocs.magento.com/#/individual-contributors">Developer Portal</a>
+              <a class="spectrum-Link" href="https://community.magento.com">Community Hub</a>
             </nav>
             <div class="openPage-popularProjects-projectHomepage">
               <div class="openPage-popularProjects-projectStats">
                 <span class="openPage-popularProjects-projectStars">7.4k</span>
                 <span class="openPage-popularProjects-projectForks">6.4k</span>
               </div>
-              <a href="#" target="_blank" class="spectrum-Button spectrum-Button--primary">Magento on Github</a>
+              <a href="https://github.com/magento/magento2" target="_blank" class="spectrum-Button spectrum-Button--primary">Magento on Github</a>
             </div>
           </div>
           <div class="slide openPage-popularProjects-projectContainer">
@@ -387,16 +387,16 @@
                 flexible, extensible, and feature-rich components to build sites.</p>
             </div>
             <nav class="openPage-popularProjects-projectLinks">
-              <a class="spectrum-Link" href="#">Contribution guidelines</a>
-              <a class="spectrum-Link" href="#">API Reference</a>
-              <a class="spectrum-Link" href="#">Latest Release</a>
+              <a class="spectrum-Link" href="https://github.com/adobe/aem-core-wcm-components/blob/master/CONTRIBUTING.md">Contribution guidelines</a>
+              <a class="spectrum-Link" href="https://docs.adobe.com/content/help/en/experience-manager-core-components/using/introduction.html">API Reference</a>
+              <a class="spectrum-Link" href="https://github.com/adobe/aem-core-wcm-components/blob/master/VERSIONS.md">Latest Release</a>
             </nav>
             <div class="openPage-popularProjects-projectHomepage">
               <div class="openPage-popularProjects-projectStats">
-                <span class="openPage-popularProjects-projectStars">257</span>
-                <span class="openPage-popularProjects-projectForks">203</span>
+                <span class="openPage-popularProjects-projectStars">274</span>
+                <span class="openPage-popularProjects-projectForks">213</span>
               </div>
-              <a href="#" target="_blank" class="spectrum-Button spectrum-Button--primary">AEM on Github</a>
+              <a href="https://github.com/adobe/aem-core-wcm-components" target="_blank" class="spectrum-Button spectrum-Button--primary">AEM on Github</a>
             </div>
           </div>
           <div class="slide openPage-popularProjects-projectContainer">
@@ -412,16 +412,16 @@
               </p>
             </div>
             <nav class="openPage-popularProjects-projectLinks">
-              <a class="spectrum-Link" href="#">What is hyde</a>
-              <a class="spectrum-Link" href="#">API Reference</a>
-              <a class="spectrum-Link" href="#">Latest Release</a>
+              <a class="spectrum-Link" href="https://github.com/adobe/hyde#what-is-hyde">What is hyde</a>
+              <a class="spectrum-Link" href="https://github.com/adobe/hyde/blob/master/CONTRIBUTING.md">Contribution Guidelines</a>
+              <a class="spectrum-Link" href="http://stlab.cc/libraries/stlab2Fcopy_on_write.hpp/copy_on_write3CT3E/">Sample Output</a>
             </nav>
             <div class="openPage-popularProjects-projectHomepage">
               <div class="openPage-popularProjects-projectStats">
-                <span class="openPage-popularProjects-projectStars">206</span>
-                <span class="openPage-popularProjects-projectForks">8</span>
+                <span class="openPage-popularProjects-projectStars">210</span>
+                <span class="openPage-popularProjects-projectForks">9</span>
               </div>
-              <a href="#" target="_blank" class="spectrum-Button spectrum-Button--primary">hyde on Github</a>
+              <a href="https://github.com/adobe/hyde" target="_blank" class="spectrum-Button spectrum-Button--primary">hyde on Github</a>
             </div>
           </div>
         </div>
@@ -459,7 +459,7 @@
               <p class="openPage-standards-formatDescription">Adobe’s tag-based file format for storing and
                 interchanging
                 raster images.</p>
-              <a class="spectrum-Link" href="#">Docs</a>
+              <a class="spectrum-Link" href="https://www.adobe.io/open/standards/TIFF.html">Docs</a>
             </div>
           </div>
           <div class="openPage-standards-format">
@@ -469,7 +469,7 @@
               <p class="openPage-standards-formatFullname">Portable Document Format (PDF)</p>
               <p class="openPage-standards-formatDescription">Originally published by Adobe, PDF is now the ISO 32000-1
                 standard.</p>
-              <a class="spectrum-Link" href="#">Learn more</a>
+              <a class="spectrum-Link" href="https://www.adobe.com/devnet/pdf/pdf_reference.html">Learn more</a>
             </div>
           </div>
           <div class="openPage-standards-format">
@@ -478,7 +478,7 @@
               <h1 class="openPage-standards-formatAcronym">OpenType</h1>
               <p class="openPage-standards-formatDescription">Scalable computer font format developed by Microsoft,
                 contributed to by Adobe.</p>
-              <a class="spectrum-Link" href="#">Learn more</a>
+              <a class="spectrum-Link" href="https://www.adobe.com/ca/products/type/opentype.html">Learn more</a>
             </div>
           </div>
           <div class="openPage-standards-format">
@@ -488,7 +488,7 @@
               <p class="openPage-standards-formatFullname">Scalable Vector Graphics (SVG)</p>
               <p class="openPage-standards-formatDescription">Adobe contributed to the vector image format originally
                 developed by W3C.</p>
-              <a class="spectrum-Link" href="#">Learn more</a>
+              <a class="spectrum-Link" href="https://www.adobe.com/devnet/svg.html">Learn more</a>
             </div>
           </div>
           <div class="openPage-standards-format">
@@ -500,7 +500,7 @@
                 metadata
                 into files themselves during the content
                 creation process.</p>
-              <a class="spectrum-Link" href="#">Learn more</a>
+              <a class="spectrum-Link" href="https://www.adobe.io/open/standards/xmp.html">Learn more</a>
             </div>
           </div>
           <div class="openPage-standards-format">
@@ -510,7 +510,7 @@
               <p class="openPage-standards-formatFullname">Experience Data Model (XDM)</p>
               <p class="openPage-standards-formatDescription">Adobe defines one interoperable language that makes
                 integration, data portability, and innovation easy.</p>
-              <a class="spectrum-Link" href="#">Learn more</a>
+              <a class="spectrum-Link" href="https://www.adobe.io/open/standards/xdm.html">Learn more</a>
             </div>
           </div>
         </div>
