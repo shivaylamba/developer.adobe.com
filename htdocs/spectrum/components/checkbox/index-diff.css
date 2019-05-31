@@ -1,11 +1,9 @@
-/* generated from dna-version: 5.9.0 */
 .spectrum--large .spectrum-Checkbox {
 
-  height: 40px;
+  min-height: 40px;
 
   margin-right: 20px;
 }
-/* generated from dna-version: 5.9.0 */
 .spectrum--large .spectrum-Checkbox-input {
   left: -10px;
   width: calc(100% + 20px);
@@ -22,10 +20,13 @@
   font-size: 17px;
   font-weight: 400;
   transition: color 130ms ease-in-out;
+
+  margin-top: 8px;
 }
 .spectrum--large .spectrum-Checkbox-box {
   width: 18px;
   height: 18px;
+  margin: 11px 0;
 
   border-radius: 2px;
   border-width: 2px;

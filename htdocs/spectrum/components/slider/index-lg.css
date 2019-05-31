@@ -1,10 +1,6 @@
-/* generated from dna-version: 5.9.0 */
-/* generated from dna-version: 5.9.0 */
 .spectrum-Slider,
 .spectrum-Dial {
   position: relative;
-
-  /* Don't let z-index'd child elements float above other things on the page */
   z-index: 1;
   display: block;
   min-height: 40px;
@@ -25,8 +21,6 @@
 
   position: relative;
   z-index: auto;
-
-  /* These calculations prevent the track from spilling outside of the control */
   width: calc(100% - 20px);
   margin-left: 10px;
   min-height: 40px;
@@ -35,7 +29,8 @@
 }
 .spectrum-Slider-track,
 .spectrum-Slider-buffer,
-.spectrum-Slider-ramp {
+.spectrum-Slider-ramp,
+.spectrum-Slider-fill {
   height: 2px;
   box-sizing: border-box;
 
@@ -50,17 +45,25 @@
   pointer-events: none;
 }
 .spectrum-Slider-track,
-.spectrum-Slider-buffer {
+.spectrum-Slider-buffer,
+.spectrum-Slider-fill {
   padding: 0 4px 0 0;
   margin-left: -10px;
 }
-.spectrum-Slider-track::before, .spectrum-Slider-buffer::before {
+.spectrum-Slider-track::before, .spectrum-Slider-buffer::before, .spectrum-Slider-fill::before {
     content: '';
     display: block;
     height: 100%;
 
     border-radius: 1px;
   }
+.spectrum-Slider-fill {
+  margin-left: 0;
+  padding: 0 0 0 14px;
+}
+.spectrum-Slider-fill--right {
+  padding: 0 14px 0 0;
+}
 .spectrum-Slider-buffer {
   padding: 0 4px 0 0;
 }
@@ -104,7 +107,6 @@
       margin-right: -10px;
     }
 .spectrum-Slider-buffer {
-  /* Appear above track */
   z-index: 2;
 }
 .spectrum-Slider-ramp {
@@ -163,7 +165,6 @@
   }
 .spectrum-Slider-input,
 .spectrum-Dial-input {
-  /*  Remove the margin for input in Firefox and Safari. */
   margin: 0;
 
   width: 20px;
@@ -208,6 +209,9 @@
       flex-grow: 0;
   padding-right: 0;
   cursor: default;
+}
+.spectrum-Slider-value {
+  margin-left: 20px;
 }
 .spectrum-Slider-ticks {
   display: -ms-flexbox;
@@ -307,7 +311,6 @@
   margin-bottom: 6px;
 }
 .spectrum-Dial-label:only-child {
-    /* Only center if we don't have a value */
     text-align: center;
   }
 .spectrum-Dial-controls {

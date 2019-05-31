@@ -1,22 +1,7 @@
-/* generated from dna-version: 5.9.0 */
-/* generated from dna-version: 5.9.0 */
-/* Temporary skin variables that need to be moved into origins */
-:root {
-  /* Icon Button*/
-
-  /* Button */
-
-  /* Shell */
-
-  /* haha remove this */
-
-  /* Custom selection color for placeholders using global blue-500 at 30% opacity. Should be updated in Spectrum-DNA */
-}
 .spectrum--darkest .spectrum-Button.focus-ring {
     box-shadow: 0 0 0 1px rgb(20, 115, 230);
   }
 .spectrum--darkest .spectrum-Button:active {
-    /* Override focus -- clicking with spacebar should not show outline */
     box-shadow: none;
   }
 .spectrum--darkest .spectrum-ClearButton {
@@ -45,9 +30,6 @@
 
     color: rgb(92, 92, 92);
   }
-/* topdoc
-{{ button/button-cta.yml }}
-*/
 .spectrum--darkest .spectrum-Button--cta {
   background-color: rgb(20, 115, 230);
   border-color: rgb(20, 115, 230);
@@ -74,9 +56,6 @@
     border-color: rgb(44, 44, 44);
     color: rgb(92, 92, 92);
   }
-/* topdoc
-{{ button/button-primary.yml }}
-*/
 .spectrum--darkest .spectrum-Button--primary {
   background-color: rgba(0, 0, 0, 0);
   border-color: rgb(200, 200, 200);
@@ -103,9 +82,6 @@
     border-color: rgb(44, 44, 44);
     color: rgb(92, 92, 92);
   }
-/* topdoc
-{{ button/button-secondary.yml }}
-*/
 .spectrum--darkest .spectrum-Button--secondary {
   background-color: rgba(0, 0, 0, 0);
   border-color: rgb(162, 162, 162);
@@ -132,9 +108,6 @@
     border-color: rgb(44, 44, 44);
     color: rgb(92, 92, 92);
   }
-/* topdoc
-{{ button/button-warning.yml }}
-*/
 .spectrum--darkest .spectrum-Button--warning {
   background-color: rgba(0, 0, 0, 0);
   border-color: rgb(236, 91, 98);
@@ -161,9 +134,6 @@
     border-color: rgb(44, 44, 44);
     color: rgb(92, 92, 92);
   }
-/* topdoc
-{{ button/button-over-background.yml }}
-*/
 .spectrum--darkest .spectrum-Button--overBackground {
   background-color: rgba(0, 0, 0, 0);
   border-color: rgb(255, 255, 255);
@@ -192,9 +162,6 @@
     border-color: rgba(0, 0, 0, 0);
     color: rgba(255,255,255,0.35);
   }
-/* topdoc
-{{ button/button-quiet-over-background.yml }}
-*/
 .spectrum--darkest .spectrum-Button--overBackground.spectrum-Button--quiet,
 .spectrum--darkest .spectrum-ClearButton--overBackground {
   background-color: rgba(0, 0, 0, 0);
@@ -226,9 +193,6 @@
     border-color: rgba(0, 0, 0, 0);
     color: rgba(255,255,255,0.15);
   }
-/* topdoc
-{{ button/button-quiet-primary.yml }}
-*/
 .spectrum--darkest .spectrum-Button--primary.spectrum-Button--quiet {
   background-color: rgba(0, 0, 0, 0);
   border-color: rgba(0, 0, 0, 0);
@@ -255,9 +219,6 @@
     border-color: rgba(0, 0, 0, 0);
     color: rgb(92, 92, 92);
   }
-/* topdoc
-{{ button/button-quiet-secondary.yml }}
-*/
 .spectrum--darkest .spectrum-Button--secondary.spectrum-Button--quiet {
   background-color: rgba(0, 0, 0, 0);
   border-color: rgba(0, 0, 0, 0);
@@ -284,9 +245,6 @@
     border-color: rgba(0, 0, 0, 0);
     color: rgb(92, 92, 92);
   }
-/* topdoc
-{{ button/actionbutton.yml }}
-*/
 .spectrum--darkest .spectrum-ActionButton,
 .spectrum--darkest .spectrum-Tool {
   background-color: rgb(26, 26, 26);
@@ -400,9 +358,6 @@
 .spectrum--darkest .spectrum-ActionButton.is-selected:disabled .spectrum-Icon, .spectrum--darkest .spectrum-ActionButton.is-selected.is-disabled .spectrum-Icon {
         color: rgb(73, 73, 73);
       }
-/* topdoc
-{{ button/actionbutton-quiet.yml }}
-*/
 .spectrum--darkest .spectrum-ActionButton--quiet,
 .spectrum--darkest .spectrum-Tool {
   background-color: rgba(0, 0, 0, 0);
@@ -463,9 +418,6 @@
       border-color: rgb(44, 44, 44);
       color: rgb(92, 92, 92);
     }
-/* topdoc
-{{ button/button-quiet-warning.yml }}
-*/
 .spectrum--darkest .spectrum-Button--warning.spectrum-Button--quiet {
   background-color: rgba(0, 0, 0, 0);
   border-color: rgba(0, 0, 0, 0);
@@ -492,9 +444,6 @@
     border-color: rgba(0, 0, 0, 0);
     color: rgb(92, 92, 92);
   }
-/* topdoc
-{{ button/logicbutton.yml }}
-*/
 .spectrum--darkest .spectrum-LogicButton--and {
   background-color: rgb(38, 128, 235);
   border-color: rgb(38, 128, 235);
@@ -537,9 +486,6 @@
     border-color: rgb(44, 44, 44);
     color: rgb(92, 92, 92);
   }
-/* topdoc
-{{ button/clearbutton-medium.yml }}
-*/
 .spectrum--darkest .spectrum-FieldButton {
   color: rgb(200, 200, 200);
   background-color: rgb(26, 26, 26);

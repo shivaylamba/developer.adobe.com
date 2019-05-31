@@ -1,18 +1,9 @@
-/* generated from dna-version: 5.9.0 */
-/* generated from dna-version: 5.9.0 */
 .spectrum-Icon {
   display: inline-block;
-
-  /* Inherit the text color */
   color: inherit;
-
-  /* Fill should match the current text color */
   fill: currentColor;
-
-  /* Don't catch clicks or hover, otherwise they may not escape the SVG */
   pointer-events: none;
 }
-/* Hide the svg overflow in IE. */
 .spectrum-Icon:not(:root) {
     overflow: hidden;
   }
@@ -58,7 +49,6 @@
     height: 90px;
     width: 90px;
   }
-/* Hide UI icons on older browsers with SVG 1.1 implementations */
 .spectrum--medium .spectrum-UIIcon--large {
     display: none;
   }
@@ -71,7 +61,6 @@
 .spectrum--large .spectrum-UIIcon--large {
     display: inline;
   }
-/* Hide UI icons on browsers that implement SVG 2 correctly (Firefox 56+) */
 .spectrum--large {
   --ui-icon-large-display: block;
   --ui-icon-medium-display: none;
@@ -86,7 +75,6 @@
 .spectrum-UIIcon--medium {
   display: var(--ui-icon-medium-display);
 }
-/* UI Icons */
 .spectrum-UIIcon-AlertMedium {
   width: 22px;
   height: 22px;
@@ -170,6 +158,10 @@
 .spectrum-UIIcon-DoubleGripper {
   width: 20px;
   height: 5px;
+}
+.spectrum-UIIcon-FolderBreadcrumb {
+  width: 22px;
+  height: 22px;
 }
 .spectrum-UIIcon-HelpMedium {
   width: 22px;

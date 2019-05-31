@@ -1,14 +1,12 @@
-/* generated from dna-version: 5.9.0 */
-/* generated from dna-version: 5.9.0 */
 .spectrum-Checkbox {
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -ms-flex-align: center;
-      align-items: center;
+  -ms-flex-align: start;
+      align-items: flex-start;
 
   position: relative;
 
-  height: 40px;
+  min-height: 40px;
   max-width: 100%;
 
   margin-right: 20px;
@@ -16,24 +14,13 @@
   vertical-align: top;
 }
 .spectrum-Checkbox-input {
-  /* Change the font styles in all browsers for input. */
   font-family: inherit;
   font-size: 100%;
   line-height: 1.15;
-
-  /* Remove the margin for input in Firefox and Safari. */
   margin: 0;
-
-  /* Show the overflow for input in Edge. */
   overflow: visible;
-
-  /* Add the correct box sizing for [type="checkbox"] in IE 10-. */
   box-sizing: border-box;
-
-  /* Remove the padding for [type="checkbox"] in IE 10-. */
   padding: 0;
-
-  /* Hit area */
   position: absolute;
   top: 0;
   left: -10px;
@@ -74,16 +61,14 @@
   font-weight: 400;
   transition: color 130ms ease-in-out;
 
-  white-space: nowrap;
-
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin-top: 8px;
 }
 .spectrum-Checkbox-box {
   position: relative;
   box-sizing: border-box;
   width: 18px;
   height: 18px;
+  margin: 11px 0;
 
   -ms-flex-positive: 0;
 

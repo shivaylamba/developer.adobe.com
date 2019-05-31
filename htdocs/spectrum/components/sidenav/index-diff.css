@@ -1,8 +1,3 @@
-/* generated from dna-version: 5.9.0 */
-.spectrum--large .spectrum-SideNav {
-  width: 300px;
-}
-/* generated from dna-version: 5.9.0 */
 .spectrum--large .spectrum-SideNav-item {
 
   margin: 5px 0;
@@ -24,6 +19,9 @@
 
     border: 2px solid transparent;
     border-radius: 5px;
+  }
+.spectrum--large .spectrum-SideNav-itemLink .spectrum-SideNav-itemIcon {
+    margin-right: 10px;
   }
 .spectrum--large .spectrum-SideNav-heading {
   height: 40px;

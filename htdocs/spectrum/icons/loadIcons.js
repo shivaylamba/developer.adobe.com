@@ -10,8 +10,6 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* eslint-disable */
-
 // UMD pattern via umdjs
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
