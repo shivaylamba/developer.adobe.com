@@ -1,17 +1,3 @@
-/* generated from dna-version: 5.9.0 */
-/* generated from dna-version: 5.9.0 */
-/* Temporary skin variables that need to be moved into origins */
-:root {
-  /* Icon Button*/
-
-  /* Button */
-
-  /* Shell */
-
-  /* haha remove this */
-
-  /* Custom selection color for placeholders using global blue-500 at 30% opacity. Should be updated in Spectrum-DNA */
-}
 .spectrum--dark .spectrum-Checkbox-label {
   color: rgb(227, 227, 227);
 }
@@ -23,7 +9,6 @@
   border-color: rgb(144, 144, 144);
   background-color: rgb(47, 47, 47);
 }
-/* Indetermiate is basically a checked state, so handle colors for checked state here */
 .spectrum--dark .spectrum-Checkbox.is-indeterminate .spectrum-Checkbox-box,
 .spectrum--dark .spectrum-Checkbox-input:checked + .spectrum-Checkbox-box {
   border-color: rgb(55, 142, 240);
@@ -38,9 +23,6 @@
     border-color: rgb(90, 169, 250);
 
   }
-/* topdoc
-{{ checkbox/checkbox.yml }}
-*/
 .spectrum--dark .spectrum-Checkbox {
   border-color: rgb(144, 144, 144);
 }
@@ -60,7 +42,6 @@
       color: rgb(255, 255, 255);
     }
 .spectrum--dark .spectrum-Checkbox-input:disabled + .spectrum-Checkbox-box {
-    /* Use important to override hover states */
     border-color: rgb(90, 90, 90) !important;
 
     background-color: rgb(47, 47, 47);
@@ -68,9 +49,7 @@
 .spectrum--dark .spectrum-Checkbox-input:disabled ~ .spectrum-Checkbox-label {
     color: rgb(110, 110, 110);
   }
-/* Focus */
 .spectrum--dark .spectrum-Checkbox-input.focus-ring + .spectrum-Checkbox-box {
-    /* Since the specificity of .focus-ring is less than :hover, we need important */
     border-color: rgb(38, 128, 235) !important;
 
     box-shadow: 0 0 0 1px rgb(38, 128, 235) !important;
@@ -78,9 +57,6 @@
 .spectrum--dark .spectrum-Checkbox-input.focus-ring ~ .spectrum-Checkbox-label {
     color: rgb(75, 156, 245) !important;
   }
-/* topdoc
-{{ checkbox/checkbox-quiet.yml }}
-*/
 .spectrum--dark .spectrum-Checkbox--quiet.is-indeterminate .spectrum-Checkbox-box,
   .spectrum--dark .spectrum-Checkbox--quiet .spectrum-Checkbox-input:checked + .spectrum-Checkbox-box {
   border-color: rgb(185, 185, 185);
@@ -93,7 +69,6 @@
   .spectrum--dark .spectrum-Checkbox--quiet:active .spectrum-Checkbox-input:checked + .spectrum-Checkbox-box {
     border-color: rgb(255, 255, 255);
   }
-/* Extra-specific selectors added here to handle checked state */
 .spectrum--dark .spectrum-Checkbox.is-invalid .spectrum-Checkbox-input:checked + .spectrum-Checkbox-box,
   .spectrum--dark .spectrum-Checkbox.is-invalid .spectrum-Checkbox-box {
     border-color: rgb(236, 91, 98);

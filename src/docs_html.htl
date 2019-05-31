@@ -11,11 +11,22 @@
 * governing permissions and limitations under the License.
 */
 -->
-<link rel="stylesheet" href="/static/spectrum/spectrum-css-grid.css" />
+<link rel="stylesheet" href="/static/spectrum/components/textfield/index.css" />
+<link rel="stylesheet" href="/static/spectrum/components/textfield/index-diff.css" media="(max-width: 900px)" />
+<link rel="stylesheet" href="/static/spectrum/components/textfield/multiStops/light.css" />
+<link rel="stylesheet" href="/static/spectrum/components/search/index.css" />
+<link rel="stylesheet" href="/static/spectrum/components/search/index-diff.css" media="(max-width: 900px)" />
+<link rel="stylesheet" href="/static/spectrum/components/search/multiStops/light.css" />
+<link rel="stylesheet" href="/static/spectrum/components/sidenav/index.css" />
+<link rel="stylesheet" href="/static/spectrum/components/sidenav/index-diff.css" media="(max-width: 900px)" />
+<link rel="stylesheet" href="/static/spectrum/components/sidenav/multiStops/light.css" />
+<link rel="stylesheet" href="/static/spectrum/components/well/index.css" />
+<link rel="stylesheet" href="/static/spectrum/components/well/index-diff.css" media="(max-width: 900px)" />
+<link rel="stylesheet" href="/static/spectrum/components/well/multiStops/light.css" />
 <link rel="stylesheet" href="/static/pages/docs/docs.css" />
 <script src="https://momentjs.com/downloads/moment.min.js"></script>
 
-<div class="docsPage">
+<div class="docsPage spectrum--light">
     <div class="docsPage-nav" id="docs-summary">
         <form action="https://www.google.com/search" method="GET" class="docsPage-search spectrum-Search">
             <input type="search" placeholder="Search docs" name="q" value="" class="spectrum-Textfield spectrum-Search-input">

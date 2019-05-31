@@ -1,14 +1,12 @@
-/* generated from dna-version: 5.9.0 */
-/* generated from dna-version: 5.9.0 */
 .spectrum-Radio {
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -ms-flex-align: center;
-      align-items: center;
+  -ms-flex-align: start;
+      align-items: flex-start;
 
   position: relative;
 
-  height: 32px;
+  min-height: 32px;
   max-width: 100%;
 
   margin-right: 16px;
@@ -16,24 +14,13 @@
   vertical-align: top;
 }
 .spectrum-Radio-input {
-  /* Change the font styles in all browsers for input. */
   font-family: inherit;
   font-size: 100%;
   line-height: 1.15;
-
-  /* Remove the margin for input in Firefox and Safari. */
   margin: 0;
-
-  /* Show the overflow for input in Edge. */
   overflow: visible;
-
-  /* Add the correct box sizing for [type="radio"] in IE 10-. */
   box-sizing: border-box;
-
-  /* Remove the padding for [type="radio"] in IE 10-. */
   padding: 0;
-
-  /* Hit area */
   position: absolute;
   top: 0;
   left: -8px;
@@ -56,17 +43,14 @@
   font-size: 14px;
 
   transition: color 130ms ease-in-out;
-
-  white-space: nowrap;
-
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin-top: 6px;
 }
 .spectrum-Radio-button {
   position: relative;
   box-sizing: border-box;
   width: 14px;
   height: 14px;
+  margin: 9px 0;
 
   -ms-flex-positive: 0;
 

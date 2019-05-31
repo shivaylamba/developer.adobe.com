@@ -1,10 +1,8 @@
-/* generated from dna-version: 5.9.0 */
 .spectrum--large .spectrum-Table-sortedIcon {
   margin-left: 13px;
 
   transition: transform 130ms ease-in-out;
 }
-/* generated from dna-version: 5.9.0 */
 .spectrum--large .spectrum-Table-headCell {
   font-size: 13px;
   font-weight: 700;
@@ -47,11 +45,11 @@
   padding: 18px 20px;
   min-height: 24px;
 }
-.spectrum--large .spectrum-Table-cell.focus-ring::before, .spectrum--large .spectrum-Table-cell .is-focused::before, .spectrum--large .spectrum-Table-headCell.focus-ring::before, .spectrum--large .spectrum-Table-headCell .is-focused::before {
+.spectrum--large .spectrum-Table-cell.focus-ring::before, .spectrum--large .spectrum-Table-cell.is-focused::before, .spectrum--large .spectrum-Table-headCell.focus-ring::before, .spectrum--large .spectrum-Table-headCell.is-focused::before {
 
       border-radius: 4px;
     }
-.spectrum--large .spectrum-Table-headCell.focus-ring::before, .spectrum--large .spectrum-Table-headCell .is-focused::before {
+.spectrum--large .spectrum-Table-headCell.focus-ring::before, .spectrum--large .spectrum-Table-headCell.is-focused::before {
       top: 1px;
       right: 1px;
       bottom: 1px;

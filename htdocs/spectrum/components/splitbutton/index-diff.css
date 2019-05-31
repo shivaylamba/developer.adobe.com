@@ -1,9 +1,7 @@
-/* generated from dna-version: 5.9.0 */
 .spectrum--large .spectrum-SplitButton + .spectrum-SplitButton,
   .spectrum--large .spectrum-SplitButton + .spectrum-Button {
     margin-left: 15px;
   }
-/* generated from dna-version: 5.9.0 */
 .spectrum--large .spectrum-Button + .spectrum-SplitButton {
   margin-left: 15px;
 }
