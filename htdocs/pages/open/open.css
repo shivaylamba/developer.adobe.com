@@ -307,71 +307,73 @@
 
 @keyframes triangle1 {
     0% {
-        transform: translate(25%, 0);
+        transform: translate(0, 0);
     }
 
     25% {
-        transform: translate(25%, 25%);
+        transform: translate(10%, 10%);
     }
 
     26% {
-        transform: translate(25%, 25%);
+        transform: translate(10%, 10%);
     }
 
     50% {
-        transform: translate(50%, 75%);
+        transform: translate(20%, 30%);
     }
 
     51% {
-        transform: translate(50%, 75%);
+        transform: translate(20%, 30%);
     }
 
     75% {
-        transform: translate(5%, 25%);
+        transform: translate(-10%, 10%);
     }
 
     76% {
-        transform: translate(5%, 25%);
+        transform: translate(-10%, 10%);
     }
 
     100% {
-        transform: translate(25%, 0);
+        transform: translate(0, 0);
     }
 }
 
 #Xes>* {
     opacity: 0;
-    animation: hideshow 5s ease infinite;
+    animation: hideshow 30s ease infinite;
 }
 
-#Waves1 {
-    animation: waves1 15s ease infinite;
+#Wave2 {
+    animation: waves1 30s ease infinite;
     animation-direction: alternate;
 }
 
-#Waves0 {
-    animation: waves2 30s ease infinite;
+#Wave1 {
+    animation: waves2 60s ease infinite;
     animation-direction: alternate-reverse;
 }
 
 #Triangles>* {
-    animation: triangle1 60s linear infinite;
-}
-
-#Triangle0 {
-    animation-delay: 0s;
+    animation: triangle1 45s linear infinite;
 }
 
 #Triangle1 {
-    animation-delay: 15s;
+    animation-delay: 0s;
 }
 
 #Triangle2 {
-    animation-delay: 30s;
+    animation-delay: 2s;
+    animation-direction: reverse;
 }
 
 #Triangle3 {
-    animation-delay: 60s;
+    animation-delay: 4s;
+}
+
+#Triangle4 {
+    animation-delay: 6s;
+    animation-direction: reverse;
 }
 
 #X0 {
@@ -414,6 +416,28 @@
 
 #X9 {
     animation-delay: 10s
+}
+
+#CenterDot {
+    transform-origin: center;
+    animation: ring-rotation 50s linear infinite;
+    animation-direction: reverse;
+}
+
+#InnerCorrugatedRing {
+    transform-origin: center;
+    animation: ring-rotation 400s linear infinite;
+}
+
+#OuterCorrugatedRing {
+    transform-origin: center;
+    animation: ring-rotation 800s linear infinite;
+    animation-direction: reverse;
+}
+
+#OffcenterCorrugatedRing {
+    transform-origin: center;
+    animation: ring-rotation 600s linear infinite;
 }
 
 /*************************************************
