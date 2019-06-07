@@ -17,9 +17,6 @@
  * @param context The current context of processing pipeline
  * @param context.content The content
  */
-
-const SpectrumSVGUtil = require('./utilities/SpectrumSVGUtil.js');
-
 function pre(context, action) {
   context.dispatch = {};
   const { logger } = action;

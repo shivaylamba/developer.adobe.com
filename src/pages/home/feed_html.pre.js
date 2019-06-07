@@ -11,17 +11,22 @@
  */
 
 // eslint-disable-next-line import/no-extraneous-dependencies, import/no-unresolved
-const postProcess = require('./utilities/postProcess.js');
+const MediumUtil = require('../../utilities/MediumUtil.js');
 
 async function pre(context, action) {
   const { logger } = action;
-  logger.info('open pre.js');
+  const { content } = context;
+  content.mediumArticles = await MediumUtil.getPostsAsHTML(logger, 'https://medium.com/feed/adobetech');
   return context;
 }
 
 module.exports.pre = pre;
 module.exports.after = {
-  post: (context, action) => {
-    postProcess(context, action);
-  },
+  html: () => ({ // this function also gets a context argument (if needed)
+    response: {
+      headers: {
+        'Cache-Control': 'max-age=900',
+      },
+    },
+  }),
 };

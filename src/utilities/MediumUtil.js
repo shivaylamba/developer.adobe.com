@@ -14,7 +14,7 @@
 const jsdom = require('jsdom');
 const RSSParser = require('rss-parser');
 const moment = require('moment');
-const DOMUtil = require('./utilites/DOM_munging.js/index.js');
+const DOMUtil = require('./DOM_munging.js');
 
 const rss = new RSSParser();
 

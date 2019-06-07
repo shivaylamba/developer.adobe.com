@@ -17,18 +17,20 @@ let iconContainer = null;
 let iconReferences = null;
 const src = {};
 
-function findOrCreateIconContainer(document) {
-  iconContainer = createElement(document,'svg');
-  iconContainer.style.display = 'none';
-  document.prepend(iconContainer);
+function createElement(document, elementDefinition) {
+  let el = null;
+  if (document.createElement) {
+    el = document.createElement(elementDefinition);
+  } else {
+    el = document.ownerDocument.createElement(elementDefinition);
+  }
+  return el;
 }
 
-function createElement(document, elementDefinition) {
-  if (document.createElement) {
-    return document.createElement(elementDefinition);
-  } else {
-    return document.ownerDocument.createElement(elementDefinition);
-  }
+function findOrCreateIconContainer(document) {
+  iconContainer = createElement(document, 'svg');
+  iconContainer.style.display = 'none';
+  document.prepend(iconContainer);
 }
 
 function loadIconSourceFiles() {
@@ -57,7 +59,7 @@ function injectIcons() {
     if (icon) {
       iconContainer.appendChild(icon);
     }
-  };
+  }
 }
 
 async function injectSpectrumIconsAsSVG(context, action) {

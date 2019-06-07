@@ -11,7 +11,7 @@
  */
 /* global describe, it */
 const assert = require('assert');
-const defaultPre = require('../../src/summary_html.pre.js');
+const defaultPre = require('../../src/pages/docs/summary_html.pre.js');
 
 // const loggerMock = {
 //   log: () => {},
