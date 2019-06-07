@@ -10,65 +10,49 @@
  * governing permissions and limitations under the License.
  */
 
-const s = require('hastscript/svg');
-const vfile = require('to-vfile');
-const parse5 = require('parse5');
-// const inspect = require('unist-util-inspect');
-const fromParse5 = require('hast-util-from-parse5');
-const {
-  selectAll,
-  select,
-} = require('hast-util-select');
+const fs = require('fs');
+const { JSDOM } = require('jsdom');
+const $ = require('jquery')(new JSDOM().window);
 
-let iconContainer = null;
-let svgNodes = [];
-const icons = {};
+let $iconContainer = null;
+let $icons = null;
+const src = {};
 
-function findSVGNodes(hast) {
-  return selectAll('.spectrum-Icon use', hast);
-}
-
-function findOrCreateIconContainer(hast) {
-  const containerID = '#spectrum-svg-icons-container';
-  iconContainer = select(containerID, hast);
-  if (!iconContainer) {
-    iconContainer = s(`svg${containerID}`);
-    hast.children.push(iconContainer);
+function findOrCreateIconContainer($document) {
+  const selector = '#spectrum-svg-icons-container';
+  $iconContainer = $document.find(selector);
+  if ($iconContainer.length <= 0) {
+    $iconContainer = $(`<svg id="${selector}"></svg>`);
+    $document.prepend($iconContainer);
   }
 }
 
-function svgFileToHAST(url) {
-  const doc = vfile.readSync(url);
-  const ast = parse5.parse(String(doc), {
-    sourceCodeLocationInfo: true,
-  });
-  return fromParse5(ast, doc);
-}
-
 function loadIconSourceFiles() {
-  icons.workflow = svgFileToHAST('./htdocs/spectrum/icons/spectrum-icons.svg');
-  icons.cssRegular = svgFileToHAST('./htdocs/spectrum/icons/spectrum-css-icons.svg');
-  icons.cssMedium = svgFileToHAST('./htdocs/spectrum/icons/spectrum-css-icons-medium.svg');
-  icons.cssLarge = svgFileToHAST('./htdocs/spectrum/icons/spectrum-css-icons-large.svg');
+  src.workflow = new JSDOM(fs.readFileSync('./htdocs/spectrum/icons/spectrum-icons.svg', 'utf8'));
+  src.cssRegular = new JSDOM(fs.readFileSync('./htdocs/spectrum/icons/spectrum-css-icons.svg', 'utf8'));
+  src.cssMedium = new JSDOM(fs.readFileSync('./htdocs/spectrum/icons/spectrum-css-icons-medium.svg', 'utf8'));
+  src.cssLarge = new JSDOM(fs.readFileSync('./htdocs/spectrum/icons/spectrum-css-icons-large.svg', 'utf8'));
 }
 
-function getIconFromSourceFiles(iconID) {
+function findIconInSource(iconID) {
   let iconNode = null;
-  const iconSets = Object.values(icons);
-  for (let i = 0; i < iconSets.length; i += 1) {
-    const result = select(iconID, iconSets[i]);
-    if (result) iconNode = result;
+  const iconSources = Object.values(src);
+  for (let i = 0; i < iconSources.length; i += 1) {
+    iconNode = iconSources[i].window.document.querySelector(iconID);
+    if (iconNode) {
+      break;
+    }
   }
   return iconNode;
 }
 
 function injectIcons() {
-  for (let i = 0; i < svgNodes.length; i += 1) {
-    const icon = getIconFromSourceFiles(svgNodes[i].properties.xLinkHref);
+  $icons.each((i, el) => {
+    const icon = findIconInSource($(el).attr('xlink:href'));
     if (icon) {
-      iconContainer.children.push(icon);
+      $iconContainer.prepend(icon);
     }
-  }
+  });
 }
 
 async function injectSpectrumIconsAsSVG(context, action) {
@@ -76,18 +60,19 @@ async function injectSpectrumIconsAsSVG(context, action) {
     logger,
   } = action;
   const {
-    hast,
+    document,
   } = context.response;
   const {
     path,
   } = context.request;
-  svgNodes = findSVGNodes(hast);
-  if (svgNodes && svgNodes.length <= 0) {
+  const $document = $(document);
+  $icons = $document.find('.spectrum-Icon use');
+  if ($icons && $icons.length <= 0) {
     logger.info('   > No Icons Found');
   } else {
-    logger.info(`   > Found ${svgNodes.length} Spectrum Icons in ${path}`);
+    logger.info(`   > Found ${$icons.length} Spectrum Icons in ${path}`);
     loadIconSourceFiles();
-    findOrCreateIconContainer(hast);
+    findOrCreateIconContainer($document);
     injectIcons();
   }
 }

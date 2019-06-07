@@ -21,7 +21,7 @@ async function pre(context, action) {
 
 module.exports.pre = pre;
 module.exports.after = {
-  hast: (context, action) => {
+  post: (context, action) => {
     SpectrumSVGUtil.injectSpectrumIconsAsSVG(context, action);
   },
 };
