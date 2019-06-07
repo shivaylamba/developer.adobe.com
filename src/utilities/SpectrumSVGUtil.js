@@ -12,18 +12,22 @@
 
 const fs = require('fs');
 const { JSDOM } = require('jsdom');
-const $ = require('jquery')(new JSDOM().window);
 
-let $iconContainer = null;
-let $icons = null;
+let iconContainer = null;
+let iconReferences = null;
 const src = {};
 
-function findOrCreateIconContainer($document) {
-  const selector = '#spectrum-svg-icons-container';
-  $iconContainer = $document.find(selector);
-  if ($iconContainer.length <= 0) {
-    $iconContainer = $(`<svg id="${selector}"></svg>`);
-    $document.prepend($iconContainer);
+function findOrCreateIconContainer(document) {
+  iconContainer = createElement(document,'svg');
+  iconContainer.style.display = 'none';
+  document.prepend(iconContainer);
+}
+
+function createElement(document, elementDefinition) {
+  if (document.createElement) {
+    return document.createElement(elementDefinition);
+  } else {
+    return document.ownerDocument.createElement(elementDefinition);
   }
 }
 
@@ -47,12 +51,13 @@ function findIconInSource(iconID) {
 }
 
 function injectIcons() {
-  $icons.each((i, el) => {
-    const icon = findIconInSource($(el).attr('xlink:href'));
+  for (let i = 0; i < iconReferences.length; i += 1) {
+    const iconID = iconReferences[i].getAttribute('xlink:href');
+    const icon = findIconInSource(iconID);
     if (icon) {
-      $iconContainer.prepend(icon);
+      iconContainer.appendChild(icon);
     }
-  });
+  };
 }
 
 async function injectSpectrumIconsAsSVG(context, action) {
@@ -65,14 +70,13 @@ async function injectSpectrumIconsAsSVG(context, action) {
   const {
     path,
   } = context.request;
-  const $document = $(document);
-  $icons = $document.find('.spectrum-Icon use');
-  if ($icons && $icons.length <= 0) {
+  iconReferences = document.querySelectorAll('.spectrum-Icon use');
+  if (iconReferences && iconReferences.length <= 0) {
     logger.info('   > No Icons Found');
   } else {
-    logger.info(`   > Found ${$icons.length} Spectrum Icons in ${path}`);
+    logger.info(`   > Found ${iconReferences.length} Spectrum Icons in ${path}`);
     loadIconSourceFiles();
-    findOrCreateIconContainer($document);
+    findOrCreateIconContainer(document);
     injectIcons();
   }
 }

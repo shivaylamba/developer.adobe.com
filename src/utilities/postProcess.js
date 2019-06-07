@@ -9,24 +9,10 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
+const SpectrumSVGUtil = require('./utilities/SpectrumSVGUtil.js');
 
-// eslint-disable-next-line import/no-extraneous-dependencies, import/no-unresolved
-const MediumUtil = require('./utilities/MediumUtil.js');
-
-async function pre(context, action) {
-  const { content } = context;
-  const { logger } = action;
-  content.mediumArticles = await MediumUtil.getPostsAsHTML(logger, 'https://medium.com/feed/adobetech/tagged/open-source', 5);
-  return context;
+async function postProcess(context, action) {
+    SpectrumSVGUtil.injectSpectrumIconsAsSVG(context, action);
 }
 
-module.exports.pre = pre;
-module.exports.after = {
-  html: () => ({ // this function also gets a context argument (if needed)
-    response: {
-      headers: {
-        'Cache-Control': 'max-age=900',
-      },
-    },
-  }),
-};
+module.exports = postProcess;
