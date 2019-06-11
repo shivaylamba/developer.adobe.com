@@ -36,9 +36,6 @@
   "homepage": "https://developer.adobe.com",
   "dependencies": {
     "@adobe/helix-cli": "4.2.8",
-    "hast-util-from-parse5": "^5.0.1",
-    "hast-util-select": "^3.0.0",
-    "hastscript": "^5.1.0",
     "jquery": "^3.4.1",
     "jsdom": "^15.0.0",
     "moment": "^2.24.0",
