@@ -34,7 +34,7 @@
   },
   "homepage": "https://developer.adobe.com",
   "dependencies": {
-    "@adobe/helix-cli": "4.0.5",
+    "@adobe/helix-cli": "4.2.8",
     "moment": "^2.24.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
@@ -43,13 +43,13 @@
     "uri-js": "^4.2.2"
   },
   "devDependencies": {
-    "@wdio/cli": "5.9.4",
-    "@wdio/local-runner": "5.9.4",
-    "@wdio/mocha-framework": "5.9.4",
+    "@wdio/cli": "5.10.3",
+    "@wdio/local-runner": "5.10.1",
+    "@wdio/mocha-framework": "5.10.1",
     "@wdio/sauce-service": "5.9.3",
     "@wdio/spec-reporter": "5.9.3",
     "broken-link-checker": "^0.7.8",
-    "chromedriver": "^74.0.0",
+    "chromedriver": "^75.0.0",
     "eslint": "^5.9.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-header": "^3.0.0",
@@ -63,6 +63,6 @@
     "sinon": "^7.3.1",
     "supertest": "^4.0.2",
     "wdio-chromedriver-service": "5.0.1",
-    "webdriverio": "5.9.4"
+    "webdriverio": "5.10.1"
   }
 }
