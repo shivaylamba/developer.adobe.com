@@ -20,7 +20,7 @@ describe('helix site smoke tests', function suite() {
     const title = await browser.getTitle();
     assert.equal(title, 'Adobe I/O');
   });
-  it('should load xd docs substrain', async () => {
+  xit('should load xd docs substrain', async () => {
     await browser.url('/xd/docs');
     const docsSummary = await browser.$('#docs-summary');
     const summaryDisplayed = await docsSummary.isExisting();
