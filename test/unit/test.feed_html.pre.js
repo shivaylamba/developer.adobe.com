@@ -12,7 +12,7 @@
 const assert = require('assert');
 const sinon = require('sinon');
 const RSSParser = require('rss-parser');
-const feed = require('../../src/pages/home/feed_html.pre.js');
+const feed = require('../../src/feed_html.pre.js');
 
 // Fake mdast etc to use for content
 const context = {

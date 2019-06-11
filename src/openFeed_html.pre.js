@@ -11,12 +11,12 @@
  */
 
 // eslint-disable-next-line import/no-extraneous-dependencies, import/no-unresolved
-const MediumUtil = require('../../utilities/MediumUtil.js');
+const MediumUtil = require('./MediumUtil.js');
 
 async function pre(context, action) {
-  const { logger } = action;
   const { content } = context;
-  content.mediumArticles = await MediumUtil.getPostsAsHTML(logger, 'https://medium.com/feed/adobetech');
+  const { logger } = action;
+  content.mediumArticles = await MediumUtil.getPostsAsHTML(logger, 'https://medium.com/feed/adobetech/tagged/open-source', 5);
   return context;
 }
 
