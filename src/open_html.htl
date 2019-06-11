@@ -72,13 +72,11 @@
               stroke-width="1.331">
               <g id="Wave2" transform="translate(204.943)">
                 <path
-                  d="M0 14.639c12.869 0 12.869 13.308 25.751 13.308 12.882 0 12.882-13.308 25.764-13.308s12.869 13.308 25.751 13.308c12.882 0 12.882-13.308 25.764-13.308 12.883 0 12.883 13.308 25.765 13.308 12.882 0 12.882-13.308 25.764-13.308s12.882 13.308 25.764 13.308M53.232 0C66.1 0 66.1 13.308 78.982 13.308 91.866 13.308 91.866 0 104.748 0c12.882 0 12.869 13.308 25.751 13.308C143.38 13.308 143.38 0 156.262 0s12.882 13.308 25.765 13.308C194.909 13.308 194.909 0 207.79 0s12.882 13.308 25.764 13.308"
-                  id="Path" />
+                  d="M0 14.639c12.869 0 12.869 13.308 25.751 13.308 12.882 0 12.882-13.308 25.764-13.308s12.869 13.308 25.751 13.308c12.882 0 12.882-13.308 25.764-13.308 12.883 0 12.883 13.308 25.765 13.308 12.882 0 12.882-13.308 25.764-13.308s12.882 13.308 25.764 13.308M53.232 0C66.1 0 66.1 13.308 78.982 13.308 91.866 13.308 91.866 0 104.748 0c12.882 0 12.869 13.308 25.751 13.308C143.38 13.308 143.38 0 156.262 0s12.882 13.308 25.765 13.308C194.909 13.308 194.909 0 207.79 0s12.882 13.308 25.764 13.308" />
               </g>
               <g id="Wave1" transform="translate(0 262.167)">
                 <path
-                  d="M50.57 0c12.87 0 12.87 13.308 25.751 13.308C89.203 13.308 89.203 0 102.086 0c12.882 0 12.868 13.308 25.75 13.308C140.72 13.308 140.72 0 153.602 0c12.882 0 12.882 13.308 25.764 13.308S192.247 0 205.129 0s12.882 13.308 25.765 13.308M0 17.3c12.869 0 12.869 13.308 25.751 13.308 12.882 0 12.882-13.308 25.764-13.308s12.869 13.308 25.751 13.308c12.882 0 12.882-13.308 25.764-13.308 12.883 0 12.883 13.308 25.765 13.308 12.882 0 12.882-13.308 25.764-13.308s12.882 13.308 25.764 13.308"
-                  id="Path" />
+                  d="M50.57 0c12.87 0 12.87 13.308 25.751 13.308C89.203 13.308 89.203 0 102.086 0c12.882 0 12.868 13.308 25.75 13.308C140.72 13.308 140.72 0 153.602 0c12.882 0 12.882 13.308 25.764 13.308S192.247 0 205.129 0s12.882 13.308 25.765 13.308M0 17.3c12.869 0 12.869 13.308 25.751 13.308 12.882 0 12.882-13.308 25.764-13.308s12.869 13.308 25.751 13.308c12.882 0 12.882-13.308 25.764-13.308 12.883 0 12.883 13.308 25.765 13.308 12.882 0 12.882-13.308 25.764-13.308s12.882 13.308 25.764 13.308" />
               </g>
             </g>
             <g id="Xes" transform="translate(33.177 154)" stroke="#000" stroke-linecap="round" stroke-width="1.331">
@@ -308,8 +306,8 @@
           </div>
         </div>
         <div class="openPage-carouselUI">
-          <button class="openPage-carouselUI-nextBtn spectrum-Button--cta openPage-spotlight-carousel-nextBtn"></button>
-          <button class="openPage-carouselUI-prevBtn spectrum-Button--cta openPage-spotlight-carousel-prevBtn"></button>
+          <button aria-label="Next slide" class="openPage-carouselUI-nextBtn spectrum-Button--cta openPage-spotlight-carousel-nextBtn"></button>
+          <button aria-label="Previous slide" class="openPage-carouselUI-prevBtn spectrum-Button--cta openPage-spotlight-carousel-prevBtn"></button>
           <div class="openPage-carouselUI-indicators openPage-spotlight-carousel-indicators">
             <div class="selected"></div>
             <div></div>
@@ -446,9 +444,9 @@
           </div>
         </div>
         <div class="openPage-carouselUI">
-          <button
+          <button aria-label="Next slide"
             class="openPage-carouselUI-nextBtn spectrum-Button--cta openPage-popularProjects-carousel-nextBtn"></button>
-          <button
+          <button aria-label="Previous slide"
             class="openPage-carouselUI-prevBtn spectrum-Button--cta openPage-popularProjects-carousel-prevBtn"></button>
           <div class="openPage-carouselUI-indicators openPage-popularProjects-carousel-indicators">
             <div class="selected"></div>
@@ -489,7 +487,7 @@
               <p class="openPage-standards-formatFullname">Portable Document Format (PDF)</p>
               <p class="openPage-standards-formatDescription">Originally published by Adobe, PDF is now the ISO 32000-1
                 standard.</p>
-              <a class="spectrum-Link" href="https://www.adobe.com/devnet/pdf/pdf_reference.html">Learn more</a>
+              <a class="spectrum-Link" href="https://www.adobe.com/devnet/pdf/pdf_reference.html">PDF reference</a>
             </div>
           </div>
           <div class="openPage-standards-format">
@@ -498,7 +496,7 @@
               <h1 class="openPage-standards-formatAcronym">OpenType</h1>
               <p class="openPage-standards-formatDescription">Scalable computer font format developed by Microsoft,
                 contributed to by Adobe.</p>
-              <a class="spectrum-Link" href="https://www.adobe.com/ca/products/type/opentype.html">Learn more</a>
+              <a class="spectrum-Link" href="https://www.adobe.com/ca/products/type/opentype.html">Learn about OpenType</a>
             </div>
           </div>
           <div class="openPage-standards-format">
@@ -508,7 +506,7 @@
               <p class="openPage-standards-formatFullname">Scalable Vector Graphics (SVG)</p>
               <p class="openPage-standards-formatDescription">Adobe contributed to the vector image format originally
                 developed by W3C.</p>
-              <a class="spectrum-Link" href="https://www.adobe.com/devnet/svg.html">Learn more</a>
+              <a class="spectrum-Link" href="https://www.adobe.com/devnet/svg.html">Learn about SVG</a>
             </div>
           </div>
           <div class="openPage-standards-format">
@@ -520,7 +518,7 @@
                 metadata
                 into files themselves during the content
                 creation process.</p>
-              <a class="spectrum-Link" href="https://www.adobe.io/open/standards/xmp.html">Learn more</a>
+              <a class="spectrum-Link" href="https://www.adobe.io/open/standards/xmp.html">Learn about XMP</a>
             </div>
           </div>
           <div class="openPage-standards-format">
@@ -530,7 +528,7 @@
               <p class="openPage-standards-formatFullname">Experience Data Model (XDM)</p>
               <p class="openPage-standards-formatDescription">Adobe defines one interoperable language that makes
                 integration, data portability, and innovation easy.</p>
-              <a class="spectrum-Link" href="https://www.adobe.io/open/standards/xdm.html">Learn more</a>
+              <a class="spectrum-Link" href="https://www.adobe.io/open/standards/xdm.html">Learn about XDM</a>
             </div>
           </div>
         </div>

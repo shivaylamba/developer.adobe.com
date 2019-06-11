@@ -60,7 +60,8 @@
     <!--
         TODO: add better meta data attributes for SEO etc.
     -->
-    <title>${content.title || "Adobe I/O"}</title>
+    <title>${content.title}</title>
+    <meta name="Description" content="${content.intro}">
 </head>
 
 <body class="spectrum spectrum-Typography spectrum--large">
