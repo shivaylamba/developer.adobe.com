@@ -18,6 +18,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/static/favicon.ico" />
     <!-- *************************************************
+        Fonts
+    ************************************************* -->
+    <link rel="stylesheet" href="https://use.typekit.net/flt1txg.css">
+    <!-- *************************************************
         Spectrum
     ************************************************* -->
     <!-- Page -->
@@ -30,7 +34,7 @@
     <link rel="stylesheet" href="/static/spectrum/components/typography/index-diff.css" media="(max-width: 900px)" />
     <link rel="stylesheet" href="/static/spectrum/components/typography/multiStops/light.css" />
     <link rel="stylesheet" href="/static/spectrum/components/typography/multiStops/dark.css" />
-    <!-- Typography -->
+    <!-- Icon -->
     <link rel="stylesheet" href="/static/spectrum/components/icon/index.css" />
     <link rel="stylesheet" href="/static/spectrum/components/icon/index-diff.css" media="(max-width: 900px)" />
     <!-- Link -->
@@ -48,15 +52,12 @@
     <link rel="stylesheet" href="/static/spectrum/components/accordion/index-diff.css" media="(max-width: 900px)" />
     <link rel="stylesheet" href="/static/spectrum/components/accordion/multiStops/light.css" />
     <link rel="stylesheet" href="/static/spectrum/components/accordion/multiStops/dark.css" />
+    <!-- Grid -->
+    <link rel="stylesheet" href="/static/spectrum/spectrum-css-grid.css" />
     <!-- *************************************************
         Site Spectific
     ************************************************* -->
     <link rel="stylesheet" href="/static/global/frame.css" />
-
-    <!-- *************************************************
-        Site Spectific
-    ************************************************* -->
-    <link rel="stylesheet" href="https://use.typekit.net/flt1txg.css">
     <!--
         TODO: add better meta data attributes for SEO etc.
     -->

@@ -2,7 +2,6 @@
 <link rel="stylesheet" href="/static/spectrum/components/coachmark/index-diff.css" media="(max-width: 900px)" />
 <link rel="stylesheet" href="/static/spectrum/components/coachmark/multiStops/dark.css" />
 
-<link rel="stylesheet" href="/static/spectrum/spectrum-css-grid.css" />
 <link rel="stylesheet" href="/static/pages/open/open.css" />
 
 <div class="page-container openPage">
@@ -535,7 +534,6 @@
       </section>
     </section>
   </section>
-
   <section class="openPage-partners spectrum--light">
     <section class="openPage-partners-backgroundEffects"></section>
     <div class="openPage-partners-container spectrum-grid spectrum-grid--fixedWide">
