@@ -18,10 +18,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/static/favicon.ico" />
     <!-- *************************************************
-        Fonts
-    ************************************************* -->
-    <link rel="stylesheet" href="https://use.typekit.net/flt1txg.css">
-    <!-- *************************************************
         Spectrum
     ************************************************* -->
     <!-- Page -->
@@ -58,9 +54,10 @@
         Site Spectific
     ************************************************* -->
     <link rel="stylesheet" href="/static/global/frame.css" />
-    <!--
-        TODO: add better meta data attributes for SEO etc.
-    -->
+    <!-- *************************************************
+        Fonts
+    ************************************************* -->
+    <link rel="stylesheet" href="https://use.typekit.net/flt1txg.css">
     <title>${content.title}</title>
     <meta name="Description" content="${content.intro}">
 </head>
