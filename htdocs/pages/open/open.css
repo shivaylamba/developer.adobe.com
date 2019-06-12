@@ -70,7 +70,7 @@
 }
 
 .openPage-carouselUI-nextBtn:before {
-    transform: rotate3d(180deg, 0, 0);
+    transform: rotate(180deg);
 }
 
 @media screen and (min-width: 768px) {
@@ -249,11 +249,11 @@
 
 @keyframes ring-rotation {
     0% {
-        transform: rotate3d(0deg, 0, 0);
+        transform: rotateZ(0deg);
     }
 
     100% {
-        transform: rotate3d(359deg, 0, 0);
+        transform: rotateZ(359deg);
     }
 }
 
@@ -481,7 +481,7 @@
 
 .openPage-orientation-backgroundEffects:before {
     background-image: url(/static/global/design-elements/ring.svg);
-    transform: rotate3d(10deg, 0, 0);
+    transform: rotate(10deg);
     animation: ring-rotation 1800s linear infinite;
 }
 
@@ -1039,7 +1039,7 @@
         top: auto;
         right: -48px;
         bottom: 20px;
-        transform: rotate3d(90deg, 0, 0);
+        transform: rotate(90deg);
     }
 }
 
@@ -1616,7 +1616,7 @@
     height: 218px;
     right: -400px;
     top: 100px;
-    transform: rotate3d(30deg, 0, 0);
+    transform: rotate(30deg);
     background-repeat: repeat-x;
 }
 
