@@ -115,7 +115,7 @@
                     <a class="spectrum-Accordion-itemContent" href="/apis/experienceplatform.html">Adobe Experience Platform</a>
                 </div>
                 <div class="spectrum-Accordion-item AD-footer-social-column">
-                    <div class="spectrum-Accordion-itemHeader">Blogs &amp; Community</div>
+                    <div class="spectrum-Accordion-itemHeader">Blogs & Community</div>
                     <svg class="spectrum-Icon spectrum-UIIcon-ChevronRightMedium spectrum-Accordion-itemIndicator"
                         focusable="false" aria-hidden="true">
                         <use xlink:href="#spectrum-css-icon-ChevronRightMedium" />
