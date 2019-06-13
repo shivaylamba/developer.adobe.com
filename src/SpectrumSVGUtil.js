@@ -10,9 +10,12 @@
  * governing permissions and limitations under the License.
  */
 const { JSDOM } = require('jsdom');
+const cssIcons = require('./spectrum/spectrum-css-icons.svg.js');
+const workflowIcons = require('./spectrum/spectrum-icons.svg.js');
+
 const svgSrc = [
-  new JSDOM(require('./spectrum/spectrum-icons.svg.js')),
-  new JSDOM(require('./spectrum/spectrum-css-icons.svg.js')),
+  new JSDOM(cssIcons),
+  new JSDOM(workflowIcons),
 ];
 
 function findIconInSource(src, iconID) {
