@@ -34,10 +34,8 @@ function findOrCreateIconContainer(document) {
 }
 
 function loadIconSourceFiles() {
-  src.workflow = new JSDOM(fs.readFileSync('./htdocs/spectrum/icons/spectrum-icons.svg', 'utf8'));
-  src.cssRegular = new JSDOM(fs.readFileSync('./htdocs/spectrum/icons/spectrum-css-icons.svg', 'utf8'));
-  src.cssMedium = new JSDOM(fs.readFileSync('./htdocs/spectrum/icons/spectrum-css-icons-medium.svg', 'utf8'));
-  src.cssLarge = new JSDOM(fs.readFileSync('./htdocs/spectrum/icons/spectrum-css-icons-large.svg', 'utf8'));
+  src.workflow = new JSDOM(fs.readFileSync('./src/spectrum/spectrum-icons.svg', 'utf8'));
+  src.css = new JSDOM(fs.readFileSync('./src/spectrum/spectrum-css-icons.svg', 'utf8'));
 }
 
 function findIconInSource(iconID) {
@@ -72,7 +70,7 @@ async function injectSpectrumIconsAsSVG(context, action) {
   const {
     path,
   } = context.request;
-  iconReferences = document.querySelectorAll('.spectrum-Icon use');
+  iconReferences = Array.from(new Set(document.querySelectorAll('.spectrum-Icon use')));
   if (iconReferences && iconReferences.length <= 0) {
     logger.info('   > No Icons Found');
   } else {

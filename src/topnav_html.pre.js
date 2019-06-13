@@ -11,6 +11,7 @@
  */
 
 // eslint-disable-next-line import/no-extraneous-dependencies, import/no-unresolved
+const postProcess = require('./postProcess.js');
 
 // module.exports.pre is a function (taking next as an argument)
 // that returns a function (with context, config, logger as arguments)
@@ -22,3 +23,8 @@ async function pre(context, action) {
 }
 
 module.exports.pre = pre;
+module.exports.after = {
+  post: (context, action) => {
+    postProcess(context, action);
+  },
+};
