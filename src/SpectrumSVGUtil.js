@@ -9,36 +9,13 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-
-const fs = require('fs');
 const { JSDOM } = require('jsdom');
+const svgSrc = [
+  new JSDOM(require('./spectrum/spectrum-icons.svg.js')),
+  new JSDOM(require('./spectrum/spectrum-css-icons.svg.js')),
+];
 
-let iconContainer = null;
-let iconReferences = null;
-const src = {};
-
-function createElement(document, elementDefinition) {
-  let el = null;
-  if (document.createElement) {
-    el = document.createElement(elementDefinition);
-  } else {
-    el = document.ownerDocument.createElement(elementDefinition);
-  }
-  return el;
-}
-
-function findOrCreateIconContainer(document) {
-  iconContainer = createElement(document, 'svg');
-  iconContainer.style.display = 'none';
-  document.prepend(iconContainer);
-}
-
-function loadIconSourceFiles() {
-  src.workflow = new JSDOM(fs.readFileSync('./src/spectrum/spectrum-icons.svg', 'utf8'));
-  src.css = new JSDOM(fs.readFileSync('./src/spectrum/spectrum-css-icons.svg', 'utf8'));
-}
-
-function findIconInSource(iconID) {
+function findIconInSource(src, iconID) {
   let iconNode = null;
   const iconSources = Object.values(src);
   for (let i = 0; i < iconSources.length; i += 1) {
@@ -50,16 +27,6 @@ function findIconInSource(iconID) {
   return iconNode;
 }
 
-function injectIcons() {
-  for (let i = 0; i < iconReferences.length; i += 1) {
-    const iconID = iconReferences[i].getAttribute('xlink:href');
-    const icon = findIconInSource(iconID);
-    if (icon) {
-      iconContainer.appendChild(icon);
-    }
-  }
-}
-
 async function injectSpectrumIconsAsSVG(context, action) {
   const {
     logger,
@@ -67,17 +34,21 @@ async function injectSpectrumIconsAsSVG(context, action) {
   const {
     document,
   } = context.response;
-  const {
-    path,
-  } = context.request;
-  iconReferences = Array.from(new Set(document.querySelectorAll('.spectrum-Icon use')));
+  const iconReferences = Array.from(document.querySelectorAll('.spectrum-Icon use'));
+  const iconIDs = Array.from(new Set(iconReferences.map(el => el.getAttribute('xlink:href'))));
   if (iconReferences && iconReferences.length <= 0) {
     logger.info('   > No Icons Found');
   } else {
-    logger.info(`   > Found ${iconReferences.length} Spectrum Icons in ${path}`);
-    loadIconSourceFiles();
-    findOrCreateIconContainer(document);
-    injectIcons();
+    logger.info(`   > Found ${iconIDs.length} Spectrum Icons in ${context.request.path}`);
+    const iconContainer = document.ownerDocument.createElement('svg');
+    iconContainer.style.display = 'none';
+    document.prepend(iconContainer);
+    for (let i = 0; i < iconIDs.length; i += 1) {
+      const icon = findIconInSource(svgSrc, iconIDs[i]);
+      if (icon) {
+        iconContainer.appendChild(icon);
+      }
+    }
   }
 }
 
