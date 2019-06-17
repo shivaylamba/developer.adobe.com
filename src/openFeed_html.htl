@@ -1,8 +1,8 @@
 <div class="openPage-blog-grid spectrum-grid spectrum-grid--fixedWide" data-sly-test="${content.mediumArticles}">
   <h1 class="openPage-blog-header openPage-sectionHeader">Open Source on the <i>Adobe Tech Blog</i></h1>
   <h2 class="openPage-blog-latest">The latest</h2>
-  <div class="openPage-blog-heroPost spectrum--dark" data-sly-list="${content.mediumArticles}" >
-    <div class="openPage-blog-postAbstract" data-sly-test="${itemList.first}">
+  <div class="openPage-blog-heroPost" data-sly-list="${content.mediumArticles}" >
+    <div class="openPage-blog-postAbstract spectrum--dark" data-sly-test="${itemList.first}">
       <span class="openPage-blog-postMetadata">
         <b>${item.creator}</b>
         <span>${item.pubDate}</span>

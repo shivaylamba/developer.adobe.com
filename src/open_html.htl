@@ -121,14 +121,14 @@
       <div class="openPage-gettingStarted spectrum--dark">
         <h1 class="openPage-sectionHeader">Get started</h1>
         <p class="openPage-gettingStarted-intro">Are you new to Open Source? We welcome contributors of all skill
-          levels. Here are the basics you need to get&started.</p>
+          levels. Here are the basics you need to get started.</p>
         <div class="openPage-gettingStarted-documents ">
-          <div class="openPage-gettingStarted-document">
+          <a class="openPage-gettingStarted-document" href="https://github.com/adobe/spectrum-css/blob/master/CODE_OF_CONDUCT.md" target="_blank" rel="noopener" >
             <div class="openPage-gettingStarted-documentName">
               Code of Conduct
             </div>
-          </div>
-          <div class="openPage-gettingStarted-document">
+          </a>
+          <a class="openPage-gettingStarted-document" href="http://opensource.adobe.com/cla.html" target="_blank" rel="noopener" >
             <div class="openPage-gettingStarted-coachmark spectrum-CoachMarkIndicator" style="display: inline-block;">
               <div class="spectrum-CoachMarkIndicator-ring"></div>
               <div class="spectrum-CoachMarkIndicator-ring"></div>
@@ -141,7 +141,7 @@
             <span class="openPage-gettingStarted-documentFineprint">
               * Signature required
             </span>
-          </div>
+          </a>
         </div>
         <p class="openPage-gettingStarted-firstSteps">Ready to go? Sign the <a
             href="http://opensource.adobe.com/cla.html" target="_blank" rel="noopener" class="spectrum-Link">Contributor
@@ -151,10 +151,6 @@
           <a href="http://opensource.adobe.com/cla.html" target="_blank" rel="noopener"
             class="spectrum-Button spectrum-Button--cta">
             Sign the CLA
-          </a>
-          <a href="https://github.com/adobe" target="_blank" rel="noopener"
-            class="spectrum-Button spectrum-Button--primary">
-            Explore ‘good first issues’
           </a>
         </footer>
       </div>
@@ -510,42 +506,42 @@
     <div class="openPage-partners-container spectrum-grid spectrum-grid--fixedWide">
       <h1 class="openPage-sectionHeader">Community partners & projects</h1>
       <figure class="openPage-partnerItem">
-        <img width="323"
+        <img width="376"
           srcset="/static/pages/open/partner-logos/magento.png, /static/pages/open/partner-logos/magento@2x.png 2x"
           src="/static/pages/open/partner-logos/magento.png" loading="lazy" alt="Magento" />
       </figure>
       <figure class="openPage-partnerItem">
-        <img width="239" srcset="/static/pages/open/partner-logos/kubernetes.png,
+        <img width="376" srcset="/static/pages/open/partner-logos/kubernetes.png,
         /static/pages/open/partner-logos/kubernetes@2x.png 2x" src="/static/pages/open/partner-logos/kubernetes.png"
           loading="lazy" alt="Kubernetes" />
       </figure>
       <figure class="openPage-partnerItem">
-        <img width="274" srcset="/static/pages/open/partner-logos/eslint.png,
+        <img width="376" srcset="/static/pages/open/partner-logos/eslint.png,
         /static/pages/open/partner-logos/eslint@2x.png 2x" src="/static/pages/open/partner-logos/eslint.png"
           loading="lazy" alt="ESLint" />
       </figure>
       <figure class="openPage-partnerItem">
-        <img width="392" srcset="/static/pages/open/partner-logos/open-whisk.png,
+        <img width="376" srcset="/static/pages/open/partner-logos/open-whisk.png,
         /static/pages/open/partner-logos/open-whisk@2x.png 2x" src="/static/pages/open/partner-logos/open-whisk.png"
           loading="lazy" alt="Apache OpenWhisk" />
       </figure>
       <figure class="openPage-partnerItem">
-        <img width="282" srcset="/static/pages/open/partner-logos/babel.png,
+        <img width="376" srcset="/static/pages/open/partner-logos/babel.png,
         /static/pages/open/partner-logos/babel@2x.png 2x" src="/static/pages/open/partner-logos/babel.png"
           loading="lazy" alt="Babel" />
       </figure>
       <figure class="openPage-partnerItem">
-        <img width="193" srcset="/static/pages/open/partner-logos/parceljs.png,
+        <img width="376" srcset="/static/pages/open/partner-logos/parceljs.png,
         /static/pages/open/partner-logos/parceljs@2x.png 2x" src="/static/pages/open/partner-logos/parceljs.png"
           loading="lazy" alt="Parcel" />
       </figure>
       <figure class="openPage-partnerItem">
-        <img width="170" srcset="/static/pages/open/partner-logos/sling.png,
+        <img width="376" srcset="/static/pages/open/partner-logos/sling.png,
         /static/pages/open/partner-logos/sling@2x.png 2x" src="/static/pages/open/partner-logos/sling.png"
           loading="lazy" alt="Sling" />
       </figure>
       <figure class="openPage-partnerItem">
-        <img width="186" srcset="/static/pages/open/partner-logos/w3c.png,
+        <img width="376" srcset="/static/pages/open/partner-logos/w3c.png,
         /static/pages/open/partner-logos/w3c@2x.png 2x" src="/static/pages/open/partner-logos/w3c.png" loading="lazy"
           alt="W3C" />
       </figure>
