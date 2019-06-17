@@ -10,13 +10,8 @@
  * governing permissions and limitations under the License.
  */
 const { JSDOM } = require('jsdom');
-const cssIcons = require('./spectrum-css-icons.svg.js');
-const workflowIcons = require('./spectrum-icons.svg.js');
-
-const svgSrc = [
-  new JSDOM(cssIcons),
-  new JSDOM(workflowIcons),
-];
+const cssIcons = require('./spectrum/spectrum-css-icons.svg.js');
+const workflowIcons = require('./spectrum/spectrum-icons.svg.js');
 
 function findIconInSource(src, iconID) {
   let iconNode = null;
@@ -43,6 +38,10 @@ async function injectSpectrumIconsAsSVG(context, action) {
     logger.info('   > No Icons Found');
   } else {
     logger.info(`   > Found ${iconIDs.length} Spectrum Icons in ${context.request.path}`);
+    const svgSrc = [
+      new JSDOM(cssIcons),
+      new JSDOM(workflowIcons),
+    ];
     const iconContainer = document.ownerDocument.createElement('svg');
     iconContainer.style.display = 'none';
     document.prepend(iconContainer);
