@@ -189,9 +189,20 @@
 
 .openPage-hero-content-ghLogo {
     display: inline-block;
+    margin-right: 8px;
+}
+
+.openPage-hero-content-ghLogo .spectrum-Icon--sizeM {
     width: 36px;
     height: 36px;
-    margin-right: 8px;
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 900px) {
+    .openPage-hero-content-ghLogo .spectrum-Icon--sizeM {
+        width: 40px;
+        height: 40px;
+    }
 }
 
 @media screen and (min-width: 768px) {
