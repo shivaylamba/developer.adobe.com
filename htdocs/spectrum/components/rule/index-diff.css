@@ -17,3 +17,12 @@
 
   border-radius: 1px;
 }
+.spectrum--large .spectrum-Rule--vertical.spectrum-Rule--large {
+    width: 4px;
+  }
+.spectrum--large .spectrum-Rule--vertical.spectrum-Rule--medium {
+    width: 2px;
+  }
+.spectrum--large .spectrum-Rule--vertical.spectrum-Rule--small {
+    width: 1px;
+  }

@@ -146,7 +146,7 @@
     }
 </style>
 
-<nav class="AD-topbar spectrum--light">
+<nav class="AD-topbar">
     <div class="AD-topbar-container">
         <div class="AD-topbar-main">
             <button class="AD-topbar-toggle" id="AD-topbar-toggle" aria-label="Show Menu">

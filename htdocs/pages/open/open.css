@@ -6,22 +6,18 @@
     --serifFont: adobe-clean-serif, 'Source Serif Pro', Georgia, serif;
     max-width: 100%;
     overflow-x: hidden;
+    background: #fff;
 }
 
 @media screen and (min-width: 1280px) {
     .openPage {
-        margin-top: 64px;
+        padding-top: 64px;
     }
 }
 
 /*************************************************
  TYPOGRAPHY 
  ************************************************/
-
-.openPage .spectrum-Heading1--quiet,
-.openPage .spectrum-Heading2--quiet {
-    margin-top: 0;
-}
 
 .openPage-sectionHeader {
     font-family: var(--serifFont);

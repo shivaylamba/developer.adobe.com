@@ -2,7 +2,7 @@
   <h1 class="openPage-blog-header openPage-sectionHeader">Open Source on the <i>Adobe Tech Blog</i></h1>
   <h2 class="openPage-blog-latest">The latest</h2>
   <div class="openPage-blog-heroPost" data-sly-list="${content.mediumArticles}" >
-    <div class="openPage-blog-postAbstract spectrum--dark" data-sly-test="${itemList.first}">
+    <div class="openPage-blog-postAbstract spectrum spectrum--dark" data-sly-test="${itemList.first}">
       <span class="openPage-blog-postMetadata">
         <b>${item.creator}</b>
         <span>${item.pubDate}</span>
@@ -14,7 +14,7 @@
         class="openPage-blog-heroLink spectrum-Button spectrum-Button--primary">Read more</a>
     </div>
   </div>
-  <div class="openPage-blog-otherPosts spectrum--light" data-sly-list="${content.mediumArticles}">
+  <div class="openPage-blog-otherPosts" data-sly-list="${content.mediumArticles}">
     <a href="${item.link}" class="openPage-blog-postAbstract" data-sly-test="${!itemList.first}">
       <span class="openPage-blog-postMetadata">
         <b class="openPage-blog-postAuthor">${item.creator}</b>
@@ -25,7 +25,7 @@
       <p class="openPage-blog-postCaption">${item.caption}</p>
     </a>
   </div>
-  <div class="openPage-blog-mediumLink spectrum--light">
+  <div class="openPage-blog-mediumLink">
     <svg xmlns="http://www.w3.org/2000/svg" width="37" height="31.846" viewBox="0 0 37 31.846">
       <g id="Group_54641" data-name="Group 54641" transform="translate(-66.157 -217.712)">
         <g id="Group_54640" data-name="Group 54640" transform="translate(66.157 217.712)">

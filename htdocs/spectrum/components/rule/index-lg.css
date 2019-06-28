@@ -1,4 +1,5 @@
 .spectrum-Rule {
+  width: 100%;
   overflow: visible;
 
   border: none;
@@ -20,3 +21,15 @@
 
   border-radius: 1px;
 }
+.spectrum-Rule--vertical {
+  height: 100%;
+}
+.spectrum-Rule--vertical.spectrum-Rule--large {
+    width: 4px;
+  }
+.spectrum-Rule--vertical.spectrum-Rule--medium {
+    width: 2px;
+  }
+.spectrum-Rule--vertical.spectrum-Rule--small {
+    width: 1px;
+  }

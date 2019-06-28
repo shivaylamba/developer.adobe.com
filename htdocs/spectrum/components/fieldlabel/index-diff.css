@@ -23,3 +23,6 @@
   border-spacing: 0 30px;
   margin: -25px 0;
 }
+.spectrum--large .spectrum-Form--labelsAbove .spectrum-Form-item + .spectrum-Form-item {
+      margin-top: 10px;
+    }

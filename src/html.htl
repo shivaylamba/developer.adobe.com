@@ -20,35 +20,19 @@
     <!-- *************************************************
         Spectrum
     ************************************************* -->
-    <!-- Page -->
-    <link rel="stylesheet" href="/static/spectrum/components/page/index.css" />
-    <link rel="stylesheet" href="/static/spectrum/components/page/index-diff.css" media="(max-width: 900px)" />
-    <link rel="stylesheet" href="/static/spectrum/components/page/multiStops/light.css" />
-    <link rel="stylesheet" href="/static/spectrum/components/page/multiStops/dark.css" />
-    <!-- Typography -->
-    <link rel="stylesheet" href="/static/spectrum/components/typography/index.css" />
-    <link rel="stylesheet" href="/static/spectrum/components/typography/index-diff.css" media="(max-width: 900px)" />
-    <link rel="stylesheet" href="/static/spectrum/components/typography/multiStops/light.css" />
-    <link rel="stylesheet" href="/static/spectrum/components/typography/multiStops/dark.css" />
-    <!-- Icon -->
-    <link rel="stylesheet" href="/static/spectrum/components/icon/index.css" />
-    <link rel="stylesheet" href="/static/spectrum/components/icon/index-diff.css" media="(max-width: 900px)" />
-    <!-- Link -->
-    <link rel="stylesheet" href="/static/spectrum/components/link/index.css" />
-    <link rel="stylesheet" href="/static/spectrum/components/link/index-diff.css" media="(max-width: 900px)" />
-    <link rel="stylesheet" href="/static/spectrum/components/link/multiStops/light.css" />
-    <link rel="stylesheet" href="/static/spectrum/components/link/multiStops/dark.css" />
-    <!-- Button -->
-    <link rel="stylesheet" href="/static/spectrum/components/button/index.css" />
-    <link rel="stylesheet" href="/static/spectrum/components/button/index-diff.css" media="(max-width: 900px)" />
-    <link rel="stylesheet" href="/static/spectrum/components/button/multiStops/light.css" />
-    <link rel="stylesheet" href="/static/spectrum/components/button/multiStops/dark.css" />
-    <!-- Accordion -->
-    <link rel="stylesheet" href="/static/spectrum/components/accordion/index.css" />
-    <link rel="stylesheet" href="/static/spectrum/components/accordion/index-diff.css" media="(max-width: 900px)" />
-    <link rel="stylesheet" href="/static/spectrum/components/accordion/multiStops/light.css" />
-    <link rel="stylesheet" href="/static/spectrum/components/accordion/multiStops/dark.css" />
-    <!-- Grid -->
+    <!-- Variables -->
+    <link rel="stylesheet" href="/static/spectrum/vars/spectrum-global.css" />
+    <link rel="stylesheet" href="/static/spectrum/vars/spectrum-medium-unique.css" />
+    <link rel="stylesheet" href="/static/spectrum/vars/spectrum-large-unique.css" media="(max-width: 900px)" />
+    <link rel="stylesheet" href="/static/spectrum/vars/spectrum-light-unique.css" />
+    <link rel="stylesheet" href="/static/spectrum/vars/spectrum-dark-unique.css" />
+    <!-- Components -->
+    <link rel="stylesheet" href="/static/spectrum/components/page/index-vars.css" />
+    <link rel="stylesheet" href="/static/spectrum/components/typography/index-vars.css" />
+    <link rel="stylesheet" href="/static/spectrum/components/icon/index-vars.css" />
+    <link rel="stylesheet" href="/static/spectrum/components/link/index-vars.css" />
+    <link rel="stylesheet" href="/static/spectrum/components/button/index-vars.css" />
+    <link rel="stylesheet" href="/static/spectrum/components/accordion/index-vars.css" />
     <link rel="stylesheet" href="/static/spectrum/spectrum-css-grid.css" />
     <!-- *************************************************
         Site Spectific
@@ -62,7 +46,7 @@
     <meta name="Description" content="${content.intro}">
 </head>
 
-<body class="spectrum spectrum-Typography spectrum--large">
+<body class="spectrum spectrum-Typography spectrum--large spectrum spectrum--light">
     <esi:include src="/static/global.topnav.html"></esi:include>
     <esi:include src="${context.dispatch.url}"></esi:include>
     <esi:include src="/static/global.footer.html"></esi:include>
@@ -70,7 +54,7 @@
         ;
         (function (AD, undefined) {
             // Switch spectrum flavour at different viewports
-            const mq = window.matchMedia("(min-width: 900px)");
+            const mq = window.matchMedia("(min-width: 901px)");
             function adjustSpectrumSizeOnResize () {
                 if (mq.matches) {
                     document.body.classList.remove('spectrum--large');

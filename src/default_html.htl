@@ -1,13 +1,10 @@
-<link rel="stylesheet" href="/static/spectrum/spectrum-dark.css" />
-<link rel="stylesheet" href="/static/spectrum/spectrum-darkest.css" />
-<link rel="stylesheet" href="/static/spectrum/spectrum-css-grid.css" />
 <link rel="stylesheet" href="/static/pages/home/home.css" />
 
 <div class="page-container homePage">
 
   <div class="homePage-firstSection spectrum-grid spectrum-grid--fixed">
     <!-- Search -->
-    <div class="homePage-search spectrum--dark">
+    <div class="homePage-search spectrum spectrum--dark">
       <p class="spectrum-Body5">
         Find what you're looking for
       </p>
@@ -62,7 +59,7 @@
 
     <div class="homePage-secondSection-grid spectrum-grid spectrum-grid--fixed">
       <!-- Authentication Guides -->
-      <div class="homePage-authentication spectrum--dark">
+      <div class="homePage-authentication spectrum spectrum--dark">
         <h2 class="spectrum-Heading2">
           Authentication Guides
         </h2>
@@ -96,7 +93,7 @@
       </div>
 
       <!-- Product Spotlight -->
-      <div class="homePage-productSpotlight spectrum--light">
+      <div class="homePage-productSpotlight">
         <p class="spectrum-Body5">
           <img class="homePage-productLogo" src="https://www.adobe.com/content/dam/www/icons/analytics-cloud.svg" alt="Adobe Analytics Logo">
           <code class="spectrum-Code5">
@@ -128,7 +125,7 @@
 
         <div class="homePage-topRepos">
           <div class="homePage-topRepos-shadows"></div>
-          <div class="homePage-topRepos-content spectrum--dark">
+          <div class="homePage-topRepos-content spectrum spectrum--dark">
             <!-- TODO: once we figure out how to cache stuff properly in fastly, we may
             want to put pulling repos from the github API into the pre.js to extract
             description, stars, etc. -->
@@ -229,7 +226,7 @@
         </div>
 
         <!-- Newsletter Signup -->
-        <div class="homePage-newsletterSignup spectrum--darkest">
+        <div class="homePage-newsletterSignup spectrum spectrum--darkest">
           <h2 class="spectrum-Heading2--quiet">
             <strong>Sign up</strong> for our developer newsletter
           </h2>

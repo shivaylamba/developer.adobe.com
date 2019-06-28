@@ -1,7 +1,4 @@
-<link rel="stylesheet" href="/static/spectrum/components/coachmark/index.css" />
-<link rel="stylesheet" href="/static/spectrum/components/coachmark/index-diff.css" media="(max-width: 900px)" />
-<link rel="stylesheet" href="/static/spectrum/components/coachmark/multiStops/dark.css" />
-
+<link rel="stylesheet" href="/static/spectrum/components/coachmark/index-vars.css" />
 <link rel="stylesheet" href="/static/pages/open/open.css" />
 
 <div class="page-container openPage">
@@ -11,7 +8,7 @@
             /static/pages/open/open-hero-illustration@2x.jpg 2x"
               src="/static/pages/open/open-hero-illustration.jpg" loading="lazy" alt="Open Source illustration" />
     </figure>
-    <section class="openPage-hero-content spectrum--light">
+    <section class="openPage-hero-content">
       <h2 class="openPage-hero-content-subtitle">Discover Adobe’s Open Source projects</h2>
       <h1 class="openPage-hero-content-title">Open Source at Adobe</h1>
       <p class="openPage-hero-content-body">Adobe embraces, supports and relies on Open Source technology. Join our
@@ -30,7 +27,7 @@
   <section class="openPage-orientation">
     <div class="openPage-orientation-backgroundEffects"></div>
     <div class="openPage-orientation-grid spectrum-grid spectrum-grid--fixedWide">
-      <div class="openPage-gettingStarted spectrum--dark">
+      <div class="openPage-gettingStarted spectrum spectrum--dark">
         <h1 class="openPage-sectionHeader">Get started</h1>
         <p class="openPage-gettingStarted-intro">Are you new to Open Source? We welcome contributors of all skill
           levels. Here are the basics you need to get started.</p>
@@ -66,7 +63,7 @@
           </a>
         </footer>
       </div>
-      <div class="openPage-testimonial spectrum--light">
+      <div class="openPage-testimonial">
         <div class="openPage-testimonial-attribution">
           <figure class="openPage-testimonial-attributionAvatar">
             <img srcset="/static/pages/open/368b5013.david-nuescheler.jpg,
@@ -85,7 +82,7 @@
       </div>
     </div>
   </section>
-  <section class="openPage-spotlight spectrum--dark">
+  <section class="openPage-spotlight spectrum spectrum--dark">
     <div class="openPage-spotlight-content spectrum-grid spectrum-grid--fixedWide">
       <div class="openPage-spotlight-details">
         <h1 class="openPage-sectionHeader openPage-spotlight-header">We built the Spectrum design language framework so
@@ -104,7 +101,7 @@
           </div>
         </div>
       </div>
-      <div class="openPage-spotlight-carousel spectrum--light">
+      <div class="openPage-spotlight-carousel spectrum spectrum--light ">
         <div class="slides openPage-spotlight-carouselItemGroup">
           <div class="slide openPage-spotlight-carouselItem">
             <figure class="openPage-spotlight-carouselItem-image"
@@ -132,7 +129,7 @@
     </div>
   </section>
   <section class="openPage-contributions">
-    <section class="openPage-popularProjects spectrum--light spectrum-grid spectrum-grid--fixedWide">
+    <section class="openPage-popularProjects spectrum-grid spectrum-grid--fixedWide">
       <div class="openPage-popularProjects-intro">
         <h1 class="openPage-sectionHeader">Popular projects</h1>
         <p class="openPage-popularProjects-subHeader">Helping you find interesting open source</p>
@@ -270,7 +267,7 @@
         </div>
       </div>
     </section>
-    <section class="openPage-standards spectrum--light">
+    <section class="openPage-standards">
       <section class="spectrum-grid spectrum-grid--fixedWide">
         <div class="openPage-standards-intro">
           <h1 class="openPage-standards-header openPage-sectionHeader">Open Standards</h1>
@@ -345,7 +342,7 @@
       </section>
     </section>
   </section>
-  <section class="openPage-partners spectrum--light">
+  <section class="openPage-partners">
     <section class="openPage-partners-backgroundEffects"></section>
     <div class="openPage-partners-container spectrum-grid spectrum-grid--fixedWide">
       <h1 class="openPage-sectionHeader">Community partners & projects</h1>

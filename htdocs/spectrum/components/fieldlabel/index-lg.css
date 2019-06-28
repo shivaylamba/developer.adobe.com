@@ -46,3 +46,19 @@
 .spectrum-Form-itemField {
   display: table-cell;
 }
+.spectrum-Form--labelsAbove {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  margin: 0;
+}
+.spectrum-Form--labelsAbove .spectrum-Form-item {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+  }
+.spectrum-Form--labelsAbove .spectrum-Form-item + .spectrum-Form-item {
+      margin-top: 10px;
+    }

@@ -28,4 +28,9 @@
   z-index: 1;
 
   overflow: hidden;
+  transition: opacity 190ms cubic-bezier(0.5, 0, 1, 1) 160ms,
+              visibility 0ms linear 350ms;
+}
+.spectrum-Underlay.is-open {
+  transition: opacity 300ms cubic-bezier(0, 0, 0.40, 1) 0ms;
 }
