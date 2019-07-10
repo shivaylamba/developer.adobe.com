@@ -51,9 +51,9 @@ const svgSrc = [
 //   return {};
 // }
 
-function findIconInSource(src, iconID) {
+function findIconInSource(iconSrc, iconID) {
   let iconNode = null;
-  const iconSources = Object.values(src);
+  const iconSources = Object.values(iconSrc);
   for (let i = 0; i < iconSources.length; i += 1) {
     iconNode = iconSources[i].window.document.querySelector(iconID);
     if (iconNode) {
@@ -65,7 +65,6 @@ function findIconInSource(src, iconID) {
 
 function inlineSpectrumIcons(chunk, enc, cb) {
   const dom = new JSDOM(chunk.contents.toString(enc));
-  console.log(dom);
   const iconReferences = Array.from(dom.window.document.querySelectorAll('.spectrum-Icon use'));
   const iconIDs = Array.from(new Set(iconReferences.map(el => el.getAttribute('xlink:href'))));
   if (iconReferences && iconReferences.length > 0) {
@@ -79,6 +78,7 @@ function inlineSpectrumIcons(chunk, enc, cb) {
         iconContainer.appendChild(icon);
       }
     }
+    // eslint-disable-next-line no-param-reassign
     chunk.contents = Buffer.from(dom.serialize());
   }
   cb(null, chunk);
