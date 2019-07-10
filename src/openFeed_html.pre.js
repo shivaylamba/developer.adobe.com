@@ -11,7 +11,7 @@
  */
 
 // eslint-disable-next-line import/no-extraneous-dependencies, import/no-unresolved
-const MediumUtil = require('./MediumUtil.js');
+const MediumUtil = require('./utils/MediumUtil.js');
 
 async function pre(context, action) {
   const { content } = context;

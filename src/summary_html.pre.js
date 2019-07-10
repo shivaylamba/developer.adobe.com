@@ -9,7 +9,7 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-const DOMUtil = require('./DOM_munging.js');
+const DOMUtil = require('./utils/DOM_munging.js');
 
 function anchorItem(a, close = true) {
   return `<li class="spectrum-SideNav-item">${a.outerHTML.replace(/spectrum-Link/, 'spectrum-SideNav-itemLink')}${(close ? '</li>' : '')}`;

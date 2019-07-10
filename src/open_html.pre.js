@@ -11,7 +11,7 @@
  */
 
 // eslint-disable-next-line import/no-extraneous-dependencies, import/no-unresolved
-const postProcess = require('./postProcess.js');
+const postProcess = require('./utils/postProcess.js');
 
 async function pre(context, action) {
   const { logger } = action;

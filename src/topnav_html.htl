@@ -136,7 +136,6 @@
 
         .AD-topbar-item {
             border-top: 0 solid transparent;
-            /* font-size: 18px; */
         }
 
         .AD-topbar-toggle {

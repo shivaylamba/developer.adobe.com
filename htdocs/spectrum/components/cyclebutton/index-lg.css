@@ -1,6 +1,1 @@
-.spectrum-CycleButton {
-  padding: 0 9px;
-}
-.spectrum-CycleButton .spectrum-CycleButton-item:not(.is-selected) {
-    display: none
-  }
+.spectrum-CycleButton{padding:0 9px}.spectrum-CycleButton .spectrum-CycleButton-item:not(.is-selected){display:none}

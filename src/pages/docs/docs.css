@@ -1,0 +1,421 @@
+/*
+* Copyright 2018 Adobe. All rights reserved.
+* This file is licensed to you under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License. You may obtain a copy
+* of the License at http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software distributed under
+* the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+* OF ANY KIND, either express or implied. See the License for the specific language
+* governing permissions and limitations under the License.
+*/
+
+.content.collapsed {
+    display: none;
+}
+
+@page {
+    margin: 2cm 1cm;
+}
+
+/******************************************************
+Header
+******************************************************/
+
+header {
+    -webkit-box-align: stretch;
+    border-bottom: 1px solid #d4dadf;
+    box-shadow: 0 1px 1px 0 rgba(116, 129, 141, 0.1);
+    z-index: 20;
+    display: flex;
+    align-items: stretch;
+    position: relative;
+    flex: 0 80px;
+    min-height: 80px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+header .main {
+    -webkit-box-align: center;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0px auto;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    flex: auto;
+}
+
+header .main .center {
+    display: flex;
+    align-self: stretch;
+    padding: 0px 8px;
+    flex: 1 1 auto;
+    overflow: auto;
+    transition: -ms-flex 0.2s, -webkit-flex 0.2s, flex 0.2s, width 0.2s, opacity 0.2s;
+    opacity: 1;
+}
+
+header .main .search {
+    position: relative;
+    margin-left: 16px;
+    flex: 0 1 auto;
+    max-width: 200px;
+    min-width: 200px;
+    transition: -ms-flex 0.2s, -webkit-flex 0.2s, flex 0.2s, width 0.2s;
+}
+
+/* Search */
+
+.search {
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #E6ECF1;
+    background-image: url('data:image/svg+xml;utf8,<svg preserveAspectRatio="xMidYMid meet" height="1em" width="1em" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" class="_13gjrqj"><g><circle cx="10.5" cy="10.5" r="7.5"></circle><line x1="21" y1="21" x2="15.8" y2="15.8"></line></g></svg>');
+    background-repeat: no-repeat;
+    background-position: 8px center;
+    padding-left: 20px;
+    max-width: 400px;
+    display: none;
+}
+
+.searchinput {
+    border: none;
+    outline: none;
+    margin: 0px;
+    color: inherit;
+    background: transparent;
+    font: inherit;
+    text-align: inherit;
+    line-height: inherit;
+    cursor: inherit;
+    border-radius: 3px;
+    box-sizing: border-box;
+    height: 38px;
+    padding: 0px 8px;
+}
+
+@media screen and (min-width: 1280px) {
+    .search {
+        display: inline-block;
+    }
+}
+
+.docsPage {
+    display: flex;
+    margin-top: 1px;
+    justify-content: center;
+}
+
+@media screen and (min-width: 1280px) {
+    .docsPage {
+        padding: 32px;
+    }
+}
+
+/******************************************************
+Left Nav
+******************************************************/
+
+.docsPage-nav {
+    flex: 0 0 auto;
+    padding: 16px;
+    background: #fff;
+    position: relative;
+}
+
+@media screen and (min-width: 768px) {
+    .docsPage-nav {
+        padding: 32px;
+        margin-right: 1px;
+    }
+    .docsPage-navToggle-label {
+        display: none;
+    }
+    .docsPage-navToggle {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .docsPage {
+        flex-direction: column;
+    }
+    .docsPage-nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .docsPage-search {
+        order: 3;
+    }
+    .docsPage-navToggle-label {
+        order: 1;
+    }
+    .docsPage-navToggle {
+        order: 2;
+        display: none;
+    }
+    .docsPage-navToggle:checked ~ .docsPage-navItems {
+        transform: translate(0,0);
+    }
+    .docsPage-navItems {
+        background: #fff;
+        transition: transform 130ms ease-out;
+        transform: translate(-310px,0);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 10;
+        box-shadow: 0 0 16px 0 rgba(116, 129, 141, 0.2);
+    }
+}
+
+/******************************************************
+Content
+******************************************************/
+
+.docsPage-content {
+    flex: 1 1 auto;
+    min-width: 0px;
+    position: relative;
+    background: white;
+    padding: 16px;
+    align-self: stretch;
+    max-width: 900px;
+}
+
+.docsPage-contentBody,
+.docsPage-titleBar,
+.docsPage-toc {
+    max-width: 100%;
+    max-width: 80ch;
+}
+
+.docsPage-contentBody {
+    display: block;
+    flex: 1 1 auto;
+    min-width: 0px;
+    line-height: 1.5em;
+}
+
+
+@media screen and (min-width: 900px) {
+    .docsPage-content {
+        grid-column: 1/10;
+        padding: 32px;
+    }
+}
+
+/******************************************************
+Title Bar
+******************************************************/
+
+.docsPage-titleBar {
+    -webkit-box-align: stretch;
+    -webkit-box-pack: justify;
+    margin: 0px;
+    padding: 0px;
+    align-items: stretch;
+    margin-bottom: 32px;
+}
+
+.docsPage-titleBar .title {
+    display: block;
+    margin: 0px;
+    border-bottom: 1px solid #E6ECF1;
+    padding-bottom: 32px;
+}
+
+.docsPage-titleBar .title h1 {
+    margin-top: 0;
+}
+
+.docsPage-titleBar .author {
+    display: block;
+    margin: 0px;
+    border-left: 2px solid rgb(236, 33, 0);
+    padding: 0 16px;
+}
+
+.docsPage-titleBar .commits {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex: auto;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.docsPage-titleBar .committers {
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    flex: 0 0 auto;
+    margin-right: 8px;
+}
+
+/* TODO: probably need to tweak this to work well with spectrum*/
+.docsPage-titleBar .commits {
+    font-size: 12px;
+    line-height: 1.625;
+    font-weight: 400;
+}
+
+.docsPage-titleBar .commits img {
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 128px;
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+    line-height: 1.5;
+    font-weight: 500;
+    z-index: 0;
+    box-shadow: 0 0 0 2px #fff;
+}
+
+.docsPage-titleBar .lastModified {
+    display: none;
+    padding-left: 8px;
+    align-items: center;
+}
+
+.docsPage-titleBar .lastModified.visible {
+    display: initial;
+}
+
+.docsPage-titleBar .edit-container {
+    flex:0 0 auto;
+    display:flex;
+    flex-direction:row;
+    padding:16px 0;
+    margin:0px -4px;
+}
+
+@media screen and (min-width: 900px) {
+    .docsPage-titleBar .edit-container {
+        -webkit-box-align: baseline;
+        -webkit-box-orient: horizontal;
+        align-items: baseline;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+/******************************************************
+Table of Contents 
+******************************************************/
+
+.docsPage-toc {
+    margin-bottom: 32px;
+}
+
+.docsPage-tocBody {
+    border-left: 1px solid #EAEAEA;
+    padding: 8px;
+}
+
+.docsPage-tocBody h2:first-child {
+    margin-top: 0;
+}
+
+@media screen and (max-width: 1199px) {
+    .docsPage-toc .spectrum-SideNav {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .docsPage-toc {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+    }
+    .docsPage-tocBody {
+        float: right;
+        position: sticky;
+        top: 80px;
+        background: white;
+        margin-top: 32px;
+    }
+}
+
+.docsPage-toc ul {
+    padding-inline-start: 0;
+}
+
+.docsPage-toc ul li {
+    margin-bottom: 8px;
+    display: flex;
+    list-style: none;
+}
+
+.docsPage-toc .level-H1 a {
+    padding-left: 12px;
+}
+
+.docsPage-toc .level-H2 a {
+    padding-left: 24px;
+}
+
+.docsPage-toc .level-H3 a {
+    padding-left: 36px;
+}
+
+/******************************************************
+Typography
+******************************************************/
+
+/* 
+    offsets anchors for table of contents links
+    to account for fixed header
+ */
+.docsPage-contentBody h1::before,
+.docsPage-contentBody h2::before,
+.docsPage-contentBody h3::before {
+    content: " ";
+    position: relative;
+    display: block;
+    width: 0;
+    height: 100px;
+    margin-top: -100px;
+}
+
+pre {
+    overflow: scroll;
+}
+
+table {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    margin-top: 0;
+    margin-bottom: 16px;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+table tr {
+    border-top: 1px solid #c6cbd1;
+}
+
+table th {
+    padding: 6px 13px;
+    border: 1px solid #dfe2e5;
+    font-weight: 600;
+}
+
+table tr {
+    border-top: 1px solid #c6cbd1;
+}
+
+table tr:nth-child(2n) {
+}
+
+table td {
+    padding: 6px 13px;
+    border: 1px solid #dfe2e5;
+}
