@@ -1238,7 +1238,7 @@
     content: '';
     display: block;
     background-repeat: no-repeat;
-    background-image: url(/static/global/design-elements/dot-matrix.svg);
+    background-image: url(/static/shared/design-elements/dot-matrix.svg);
     width: 228px;
     height: 626px;
     bottom: -340px;
@@ -1433,7 +1433,7 @@
 }
 
 .openPage-partners-backgroundEffects:after {
-    background-image: url(/static/global/design-elements/dot-matrix-small.svg);
+    background-image: url(/static/shared/design-elements/dot-matrix-small.svg);
     width: 308px;
     height: 79px;
     bottom: 30px;

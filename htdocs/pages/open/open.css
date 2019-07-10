@@ -1238,7 +1238,7 @@
     content: '';
     display: block;
     background-repeat: no-repeat;
-    background-image: url(/static/global/design-elements/dot-matrix.svg);
+    background-image: url(/static/shared/design-elements/dot-matrix.svg);
     width: 228px;
     height: 626px;
     bottom: -340px;
