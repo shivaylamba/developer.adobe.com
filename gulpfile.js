@@ -16,36 +16,83 @@ const {
   parallel,
   watch,
 } = require('gulp');
+const { JSDOM } = require('jsdom');
+const through = require('through2');
 const rename = require('gulp-rename');
 const htmlmin = require('gulp-htmlmin');
 const postcss = require('gulp-postcss');
 const imagemin = require('gulp-imagemin');
+const fs = require('fs');
+// eslint-disable-next-line import/no-unresolved
+const browserSync = require('browser-sync').create();
 
 const PATHS = {
   htl: './src/*.raw.htl',
-  css: ['./src/pages/**/*.css', './src/shared/**/*.css'],
+  css: ['./src/**/*.css', '!./src/spectrum/**'],
   images: ['./src/**/*.jpg', './src/**/*.png', './src/**/*.svg'],
   spectrum: './src/spectrum/**/*.css',
+  helix: ['./.hlx/build'],
 };
 
 const WATCHERS = {
   htl: watch(PATHS.htl),
   css: watch(PATHS.css),
   images: watch(PATHS.images),
+  helix: watch(PATHS.helix),
 };
+
+const svgSrc = [
+  new JSDOM(fs.readFileSync('./src/spectrum/spectrum-icons.svg', 'utf8')),
+  new JSDOM(fs.readFileSync('./src/spectrum/spectrum-css-icons.svg', 'utf8')),
+];
 
 // function clean() {
 //   // body omitted
 //   return {};
 // }
 
-function htl() {
-  function renameFile(path) {
-    // eslint-disable-next-line no-param-reassign
-    path.basename = path.basename.replace('.raw', '');
+function findIconInSource(src, iconID) {
+  let iconNode = null;
+  const iconSources = Object.values(src);
+  for (let i = 0; i < iconSources.length; i += 1) {
+    iconNode = iconSources[i].window.document.querySelector(iconID);
+    if (iconNode) {
+      break;
+    }
   }
+  return iconNode;
+}
+
+function inlineSpectrumIcons(chunk, enc, cb) {
+  const dom = new JSDOM(chunk.contents.toString(enc));
+  console.log(dom);
+  const iconReferences = Array.from(dom.window.document.querySelectorAll('.spectrum-Icon use'));
+  const iconIDs = Array.from(new Set(iconReferences.map(el => el.getAttribute('xlink:href'))));
+  if (iconReferences && iconReferences.length > 0) {
+    console.log(`   > Found ${iconIDs.length} Spectrum Icons in ${chunk.path}`);
+    const iconContainer = dom.window.document.createElement('svg');
+    iconContainer.style.display = 'none';
+    dom.window.document.body.appendChild(iconContainer);
+    for (let i = 0; i < iconIDs.length; i += 1) {
+      const icon = findIconInSource(svgSrc, iconIDs[i]);
+      if (icon) {
+        iconContainer.appendChild(icon);
+      }
+    }
+    chunk.contents = Buffer.from(dom.serialize());
+  }
+  cb(null, chunk);
+}
+
+function renameFile(path) {
+  // eslint-disable-next-line no-param-reassign
+  path.basename = path.basename.replace('.raw', '');
+}
+
+function htl() {
   return src(PATHS.htl)
     .pipe(rename(renameFile))
+    .pipe(through.obj(inlineSpectrumIcons))
     .pipe(htmlmin({
       collapseWhitespace: true,
       removeComments: true,
@@ -69,23 +116,31 @@ function images() {
 }
 
 // Avoid minifying spectrum on every build, as it rarely changes.
-function spectrum() {
+function spectrumCSS() {
   return src(PATHS.spectrum)
     .pipe(postcss())
     .pipe(dest('./htdocs/spectrum/'));
+}
+
+function injectCSS() {
+  return src('./htdocs/**/*.css')
+    .pipe(browserSync.stream());
 }
 
 function develop() {
   WATCHERS.css.on('all', css);
   WATCHERS.htl.on('all', htl);
   WATCHERS.images.on('all', images);
+
+  browserSync.init({
+    proxy: 'localhost:3000',
+  });
+
+  watch('./htdocs/**/*.css').on('all', injectCSS);
+  WATCHERS.helix.on('all', browserSync.reload);
 }
 
-// function svg(cb) {
-//     // body omitted
-//     cb();
-// }
-
-exports.build = parallel(css, htl, images, spectrum);
+exports.build = parallel(css, htl, images, spectrumCSS);
+exports.htl = htl;
 exports.develop = develop;
 exports.default = exports.build;

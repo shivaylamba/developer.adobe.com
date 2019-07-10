@@ -52,6 +52,7 @@
     "@wdio/spec-reporter": "5.9.3",
     "autoprefixer": "^9.6.1",
     "broken-link-checker": "^0.7.8",
+    "browser-sync": "^2.26.7",
     "chromedriver": "^75.0.0",
     "cssnano": "^4.1.10",
     "eslint": "^5.9.0",
@@ -71,6 +72,7 @@
     "remark": "^10.0.1",
     "sinon": "^7.3.1",
     "supertest": "^4.0.2",
+    "through2": "^3.0.1",
     "wdio-chromedriver-service": "5.0.1",
     "webdriverio": "5.10.1"
   }

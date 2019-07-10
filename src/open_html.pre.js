@@ -10,9 +10,6 @@
  * governing permissions and limitations under the License.
  */
 
-// eslint-disable-next-line import/no-extraneous-dependencies, import/no-unresolved
-const postProcess = require('./utils/postProcess.js');
-
 async function pre(context, action) {
   const { logger } = action;
   logger.info('open pre.js');
@@ -20,8 +17,3 @@ async function pre(context, action) {
 }
 
 module.exports.pre = pre;
-module.exports.after = {
-  post: (context, action) => {
-    postProcess(context, action);
-  },
-};
