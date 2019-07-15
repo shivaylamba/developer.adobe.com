@@ -1,8 +1,10 @@
 .spectrum--light .spectrum-Button.focus-ring {
-    box-shadow: 0 0 0 1px rgb(20, 115, 230);
+    -webkit-box-shadow: 0 0 0 1px rgb(20, 115, 230);
+            box-shadow: 0 0 0 1px rgb(20, 115, 230);
   }
 .spectrum--light .spectrum-Button:active {
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
   }
 .spectrum--light .spectrum-ClearButton {
   background-color: rgba(0, 0, 0, 0);
@@ -148,13 +150,15 @@
     background-color: rgb(255, 255, 255);
     border-color: rgb(255, 255, 255);
     color: inherit;
-    box-shadow: 0 0 0 1px rgb(255, 255, 255);
+    -webkit-box-shadow: 0 0 0 1px rgb(255, 255, 255);
+            box-shadow: 0 0 0 1px rgb(255, 255, 255);
   }
 .spectrum--light .spectrum-Button--overBackground:active {
     background-color: rgb(255, 255, 255);
     border-color: rgb(255, 255, 255);
     color: inherit;
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
   }
 .spectrum--light .spectrum-Button--overBackground:disabled,
   .spectrum--light .spectrum-Button--overBackground.is-disabled {
@@ -177,13 +181,15 @@
     background-color: rgb(255, 255, 255);
     border-color: rgb(255, 255, 255);
     color: inherit;
-    box-shadow: 0 0 0 1px rgb(255, 255, 255);
+    -webkit-box-shadow: 0 0 0 1px rgb(255, 255, 255);
+            box-shadow: 0 0 0 1px rgb(255, 255, 255);
   }
 .spectrum--light .spectrum-Button--overBackground.spectrum-Button--quiet:active, .spectrum--light .spectrum-ClearButton--overBackground:active {
     background-color: rgba(255,255,255,0.15);
     border-color: rgba(0, 0, 0, 0);
     color: rgb(255, 255, 255);
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
   }
 .spectrum--light .spectrum-Button--overBackground.spectrum-Button--quiet:disabled,
   .spectrum--light .spectrum-Button--overBackground.spectrum-Button--quiet.is-disabled,
@@ -263,7 +269,8 @@
 .spectrum--light .spectrum-Tool:hover {
     background-color: rgb(255, 255, 255);
     border-color: rgb(202, 202, 202);
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
     color: rgb(44, 44, 44);
   }
 .spectrum--light .spectrum-ActionButton:hover .spectrum-Icon,
@@ -278,7 +285,8 @@
 .spectrum--light .spectrum-Tool.focus-ring {
     background-color: rgb(255, 255, 255);
     border-color: rgb(38, 128, 235);
-    box-shadow: 0 0 0 1px rgb(38, 128, 235);
+    -webkit-box-shadow: 0 0 0 1px rgb(38, 128, 235);
+            box-shadow: 0 0 0 1px rgb(38, 128, 235);
     color: rgb(44, 44, 44);
   }
 .spectrum--light .spectrum-ActionButton.focus-ring .spectrum-Icon,
@@ -293,7 +301,8 @@
 .spectrum--light .spectrum-Tool:active {
     background-color: rgb(234, 234, 234);
     border-color: rgb(202, 202, 202);
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
     color: rgb(44, 44, 44);
   }
 .spectrum--light .spectrum-ActionButton:active .spectrum-ActionButton-hold,
@@ -369,12 +378,14 @@
     background-color: rgba(0, 0, 0, 0);
     border-color: rgba(0, 0, 0, 0);
     color: rgb(44, 44, 44);
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
   }
 .spectrum--light .spectrum-ActionButton--quiet.focus-ring,
 .spectrum--light .spectrum-Tool.focus-ring {
     background-color: rgba(0, 0, 0, 0);
-    box-shadow: 0 0 0 1px rgb(38, 128, 235);
+    -webkit-box-shadow: 0 0 0 1px rgb(38, 128, 235);
+            box-shadow: 0 0 0 1px rgb(38, 128, 235);
     border-color: rgb(38, 128, 235);
     color: rgb(44, 44, 44);
   }
@@ -383,7 +394,8 @@
     background-color: rgb(225, 225, 225);
     border-color: rgb(225, 225, 225);
     color: rgb(44, 44, 44);
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
   }
 .spectrum--light .spectrum-ActionButton--quiet:disabled,
 .spectrum--light .spectrum-ActionButton--quiet.is-disabled,
@@ -500,7 +512,8 @@
   .spectrum--light .spectrum-FieldButton.is-focused {
     background-color: rgb(255, 255, 255);
     border-color: rgb(38, 128, 235);
-    box-shadow: 0 0 0 1px rgb(38, 128, 235);
+    -webkit-box-shadow: 0 0 0 1px rgb(38, 128, 235);
+            box-shadow: 0 0 0 1px rgb(38, 128, 235);
     color: rgb(44, 44, 44);
   }
 .spectrum--light .spectrum-FieldButton.focus-ring.is-placeholder, .spectrum--light .spectrum-FieldButton.is-focused.is-placeholder {
@@ -515,7 +528,8 @@
     .spectrum--light .spectrum-FieldButton:active.is-focused,
     .spectrum--light .spectrum-FieldButton.is-selected.focus-ring,
     .spectrum--light .spectrum-FieldButton.is-selected.is-focused {
-      box-shadow: none;
+      -webkit-box-shadow: none;
+              box-shadow: none;
     }
 .spectrum--light .spectrum-FieldButton.is-invalid {
     border-color: rgb(215, 55, 63);
@@ -530,7 +544,8 @@
 .spectrum--light .spectrum-FieldButton.is-invalid.focus-ring,
     .spectrum--light .spectrum-FieldButton.is-invalid.is-focused {
       border-color: rgb(38, 128, 235);
-      box-shadow: 0 0 0 1px rgb(38, 128, 235);
+      -webkit-box-shadow: 0 0 0 1px rgb(38, 128, 235);
+              box-shadow: 0 0 0 1px rgb(38, 128, 235);
     }
 .spectrum--light .spectrum-FieldButton:disabled,
   .spectrum--light .spectrum-FieldButton.is-disabled {
@@ -538,7 +553,8 @@
     color: rgb(179, 179, 179);
   }
 .spectrum--light .spectrum-FieldButton:disabled.focus-ring, .spectrum--light .spectrum-FieldButton.is-disabled.focus-ring {
-      box-shadow: none;
+      -webkit-box-shadow: none;
+              box-shadow: none;
     }
 .spectrum--light .spectrum-FieldButton:disabled .spectrum-Icon, .spectrum--light .spectrum-FieldButton.is-disabled .spectrum-Icon {
       color: rgb(202, 202, 202);
@@ -555,7 +571,8 @@
 .spectrum--light .spectrum-FieldButton--quiet.focus-ring,
   .spectrum--light .spectrum-FieldButton--quiet.is-focused {
     background-color: rgba(0, 0, 0, 0);
-    box-shadow: 0 2px 0 0 rgb(38, 128, 235);
+    -webkit-box-shadow: 0 2px 0 0 rgb(38, 128, 235);
+            box-shadow: 0 2px 0 0 rgb(38, 128, 235);
   }
 .spectrum--light .spectrum-FieldButton--quiet.focus-ring.is-placeholder, .spectrum--light .spectrum-FieldButton--quiet.is-focused.is-placeholder {
       color: rgb(44, 44, 44);
@@ -570,11 +587,13 @@
     .spectrum--light .spectrum-FieldButton--quiet.is-selected.focus-ring,
     .spectrum--light .spectrum-FieldButton--quiet.is-selected.is-focused {
       background-color: rgba(0, 0, 0, 0);
-      box-shadow: 0 2px 0 0 rgb(38, 128, 235);
+      -webkit-box-shadow: 0 2px 0 0 rgb(38, 128, 235);
+              box-shadow: 0 2px 0 0 rgb(38, 128, 235);
     }
 .spectrum--light .spectrum-FieldButton--quiet.is-invalid.focus-ring,
     .spectrum--light .spectrum-FieldButton--quiet.is-invalid.is-focused {
-      box-shadow: 0 2px 0 0 rgb(38, 128, 235);
+      -webkit-box-shadow: 0 2px 0 0 rgb(38, 128, 235);
+              box-shadow: 0 2px 0 0 rgb(38, 128, 235);
     }
 .spectrum--light .spectrum-FieldButton--quiet:disabled,
   .spectrum--light .spectrum-FieldButton--quiet.is-disabled {
@@ -582,7 +601,8 @@
     color: rgb(179, 179, 179);
   }
 .spectrum--light .spectrum-FieldButton--quiet:disabled.focus-ring, .spectrum--light .spectrum-FieldButton--quiet.is-disabled.focus-ring {
-      box-shadow: none;
+      -webkit-box-shadow: none;
+              box-shadow: none;
     }
 .spectrum--light .spectrum-Tool.is-selected .spectrum-Icon {
       color: rgb(20, 115, 230);

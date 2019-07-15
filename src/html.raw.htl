@@ -17,31 +17,12 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/static/favicon.ico" />
-    <!-- *************************************************
-        Spectrum
-    ************************************************* -->
-    <!-- Variables -->
-    <link rel="stylesheet" href="/static/spectrum/vars/spectrum-global.css" />
-    <link rel="stylesheet" href="/static/spectrum/vars/spectrum-medium-unique.css" />
-    <link rel="stylesheet" href="/static/spectrum/vars/spectrum-large-unique.css" media="(max-width: 900px)" />
-    <link rel="stylesheet" href="/static/spectrum/vars/spectrum-light-unique.css" />
-    <link rel="stylesheet" href="/static/spectrum/vars/spectrum-dark-unique.css" />
-    <!-- Components -->
-    <link rel="stylesheet" href="/static/spectrum/components/page/index-vars.css" />
-    <link rel="stylesheet" href="/static/spectrum/components/typography/index-vars.css" />
-    <link rel="stylesheet" href="/static/spectrum/components/icon/index-vars.css" />
-    <link rel="stylesheet" href="/static/spectrum/components/link/index-vars.css" />
-    <link rel="stylesheet" href="/static/spectrum/components/button/index-vars.css" />
-    <link rel="stylesheet" href="/static/spectrum/components/accordion/index-vars.css" />
-    <link rel="stylesheet" href="/static/spectrum/spectrum-css-grid.css" />
-    <!-- *************************************************
-        Site Spectific
-    ************************************************* -->
-    <link rel="stylesheet" href="/static/shared/frame.css" />
-    <!-- *************************************************
-        Fonts
-    ************************************************* -->
-    <link rel="stylesheet" href="https://use.typekit.net/flt1txg.css">
+    <link rel="preload" as="style" href="/static/shared/spectrum-shared.css" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="/static/shared/frame.css" /></noscript>
+    <link rel="preload" as="style" href="/static/shared/frame.css" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="/static/shared/frame.css" /></noscript>
+    <link rel="preload" as="style" href="https://use.typekit.net/flt1txg.css" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://use.typekit.net/flt1txg.css" /></noscript>
     <title>${content.title}</title>
     <meta name="Description" content="${content.intro}">
 </head>
@@ -69,6 +50,7 @@
 
         }(window.AD = window.AD || {}));
     </script>
+    <script src="/static/vendor/cssrelpreload.js"></script>
 </body>
 
 </html>

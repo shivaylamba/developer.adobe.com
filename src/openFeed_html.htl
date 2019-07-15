@@ -1,7 +1,7 @@
 <div class="openPage-blog-grid spectrum-grid spectrum-grid--fixedWide" data-sly-test="${content.mediumArticles}">
   <h1 class="openPage-blog-header openPage-sectionHeader">Open Source on the <i>Adobe Tech Blog</i></h1>
   <h2 class="openPage-blog-latest">The latest</h2>
-  <div class="openPage-blog-heroPost" data-sly-list="${content.mediumArticles}" >
+  <div class="openPage-blog-heroPost" data-sly-list="${content.mediumArticles}">
     <div class="openPage-blog-postAbstract spectrum spectrum--dark" data-sly-test="${itemList.first}">
       <span class="openPage-blog-postMetadata">
         <b>${item.creator}</b>
@@ -10,8 +10,7 @@
       </span>
       <h1 class="openPage-sectionHeader">${item.title}</h1>
       <p class="openPage-blog-heroCaption">${item.caption}</p>
-      <a target="_blank" rel="noopener noreferrer" href="${item.link}"
-        class="openPage-blog-heroLink spectrum-Button spectrum-Button--primary">Read more</a>
+      <a target="_blank" rel="noopener noreferrer" href="${item.link}" class="openPage-blog-heroLink spectrum-Button spectrum-Button--primary">Read more</a>
     </div>
   </div>
   <div class="openPage-blog-otherPosts" data-sly-list="${content.mediumArticles}">
@@ -44,7 +43,6 @@
         </g>
       </g>
     </svg>
-    <a target="_blank" rel="noopener noreferrer" href="https://medium.com/adobetech"
-      class="spectrum-Button spectrum-Button--primary">Adobe Tech on Medium</a>
+    <a target="_blank" rel="noopener noreferrer" href="https://medium.com/adobetech" class="spectrum-Button spectrum-Button--primary">Adobe Tech on Medium</a>
   </div>
 </div>

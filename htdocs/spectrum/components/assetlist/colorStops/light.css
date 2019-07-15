@@ -6,7 +6,8 @@
       background-color: rgb(234, 234, 234);
     }
 .spectrum-AssetList-item:focus.focus-ring::before, .spectrum-AssetList-item:focus.is-focused::before {
-        box-shadow: 0px 0px 0px 2px rgb(38, 128, 235) inset;
+        -webkit-box-shadow: 0px 0px 0px 2px rgb(38, 128, 235) inset;
+                box-shadow: 0px 0px 0px 2px rgb(38, 128, 235) inset;
       }
 .spectrum-AssetList-item.is-navigated {
     background-color: rgb(225, 225, 225);

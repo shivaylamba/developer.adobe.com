@@ -16,7 +16,10 @@ const {
   parallel,
   watch,
 } = require('gulp');
-const { JSDOM } = require('jsdom');
+const {
+  JSDOM,
+} = require('jsdom');
+const he = require('he');
 const through = require('through2');
 const rename = require('gulp-rename');
 const htmlmin = require('gulp-htmlmin');
@@ -27,8 +30,9 @@ const fs = require('fs');
 const browserSync = require('browser-sync').create();
 
 const PATHS = {
-  htl: './src/*.raw.htl',
-  css: ['./src/**/*.css', '!./src/spectrum/**'],
+  htl: './src/**/*.raw.htl',
+  pages: ['./src/html.htl', './src/**/*Page*.htl', '!./src/**/*.raw.htl'],
+  css: ['./src/**/*.css', '!./src/spectrum/**/*.css'],
   images: ['./src/**/*.jpg', './src/**/*.png', './src/**/*.svg'],
   spectrum: './src/spectrum/**/*.css',
   helix: ['./.hlx/build'],
@@ -46,11 +50,6 @@ const svgSrc = [
   new JSDOM(fs.readFileSync('./src/spectrum/spectrum-css-icons.svg', 'utf8')),
 ];
 
-// function clean() {
-//   // body omitted
-//   return {};
-// }
-
 function findIconInSource(iconSrc, iconID) {
   let iconNode = null;
   const iconSources = Object.values(iconSrc);
@@ -64,22 +63,24 @@ function findIconInSource(iconSrc, iconID) {
 }
 
 function inlineSpectrumIcons(chunk, enc, cb) {
-  const dom = new JSDOM(chunk.contents.toString(enc));
+  const dom = new JSDOM(chunk.contents);
   const iconReferences = Array.from(dom.window.document.querySelectorAll('.spectrum-Icon use'));
   const iconIDs = Array.from(new Set(iconReferences.map(el => el.getAttribute('xlink:href'))));
   if (iconReferences && iconReferences.length > 0) {
-    console.log(`   > Found ${iconIDs.length} Spectrum Icons in ${chunk.path}`);
     const iconContainer = dom.window.document.createElement('svg');
     iconContainer.style.display = 'none';
     dom.window.document.body.appendChild(iconContainer);
     for (let i = 0; i < iconIDs.length; i += 1) {
       const icon = findIconInSource(svgSrc, iconIDs[i]);
       if (icon) {
-        iconContainer.appendChild(icon);
+        iconContainer.appendChild(icon.cloneNode(true));
       }
     }
+    let serializedDOM = dom.serialize();
+    // decode entities because Helix's HTL takes care of encoding later
+    serializedDOM = he.decode(serializedDOM);
     // eslint-disable-next-line no-param-reassign
-    chunk.contents = Buffer.from(dom.serialize());
+    chunk.contents = Buffer.from(serializedDOM, enc);
   }
   cb(null, chunk);
 }
@@ -91,15 +92,15 @@ function renameFile(path) {
 
 function htl() {
   return src(PATHS.htl)
-    .pipe(rename(renameFile))
-    .pipe(through.obj(inlineSpectrumIcons))
+    .pipe(through.obj(inlineSpectrumIcons, 'utf8'))
     .pipe(htmlmin({
       collapseWhitespace: true,
       removeComments: true,
       removeRedundantAttributes: true,
       minifyCSS: true,
-      minifyJS: true,
+      // minifyJS: true,
     }))
+    .pipe(rename(renameFile))
     .pipe(dest('./src/'));
 }
 
@@ -130,7 +131,7 @@ function injectCSS() {
 function develop() {
   WATCHERS.css.on('all', css);
   WATCHERS.htl.on('all', htl);
-  WATCHERS.images.on('all', images);
+  WATCHERS.images.on('add', images);
 
   browserSync.init({
     proxy: 'localhost:3000',
@@ -142,5 +143,6 @@ function develop() {
 
 exports.build = parallel(css, htl, images, spectrumCSS);
 exports.htl = htl;
+exports.css = css;
 exports.develop = develop;
 exports.default = exports.build;

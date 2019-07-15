@@ -33,7 +33,8 @@
     border-color: rgb(80, 80, 80);
   }
 .spectrum--lightest .spectrum-Slider--ramp .spectrum-Slider-handle {
-    box-shadow: 0 0 0 4px rgb(255, 255, 255);
+    -webkit-box-shadow: 0 0 0 4px rgb(255, 255, 255);
+            box-shadow: 0 0 0 4px rgb(255, 255, 255);
   }
 .spectrum--lightest .spectrum-Slider-input {
   background: transparent;
@@ -71,22 +72,27 @@
   }
 .spectrum--lightest .spectrum-Slider--color .spectrum-Slider-track {
     background-color: transparent;
+    background-image: -webkit-gradient(linear, left top, right top, from(rgb(55, 142, 240)), to(rgb(13, 102, 208)));
     background-image: linear-gradient(to right, rgb(55, 142, 240), rgb(13, 102, 208));
-    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
+    -webkit-box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
+            box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
   }
 .spectrum--lightest .spectrum-Slider--color .spectrum-Slider-track::before {
       display: none;
     }
 .spectrum--lightest .spectrum-Slider--color .spectrum-Slider-handle {
-    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.05);
+    -webkit-box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.05);
+            box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.05);
     border-color: rgb(255, 255, 255);
     background: rgba(0, 0, 0, 0);
   }
 .spectrum--lightest .spectrum-Slider--color .spectrum-Slider-handle.is-focused {
-      box-shadow: 0 0 0 1px rgba(0,0,0,0.05);
+      -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.05);
+              box-shadow: 0 0 0 1px rgba(0,0,0,0.05);
     }
 .spectrum--lightest .spectrum-Dial-handle {
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .spectrum--lightest .spectrum-Dial-handle::after {
     background-color: rgb(116, 116, 116);
@@ -165,17 +171,20 @@
       }
 .spectrum--lightest .spectrum-Slider.is-disabled.spectrum-Slider--color .spectrum-Slider-track {
         background: rgb(244, 244, 244) !important;
-        box-shadow: none;
+        -webkit-box-shadow: none;
+                box-shadow: none;
       }
 .spectrum--lightest .spectrum-Slider.is-disabled.spectrum-Slider--color .spectrum-Slider-handle {
         background: rgba(0, 0, 0, 0);
-        box-shadow: none;
+        -webkit-box-shadow: none;
+                box-shadow: none;
         border-color: rgb(211, 211, 211);
       }
 .spectrum--lightest .spectrum-Slider.is-disabled.spectrum-Slider--color .spectrum-Slider-handle:hover,
         .spectrum--lightest .spectrum-Slider.is-disabled.spectrum-Slider--color .spectrum-Slider-handle:active {
           background: rgba(0, 0, 0, 0);
-          box-shadow: none;
+          -webkit-box-shadow: none;
+                  box-shadow: none;
           border-color: rgb(211, 211, 211);
         }
 .spectrum--lightest .spectrum-Slider.is-disabled.spectrum-Slider--range .spectrum-Slider-track:not(:first-of-type):not(:last-of-type):before {

@@ -29,7 +29,9 @@
 .spectrum--lightest .spectrum-Checkbox:hover .spectrum-Checkbox-box {
       border-color: rgb(116, 116, 116);
 
-      box-shadow: none;
+      -webkit-box-shadow: none;
+
+              box-shadow: none;
     }
 .spectrum--lightest .spectrum-Checkbox:hover .spectrum-Checkbox-label {
       color: rgb(50, 50, 50);
@@ -52,7 +54,9 @@
 .spectrum--lightest .spectrum-Checkbox-input.focus-ring + .spectrum-Checkbox-box {
     border-color: rgb(55, 142, 240) !important;
 
-    box-shadow: 0 0 0 1px rgb(55, 142, 240) !important;
+    -webkit-box-shadow: 0 0 0 1px rgb(55, 142, 240) !important;
+
+            box-shadow: 0 0 0 1px rgb(55, 142, 240) !important;
   }
 .spectrum--lightest .spectrum-Checkbox-input.focus-ring ~ .spectrum-Checkbox-label {
     color: rgb(20, 115, 230) !important;

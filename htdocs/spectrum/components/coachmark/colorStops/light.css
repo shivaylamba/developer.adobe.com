@@ -1,7 +1,8 @@
 .spectrum-CoachMarkPopover {
   background-color: rgb(255, 255, 255);
   border-color: rgb(202, 202, 202);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+          box-shadow: 0 1px 4px rgba(0,0,0,0.15);
 }
 .spectrum-CoachMarkPopover-title {
   color: rgb(44, 44, 44);

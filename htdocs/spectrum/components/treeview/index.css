@@ -13,7 +13,8 @@
   overflow: hidden;
 }
 .spectrum-TreeView-item.is-open > .spectrum-TreeView-itemLink > .spectrum-TreeView-indicator {
-      transform: rotate(90deg);
+      -webkit-transform: rotate(90deg);
+              transform: rotate(90deg);
     }
 .spectrum-TreeView-item.is-open > .spectrum-TreeView {
       height: auto;
@@ -21,7 +22,8 @@
     }
 .spectrum-TreeView-itemLink {
   display: block;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   cursor: pointer;
 
   padding: 12px 30px;
@@ -66,7 +68,13 @@
 
   padding: 10px;
 
+  -webkit-transition: -webkit-transform ease 130ms;
+
+  transition: -webkit-transform ease 130ms;
+
   transition: transform ease 130ms;
+
+  transition: transform ease 130ms, -webkit-transform ease 130ms;
 
   pointer-events: all !important;
 }

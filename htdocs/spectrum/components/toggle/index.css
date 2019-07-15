@@ -1,8 +1,10 @@
 .spectrum-ToggleSwitch {
   display: -ms-inline-flexbox;
+  display: -webkit-inline-box;
   display: inline-flex;
   -ms-flex-align: start;
-      align-items: flex-start;
+      -webkit-box-align: start;
+          align-items: flex-start;
 
   position: relative;
 
@@ -15,7 +17,8 @@
 }
 .spectrum-ToggleSwitch-input {
   margin: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0;
 
   position: absolute;
@@ -29,7 +32,8 @@
   cursor: pointer;
 }
 .spectrum-ToggleSwitch-input:checked + .spectrum-ToggleSwitch-switch::after {
-      transform: translateX(12px);
+      -webkit-transform: translateX(12px);
+              transform: translateX(12px);
     }
 .spectrum-ToggleSwitch-input:disabled,
   .spectrum-ToggleSwitch-input[disabled] {
@@ -38,6 +42,7 @@
 .spectrum-ToggleSwitch-label {
   margin: 0 10px;
   font-size: 14px;
+  -webkit-transition: color 160ms ease-in-out;
   transition: color 160ms ease-in-out;
 
   margin-top: 6px;
@@ -52,7 +57,9 @@
 
   -ms-flex-positive: 0;
 
-      flex-grow: 0;
+      -webkit-box-flex: 0;
+
+          flex-grow: 0;
   -ms-flex-negative: 0;
       flex-shrink: 0;
 
@@ -63,9 +70,11 @@
     display: block;
     position: absolute;
     content: "";
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
   }
 .spectrum-ToggleSwitch-switch::before {
+    -webkit-transition: background 130ms ease-in-out, border 130ms ease-in-out;
     transition: background 130ms ease-in-out, border 130ms ease-in-out;
 
     height: 14px;
@@ -76,7 +85,10 @@
     border-radius: 7px;
   }
 .spectrum-ToggleSwitch-switch::after {
+    -webkit-transition: background 130ms ease-in-out, border 130ms ease-in-out, -webkit-transform 130ms ease-in-out, -webkit-box-shadow 130ms ease-in-out;
+    transition: background 130ms ease-in-out, border 130ms ease-in-out, -webkit-transform 130ms ease-in-out, -webkit-box-shadow 130ms ease-in-out;
     transition: background 130ms ease-in-out, border 130ms ease-in-out, transform 130ms ease-in-out, box-shadow 130ms ease-in-out;
+    transition: background 130ms ease-in-out, border 130ms ease-in-out, transform 130ms ease-in-out, box-shadow 130ms ease-in-out, -webkit-transform 130ms ease-in-out, -webkit-box-shadow 130ms ease-in-out;
 
     width: 14px;
     height: 14px;

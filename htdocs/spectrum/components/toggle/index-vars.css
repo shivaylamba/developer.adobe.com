@@ -1,8 +1,10 @@
 .spectrum-ToggleSwitch {
   display: -ms-inline-flexbox;
+  display: -webkit-inline-box;
   display: inline-flex;
   -ms-flex-align: start;
-      align-items: flex-start;
+      -webkit-box-align: start;
+          align-items: flex-start;
 
   position: relative;
 
@@ -16,7 +18,8 @@
 
 .spectrum-ToggleSwitch-input {
   margin: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0;
 
   position: absolute;
@@ -31,7 +34,8 @@
 }
 
 .spectrum-ToggleSwitch-input:checked + .spectrum-ToggleSwitch-switch::after {
-      transform: translateX(calc(var(--spectrum-switch-track-width) - var(--spectrum-switch-handle-size, var(--spectrum-global-dimension-size-175))));
+      -webkit-transform: translateX(calc(var(--spectrum-switch-track-width) - var(--spectrum-switch-handle-size, var(--spectrum-global-dimension-size-175))));
+              transform: translateX(calc(var(--spectrum-switch-track-width) - var(--spectrum-switch-handle-size, var(--spectrum-global-dimension-size-175))));
     }
 
 .spectrum-ToggleSwitch-input:disabled,
@@ -42,6 +46,7 @@
 .spectrum-ToggleSwitch-label {
   margin: 0 var(--spectrum-switch-text-gap, var(--spectrum-global-dimension-size-125));
   font-size: var(--spectrum-switch-text-size, var(--spectrum-global-dimension-font-size-100));
+  -webkit-transition: color var(--spectrum-global-animation-duration-200, 160ms) ease-in-out;
   transition: color var(--spectrum-global-animation-duration-200, 160ms) ease-in-out;
 
   margin-top: var(--spectrum-global-dimension-size-75);
@@ -57,7 +62,9 @@
 
   -ms-flex-positive: 0;
 
-      flex-grow: 0;
+      -webkit-box-flex: 0;
+
+          flex-grow: 0;
   -ms-flex-negative: 0;
       flex-shrink: 0;
 
@@ -69,10 +76,12 @@
     display: block;
     position: absolute;
     content: "";
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
   }
 
 .spectrum-ToggleSwitch-switch::before {
+    -webkit-transition: background var(--spectrum-global-animation-duration-100, 130ms) ease-in-out, border var(--spectrum-global-animation-duration-100, 130ms) ease-in-out;
     transition: background var(--spectrum-global-animation-duration-100, 130ms) ease-in-out, border var(--spectrum-global-animation-duration-100, 130ms) ease-in-out;
 
     height: var(--spectrum-switch-track-height, var(--spectrum-global-dimension-size-175));
@@ -84,7 +93,10 @@
   }
 
 .spectrum-ToggleSwitch-switch::after {
+    -webkit-transition: background var(--spectrum-global-animation-duration-100, 130ms) ease-in-out, border var(--spectrum-global-animation-duration-100, 130ms) ease-in-out, -webkit-transform var(--spectrum-global-animation-duration-100, 130ms) ease-in-out, -webkit-box-shadow var(--spectrum-global-animation-duration-100, 130ms) ease-in-out;
+    transition: background var(--spectrum-global-animation-duration-100, 130ms) ease-in-out, border var(--spectrum-global-animation-duration-100, 130ms) ease-in-out, -webkit-transform var(--spectrum-global-animation-duration-100, 130ms) ease-in-out, -webkit-box-shadow var(--spectrum-global-animation-duration-100, 130ms) ease-in-out;
     transition: background var(--spectrum-global-animation-duration-100, 130ms) ease-in-out, border var(--spectrum-global-animation-duration-100, 130ms) ease-in-out, transform var(--spectrum-global-animation-duration-100, 130ms) ease-in-out, box-shadow var(--spectrum-global-animation-duration-100, 130ms) ease-in-out;
+    transition: background var(--spectrum-global-animation-duration-100, 130ms) ease-in-out, border var(--spectrum-global-animation-duration-100, 130ms) ease-in-out, transform var(--spectrum-global-animation-duration-100, 130ms) ease-in-out, box-shadow var(--spectrum-global-animation-duration-100, 130ms) ease-in-out, -webkit-transform var(--spectrum-global-animation-duration-100, 130ms) ease-in-out, -webkit-box-shadow var(--spectrum-global-animation-duration-100, 130ms) ease-in-out;
 
     width: var(--spectrum-switch-handle-size, var(--spectrum-global-dimension-size-175));
     height: var(--spectrum-switch-handle-size, var(--spectrum-global-dimension-size-175));
@@ -120,7 +132,8 @@
 
 .spectrum-ToggleSwitch:hover .spectrum-ToggleSwitch-input + .spectrum-ToggleSwitch-switch::after {
         border-color: var(--spectrum-switch-handle-border-color-hover, var(--spectrum-global-color-gray-700));
-        box-shadow: none;
+        -webkit-box-shadow: none;
+                box-shadow: none;
       }
 
 .spectrum-ToggleSwitch:hover .spectrum-ToggleSwitch-input ~ .spectrum-ToggleSwitch-label {
@@ -201,7 +214,8 @@
 
 .spectrum-ToggleSwitch .spectrum-ToggleSwitch-input.focus-ring + .spectrum-ToggleSwitch-switch::after, .spectrum-ToggleSwitch:hover .spectrum-ToggleSwitch-input.focus-ring + .spectrum-ToggleSwitch-switch::after, .spectrum-ToggleSwitch--quiet .spectrum-ToggleSwitch-input.focus-ring + .spectrum-ToggleSwitch-switch::after, .spectrum-ToggleSwitch--quiet:hover .spectrum-ToggleSwitch-input.focus-ring + .spectrum-ToggleSwitch-switch::after {
         border-color: var(--spectrum-switch-handle-border-color-key-focus, var(--spectrum-global-color-blue-400));
-        box-shadow: 0 0 0 1px var(--spectrum-switch-handle-border-color-key-focus, var(--spectrum-global-color-blue-400));
+        -webkit-box-shadow: 0 0 0 1px var(--spectrum-switch-handle-border-color-key-focus, var(--spectrum-global-color-blue-400));
+                box-shadow: 0 0 0 1px var(--spectrum-switch-handle-border-color-key-focus, var(--spectrum-global-color-blue-400));
       }
 
 .spectrum-ToggleSwitch .spectrum-ToggleSwitch-input.focus-ring ~ .spectrum-ToggleSwitch-label, .spectrum-ToggleSwitch:hover .spectrum-ToggleSwitch-input.focus-ring ~ .spectrum-ToggleSwitch-label, .spectrum-ToggleSwitch--quiet .spectrum-ToggleSwitch-input.focus-ring ~ .spectrum-ToggleSwitch-label, .spectrum-ToggleSwitch--quiet:hover .spectrum-ToggleSwitch-input.focus-ring ~ .spectrum-ToggleSwitch-label {
@@ -214,7 +228,8 @@
 
 .spectrum-ToggleSwitch .spectrum-ToggleSwitch-input.focus-ring:checked + .spectrum-ToggleSwitch-switch::after, .spectrum-ToggleSwitch:hover .spectrum-ToggleSwitch-input.focus-ring:checked + .spectrum-ToggleSwitch-switch::after, .spectrum-ToggleSwitch--quiet .spectrum-ToggleSwitch-input.focus-ring:checked + .spectrum-ToggleSwitch-switch::after, .spectrum-ToggleSwitch--quiet:hover .spectrum-ToggleSwitch-input.focus-ring:checked + .spectrum-ToggleSwitch-switch::after {
           border-color: var(--spectrum-switch-handle-border-color-selected-key-focus, var(--spectrum-global-color-blue-400));
-          box-shadow: 0 0 0 1px var(--spectrum-switch-handle-border-color-selected-key-focus, var(--spectrum-global-color-blue-400));
+          -webkit-box-shadow: 0 0 0 1px var(--spectrum-switch-handle-border-color-selected-key-focus, var(--spectrum-global-color-blue-400));
+                  box-shadow: 0 0 0 1px var(--spectrum-switch-handle-border-color-selected-key-focus, var(--spectrum-global-color-blue-400));
         }
 
 .spectrum-ToggleSwitch .spectrum-ToggleSwitch-input.focus-ring:checked ~ .spectrum-ToggleSwitch-label, .spectrum-ToggleSwitch:hover .spectrum-ToggleSwitch-input.focus-ring:checked ~ .spectrum-ToggleSwitch-label, .spectrum-ToggleSwitch--quiet .spectrum-ToggleSwitch-input.focus-ring:checked ~ .spectrum-ToggleSwitch-label, .spectrum-ToggleSwitch--quiet:hover .spectrum-ToggleSwitch-input.focus-ring:checked ~ .spectrum-ToggleSwitch-label {

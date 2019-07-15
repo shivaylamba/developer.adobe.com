@@ -15,7 +15,8 @@
 }
 
 .spectrum-TreeView-item.is-open > .spectrum-TreeView-itemLink > .spectrum-TreeView-indicator {
-      transform: rotate(90deg);
+      -webkit-transform: rotate(90deg);
+              transform: rotate(90deg);
     }
 
 .spectrum-TreeView-item.is-open > .spectrum-TreeView {
@@ -25,7 +26,8 @@
 
 .spectrum-TreeView-itemLink {
   display: block;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   cursor: pointer;
 
   padding: calc(var(--spectrum-treeview-item-margin-y, 8px) / 2 + var(--spectrum-treeview-item-padding-y, 8px)) var(--spectrum-treeview-item-padding-x, 30px);
@@ -74,7 +76,13 @@
 
   padding: var(--spectrum-global-dimension-size-125);
 
+  -webkit-transition: -webkit-transform ease var(--spectrum-global-animation-duration-100, 130ms);
+
+  transition: -webkit-transform ease var(--spectrum-global-animation-duration-100, 130ms);
+
   transition: transform ease var(--spectrum-global-animation-duration-100, 130ms);
+
+  transition: transform ease var(--spectrum-global-animation-duration-100, 130ms), -webkit-transform ease var(--spectrum-global-animation-duration-100, 130ms);
 
   pointer-events: all !important;
 }
@@ -154,10 +162,12 @@
 
 .spectrum-TreeView-itemLink.focus-ring::before {
       background-color: var(--spectrum-treeview-item-background-color-key-focus, var(--spectrum-alias-background-color-hover-overlay));
-      box-shadow: 0px 0px 0px 2px var(--spectrum-treeview-item-border-color-key-focus, var(--spectrum-global-color-blue-400)) inset;
+      -webkit-box-shadow: 0px 0px 0px 2px var(--spectrum-treeview-item-border-color-key-focus, var(--spectrum-global-color-blue-400)) inset;
+              box-shadow: 0px 0px 0px 2px var(--spectrum-treeview-item-border-color-key-focus, var(--spectrum-global-color-blue-400)) inset;
     }
 
 .spectrum-TreeView-itemLink.is-drop-target::before {
       background-color: var(--spectrum-alias-highlight-selected);
-      box-shadow: 0px 0px 0px 2px var(--spectrum-treeview-item-border-color-key-focus, var(--spectrum-global-color-blue-400)) inset;
+      -webkit-box-shadow: 0px 0px 0px 2px var(--spectrum-treeview-item-border-color-key-focus, var(--spectrum-global-color-blue-400)) inset;
+              box-shadow: 0px 0px 0px 2px var(--spectrum-treeview-item-border-color-key-focus, var(--spectrum-global-color-blue-400)) inset;
     }

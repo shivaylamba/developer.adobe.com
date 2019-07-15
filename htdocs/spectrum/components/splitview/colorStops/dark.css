@@ -38,7 +38,8 @@
     }
 .spectrum-SplitView-splitter.is-draggable.focus-ring .spectrum-SplitView-gripper {
         border-color: rgb(38, 128, 235);
-        box-shadow: 0 0 0 1px rgb(38, 128, 235);
+        -webkit-box-shadow: 0 0 0 1px rgb(38, 128, 235);
+                box-shadow: 0 0 0 1px rgb(38, 128, 235);
       }
 .spectrum-SplitView-splitter.is-draggable.focus-ring .spectrum-SplitView-gripper:before {
           background-color: rgb(38, 128, 235);

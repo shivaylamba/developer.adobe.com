@@ -22,7 +22,13 @@
 
   padding: 13px;
 
+  -webkit-transition: -webkit-transform ease 130ms;
+
+  transition: -webkit-transform ease 130ms;
+
   transition: transform ease 130ms;
+
+  transition: transform ease 130ms, -webkit-transform ease 130ms;
 }
 .spectrum--large .spectrum-TreeView .spectrum-TreeView {
 

@@ -1,5 +1,6 @@
 .spectrum--light .spectrum-Rating.is-focused {
-    box-shadow: 0 0 0 2px rgb(38, 128, 235);
+    -webkit-box-shadow: 0 0 0 2px rgb(38, 128, 235);
+            box-shadow: 0 0 0 2px rgb(38, 128, 235);
   }
 .spectrum--light .spectrum-Rating:hover .spectrum-Rating-icon {
       color: rgb(20, 115, 230);

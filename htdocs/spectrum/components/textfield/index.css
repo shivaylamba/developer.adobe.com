@@ -1,5 +1,6 @@
 .spectrum-Textfield {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border: 1px solid;
   border-radius: 4px;
   padding: 3px 12px 5px 12px;
@@ -17,27 +18,71 @@
   line-height: 20px;
   text-overflow: ellipsis;
 
+  -webkit-transition: border-color 130ms ease-in-out, -webkit-box-shadow 130ms ease-in-out;
+
+  transition: border-color 130ms ease-in-out, -webkit-box-shadow 130ms ease-in-out;
+
   transition: border-color 130ms ease-in-out, box-shadow 130ms ease-in-out;
+
+  transition: border-color 130ms ease-in-out, box-shadow 130ms ease-in-out, -webkit-box-shadow 130ms ease-in-out;
 
   outline: none;
   -moz-appearance: textfield;
   -webkit-appearance: none;
 }
-.spectrum-Textfield::placeholder {
+.spectrum-Textfield::-webkit-input-placeholder {
     font-weight: 400;
     font-style: italic;
+    -webkit-transition: color 130ms ease-in-out;
+    transition: color 130ms ease-in-out;
+  }
+.spectrum-Textfield::-moz-placeholder {
+    font-weight: 400;
+    font-style: italic;
+    -webkit-transition: color 130ms ease-in-out;
     transition: color 130ms ease-in-out;
   }
 .spectrum-Textfield::-ms-input-placeholder {
     font-weight: 400;
     font-style: italic;
+    -webkit-transition: color 130ms ease-in-out;
     transition: color 130ms ease-in-out;
   }
+.spectrum-Textfield::placeholder {
+    font-weight: 400;
+    font-style: italic;
+    -webkit-transition: color 130ms ease-in-out;
+    transition: color 130ms ease-in-out;
+  }
+.spectrum-Textfield::-ms-input-placeholder {
+    font-weight: 400;
+    font-style: italic;
+    -webkit-transition: color 130ms ease-in-out;
+    transition: color 130ms ease-in-out;
+  }
+.spectrum-Textfield:lang(ja)::-webkit-input-placeholder, .spectrum-Textfield:lang(zh)::-webkit-input-placeholder, .spectrum-Textfield:lang(ko)::-webkit-input-placeholder {
+       font-style: normal;
+    }
+.spectrum-Textfield:lang(ja)::-moz-placeholder, .spectrum-Textfield:lang(zh)::-moz-placeholder, .spectrum-Textfield:lang(ko)::-moz-placeholder {
+       font-style: normal;
+    }
+.spectrum-Textfield:lang(ja)::-ms-input-placeholder, .spectrum-Textfield:lang(zh)::-ms-input-placeholder, .spectrum-Textfield:lang(ko)::-ms-input-placeholder {
+       font-style: normal;
+    }
 .spectrum-Textfield:lang(ja)::placeholder, .spectrum-Textfield:lang(zh)::placeholder, .spectrum-Textfield:lang(ko)::placeholder {
        font-style: normal;
     }
 .spectrum-Textfield:lang(ja)::-ms-input-placeholder, .spectrum-Textfield:lang(zh)::-ms-input-placeholder, .spectrum-Textfield:lang(ko)::-ms-input-placeholder {
        font-style: normal;
+    }
+.spectrum-Textfield:hover::-webkit-input-placeholder {
+      font-weight: 400;
+    }
+.spectrum-Textfield:hover::-moz-placeholder {
+      font-weight: 400;
+    }
+.spectrum-Textfield:hover::-ms-input-placeholder {
+      font-weight: 400;
     }
 .spectrum-Textfield:hover::placeholder {
       font-weight: 400;
@@ -45,6 +90,15 @@
 .spectrum-Textfield:disabled {
     opacity: 1;
   }
+.spectrum-Textfield:disabled::-webkit-input-placeholder {
+      font-weight: 400;
+    }
+.spectrum-Textfield:disabled::-moz-placeholder {
+      font-weight: 400;
+    }
+.spectrum-Textfield:disabled::-ms-input-placeholder {
+      font-weight: 400;
+    }
 .spectrum-Textfield:disabled::placeholder {
       font-weight: 400;
     }

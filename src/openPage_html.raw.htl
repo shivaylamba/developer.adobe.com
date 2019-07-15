@@ -9,7 +9,7 @@
               src="/static/pages/open/open-hero-illustration.jpg" loading="lazy" alt="Open Source illustration" />
     </figure>
     <section class="openPage-hero-content">
-      <h2 class="openPage-hero-content-subtitle">Discover Adobe’s Open Source projects</h2>
+      <h2 class="openPage-hero-content-subtitle">Discover Adobe's Open Source projects</h2>
       <h1 class="openPage-hero-content-title">Open Source at Adobe</h1>
       <p class="openPage-hero-content-body">Adobe embraces, supports and relies on Open Source technology. Join our
         growing community and build with us in the open.</p>
@@ -76,7 +76,7 @@
         </div>
         <blockquote class="openPage-testimonial-quote">
           <h1 class="openPage-sectionHeader">Open Source is more about the culture of how you develop software</h1>
-          <p>rather than the license in which you release something. It’s mostly by collaboration, about transparency,
+          <p>rather than the license in which you release something. It's mostly by collaboration, about transparency,
             about accepting pull requests and input from everybody not just from the people that work on your team.</p>
         </blockquote>
       </div>
@@ -119,7 +119,7 @@
               </div>
               <p class="openPage-spotlight-carouselItem-description">The goal of this project is to provide a standard
                 CSS implementation of the Spectrum design language
-                for internal and 3rd party use on Adobe’s platforms.</p>
+                for internal and 3rd party use on Adobe's platforms.</p>
               <a href="https://github.com/adobe/spectrum-css" target="_blank" rel="noopener"
                 class="spectrum-Button spectrum-Button--cta">Spectrum on Github</a>
             </div>
@@ -198,8 +198,7 @@
               </figure>
               <h1 class="openPage-popularProjects-projectName">AEM Core Components</h1>
               <p class="openPage-popularProjects-projectDescription">Adobe Experience Manager (AEM) Sites Core
-                Components -
-                flexible, extensible, and feature-rich components to build sites.</p>
+                Components - flexible, extensible, and feature-rich components to build sites.</p>
             </div>
             <nav class="openPage-popularProjects-projectLinks">
               <a class="spectrum-Link"
@@ -280,7 +279,7 @@
             <div class="openPage-standards-formatDetails">
               <h1 class="openPage-standards-formatAcronym">Tiff</h1>
               <p class="openPage-standards-formatFullname">Tagged Image File Format (TIFF)</p>
-              <p class="openPage-standards-formatDescription">Adobe’s tag-based file format for storing and
+              <p class="openPage-standards-formatDescription">Adobe's tag-based file format for storing and
                 interchanging
                 raster images.</p>
               <a class="spectrum-Link" href="https://www.adobe.io/open/standards/TIFF.html">Docs</a>
@@ -321,7 +320,7 @@
             <div class="openPage-standards-formatDetails">
               <h1 class="openPage-standards-formatAcronym">XMP</h1>
               <p class="openPage-standards-formatFullname">Extensible Metadata Platform (XMP)</p>
-              <p class="openPage-standards-formatDescription">Adobe’s file labeling technology that lets you embed
+              <p class="openPage-standards-formatDescription">Adobe's file labeling technology that lets you embed
                 metadata
                 into files themselves during the content
                 creation process.</p>
