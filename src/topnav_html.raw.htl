@@ -56,6 +56,11 @@
             display: flex;
             align-items: center;
         }
+
+        .AD-topbar-toggle svg {
+            height: 32px;
+            width: 32px;
+        }
     
         .AD-topbar-itemGroup {
             flex-direction: column;
