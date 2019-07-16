@@ -31,11 +31,11 @@ function pre(context, action) {
   logger.info(`request path: ${context.request.path}`);
   logger.info(`action path: ${action.request.params.path}`);
   logger.info(`action rootPath: ${action.request.params.rootPath}`);
-  logger.info(`strain header: ${context.request.headers['x-strain']}`);
+  // logger.info(`strain header: ${context.request.headers['x-strain']}`);
 
   if (context.request.path.match(/^\/open(\.html)?(\/index.html)?$/i)) {
     // open page
-    context.dispatch.url = '/static/index.openPage.html';
+    context.dispatch.url = '/static/open.openPage.html';
   } else if (action.request.params.rootPath && action.request.params.rootPath.match('/docs')) {
     context.dispatch.url = context.request.path.replace(/\.html/, '.docs.html');
   } else if (!action.request.params.rootPath && context.request.path.match('index.html')) {
