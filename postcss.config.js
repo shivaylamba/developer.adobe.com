@@ -15,13 +15,11 @@ const autoprefixer = require('autoprefixer');
 const nested = require('postcss-nested');
 const cssimport = require('postcss-import');
 const cssnano = require('cssnano');
-const mqpacker = require('css-mqpacker');
 
 exports.plugins = [
   cssimport,
   autoprefixer,
   nested,
-  mqpacker,
   cssnano({
     preset: ['default', {
       svgo: false,
