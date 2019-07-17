@@ -40,7 +40,7 @@ const PATHS = {
     htl: ['./src-actual/helix/**/*.htl'],
     nonHtl: ['./src-actual/helix/**/*.*', '!./src-actual/helix/**/*.htl'],
     build: './.hlx/build',
-  }
+  },
 };
 
 const svgSrc = [
@@ -134,7 +134,7 @@ function injectCSS() {
     .pipe(browserSync.stream());
 }
 
-function develop(cb) {
+function develop() {
   watch(PATHS.images).on('all', images);
   watch(PATHS.css).on('all', css);
   watch(PATHS.vendor).on('all', vendor);
