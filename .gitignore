@@ -1,6 +1,7 @@
 .hlx/cache
 .hlx/build
 .cache/
+src/
 node_modules/
 pipeline.log
 logs

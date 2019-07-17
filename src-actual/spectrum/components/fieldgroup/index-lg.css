@@ -1,0 +1,11 @@
+.spectrum-FieldGroup {
+  display: -ms-flexbox;
+  display: flex;
+  vertical-align: top;
+}
+.spectrum-FieldGroup--vertical {
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+}

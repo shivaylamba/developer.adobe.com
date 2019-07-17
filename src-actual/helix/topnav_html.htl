@@ -1,0 +1,198 @@
+<style>
+        .AD-topbar {
+            position: relative;
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 100;
+            height: 80px;
+            border-bottom: 1px solid #D5D5D5;
+        }
+    
+        .AD-topbar-container {
+            position: relative;
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+    
+        .AD-topbar a {
+            text-decoration: none;
+        }
+    
+        .AD-topbar-main {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            height: 100%;
+        }
+    
+        .AD-topbar-logo {
+            display: flex;
+            align-items: center;
+        }
+    
+        .AD-topbar-logoText {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2d2d2d;
+            padding-left: 8px;
+        }
+    
+        .AD-topbar-toggle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            background: transparent;
+            border: 0 none;
+            cursor: pointer;
+            color: #2d2d2d;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        .AD-topbar-toggle svg {
+            height: 32px;
+            width: 32px;
+        }
+    
+        .AD-topbar-itemGroup {
+            flex-direction: column;
+            list-style-type: none;
+            display: none;
+            margin: 0;
+            padding: 0;
+        }
+    
+        .AD-topbar-itemGroup.active {
+            display: flex;
+        }
+    
+        @supports (transform-origin: 0px) {
+            @media screen and (max-width: 899px) {
+                .AD-topbar-main {
+                    background: #fff;
+                    z-index: 3;
+                }
+    
+                .AD-topbar-itemGroup {
+                    position: absolute;
+                    top: 100%;
+                    width: 100%;
+                    display: flex;
+                    background: #fff;
+                    z-index: 2;
+                    transform: translateY(-100%);
+                    transition-property: transform;
+                    transition-timing-function: cubic-bezier(0.45, 0, 0.40, 1);
+                    transition-duration: 300ms;
+                }
+    
+                .AD-topbar-itemGroup.active {
+                    transform: translateY(0%);
+                }
+            }
+        }
+    
+        .AD-topbar-item {
+            border-top: 1px solid #f3f3f3;
+        }
+    
+        .AD-topbar-itemLink {
+            display: block;
+            padding: 20px;
+            font-size: 14px;
+            text-align: left;
+            color: #2d2d2d;
+            font-weight: 700;
+        }
+    
+        .AD-topbar-item--console {
+            padding: 16px;
+            text-align: center;
+        }
+    
+        @media screen and (min-width: 900px) {
+    
+            .AD-topbar-container {
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+            }
+    
+            .AD-topbar-main {
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+            }
+    
+            .AD-topbar-itemGroup {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+    
+            .AD-topbar-item {
+                border-top: 0 solid transparent;
+            }
+    
+            .AD-topbar-toggle {
+                display: none;
+            }
+    
+        }
+    </style>
+    
+    <nav class="AD-topbar">
+        <div class="AD-topbar-container">
+            <div class="AD-topbar-main">
+                <button class="AD-topbar-toggle" id="AD-topbar-toggle" aria-label="Show Menu">
+                    <svg class="spectrum-Icon spectrum-Icon--sizeM" focusable="false" aria-hidden="true"
+                        aria-label="ShowMenu">
+                        <use xlink:href="#spectrum-icon-18-ShowMenu"></use>
+                    </svg>
+                </button>
+                <a class="AD-topbar-logo" href="/">
+                    <!-- <svg class="AD-topbar-logoIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="20"
+                        viewBox="0 0 24 20" focusable="false">
+                        <path fill="#FF0000"
+                            d="M15.1,0H24v20L15.1,0z M8.9,0H0v20L8.9,0z M12,7.4L17.6,20h-3.8l-1.6-4H8.1L12,7.4z">
+                        </path>
+                    </svg> -->
+                    <span class="AD-topbar-logoText">Adobe I/O</span>
+                </a>
+            </div>
+            <ul class="AD-topbar-itemGroup" id="AD-topbar-itemGroup">
+                <li class="AD-topbar-item">
+                    <a href="/apis.html" class="AD-topbar-itemLink">APIs</a>
+                </li>
+                <li class="AD-topbar-item">
+                    <a href="/authentication.html" class="AD-topbar-itemLink">Authentication</a>
+                </li>
+                <li class="AD-topbar-item">
+                    <a href="/open.html" class="AD-topbar-itemLink">Open Source</a>
+                </li>
+                <li class="AD-topbar-item">
+                    <a href="/blog.html" class="AD-topbar-itemLink">Blog</a>
+                </li>
+                <li class="AD-topbar-item AD-topbar-item--console">
+                    <a href="https://console.adobe.io/" class="spectrum-Button spectrum-Button--cta">Console</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <script type="text/javascript">
+        let topbarItems = document.getElementById('AD-topbar-itemGroup');
+        let topbarToggle = document.getElementById('AD-topbar-toggle');
+        topbarToggle.addEventListener('click', function () {
+            topbarItems.classList.toggle('active');
+        });
+    </script>

@@ -1,0 +1,174 @@
+<style>
+    .AD-footer {
+        /* padding: 25px; */
+    }
+
+    .AD-footer-container {
+        grid-column: 1/13;
+    }
+
+    .AD-footer-logo {
+        max-width: 25px;
+        max-height: 25px;
+        margin-bottom: 10px;
+    }
+
+    .AD-footer .spectrum-Accordion-itemContent {
+        color: #999;
+        text-decoration: none;
+    }
+
+    .AD-footer .spectrum-Accordion-itemContent:hover {
+        color: rgb(13, 102, 208);
+    }
+
+    .AD-footer-copyright {
+        color: #999;
+        text-align: center;
+    }
+
+    @media screen and (min-width: 1080px) {
+
+        .AD-footer-logo {
+            display: none;
+        }
+
+        .AD-footer .spectrum-Accordion {
+            display: flex;
+        }
+
+        .AD-footer .spectrum-Accordion-item {
+            border-color: transparent;
+            flex-basis: 50%;
+        }
+
+        .AD-footer .spectrum-Accordion-itemIndicator {
+            display: none;
+        }
+
+        .AD-footer .spectrum-Accordion-itemContent {
+            display: block;
+            padding-bottom: 4px;
+        }
+
+        .AD-footer .AD-footer-social-column {
+            flex-basis: 100%;
+        }
+
+        .AD-footer .AD-footer-social-column .spectrum-Accordion-itemContent {
+            width: 50%;
+            display: inline-block;
+            float: left;
+        }
+
+        .AD-footer .spectrum-Accordion-itemHeader {
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+            text-transform: none;
+        }
+
+        .AD-footer .spectrum-Accordion-itemHeader,
+        .AD-footer .spectrum-Accordion-itemContent {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .AD-footer .spectrum-Accordion-item {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .AD-footer .spectrum-Accordion-item:first-child {
+            padding-left: 0;
+        }
+
+        .AD-footer .spectrum-Accordion-item:last-child {
+            padding-right: 0;
+        }
+
+        .AD-footer .spectrum-Accordion-item+.spectrum-Accordion-item {
+            border-left: 1px solid #9a9595;
+        }
+    }
+</style>
+
+<nav class="AD-footer spectrum spectrum--dark">
+    <div class="spectrum-grid spectrum-grid--fixedWide">
+        <div class="AD-footer-container">
+            <svg class="AD-footer-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 20" focusable="false">
+                <path fill="#FF0000"
+                    d="M15.1,0H24v20L15.1,0z M8.9,0H0v20L8.9,0z M12,7.4L17.6,20h-3.8l-1.6-4H8.1L12,7.4z">
+                </path>
+            </svg>
+            <div class="spectrum-Accordion">
+                <div class="spectrum-Accordion-item">
+                    <div class="spectrum-Accordion-itemHeader" tabindex="0">APIs</div>
+                    <svg class="spectrum-Icon spectrum-UIIcon-ChevronRightMedium spectrum-Accordion-itemIndicator"
+                        focusable="false" aria-hidden="true">
+                        <use xlink:href="#spectrum-css-icon-ChevronRightMedium" />
+                    </svg>
+                    <a class="spectrum-Accordion-itemContent" href="/apis/creativecloud.html">Creative Cloud</a>
+                    <a class="spectrum-Accordion-itemContent" href="/apis/documentcloud.html">Document Cloud</a>
+                    <a class="spectrum-Accordion-itemContent" href="/apis/experiencecloud.html">Experience Cloud</a>
+                    <a class="spectrum-Accordion-itemContent" href="/apis/experienceplatform.html">Adobe Experience
+                        Platform</a>
+                </div>
+                <div class="spectrum-Accordion-item AD-footer-social-column">
+                    <div class="spectrum-Accordion-itemHeader">Blogs & Community</div>
+                    <svg class="spectrum-Icon spectrum-UIIcon-ChevronRightMedium spectrum-Accordion-itemIndicator"
+                        focusable="false" aria-hidden="true">
+                        <use xlink:href="#spectrum-css-icon-ChevronRightMedium" />
+                    </svg>
+                    <a class="spectrum-Accordion-itemContent" href="https://medium.com/adobetech">Adobe Tech Blog</a>
+                    <a class="spectrum-Accordion-itemContent" href="https://github.com/adobe">Adobe on GitHub</a>
+                    <a class="spectrum-Accordion-itemContent" href="https://twitter.com/adobedevs">Adobe I/O on
+                        Twitter</a>
+                    <a class="spectrum-Accordion-itemContent"
+                        href="https://www.youtube.com/channel/UCDtYqOjS9Eq9gacLcbMwhhQ">Adobe I/O on
+                        YouTube</a>
+                </div>
+                <div class="spectrum-Accordion-item">
+                    <div class="spectrum-Accordion-itemHeader" tabindex="0">Support</div>
+                    <svg class="spectrum-Icon spectrum-UIIcon-ChevronRightMedium spectrum-Accordion-itemIndicator"
+                        focusable="false" aria-hidden="true">
+                        <use xlink:href="#spectrum-css-icon-ChevronRightMedium" />
+                    </svg>
+                    <a class="spectrum-Accordion-itemContent" href="/contactus.html">Contact Us</a>
+                    <a class="spectrum-Accordion-itemContent"
+                        href="https://stackoverflow.com/questions/tagged/adobe">Adobe
+                        on StackOverflow</a>
+                    <a class="spectrum-Accordion-itemContent"
+                        href="https://helpx.adobe.com/contact/enterprise-support.html?promoid=9MZL4DLJ&amp;mv=other">Adobe
+                        Product Support</a>
+                    <a class="spectrum-Accordion-itemContent" href="/releasenotes.html">Release Notes</a>
+                </div>
+                <div class="spectrum-Accordion-item">
+                    <div class="spectrum-Accordion-itemHeader" tabindex="0">Adobe</div>
+                    <svg class="spectrum-Icon spectrum-UIIcon-ChevronRightMedium spectrum-Accordion-itemIndicator"
+                        focusable="false" aria-hidden="true">
+                        <use xlink:href="#spectrum-css-icon-ChevronRightMedium" />
+                    </svg>
+                    <a class="spectrum-Accordion-itemContent" href="/open.html">Open Source Adobe</a>
+                    <a class="spectrum-Accordion-itemContent" href="https://www.adobe.com/privacy.html">Privacy
+                        Policy</a>
+                    <a class="spectrum-Accordion-itemContent" href="https://www.adobe.com/legal/terms.html">Terms of
+                        Use</a>
+                    <a class="spectrum-Accordion-itemContent"
+                        href="https://www.adobe.com/privacy/cookies.html">Cookies</a>
+                </div>
+            </div>
+            <div class="AD-footer-copyright">
+                <p>Copyright &copy; 2019 Adobe. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script type="text/javascript">
+    document.querySelectorAll('.AD-footer .spectrum-Accordion-itemHeader').forEach(function (header) {
+        header.addEventListener('click', function (evt) {
+            this.parentNode.classList.toggle('is-open');
+        });
+    });
+</script>

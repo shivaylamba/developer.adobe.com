@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 const assert = require('assert');
-const html = require('../../src/html.pre.js');
+const html = require('../../src-actual/helix/html.pre.js');
 // Fake payload to use in pipeline
 const payload = {
   request: {
@@ -22,10 +22,6 @@ const payload = {
 };
 
 describe('html.pre.js', () => {
-  it('should dispatch to default html if there is no root path', () => {
-    html.pre(payload, { request: { params: {} }, logger: console });
-    assert.equal(payload.dispatch.url, 'index.default.html');
-  });
   it('should dispatch to docs html if docs is in root path', () => {
     html.pre(payload, { request: { params: { rootPath: '/product/docs' } }, logger: console });
     assert.equal(payload.dispatch.url, '/index.docs.html');
