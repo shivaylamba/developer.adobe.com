@@ -16,7 +16,7 @@
     "test:e2e-aem-sauce": "wdio test/e2e/aem/sauce-wdio.conf.js",
     "test:post-deploy": "mocha --exit --timeout 10000 test/post_deploy/*",
     "test:helix-config": "mocha --exit test/helix-config/*",
-    "test": "npm run lint && npm run test:helix-config && npm run test:unit && npm run test:e2e-helix-local",
+    "test": "npm run build:preprocess && npm run lint && npm run test:helix-config && npm run test:unit && npm run test:e2e-helix-local",
     "build": "npm run build:preprocess && hlx clean && hlx build",
     "build:preprocess": "gulp build",
     "deploy": "hlx deploy --default HTTP_TIMEOUT 5000",
