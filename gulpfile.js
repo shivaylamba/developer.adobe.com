@@ -14,14 +14,15 @@ const {
   src,
   dest,
   parallel,
+  series,
   watch,
 } = require('gulp');
 const {
   JSDOM,
 } = require('jsdom');
 const he = require('he');
+const del = require('del');
 const through = require('through2');
-const rename = require('gulp-rename');
 const htmlmin = require('gulp-htmlmin');
 const postcss = require('gulp-postcss');
 const imagemin = require('gulp-imagemin');
@@ -29,26 +30,33 @@ const fs = require('fs');
 // eslint-disable-next-line import/no-unresolved
 const browserSync = require('browser-sync').create();
 
+const HELIX_SRC = './src';
 const PATHS = {
-  htl: './src/**/*.raw.htl',
-  pages: ['./src/html.htl', './src/**/*Page*.htl', '!./src/**/*.raw.htl'],
-  css: ['./src/**/*.css', '!./src/spectrum/**/*.css'],
-  images: ['./src/**/*.jpg', './src/**/*.png', './src/**/*.svg'],
-  spectrum: './src/spectrum/**/*.css',
-  helix: ['./.hlx/build'],
-};
-
-const WATCHERS = {
-  htl: watch(PATHS.htl),
-  css: watch(PATHS.css),
-  images: watch(PATHS.images),
-  helix: watch(PATHS.helix),
+  css: ['./src-actual/**/*.css', '!./src-actual/spectrum/**/*.css'],
+  images: ['./src-actual/**/*.jpg', './src-actual/**/*.png', './src-actual/**/*.svg'],
+  spectrum: ['./src-actual/spectrum/**/*.css'],
+  vendor: ['./src-actual/vendor/**/*.*'],
+  helix: {
+    htl: ['./src-actual/helix/**/*.htl'],
+    nonHtl: ['./src-actual/helix/**/*.*', '!./src-actual/helix/**/*.htl'],
+    build: './.hlx/build',
+  }
 };
 
 const svgSrc = [
-  new JSDOM(fs.readFileSync('./src/spectrum/spectrum-icons.svg', 'utf8')),
-  new JSDOM(fs.readFileSync('./src/spectrum/spectrum-css-icons.svg', 'utf8')),
+  new JSDOM(fs.readFileSync('./src-actual/spectrum/spectrum-icons.svg', 'utf8')),
+  new JSDOM(fs.readFileSync('./src-actual/spectrum/spectrum-css-icons.svg', 'utf8')),
 ];
+
+function clean(cb) {
+  del.sync(['./src', './htdocs']);
+  cb();
+}
+
+function vendor() {
+  return src(PATHS.vendor)
+    .pipe(dest('./htdocs/vendor'));
+}
 
 function findIconInSource(iconSrc, iconID) {
   let iconNode = null;
@@ -85,23 +93,21 @@ function inlineSpectrumIcons(chunk, enc, cb) {
   cb(null, chunk);
 }
 
-function renameFile(path) {
-  // eslint-disable-next-line no-param-reassign
-  path.basename = path.basename.replace('.raw', '');
-}
-
-function htl() {
-  return src(PATHS.htl)
+function helixHtl() {
+  return src(PATHS.helix.htl)
     .pipe(through.obj(inlineSpectrumIcons, 'utf8'))
     .pipe(htmlmin({
       collapseWhitespace: true,
       removeComments: true,
       removeRedundantAttributes: true,
       minifyCSS: true,
-      // minifyJS: true,
     }))
-    .pipe(rename(renameFile))
-    .pipe(dest('./src/'));
+    .pipe(dest(HELIX_SRC));
+}
+
+function helixOther() {
+  return src(PATHS.helix.nonHtl)
+    .pipe(dest(HELIX_SRC));
 }
 
 function css() {
@@ -128,21 +134,20 @@ function injectCSS() {
     .pipe(browserSync.stream());
 }
 
-function develop() {
-  WATCHERS.css.on('all', css);
-  WATCHERS.htl.on('all', htl);
-  WATCHERS.images.on('add', images);
-
+function develop(cb) {
+  watch(PATHS.images).on('all', images);
+  watch(PATHS.css).on('all', css);
+  watch(PATHS.vendor).on('all', vendor);
+  watch('./htdocs/**/*.css').on('all', injectCSS);
   browserSync.init({
     proxy: 'localhost:3000',
   });
-
-  watch('./htdocs/**/*.css').on('all', injectCSS);
-  WATCHERS.helix.on('all', browserSync.reload);
+  watch(PATHS.helix.htl).on('all', helixHtl);
+  watch(PATHS.helix.nonHtl).on('all', helixOther);
+  watch(PATHS.helix.build, { delay: 200 }).on('all', browserSync.reload);
 }
 
-exports.build = parallel(css, htl, images, spectrumCSS);
-exports.htl = htl;
-exports.css = css;
-exports.develop = develop;
+exports.build = series(clean, parallel(css, vendor, helixHtl, helixOther, images, spectrumCSS));
+exports.develop = series(clean, develop);
+exports.clean = clean;
 exports.default = exports.build;
