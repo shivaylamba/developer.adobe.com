@@ -30,32 +30,34 @@ const fs = require('fs');
 // eslint-disable-next-line import/no-unresolved
 const browserSync = require('browser-sync').create();
 
-const HELIX_SRC = './src';
+const HELIX_SRC = './.helixTmp';
+const STATIC_SRC = './htdocs';
+
 const PATHS = {
-  css: ['./src-actual/**/*.css', '!./src-actual/spectrum/**/*.css'],
-  images: ['./src-actual/**/*.jpg', './src-actual/**/*.png', './src-actual/**/*.svg'],
-  spectrum: ['./src-actual/spectrum/**/*.css'],
-  vendor: ['./src-actual/vendor/**/*.*'],
+  css: ['./src/**/*.css', '!./src/spectrum/**/*.css'],
+  images: ['./src/**/*.jpg', './src/**/*.png', './src/**/*.svg'],
+  spectrum: ['./src/spectrum/**/*.css'],
+  vendor: ['./src/vendor/**/*.*'],
   helix: {
-    htl: ['./src-actual/helix/**/*.htl'],
-    nonHtl: ['./src-actual/helix/**/*.*', '!./src-actual/helix/**/*.htl'],
+    htl: ['./src/helix/**/*.htl'],
+    nonHtl: ['./src/helix/**/*.*', '!./src/helix/**/*.htl'],
     build: './.hlx/build',
   },
 };
 
 const svgSrc = [
-  new JSDOM(fs.readFileSync('./src-actual/spectrum/spectrum-icons.svg', 'utf8')),
-  new JSDOM(fs.readFileSync('./src-actual/spectrum/spectrum-css-icons.svg', 'utf8')),
+  new JSDOM(fs.readFileSync('./src/spectrum/spectrum-icons.svg', 'utf8')),
+  new JSDOM(fs.readFileSync('./src/spectrum/spectrum-css-icons.svg', 'utf8')),
 ];
 
 function clean(cb) {
-  del.sync(['./src', './htdocs']);
+  del.sync([HELIX_SRC, STATIC_SRC]);
   cb();
 }
 
 function vendor() {
   return src(PATHS.vendor)
-    .pipe(dest('./htdocs/vendor'));
+    .pipe(dest(`${STATIC_SRC}/vendor`));
 }
 
 function findIconInSource(iconSrc, iconID) {
@@ -113,24 +115,24 @@ function helixOther() {
 function css() {
   return src(PATHS.css)
     .pipe(postcss())
-    .pipe(dest('./htdocs/'));
+    .pipe(dest(STATIC_SRC));
 }
 
 function images() {
   return src(PATHS.images)
     .pipe(imagemin())
-    .pipe(dest('./htdocs/'));
+    .pipe(dest(STATIC_SRC));
 }
 
 // Avoid minifying spectrum on every build, as it rarely changes.
 function spectrumCSS() {
   return src(PATHS.spectrum)
     .pipe(postcss())
-    .pipe(dest('./htdocs/spectrum/'));
+    .pipe(dest(`${STATIC_SRC}/spectrum/`));
 }
 
 function injectCSS() {
-  return src('./htdocs/**/*.css')
+  return src(`${STATIC_SRC}/**/*.css`)
     .pipe(browserSync.stream());
 }
 
@@ -138,7 +140,7 @@ function develop() {
   watch(PATHS.images).on('all', images);
   watch(PATHS.css).on('all', css);
   watch(PATHS.vendor).on('all', vendor);
-  watch('./htdocs/**/*.css').on('all', injectCSS);
+  watch(`${STATIC_SRC}/**/*.css`).on('all', injectCSS);
   browserSync.init({
     proxy: 'localhost:3000',
   });

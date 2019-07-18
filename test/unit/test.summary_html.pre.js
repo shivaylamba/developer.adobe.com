@@ -11,7 +11,7 @@
  */
 
 const assert = require('assert');
-const defaultPre = require('../../src-actual/helix/summary_html.pre.js');
+const defaultPre = require('../../src/helix/summary_html.pre.js');
 
 // const loggerMock = {
 //   log: () => {},

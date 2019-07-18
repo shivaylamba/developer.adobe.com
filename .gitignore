@@ -1,7 +1,7 @@
 .hlx/cache
 .hlx/build
 .cache/
-src/
+.helixTmp
 node_modules/
 pipeline.log
 logs
