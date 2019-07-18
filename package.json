@@ -19,7 +19,7 @@
     "test": "npm run lint && npm run test:helix-config && npm run test:unit && npm run test:e2e-helix-local",
     "build": "npm run build:preprocess && hlx clean && hlx build .helixTmp/**/*.htl .helixTmp/**/*.js",
     "build:preprocess": "gulp build",
-    "deploy": "hlx deploy --files .helixTmp/**/*.htl .helixTmp/**/*.js --default HTTP_TIMEOUT 5000",
+    "deploy": "npm run build:preprocess && hlx deploy .helixTmp/**/*.htl .helixTmp/**/*.js --default HTTP_TIMEOUT 5000",
     "publish:dev": "hlx publish .helixTmp/**/*.htl .helixTmp/**/*.js --log-level=debug --only \"*dev\"",
     "publish:production": "hlx publish .helixTmp/**/*.htl .helixTmp/**/*.js --log-level=debug --only \"*production\"",
     "start": "npm run build:preprocess && hlx up .helixTmp/**/*.htl .helixTmp/**/*.js --host adobedevsite.helix-demo.xyz --local-repo=.",
@@ -36,7 +36,7 @@
   },
   "homepage": "https://developer.adobe.com",
   "dependencies": {
-    "@adobe/helix-cli": "^4.9.6",
+    "@adobe/helix-cli": "^4.9.8",
     "jsdom": "^15.1.1",
     "moment": "^2.24.0",
     "request": "^2.88.0",
