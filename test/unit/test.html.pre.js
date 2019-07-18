@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 const assert = require('assert');
-const html = require('../../src-actual/helix/html.pre.js');
+const html = require('../../src/helix/html.pre.js');
 // Fake payload to use in pipeline
 const payload = {
   request: {

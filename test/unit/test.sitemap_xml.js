@@ -12,7 +12,7 @@
 
 const assert = require('assert');
 const remark = require('remark');
-const defaultMain = require('../../src-actual/helix/sitemap_xml.js');
+const defaultMain = require('../../src/helix/sitemap_xml.js');
 
 const loggerMock = {
   log: () => {},
