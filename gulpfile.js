@@ -148,6 +148,6 @@ function develop() {
 }
 
 exports.build = series(clean, parallel(css, vendor, helixHtl, helixOther, images, spectrumCSS));
-exports.develop = series(clean, develop);
+exports.develop = develop;
 exports.clean = clean;
 exports.default = exports.build;
