@@ -19,9 +19,9 @@
     "test": "npm run lint && npm run test:helix-config && npm run test:unit && npm run test:e2e-helix-local",
     "build": "npm run build:preprocess && hlx clean && hlx build .helixTmp/**/*.htl",
     "build:preprocess": "gulp build",
-    "deploy": "npm run build:preprocess && hlx deploy .helixTmp/**/*.htl --default HTTP_TIMEOUT 5000",
-    "publish:dev": "hlx publish --log-level=debug --only \"*dev\"",
-    "publish:production": "hlx publish --log-level=debug --only \"*production\"",
+    "deploy": "hlx deploy .helixTmp/**/*.htl --default HTTP_TIMEOUT 5000",
+    "publish:dev": "hlx publish .helixTmp/**/*.htl --log-level=debug --only \"*dev\"",
+    "publish:production": "hlx publish .helixTmp/**/*.htl --log-level=debug --only \"*production\"",
     "start": "npm run build:preprocess && hlx up .helixTmp/**/*.htl --host adobedevsite.helix-demo.xyz --local-repo=.",
     "dev": "gulp develop"
   },
