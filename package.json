@@ -42,7 +42,7 @@
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
     "rss-parser": "^3.7.2",
-    "unist-util-visit": "^1.4.0",
+    "unist-util-visit": "^2.0.0",
     "uri-js": "^4.2.2"
   },
   "devDependencies": {
