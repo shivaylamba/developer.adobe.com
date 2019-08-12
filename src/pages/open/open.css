@@ -865,6 +865,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-image: url(./spotlight-assets/spectrum-illustration@2x.jpg);
 }
 
 @media screen and (min-width: 768px) {
@@ -990,7 +991,7 @@
     content: '';
     display: block;
     background-repeat: no-repeat;
-    background-image: url(/static/pages/open/background-effects/textured-ring-1@2x.jpg);
+    background-image: url(./background-effects/textured-ring-1@2x.jpg);
     background-size: 844px 844px;
     width: 844px;
     height: 844px;
@@ -1238,7 +1239,7 @@
     content: '';
     display: block;
     background-repeat: no-repeat;
-    background-image: url(/static/shared/design-elements/dot-matrix.svg);
+    background-image: url(../../shared/design-elements/dot-matrix.svg);
     width: 228px;
     height: 626px;
     bottom: -340px;
@@ -1423,7 +1424,7 @@
 }
 
 .openPage-partners-backgroundEffects:before {
-    background-image: url(/static/pages/open/background-effects/textured-ring-2@2x.jpg);
+    background-image: url(./background-effects/textured-ring-2@2x.jpg);
     background-size: 620px 310px;
     width: 620px;
     height: 310px;
@@ -1433,7 +1434,7 @@
 }
 
 .openPage-partners-backgroundEffects:after {
-    background-image: url(/static/shared/design-elements/dot-matrix-small.svg);
+    background-image: url(../../shared/design-elements/dot-matrix-small.svg);
     width: 308px;
     height: 79px;
     bottom: 30px;

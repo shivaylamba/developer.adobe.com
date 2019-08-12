@@ -25,24 +25,26 @@ const del = require('del');
 const through = require('through2');
 const htmlmin = require('gulp-htmlmin');
 const postcss = require('gulp-postcss');
+const posthtml = require('gulp-posthtml');
+const expressions = require('posthtml-expressions');
+const include = require('posthtml-include')
 const imagemin = require('gulp-imagemin');
 const fs = require('fs');
+// const ejs = require('gulp-ejs');
+const MediumUtil = require('./src/utils/MediumUtil.js');
+
 // eslint-disable-next-line import/no-unresolved
 const browserSync = require('browser-sync').create();
 
-const HELIX_SRC = './.helixTmp';
-const STATIC_SRC = './htdocs';
+const DISTRIBUTION = './dist';
+const STATIC_SRC = './dist/static';
 
 const PATHS = {
   css: ['./src/**/*.css', '!./src/spectrum/**/*.css'],
   images: ['./src/**/*.jpg', './src/**/*.png', './src/**/*.svg'],
   spectrum: ['./src/spectrum/**/*.css'],
   vendor: ['./src/vendor/**/*.*'],
-  helix: {
-    htl: ['./src/helix/**/*.htl'],
-    nonHtl: ['./src/helix/**/*.*', '!./src/helix/**/*.htl'],
-    build: './.hlx/build',
-  },
+  html: ['./src/pages/**/*.html'],
 };
 
 const svgSrc = [
@@ -51,7 +53,7 @@ const svgSrc = [
 ];
 
 function clean(cb) {
-  del.sync([HELIX_SRC, STATIC_SRC]);
+  del.sync([DISTRIBUTION]);
   cb();
 }
 
@@ -95,21 +97,37 @@ function inlineSpectrumIcons(chunk, enc, cb) {
   cb(null, chunk);
 }
 
-function helixHtl() {
-  return src(PATHS.helix.htl)
+async function html() {
+
+  // get open page blog data
+  const openPagePosts = await MediumUtil.getPostsAsHTML('https://medium.com/feed/adobetech/tagged/open-source', 5);
+
+  // eslint-disable-next-line global-require
+  const plugins = [
+    include({
+      root: './src',
+    }),
+    expressions({
+      locals: {
+        openPage: {
+          heroPost: openPagePosts[0],
+          otherPosts: openPagePosts.slice(1),
+        },
+      },
+    }),
+  ];
+  const options = {};
+
+  return src(PATHS.html)
     .pipe(through.obj(inlineSpectrumIcons, 'utf8'))
+    .pipe(posthtml(plugins, options))
     .pipe(htmlmin({
       collapseWhitespace: true,
       removeComments: true,
       removeRedundantAttributes: true,
       minifyCSS: true,
     }))
-    .pipe(dest(HELIX_SRC));
-}
-
-function helixOther() {
-  return src(PATHS.helix.nonHtl)
-    .pipe(dest(HELIX_SRC));
+    .pipe(dest(DISTRIBUTION));
 }
 
 function css() {
@@ -136,20 +154,21 @@ function injectCSS() {
     .pipe(browserSync.stream());
 }
 
-function develop() {
+function livereload() {
   watch(PATHS.images).on('all', images);
   watch(PATHS.css).on('all', css);
   watch(PATHS.vendor).on('all', vendor);
   watch(`${STATIC_SRC}/**/*.css`).on('all', injectCSS);
   browserSync.init({
-    proxy: 'localhost:3000',
+    server: {
+      baseDir: DISTRIBUTION,
+    },
   });
-  watch(PATHS.helix.htl).on('all', helixHtl);
-  watch(PATHS.helix.nonHtl).on('all', helixOther);
-  watch(PATHS.helix.build, { delay: 200 }).on('all', browserSync.reload);
+  watch(PATHS.html).on('all', html);
+  watch(`${DISTRIBUTION}/**/*.*`).on('all', browserSync.reload);
 }
 
-exports.build = series(clean, parallel(css, vendor, helixHtl, helixOther, images, spectrumCSS));
-exports.develop = develop;
+exports.build = series(clean, parallel(css, vendor, html, images, spectrumCSS));
+exports.develop = series(exports.build, livereload);
 exports.clean = clean;
 exports.default = exports.build;
