@@ -41,7 +41,7 @@
     "moment": "^2.24.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
-    "rss-parser": "^3.7.2",
+    "rss-parser": "^3.7.3",
     "unist-util-visit": "^1.4.0",
     "uri-js": "^4.2.2"
   },
