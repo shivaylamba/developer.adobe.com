@@ -65,7 +65,7 @@
     "eslint-plugin-react": "^7.14.2",
     "gulp": "^4.0.2",
     "gulp-htmlmin": "^5.0.1",
-    "gulp-imagemin": "^6.0.0",
+    "gulp-imagemin": "^6.2.0",
     "gulp-jsdom": "^1.1.0",
     "gulp-postcss": "^8.0.0",
     "he": "^1.2.0",
