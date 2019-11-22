@@ -57,7 +57,7 @@
     "chromedriver": "^75.1.0",
     "cssnano": "^4.1.10",
     "del": "^5.0.0",
-    "eslint": "^6.0.1",
+    "eslint": "^6.7.0",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-plugin-header": "^3.0.0",
     "eslint-plugin-import": "^2.18.0",
