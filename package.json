@@ -79,6 +79,6 @@
     "supertest": "^4.0.2",
     "through2": "^3.0.1",
     "wdio-chromedriver-service": "5.0.2",
-    "webdriverio": "5.10.4"
+    "webdriverio": "5.16.10"
   }
 }
