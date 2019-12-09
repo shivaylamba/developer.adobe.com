@@ -60,7 +60,7 @@
     "eslint": "^6.0.1",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-plugin-header": "^3.0.0",
-    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-import": "^2.19.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.2",
     "gulp": "^4.0.2",
